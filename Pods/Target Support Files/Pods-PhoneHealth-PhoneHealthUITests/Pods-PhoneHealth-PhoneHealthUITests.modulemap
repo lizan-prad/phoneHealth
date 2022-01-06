@@ -1,0 +1,6 @@
+framework module Pods_PhoneHealth_PhoneHealthUITests {
+  umbrella header "Pods-PhoneHealth-PhoneHealthUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
