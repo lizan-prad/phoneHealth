@@ -4,8 +4,13 @@
 target 'PhoneHealth' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
-  # Pods for PhoneHealth
+  
+  pod 'IQKeyboardManagerSwift'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'Alamofire'
+  pod 'ObjectMapper'
+  pod 'SDWebImage', '~> 5.0'
+  pod 'MaterialComponents/TextControls+OutlinedTextFields'
 
   target 'PhoneHealthTests' do
     inherit! :search_paths
