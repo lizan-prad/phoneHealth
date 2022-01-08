@@ -19,7 +19,7 @@
 #import "MaterialTextControls+BaseTextFields.h"
 #import "MaterialTextControlsPrivate+OutlinedStyle.h"
 
-@interface MDCOutlinedTextField (Private) <MDCTextControl>
+@interface MDCOutlinedTextField (Public) <MDCTextControl>
 @end
 
 @interface MDCOutlinedTextField ()

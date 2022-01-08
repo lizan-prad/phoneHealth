@@ -11,6 +11,9 @@ target 'PhoneHealth' do
   pod 'ObjectMapper'
   pod 'SDWebImage', '~> 5.0'
   pod 'MaterialComponents/TextControls+OutlinedTextFields'
+  pod 'KAPinField'
+
+
 
   target 'PhoneHealthTests' do
     inherit! :search_paths

@@ -9,9 +9,17 @@
 /* Begin PBXBuildFile section */
 		B68E2CA712C557ED339ED637 /* Pods_PhoneHealth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6474353B1C9F45205F33FB /* Pods_PhoneHealth.framework */; };
 		B951A28ECFDDBEA31E39C047 /* Pods_PhoneHealthTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1D2A8E838B68AFC8EFD5F2 /* Pods_PhoneHealthTests.framework */; };
+		BE070BFD2789BC8800D994C6 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE070BFC2789BC8800D994C6 /* Login.storyboard */; };
+		BE070BFF2789BE2000D994C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE070BFE2789BE2000D994C6 /* LoginViewController.swift */; };
+		BE070C052789C41300D994C6 /* Otp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE070C042789C41300D994C6 /* Otp.storyboard */; };
+		BE070C092789D03A00D994C6 /* OtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE070C082789D03A00D994C6 /* OtpViewController.swift */; };
+		BE712A192789E29600D7985A /* SetPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A182789E29600D7985A /* SetPassword.storyboard */; };
+		BE712A1B2789E4E500D7985A /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A1A2789E4E500D7985A /* SetPasswordViewController.swift */; };
+		BE712A1E2789F1DF00D7985A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A1D2789F1DF00D7985A /* Profile.storyboard */; };
+		BE712A202789F51000D7985A /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A1F2789F51000D7985A /* UpdateProfileViewController.swift */; };
+		BE712A232789F93800D7985A /* UserBasic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A222789F93800D7985A /* UserBasic.storyboard */; };
+		BE712A252789FF7800D7985A /* UserBasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A242789FF7800D7985A /* UserBasicViewController.swift */; };
 		BEB7121F2786C5AB00486FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7121E2786C5AB00486FB3 /* AppDelegate.swift */; };
-		BEB712232786C5AB00486FB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB712222786C5AB00486FB3 /* ViewController.swift */; };
-		BEB712262786C5AB00486FB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB712242786C5AB00486FB3 /* Main.storyboard */; };
 		BEB712282786C5B000486FB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEB712272786C5B000486FB3 /* Assets.xcassets */; };
 		BEB7122B2786C5B000486FB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB712292786C5B000486FB3 /* LaunchScreen.storyboard */; };
 		BEB712362786C5B100486FB3 /* PhoneHealthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB712352786C5B100486FB3 /* PhoneHealthTests.swift */; };
@@ -27,6 +35,10 @@
 		BEB712612786C5F000486FB3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB712562786C5F000486FB3 /* Coordinator.swift */; };
 		BEB712622786C5F000486FB3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB712582786C5F000486FB3 /* NetworkManager.swift */; };
 		BEB712632786C5F000486FB3 /* AlertServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB712592786C5F000486FB3 /* AlertServices.swift */; };
+		BEB712662786C6DD00486FB3 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB712652786C6DD00486FB3 /* Registration.storyboard */; };
+		BEB712682786C6ED00486FB3 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB712672786C6ED00486FB3 /* RegistrationViewController.swift */; };
+		BEB7126B2786C71800486FB3 /* RegistrationCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7126A2786C71800486FB3 /* RegistrationCoodinator.swift */; };
+		BEB7126D2786C73D00486FB3 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7126C2786C73D00486FB3 /* RegistrationViewModel.swift */; };
 		DB7D6706AAD65BD36294D70D /* Pods_PhoneHealth_PhoneHealthUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295902523C72B37780720A53 /* Pods_PhoneHealth_PhoneHealthUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,10 +66,18 @@
 		7DF0C3368B8C6FA0F9DDE2C9 /* Pods-PhoneHealthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealthTests.debug.xcconfig"; path = "Target Support Files/Pods-PhoneHealthTests/Pods-PhoneHealthTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B1D2A8E838B68AFC8EFD5F2 /* Pods_PhoneHealthTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhoneHealthTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CEF643DF33FF6DFF3C220C /* Pods-PhoneHealth-PhoneHealthUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealth-PhoneHealthUITests.debug.xcconfig"; path = "Target Support Files/Pods-PhoneHealth-PhoneHealthUITests/Pods-PhoneHealth-PhoneHealthUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE070BFC2789BC8800D994C6 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		BE070BFE2789BE2000D994C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BE070C042789C41300D994C6 /* Otp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Otp.storyboard; sourceTree = "<group>"; };
+		BE070C082789D03A00D994C6 /* OtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewController.swift; sourceTree = "<group>"; };
+		BE712A182789E29600D7985A /* SetPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetPassword.storyboard; sourceTree = "<group>"; };
+		BE712A1A2789E4E500D7985A /* SetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
+		BE712A1D2789F1DF00D7985A /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		BE712A1F2789F51000D7985A /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
+		BE712A222789F93800D7985A /* UserBasic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserBasic.storyboard; sourceTree = "<group>"; };
+		BE712A242789FF7800D7985A /* UserBasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicViewController.swift; sourceTree = "<group>"; };
 		BEB7121B2786C5AB00486FB3 /* PhoneHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB7121E2786C5AB00486FB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BEB712222786C5AB00486FB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BEB712252786C5AB00486FB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEB712272786C5B000486FB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEB7122A2786C5B000486FB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEB7122C2786C5B000486FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +96,10 @@
 		BEB712562786C5F000486FB3 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BEB712582786C5F000486FB3 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BEB712592786C5F000486FB3 /* AlertServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertServices.swift; sourceTree = "<group>"; };
+		BEB712652786C6DD00486FB3 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		BEB712672786C6ED00486FB3 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		BEB7126A2786C71800486FB3 /* RegistrationCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCoodinator.swift; sourceTree = "<group>"; };
+		BEB7126C2786C73D00486FB3 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		D9FC4830E3B6D5C05D9208B0 /* Pods-PhoneHealthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealthTests.release.xcconfig"; path = "Target Support Files/Pods-PhoneHealthTests/Pods-PhoneHealthTests.release.xcconfig"; sourceTree = "<group>"; };
 		DB764342E4BB9B56008E6F72 /* Pods-PhoneHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealth.release.xcconfig"; path = "Target Support Files/Pods-PhoneHealth/Pods-PhoneHealth.release.xcconfig"; sourceTree = "<group>"; };
 		E58737980C29BF041A9CB277 /* Pods-PhoneHealth-PhoneHealthUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealth-PhoneHealthUITests.release.xcconfig"; path = "Target Support Files/Pods-PhoneHealth-PhoneHealthUITests/Pods-PhoneHealth-PhoneHealthUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,7 +143,6 @@
 				7DF0C3368B8C6FA0F9DDE2C9 /* Pods-PhoneHealthTests.debug.xcconfig */,
 				D9FC4830E3B6D5C05D9208B0 /* Pods-PhoneHealthTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -131,6 +154,58 @@
 				9B1D2A8E838B68AFC8EFD5F2 /* Pods_PhoneHealthTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE070BFB2789BC7E00D994C6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BE070BFC2789BC8800D994C6 /* Login.storyboard */,
+				BE070BFE2789BE2000D994C6 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BE070C002789BF3E00D994C6 /* SubClasses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubClasses;
+			sourceTree = "<group>";
+		};
+		BE070C032789C40800D994C6 /* Otp */ = {
+			isa = PBXGroup;
+			children = (
+				BE070C042789C41300D994C6 /* Otp.storyboard */,
+				BE070C082789D03A00D994C6 /* OtpViewController.swift */,
+			);
+			path = Otp;
+			sourceTree = "<group>";
+		};
+		BE712A172789E27D00D7985A /* SetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				BE712A182789E29600D7985A /* SetPassword.storyboard */,
+				BE712A1A2789E4E500D7985A /* SetPasswordViewController.swift */,
+			);
+			path = SetPassword;
+			sourceTree = "<group>";
+		};
+		BE712A1C2789E5A000D7985A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BE712A1D2789F1DF00D7985A /* Profile.storyboard */,
+				BE712A1F2789F51000D7985A /* UpdateProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		BE712A212789F92200D7985A /* UserBasic */ = {
+			isa = PBXGroup;
+			children = (
+				BE712A222789F93800D7985A /* UserBasic.storyboard */,
+				BE712A242789FF7800D7985A /* UserBasicViewController.swift */,
+			);
+			path = UserBasic;
 			sourceTree = "<group>";
 		};
 		BEB712122786C5AB00486FB3 = {
@@ -158,11 +233,11 @@
 		BEB7121D2786C5AB00486FB3 /* PhoneHealth */ = {
 			isa = PBXGroup;
 			children = (
+				BE070C002789BF3E00D994C6 /* SubClasses */,
 				BEB7124E2786C5F000486FB3 /* Config */,
 				BEB712572786C5F000486FB3 /* Services */,
 				BEB7121E2786C5AB00486FB3 /* AppDelegate.swift */,
-				BEB712222786C5AB00486FB3 /* ViewController.swift */,
-				BEB712242786C5AB00486FB3 /* Main.storyboard */,
+				BEB7126E2786C79000486FB3 /* Modules */,
 				BEB712272786C5B000486FB3 /* Assets.xcassets */,
 				BEB712292786C5B000486FB3 /* LaunchScreen.storyboard */,
 				BEB7122C2786C5B000486FB3 /* Info.plist */,
@@ -209,6 +284,38 @@
 				BEB712592786C5F000486FB3 /* AlertServices.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		BEB712642786C6CE00486FB3 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				BEB712692786C70400486FB3 /* View */,
+				BEB7126A2786C71800486FB3 /* RegistrationCoodinator.swift */,
+				BEB7126C2786C73D00486FB3 /* RegistrationViewModel.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		BEB712692786C70400486FB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEB712652786C6DD00486FB3 /* Registration.storyboard */,
+				BEB712672786C6ED00486FB3 /* RegistrationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEB7126E2786C79000486FB3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				BE712A212789F92200D7985A /* UserBasic */,
+				BE712A1C2789E5A000D7985A /* Profile */,
+				BE712A172789E27D00D7985A /* SetPassword */,
+				BE070C032789C40800D994C6 /* Otp */,
+				BE070BFB2789BC7E00D994C6 /* Login */,
+				BEB712642786C6CE00486FB3 /* Registration */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,9 +427,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE712A192789E29600D7985A /* SetPassword.storyboard in Resources */,
+				BE070C052789C41300D994C6 /* Otp.storyboard in Resources */,
 				BEB7122B2786C5B000486FB3 /* LaunchScreen.storyboard in Resources */,
+				BEB712662786C6DD00486FB3 /* Registration.storyboard in Resources */,
+				BE712A232789F93800D7985A /* UserBasic.storyboard in Resources */,
+				BE070BFD2789BC8800D994C6 /* Login.storyboard in Resources */,
+				BE712A1E2789F1DF00D7985A /* Profile.storyboard in Resources */,
 				BEB712282786C5B000486FB3 /* Assets.xcassets in Resources */,
-				BEB712262786C5AB00486FB3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,12 +565,19 @@
 				BEB7125F2786C5F000486FB3 /* Observable.swift in Sources */,
 				BEB7125C2786C5F000486FB3 /* StoryboardConstants.swift in Sources */,
 				BEB712632786C5F000486FB3 /* AlertServices.swift in Sources */,
+				BE712A202789F51000D7985A /* UpdateProfileViewController.swift in Sources */,
+				BE070BFF2789BE2000D994C6 /* LoginViewController.swift in Sources */,
+				BE070C092789D03A00D994C6 /* OtpViewController.swift in Sources */,
+				BEB7126D2786C73D00486FB3 /* RegistrationViewModel.swift in Sources */,
 				BEB712612786C5F000486FB3 /* Coordinator.swift in Sources */,
 				BEB712602786C5F000486FB3 /* ColorConfig.swift in Sources */,
 				BEB712622786C5F000486FB3 /* NetworkManager.swift in Sources */,
+				BEB712682786C6ED00486FB3 /* RegistrationViewController.swift in Sources */,
+				BE712A252789FF7800D7985A /* UserBasicViewController.swift in Sources */,
+				BE712A1B2789E4E500D7985A /* SetPasswordViewController.swift in Sources */,
 				BEB7125D2786C5F000486FB3 /* URLConfig.swift in Sources */,
+				BEB7126B2786C71800486FB3 /* RegistrationCoodinator.swift in Sources */,
 				BEB7125B2786C5F000486FB3 /* StringConstants.swift in Sources */,
-				BEB712232786C5AB00486FB3 /* ViewController.swift in Sources */,
 				BEB7125A2786C5F000486FB3 /* QueueConfig.swift in Sources */,
 				BEB7121F2786C5AB00486FB3 /* AppDelegate.swift in Sources */,
 				BEB7125E2786C5F000486FB3 /* UI+Extensions.swift in Sources */,
@@ -498,14 +617,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BEB712242786C5AB00486FB3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BEB712252786C5AB00486FB3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BEB712292786C5B000486FB3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -646,7 +757,7 @@
 				INFOPLIST_FILE = PhoneHealth/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = UserBasic;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -675,7 +786,7 @@
 				INFOPLIST_FILE = PhoneHealth/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = UserBasic;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

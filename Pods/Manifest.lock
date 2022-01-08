@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.4.4)
   - IQKeyboardManagerSwift (6.5.9)
+  - KAPinField (5.0.2)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/private/Math (124.2.0)
@@ -40,6 +41,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
+  - KAPinField
   - "MaterialComponents/TextControls+OutlinedTextFields"
   - ObjectMapper
   - SDWebImage (~> 5.0)
@@ -49,6 +51,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - IQKeyboardManagerSwift
+    - KAPinField
     - MaterialComponents
     - MDFInternationalization
     - ObjectMapper
@@ -58,12 +61,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+  KAPinField: b7c0a68a3887f3a1c42446bfc4cbf76d5abf0f4f
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 4b222e68883e5c1512a9a71b5f584d76626c06d6
+PODFILE CHECKSUM: f5db6bea99aefbe963d590c8b69571304261458f
 
 COCOAPODS: 1.11.2

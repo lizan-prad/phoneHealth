@@ -92,7 +92,7 @@ extension UIView {
     
     func setGradient(_ startColor: UIColor, endColor: UIColor) {
         let gradientLayer = CAGradientLayer.init()
-        gradientLayer.colors = [startColor.cgColor,
+        gradientLayer.colors = [startColor.cgColor, startColor.cgColor, startColor.cgColor, startColor.cgColor, 
                                 endColor.cgColor]
         gradientLayer.frame = self.bounds
         gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.0)
