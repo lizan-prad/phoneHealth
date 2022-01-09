@@ -8,12 +8,14 @@
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
-class SetPasswordViewController: UIViewController {
+class SetPasswordViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var passwordsValidationContainer: UIView!
     @IBOutlet weak var proceedBtn: UIButton!
     @IBOutlet weak var passwordField: MDCOutlinedTextField!
     @IBOutlet weak var confirmPassword: MDCOutlinedTextField!
+    
+    var viewModel: SetPasswordViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,13 @@ class SetPasswordViewController: UIViewController {
         passwordField.isSecureTextEntry = true
         confirmPassword.isSecureTextEntry = true
         
+        proceedBtn.addTarget(self, action: #selector(actionProceed), for: .touchUpInside)
+    }
+    
+    @objc func actionProceed() {
+        guard let navigationController = self.navigationController else {return}
+        let coodinator = UpdateProfileCoordinator.init(navigationController: navigationController)
+        coodinator.start()
     }
     
 

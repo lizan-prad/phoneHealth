@@ -65,13 +65,15 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gdW-LI-RXT">
                                                 <rect key="frame" x="30" y="391" width="126" height="20"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2H3-1o-NPM">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-gO-lvg" customClass="CheckboxButton" customModule="MBRadioCheckboxButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="J1k-uz-R8R"/>
-                                                            <constraint firstAttribute="width" constant="20" id="WUQ-Aa-CpV"/>
+                                                            <constraint firstAttribute="height" constant="20" id="GxW-EM-eQQ"/>
+                                                            <constraint firstAttribute="width" constant="20" id="ton-VF-E5l"/>
                                                         </constraints>
-                                                    </imageView>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                    </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNd-r6-h1i">
                                                         <rect key="frame" x="32" y="0.0" width="94" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -183,7 +185,7 @@
                     <connections>
                         <outlet property="MobileNumber" destination="dmP-AT-ROo" id="1ha-Iv-XGP"/>
                         <outlet property="Password" destination="AEk-qx-c24" id="m1w-hj-5Wk"/>
-                        <outlet property="checkBox" destination="2H3-1o-NPM" id="Ev0-5Z-oOu"/>
+                        <outlet property="checkBox" destination="Dd6-gO-lvg" id="fzo-0s-igV"/>
                         <outlet property="forgotPasswordBtn" destination="0Og-9s-fq5" id="IN2-dF-CAT"/>
                         <outlet property="signInBtn" destination="cEU-3z-X2U" id="It4-gI-JII"/>
                         <outlet property="signUpbtn" destination="c18-eB-3na" id="Jv3-sf-xzm"/>
@@ -194,6 +196,11 @@
             <point key="canvasLocation" x="-101.44927536231884" y="153.34821428571428"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Dd6-gO-lvg">
+            <size key="intrinsicContentSize" width="24" height="14"/>
+        </designable>
+    </designables>
     <resources>
         <image name="cogentLogo" width="521" height="144"/>
         <systemColor name="systemBackgroundColor">

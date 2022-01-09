@@ -9,5 +9,5 @@ import UIKit
 
 enum ColorConfig {
 
-    static let baseColor = UIColor.init(hex: "000000")
+    static let baseColor = UIColor.init(hex: "46C9BD")
 }

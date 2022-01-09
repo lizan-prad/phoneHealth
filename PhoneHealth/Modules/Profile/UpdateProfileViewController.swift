@@ -8,7 +8,7 @@
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
-class UpdateProfileViewController: UIViewController {
+class UpdateProfileViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var uploadImageBtn: UIButton!
@@ -20,6 +20,8 @@ class UpdateProfileViewController: UIViewController {
     @IBOutlet weak var addressField: MDCOutlinedTextField!
     @IBOutlet weak var emailAddressField: MDCOutlinedTextField!
     @IBOutlet weak var nextBtn: UIButton!
+    
+    var viewModel: UpdateProfileViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,14 @@ class UpdateProfileViewController: UIViewController {
         dayFIeld.setup("Day")
         addressField.setup("Address")
         emailAddressField.setup("Email Address")
+        
+        nextBtn.addTarget(self, action: #selector(actionNext), for: .touchUpInside)
+    }
+    
+    @objc func actionNext() {
+        guard let navigationController = self.navigationController else {return}
+        let coodinator = UserSteppingCoordinator.init(navigationController: navigationController)
+        coodinator.start()
     }
 
 }

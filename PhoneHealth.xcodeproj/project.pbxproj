@@ -15,10 +15,43 @@
 		BE070C092789D03A00D994C6 /* OtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE070C082789D03A00D994C6 /* OtpViewController.swift */; };
 		BE712A192789E29600D7985A /* SetPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A182789E29600D7985A /* SetPassword.storyboard */; };
 		BE712A1B2789E4E500D7985A /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A1A2789E4E500D7985A /* SetPasswordViewController.swift */; };
-		BE712A1E2789F1DF00D7985A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A1D2789F1DF00D7985A /* Profile.storyboard */; };
+		BE712A1E2789F1DF00D7985A /* UpdateProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A1D2789F1DF00D7985A /* UpdateProfile.storyboard */; };
 		BE712A202789F51000D7985A /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A1F2789F51000D7985A /* UpdateProfileViewController.swift */; };
 		BE712A232789F93800D7985A /* UserBasic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A222789F93800D7985A /* UserBasic.storyboard */; };
 		BE712A252789FF7800D7985A /* UserBasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A242789FF7800D7985A /* UserBasicViewController.swift */; };
+		BE712A27278AAE0600D7985A /* LoginCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A26278AAE0600D7985A /* LoginCoodinator.swift */; };
+		BE712A29278AAE3200D7985A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A28278AAE3200D7985A /* LoginViewModel.swift */; };
+		BE712A2B278AAF6900D7985A /* SetPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A2A278AAF6900D7985A /* SetPasswordCoordinator.swift */; };
+		BE712A2D278AAF7300D7985A /* SetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A2C278AAF7300D7985A /* SetPasswordViewModel.swift */; };
+		BE712A2F278AAFDD00D7985A /* UpdateProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A2E278AAFDD00D7985A /* UpdateProfileCoordinator.swift */; };
+		BE712A31278AB19800D7985A /* UpdateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A30278AB19800D7985A /* UpdateProfileViewModel.swift */; };
+		BE712A33278AB23100D7985A /* UserBasicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A32278AB23100D7985A /* UserBasicViewModel.swift */; };
+		BE712A35278AB24700D7985A /* UserBasicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A34278AB24700D7985A /* UserBasicCoordinator.swift */; };
+		BE712A38278AB64600D7985A /* OtpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A37278AB64600D7985A /* OtpCoordinator.swift */; };
+		BE712A3A278AB64D00D7985A /* OtpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A39278AB64D00D7985A /* OtpViewModel.swift */; };
+		BE712A3C278AC36F00D7985A /* UserSteppingConatinerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A3B278AC36F00D7985A /* UserSteppingConatinerViewController.swift */; };
+		BE712A3F278AC3FE00D7985A /* UserSteppingConatiner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A3E278AC3FE00D7985A /* UserSteppingConatiner.storyboard */; };
+		BE712A41278AC69400D7985A /* UserSteppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A40278AC69400D7985A /* UserSteppingViewModel.swift */; };
+		BE712A43278AC6A800D7985A /* UserSteppingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A42278AC6A700D7985A /* UserSteppingCoordinator.swift */; };
+		BE712A46278ADFCF00D7985A /* UserAllery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A45278ADFCF00D7985A /* UserAllery.storyboard */; };
+		BE712A48278ADFEB00D7985A /* UserAlleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A47278ADFEB00D7985A /* UserAlleryViewController.swift */; };
+		BE712A4A278ADFFE00D7985A /* UserAllergyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A49278ADFFD00D7985A /* UserAllergyCoordinator.swift */; };
+		BE712A4C278AE02B00D7985A /* UserAllergyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A4B278AE02B00D7985A /* UserAllergyViewModel.swift */; };
+		BE712A50278AEB3E00D7985A /* UserAllergyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A4F278AEB3E00D7985A /* UserAllergyTableViewCell.swift */; };
+		BE712A53278AF19700D7985A /* UserCronic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A52278AF19700D7985A /* UserCronic.storyboard */; };
+		BE712A55278AF1B500D7985A /* UserCronicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A54278AF1B500D7985A /* UserCronicTableViewCell.swift */; };
+		BE712A57278AF1CA00D7985A /* UserCronicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A56278AF1CA00D7985A /* UserCronicViewController.swift */; };
+		BE712A59278AF1DC00D7985A /* UserCronicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A58278AF1DC00D7985A /* UserCronicViewModel.swift */; };
+		BE712A5B278AF1F100D7985A /* UserCronicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A5A278AF1F100D7985A /* UserCronicCoordinator.swift */; };
+		BE712A5E278AF53C00D7985A /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A5D278AF53C00D7985A /* Dashboard.storyboard */; };
+		BE712A60278AF54500D7985A /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A5F278AF54500D7985A /* DashboardViewController.swift */; };
+		BE712A62278AF55300D7985A /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A61278AF55300D7985A /* DashboardCoordinator.swift */; };
+		BE712A64278AF55A00D7985A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A63278AF55A00D7985A /* DashboardViewModel.swift */; };
+		BE712A66278AFFDC00D7985A /* ServicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A65278AFFDC00D7985A /* ServicesTableViewCell.swift */; };
+		BE712A68278AFFE600D7985A /* EmergenciesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A67278AFFE600D7985A /* EmergenciesTableViewCell.swift */; };
+		BE712A6A278AFFED00D7985A /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A69278AFFED00D7985A /* AppointmentTableViewCell.swift */; };
+		BE712A6C278AFFFE00D7985A /* MedicationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A6B278AFFFE00D7985A /* MedicationsTableViewCell.swift */; };
+		BE712A6E278B000500D7985A /* HospitalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A6D278B000500D7985A /* HospitalsTableViewCell.swift */; };
 		BEB7121F2786C5AB00486FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7121E2786C5AB00486FB3 /* AppDelegate.swift */; };
 		BEB712282786C5B000486FB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEB712272786C5B000486FB3 /* Assets.xcassets */; };
 		BEB7122B2786C5B000486FB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB712292786C5B000486FB3 /* LaunchScreen.storyboard */; };
@@ -72,10 +105,43 @@
 		BE070C082789D03A00D994C6 /* OtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewController.swift; sourceTree = "<group>"; };
 		BE712A182789E29600D7985A /* SetPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetPassword.storyboard; sourceTree = "<group>"; };
 		BE712A1A2789E4E500D7985A /* SetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
-		BE712A1D2789F1DF00D7985A /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		BE712A1D2789F1DF00D7985A /* UpdateProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateProfile.storyboard; sourceTree = "<group>"; };
 		BE712A1F2789F51000D7985A /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		BE712A222789F93800D7985A /* UserBasic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserBasic.storyboard; sourceTree = "<group>"; };
 		BE712A242789FF7800D7985A /* UserBasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicViewController.swift; sourceTree = "<group>"; };
+		BE712A26278AAE0600D7985A /* LoginCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoodinator.swift; sourceTree = "<group>"; };
+		BE712A28278AAE3200D7985A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		BE712A2A278AAF6900D7985A /* SetPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordCoordinator.swift; sourceTree = "<group>"; };
+		BE712A2C278AAF7300D7985A /* SetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewModel.swift; sourceTree = "<group>"; };
+		BE712A2E278AAFDD00D7985A /* UpdateProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileCoordinator.swift; sourceTree = "<group>"; };
+		BE712A30278AB19800D7985A /* UpdateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModel.swift; sourceTree = "<group>"; };
+		BE712A32278AB23100D7985A /* UserBasicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicViewModel.swift; sourceTree = "<group>"; };
+		BE712A34278AB24700D7985A /* UserBasicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicCoordinator.swift; sourceTree = "<group>"; };
+		BE712A37278AB64600D7985A /* OtpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpCoordinator.swift; sourceTree = "<group>"; };
+		BE712A39278AB64D00D7985A /* OtpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewModel.swift; sourceTree = "<group>"; };
+		BE712A3B278AC36F00D7985A /* UserSteppingConatinerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSteppingConatinerViewController.swift; sourceTree = "<group>"; };
+		BE712A3E278AC3FE00D7985A /* UserSteppingConatiner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserSteppingConatiner.storyboard; sourceTree = "<group>"; };
+		BE712A40278AC69400D7985A /* UserSteppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSteppingViewModel.swift; sourceTree = "<group>"; };
+		BE712A42278AC6A700D7985A /* UserSteppingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSteppingCoordinator.swift; sourceTree = "<group>"; };
+		BE712A45278ADFCF00D7985A /* UserAllery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserAllery.storyboard; sourceTree = "<group>"; };
+		BE712A47278ADFEB00D7985A /* UserAlleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlleryViewController.swift; sourceTree = "<group>"; };
+		BE712A49278ADFFD00D7985A /* UserAllergyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAllergyCoordinator.swift; sourceTree = "<group>"; };
+		BE712A4B278AE02B00D7985A /* UserAllergyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAllergyViewModel.swift; sourceTree = "<group>"; };
+		BE712A4F278AEB3E00D7985A /* UserAllergyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAllergyTableViewCell.swift; sourceTree = "<group>"; };
+		BE712A52278AF19700D7985A /* UserCronic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserCronic.storyboard; sourceTree = "<group>"; };
+		BE712A54278AF1B500D7985A /* UserCronicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCronicTableViewCell.swift; sourceTree = "<group>"; };
+		BE712A56278AF1CA00D7985A /* UserCronicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCronicViewController.swift; sourceTree = "<group>"; };
+		BE712A58278AF1DC00D7985A /* UserCronicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCronicViewModel.swift; sourceTree = "<group>"; };
+		BE712A5A278AF1F100D7985A /* UserCronicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCronicCoordinator.swift; sourceTree = "<group>"; };
+		BE712A5D278AF53C00D7985A /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		BE712A5F278AF54500D7985A /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		BE712A61278AF55300D7985A /* DashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
+		BE712A63278AF55A00D7985A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		BE712A65278AFFDC00D7985A /* ServicesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesTableViewCell.swift; sourceTree = "<group>"; };
+		BE712A67278AFFE600D7985A /* EmergenciesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciesTableViewCell.swift; sourceTree = "<group>"; };
+		BE712A69278AFFED00D7985A /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
+		BE712A6B278AFFFE00D7985A /* MedicationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsTableViewCell.swift; sourceTree = "<group>"; };
+		BE712A6D278B000500D7985A /* HospitalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalsTableViewCell.swift; sourceTree = "<group>"; };
 		BEB7121B2786C5AB00486FB3 /* PhoneHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB7121E2786C5AB00486FB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEB712272786C5B000486FB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,6 +227,8 @@
 			children = (
 				BE070BFC2789BC8800D994C6 /* Login.storyboard */,
 				BE070BFE2789BE2000D994C6 /* LoginViewController.swift */,
+				BE712A26278AAE0600D7985A /* LoginCoodinator.swift */,
+				BE712A28278AAE3200D7985A /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -177,6 +245,8 @@
 			children = (
 				BE070C042789C41300D994C6 /* Otp.storyboard */,
 				BE070C082789D03A00D994C6 /* OtpViewController.swift */,
+				BE712A37278AB64600D7985A /* OtpCoordinator.swift */,
+				BE712A39278AB64D00D7985A /* OtpViewModel.swift */,
 			);
 			path = Otp;
 			sourceTree = "<group>";
@@ -186,6 +256,8 @@
 			children = (
 				BE712A182789E29600D7985A /* SetPassword.storyboard */,
 				BE712A1A2789E4E500D7985A /* SetPasswordViewController.swift */,
+				BE712A2A278AAF6900D7985A /* SetPasswordCoordinator.swift */,
+				BE712A2C278AAF7300D7985A /* SetPasswordViewModel.swift */,
 			);
 			path = SetPassword;
 			sourceTree = "<group>";
@@ -193,8 +265,10 @@
 		BE712A1C2789E5A000D7985A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				BE712A1D2789F1DF00D7985A /* Profile.storyboard */,
+				BE712A1D2789F1DF00D7985A /* UpdateProfile.storyboard */,
 				BE712A1F2789F51000D7985A /* UpdateProfileViewController.swift */,
+				BE712A2E278AAFDD00D7985A /* UpdateProfileCoordinator.swift */,
+				BE712A30278AB19800D7985A /* UpdateProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -204,8 +278,61 @@
 			children = (
 				BE712A222789F93800D7985A /* UserBasic.storyboard */,
 				BE712A242789FF7800D7985A /* UserBasicViewController.swift */,
+				BE712A32278AB23100D7985A /* UserBasicViewModel.swift */,
+				BE712A34278AB24700D7985A /* UserBasicCoordinator.swift */,
 			);
 			path = UserBasic;
+			sourceTree = "<group>";
+		};
+		BE712A3D278AC3E500D7985A /* UserSteppingContainer */ = {
+			isa = PBXGroup;
+			children = (
+				BE712A3E278AC3FE00D7985A /* UserSteppingConatiner.storyboard */,
+				BE712A3B278AC36F00D7985A /* UserSteppingConatinerViewController.swift */,
+				BE712A40278AC69400D7985A /* UserSteppingViewModel.swift */,
+				BE712A42278AC6A700D7985A /* UserSteppingCoordinator.swift */,
+			);
+			path = UserSteppingContainer;
+			sourceTree = "<group>";
+		};
+		BE712A44278ADFB900D7985A /* UserAllery */ = {
+			isa = PBXGroup;
+			children = (
+				BE712A45278ADFCF00D7985A /* UserAllery.storyboard */,
+				BE712A47278ADFEB00D7985A /* UserAlleryViewController.swift */,
+				BE712A49278ADFFD00D7985A /* UserAllergyCoordinator.swift */,
+				BE712A4B278AE02B00D7985A /* UserAllergyViewModel.swift */,
+				BE712A4F278AEB3E00D7985A /* UserAllergyTableViewCell.swift */,
+			);
+			path = UserAllery;
+			sourceTree = "<group>";
+		};
+		BE712A51278AF18500D7985A /* CronicDeases */ = {
+			isa = PBXGroup;
+			children = (
+				BE712A52278AF19700D7985A /* UserCronic.storyboard */,
+				BE712A54278AF1B500D7985A /* UserCronicTableViewCell.swift */,
+				BE712A58278AF1DC00D7985A /* UserCronicViewModel.swift */,
+				BE712A56278AF1CA00D7985A /* UserCronicViewController.swift */,
+				BE712A5A278AF1F100D7985A /* UserCronicCoordinator.swift */,
+			);
+			path = CronicDeases;
+			sourceTree = "<group>";
+		};
+		BE712A5C278AF52D00D7985A /* DashBoard */ = {
+			isa = PBXGroup;
+			children = (
+				BE712A5D278AF53C00D7985A /* Dashboard.storyboard */,
+				BE712A65278AFFDC00D7985A /* ServicesTableViewCell.swift */,
+				BE712A67278AFFE600D7985A /* EmergenciesTableViewCell.swift */,
+				BE712A69278AFFED00D7985A /* AppointmentTableViewCell.swift */,
+				BE712A6B278AFFFE00D7985A /* MedicationsTableViewCell.swift */,
+				BE712A6D278B000500D7985A /* HospitalsTableViewCell.swift */,
+				BE712A5F278AF54500D7985A /* DashboardViewController.swift */,
+				BE712A61278AF55300D7985A /* DashboardCoordinator.swift */,
+				BE712A63278AF55A00D7985A /* DashboardViewModel.swift */,
+			);
+			path = DashBoard;
 			sourceTree = "<group>";
 		};
 		BEB712122786C5AB00486FB3 = {
@@ -308,6 +435,10 @@
 		BEB7126E2786C79000486FB3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BE712A5C278AF52D00D7985A /* DashBoard */,
+				BE712A51278AF18500D7985A /* CronicDeases */,
+				BE712A44278ADFB900D7985A /* UserAllery */,
+				BE712A3D278AC3E500D7985A /* UserSteppingContainer */,
 				BE712A212789F92200D7985A /* UserBasic */,
 				BE712A1C2789E5A000D7985A /* Profile */,
 				BE712A172789E27D00D7985A /* SetPassword */,
@@ -428,12 +559,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE712A192789E29600D7985A /* SetPassword.storyboard in Resources */,
+				BE712A53278AF19700D7985A /* UserCronic.storyboard in Resources */,
 				BE070C052789C41300D994C6 /* Otp.storyboard in Resources */,
+				BE712A46278ADFCF00D7985A /* UserAllery.storyboard in Resources */,
 				BEB7122B2786C5B000486FB3 /* LaunchScreen.storyboard in Resources */,
+				BE712A3F278AC3FE00D7985A /* UserSteppingConatiner.storyboard in Resources */,
 				BEB712662786C6DD00486FB3 /* Registration.storyboard in Resources */,
+				BE712A5E278AF53C00D7985A /* Dashboard.storyboard in Resources */,
 				BE712A232789F93800D7985A /* UserBasic.storyboard in Resources */,
 				BE070BFD2789BC8800D994C6 /* Login.storyboard in Resources */,
-				BE712A1E2789F1DF00D7985A /* Profile.storyboard in Resources */,
+				BE712A1E2789F1DF00D7985A /* UpdateProfile.storyboard in Resources */,
 				BEB712282786C5B000486FB3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,23 +699,52 @@
 			files = (
 				BEB7125F2786C5F000486FB3 /* Observable.swift in Sources */,
 				BEB7125C2786C5F000486FB3 /* StoryboardConstants.swift in Sources */,
+				BE712A38278AB64600D7985A /* OtpCoordinator.swift in Sources */,
 				BEB712632786C5F000486FB3 /* AlertServices.swift in Sources */,
+				BE712A4C278AE02B00D7985A /* UserAllergyViewModel.swift in Sources */,
+				BE712A31278AB19800D7985A /* UpdateProfileViewModel.swift in Sources */,
+				BE712A43278AC6A800D7985A /* UserSteppingCoordinator.swift in Sources */,
+				BE712A6A278AFFED00D7985A /* AppointmentTableViewCell.swift in Sources */,
+				BE712A5B278AF1F100D7985A /* UserCronicCoordinator.swift in Sources */,
 				BE712A202789F51000D7985A /* UpdateProfileViewController.swift in Sources */,
+				BE712A55278AF1B500D7985A /* UserCronicTableViewCell.swift in Sources */,
 				BE070BFF2789BE2000D994C6 /* LoginViewController.swift in Sources */,
+				BE712A60278AF54500D7985A /* DashboardViewController.swift in Sources */,
 				BE070C092789D03A00D994C6 /* OtpViewController.swift in Sources */,
+				BE712A62278AF55300D7985A /* DashboardCoordinator.swift in Sources */,
+				BE712A2B278AAF6900D7985A /* SetPasswordCoordinator.swift in Sources */,
 				BEB7126D2786C73D00486FB3 /* RegistrationViewModel.swift in Sources */,
+				BE712A6E278B000500D7985A /* HospitalsTableViewCell.swift in Sources */,
+				BE712A6C278AFFFE00D7985A /* MedicationsTableViewCell.swift in Sources */,
 				BEB712612786C5F000486FB3 /* Coordinator.swift in Sources */,
+				BE712A66278AFFDC00D7985A /* ServicesTableViewCell.swift in Sources */,
 				BEB712602786C5F000486FB3 /* ColorConfig.swift in Sources */,
 				BEB712622786C5F000486FB3 /* NetworkManager.swift in Sources */,
 				BEB712682786C6ED00486FB3 /* RegistrationViewController.swift in Sources */,
+				BE712A2F278AAFDD00D7985A /* UpdateProfileCoordinator.swift in Sources */,
 				BE712A252789FF7800D7985A /* UserBasicViewController.swift in Sources */,
 				BE712A1B2789E4E500D7985A /* SetPasswordViewController.swift in Sources */,
 				BEB7125D2786C5F000486FB3 /* URLConfig.swift in Sources */,
+				BE712A41278AC69400D7985A /* UserSteppingViewModel.swift in Sources */,
+				BE712A59278AF1DC00D7985A /* UserCronicViewModel.swift in Sources */,
 				BEB7126B2786C71800486FB3 /* RegistrationCoodinator.swift in Sources */,
+				BE712A48278ADFEB00D7985A /* UserAlleryViewController.swift in Sources */,
+				BE712A68278AFFE600D7985A /* EmergenciesTableViewCell.swift in Sources */,
+				BE712A4A278ADFFE00D7985A /* UserAllergyCoordinator.swift in Sources */,
+				BE712A35278AB24700D7985A /* UserBasicCoordinator.swift in Sources */,
+				BE712A64278AF55A00D7985A /* DashboardViewModel.swift in Sources */,
+				BE712A2D278AAF7300D7985A /* SetPasswordViewModel.swift in Sources */,
+				BE712A3A278AB64D00D7985A /* OtpViewModel.swift in Sources */,
+				BE712A27278AAE0600D7985A /* LoginCoodinator.swift in Sources */,
+				BE712A57278AF1CA00D7985A /* UserCronicViewController.swift in Sources */,
+				BE712A33278AB23100D7985A /* UserBasicViewModel.swift in Sources */,
 				BEB7125B2786C5F000486FB3 /* StringConstants.swift in Sources */,
 				BEB7125A2786C5F000486FB3 /* QueueConfig.swift in Sources */,
 				BEB7121F2786C5AB00486FB3 /* AppDelegate.swift in Sources */,
 				BEB7125E2786C5F000486FB3 /* UI+Extensions.swift in Sources */,
+				BE712A29278AAE3200D7985A /* LoginViewModel.swift in Sources */,
+				BE712A3C278AC36F00D7985A /* UserSteppingConatinerViewController.swift in Sources */,
+				BE712A50278AEB3E00D7985A /* UserAllergyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,7 +921,7 @@
 				INFOPLIST_FILE = PhoneHealth/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = UserBasic;
+				INFOPLIST_KEY_UIMainStoryboardFile = Registration;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -786,7 +950,7 @@
 				INFOPLIST_FILE = PhoneHealth/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = UserBasic;
+				INFOPLIST_KEY_UIMainStoryboardFile = Registration;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -8,14 +8,8 @@
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
-class UserBasicViewController: UIViewController {
+class UserBasicViewController: UIViewController, Storyboarded {
 
-    @IBOutlet weak var step5: UIView!
-    @IBOutlet weak var step4: UIView!
-    @IBOutlet weak var step3: UIView!
-    @IBOutlet weak var step2: UIView!
-    @IBOutlet weak var step1: UIView!
-    @IBOutlet weak var container: UIView!
     @IBOutlet weak var bloodGroup: MDCOutlinedTextField!
     @IBOutlet weak var inches: MDCOutlinedTextField!
     @IBOutlet weak var feet: MDCOutlinedTextField!
@@ -24,6 +18,9 @@ class UserBasicViewController: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var setupLaterBtn: UIButton!
     
+    var didTapNext: ((Int) -> ())?
+    var didTapBack: ((Int) -> ())?
+    var viewModel: UserBasicViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +29,8 @@ class UserBasicViewController: UIViewController {
     }
     
     func setupView() {
-        step1.rounded()
-        step2.rounded()
-        step3.rounded()
-        step4.rounded()
-        step5.rounded()
-        step1.addBorder(UIColor.init(hex: "46C9BD"))
-        backBtn.addBorder(UIColor.init(hex: "46C9BD"))
+       
+        backBtn.addBorder(UIColor.black)
         bloodGroup.setup("Blood Group")
         feet.setup("Feet")
         inches.setup("Inches")
@@ -46,8 +38,23 @@ class UserBasicViewController: UIViewController {
         
         backBtn.rounded()
         nextBtn.rounded()
-        container.addCornerRadius(36)
-        
+        nextBtn.addTarget(self, action: #selector(actionNext), for: .touchUpInside)
+        backBtn.addTarget(self, action: #selector(actionBack), for: .touchUpInside)
+        setupLaterBtn.addTarget(self, action: #selector(setupLater), for: .touchUpInside)
+    }
+    
+    @objc func setupLater() {
+        guard let nav = self.navigationController else {return}
+        let coordinator = DashboardCoordinator.init(navigationController: nav)
+        appdelegate.window?.rootViewController = coordinator.getMainView()
+    }
+    
+    @objc func actionNext() {
+        self.didTapNext?(1)
+    }
+    
+    @objc func actionBack() {
+        self.didTapBack?(1)
     }
     
 

@@ -12,7 +12,7 @@ target 'PhoneHealth' do
   pod 'SDWebImage', '~> 5.0'
   pod 'MaterialComponents/TextControls+OutlinedTextFields'
   pod 'KAPinField'
-
+  pod 'MBRadioCheckboxButton'
 
 
   target 'PhoneHealthTests' do

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User Allery View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="UserAlleryViewController" id="Y6W-OH-hqX" customClass="UserAlleryViewController" customModule="PhoneHealth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have allergies?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt8-UR-EaX">
+                                <rect key="frame" x="20" y="77" width="138.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="woU-NR-cgE">
+                                <rect key="frame" x="20" y="101" width="122" height="20"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OeD-N6-wLN">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="20"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y93-wE-Xtn" customClass="RadioButton" customModule="MBRadioCheckboxButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="Dwm-zu-1B8"/>
+                                                    <constraint firstAttribute="height" constant="20" id="ra4-jd-wzR"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBL-rL-dQw">
+                                                <rect key="frame" x="28" y="0.0" width="23" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mP2-Mp-v5Z">
+                                        <rect key="frame" x="71" y="0.0" width="51" height="20"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsV-Iu-3cF" customClass="RadioButton" customModule="MBRadioCheckboxButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="Diu-wL-JVe"/>
+                                                    <constraint firstAttribute="width" constant="20" id="gEL-aT-hP4"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYc-9I-V9n">
+                                                <rect key="frame" x="28" y="0.0" width="23" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Allergy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d5-VL-hzZ">
+                                <rect key="frame" x="30" y="149" width="86.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KL7-L4-Qji">
+                                <rect key="frame" x="25" y="173" width="374" height="526"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserAllergyTableViewCell" rowHeight="52" id="thp-3W-Crm" customClass="UserAllergyTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="52"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="thp-3W-Crm" id="bfN-PA-lZT">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="52"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KD6-8V-ruP" customClass="CheckboxButton" customModule="MBRadioCheckboxButton">
+                                                    <rect key="frame" x="16" y="16" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="50U-dh-ixY"/>
+                                                        <constraint firstAttribute="height" constant="20" id="iFG-tG-V1s"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Allergy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrN-Ug-ppd">
+                                                    <rect key="frame" x="44" y="18" width="84" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vrN-Ug-ppd" firstAttribute="leading" secondItem="KD6-8V-ruP" secondAttribute="trailing" constant="8" id="AyZ-tu-auO"/>
+                                                <constraint firstItem="vrN-Ug-ppd" firstAttribute="centerY" secondItem="KD6-8V-ruP" secondAttribute="centerY" id="Qf4-nT-2EH"/>
+                                                <constraint firstItem="KD6-8V-ruP" firstAttribute="centerY" secondItem="bfN-PA-lZT" secondAttribute="centerY" id="TEY-8X-EHr"/>
+                                                <constraint firstItem="KD6-8V-ruP" firstAttribute="leading" secondItem="bfN-PA-lZT" secondAttribute="leading" constant="16" id="izG-0q-1E2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="allergyTitle" destination="vrN-Ug-ppd" id="3Yt-r3-9m2"/>
+                                            <outlet property="checkBox" destination="KD6-8V-ruP" id="a2r-sV-BVl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5i-Y7-O9a">
+                                <rect key="frame" x="146.5" y="807" width="121.5" height="31"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Setup Up Later">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                </buttonConfiguration>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AGa-3I-Ex3">
+                                <rect key="frame" x="20" y="739" width="374" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gz7-ho-BFz">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="ucX-k9-p8q"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Back">
+                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Fw-ag-vKE">
+                                        <rect key="frame" x="197" y="0.0" width="177" height="48"/>
+                                        <color key="backgroundColor" red="0.27450980390000002" green="0.78823529410000004" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="nft-Y4-3Vc"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Next">
+                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="woU-NR-cgE" firstAttribute="leading" secondItem="Yt8-UR-EaX" secondAttribute="leading" id="3el-gX-26a"/>
+                            <constraint firstItem="Yt8-UR-EaX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="5yo-lB-M2h"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="KL7-L4-Qji" secondAttribute="trailing" constant="15" id="FId-Uv-Gcr"/>
+                            <constraint firstItem="6d5-VL-hzZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Ffm-yw-h9f"/>
+                            <constraint firstItem="AGa-3I-Ex3" firstAttribute="top" secondItem="KL7-L4-Qji" secondAttribute="bottom" constant="40" id="FiG-LX-Gyw"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AGa-3I-Ex3" secondAttribute="trailing" constant="20" id="NyS-gN-TcD"/>
+                            <constraint firstItem="W5i-Y7-O9a" firstAttribute="top" secondItem="AGa-3I-Ex3" secondAttribute="bottom" constant="20" id="QzF-ux-kG3"/>
+                            <constraint firstItem="6d5-VL-hzZ" firstAttribute="top" secondItem="woU-NR-cgE" secondAttribute="bottom" constant="28" id="TP9-Oy-YMe"/>
+                            <constraint firstItem="KL7-L4-Qji" firstAttribute="top" secondItem="6d5-VL-hzZ" secondAttribute="bottom" constant="8" id="Vtt-zw-fPR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="W5i-Y7-O9a" secondAttribute="bottom" constant="24" id="bIy-Rq-cwc"/>
+                            <constraint firstItem="Yt8-UR-EaX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="33" id="eUg-CP-tyz"/>
+                            <constraint firstItem="woU-NR-cgE" firstAttribute="top" secondItem="Yt8-UR-EaX" secondAttribute="bottom" constant="8" id="fCR-AA-rq8"/>
+                            <constraint firstItem="AGa-3I-Ex3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="oZJ-ST-jut"/>
+                            <constraint firstItem="W5i-Y7-O9a" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="uw2-rD-9Uo"/>
+                            <constraint firstItem="KL7-L4-Qji" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="zuv-6c-3Ao"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backBtn" destination="Gz7-ho-BFz" id="ENt-ng-b3G"/>
+                        <outlet property="nextBtn" destination="3Fw-ag-vKE" id="lws-lw-i4A"/>
+                        <outlet property="noRadio" destination="IsV-Iu-3cF" id="AcV-hD-Fbq"/>
+                        <outlet property="tableView" destination="KL7-L4-Qji" id="0rx-hq-QBY"/>
+                        <outlet property="yesRadio" destination="y93-wE-Xtn" id="PNL-KY-6Qx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.043478260869566" y="78.348214285714278"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="IsV-Iu-3cF">
+            <size key="intrinsicContentSize" width="24" height="14"/>
+        </designable>
+        <designable name="KD6-8V-ruP">
+            <size key="intrinsicContentSize" width="24" height="14"/>
+        </designable>
+        <designable name="y93-wE-Xtn">
+            <size key="intrinsicContentSize" width="24" height="14"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

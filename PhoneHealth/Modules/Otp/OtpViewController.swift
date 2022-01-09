@@ -8,11 +8,13 @@
 import UIKit
 import KAPinField
 
-class OtpViewController: UIViewController {
+class OtpViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var otpIcon: UIImageView!
     @IBOutlet weak var pinView: KAPinField!
     @IBOutlet weak var verifyBtn: UIButton!
+    
+    var viewModel: OtpViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,13 @@ class OtpViewController: UIViewController {
         pinView.appearance.backActiveColor = UIColor.white
         pinView.appearance.backBorderActiveColor = UIColor.init(hex: "46C9BD")
         pinView.appearance.keyboardType = UIKeyboardType.numberPad // Specify keyboard type
+        verifyBtn.addTarget(self, action: #selector(actionVerify), for: .touchUpInside)
+    }
+    
+    @objc func actionVerify() {
+        guard let navigationController = self.navigationController else {return}
+        let coordinator = SetPasswordCoordinator.init(navigationController: navigationController)
+        coordinator.start()
     }
 
 }
