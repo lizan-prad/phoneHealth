@@ -6,55 +6,31 @@
 //
 
 import UIKit
-import CoreData
+import ObjectMapper
+import Alamofire
+import SwiftyJSON
 
 class NetworkManager {
     
     static let shared = NetworkManager()
     
-    fileprivate enum RequestMethods: String {
-        case get = "GET"
-        case post = "POST"
-    }
+    typealias CompletionHandler<T: Mappable> = (Result<T, Error>) -> ()
     
-    typealias CompletionHandler<T: Decodable> = (Result<T, Error>) -> ()
-    
-    
-    func request<T: Decodable>(_ type: T.Type, withEndpoint url: URL, params: [String: String], needsAuthorization: Bool = true, header: [String:String]? = nil, completion: @escaping CompletionHandler<T>) {
-        URLSession.shared.dataTask(with: EndPointRequest.getURLRequest(url, withParameters: params)) { (data, response, error) in
-            if let error = error {
-                DispatchQueue.main.async {
-                    completion(.failure(error))
+    func request<T: Mappable>(_ value: T.Type ,urlExt: String, method: HTTPMethod, param: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?, completion: @escaping CompletionHandler<T>){
+        
+        let header = headers == nil ? ["Accept" : "application/json", "Authorization": "Bearer \(UserDefaults.standard.string(forKey: "AT") ?? "")"] : headers
+        
+        AF.request(urlExt, method: method, parameters: param, encoding: encoding, headers: header).responseJSON { (response) in
+            switch response.result {
+            case .success(let data):
+                if let data = data as? [String:Any], let model = Mapper<T>().map(JSON: data) {
+                    completion(.success(model))
                 }
-                return
+            case .failure(let error):
+                print(String(describing: error))
+                completion(.failure(error))
             }
-            guard let json = data else {
-                completion(.failure(NSError.init(domain: "NetworkManager", code: 400, userInfo: [NSLocalizedDescriptionKey: "No Data!"])))
-                return
-            }
-            DispatchQueue.main.async {
-//                self.coreDataDecoder(T.self, json: json, completion: completion)
-            }
-        }.resume()
-    }
-}
-
-
-class EndPointRequest {
-    
-    static func getURLRequest(_ endPoint: URL, withParameters param: [String: String]) -> URLRequest {
-        var urlComponents = URLComponents(string: endPoint.absoluteString)
-        var localVariable = urlComponents
-        urlComponents?.queryItems = param.map { (key, value) in
-            URLQueryItem(name: key, value: value)
         }
-        localVariable?.queryItems = urlComponents?.queryItems
-        urlComponents?.percentEncodedQuery = localVariable?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
-        var request = URLRequest(url: urlComponents?.url ?? endPoint)
-        request.httpMethod = NetworkManager.RequestMethods.get.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue(URLConfig.apiKey, forHTTPHeaderField: "Authorization")
-        return request
     }
-    
+       
 }

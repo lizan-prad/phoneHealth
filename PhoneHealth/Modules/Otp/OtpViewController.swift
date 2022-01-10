@@ -7,6 +7,7 @@
 
 import UIKit
 import KAPinField
+import Alamofire
 
 class OtpViewController: UIViewController, Storyboarded {
 
@@ -15,9 +16,11 @@ class OtpViewController: UIViewController, Storyboarded {
     @IBOutlet weak var verifyBtn: UIButton!
     
     var viewModel: OtpViewModel!
+    var otp: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
         self.view.setGradient(UIColor.init(hex: "E7F5F4"), endColor: UIColor.init(hex: "72C6BD"))
         otpIcon.addCornerRadius(otpIcon.frame.height/2)
         verifyBtn.addCornerRadius(12)
@@ -45,10 +48,48 @@ class OtpViewController: UIViewController, Storyboarded {
         verifyBtn.addTarget(self, action: #selector(actionVerify), for: .touchUpInside)
     }
     
-    @objc func actionVerify() {
+    fileprivate func bindViewModel() {
+        self.viewModel.success.bind({ status in
+            self.openSetPassword()
+        })
+        
+        self.viewModel.error.bind({ error in
+            let alert = AlertServices.showAlertWithOkAction(title: nil, message: error) { _ in
+                self.pinView.reloadAppearance()
+            }
+            self.present(alert, animated: true, completion: nil)
+            
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    fileprivate func openSetPassword() {
         guard let navigationController = self.navigationController else {return}
         let coordinator = SetPasswordCoordinator.init(navigationController: navigationController)
         coordinator.start()
+    }
+    
+    @objc func actionVerify() {
+        if otp?.count == 4 {
+            if otp == "\(self.viewModel.model.otp ?? 0)" {
+                self.viewModel.verifyOtp(otp: otp ?? "")
+            } else {
+                self.showAlert(title: nil, message: "Invalid Otp!") { _ in
+                    self.pinView.reloadAppearance()
+                }
+            }
+            
+        }
+        
     }
 
 }
@@ -56,7 +97,7 @@ class OtpViewController: UIViewController, Storyboarded {
 extension OtpViewController : KAPinFieldDelegate {
     
     func pinField(_ field: KAPinField, didFinishWith code: String) {
-        
+        self.otp = code
     }
 
 }

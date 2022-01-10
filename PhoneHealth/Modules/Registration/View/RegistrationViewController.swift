@@ -10,6 +10,7 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import MBRadioCheckboxButton
 
 class RegistrationViewController: UIViewController, Storyboarded, CheckboxButtonDelegate {
+    
     func chechboxButtonDidSelect(_ button: CheckboxButton) {
         
     }
@@ -28,6 +29,8 @@ class RegistrationViewController: UIViewController, Storyboarded, CheckboxButton
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
+        signUpBtn.isEnabled = false
         mobileNumberField.setup("Mobile Number")
         FullNameField.setup("Full Name")
         signUpBtn.addCornerRadius(12)
@@ -36,6 +39,32 @@ class RegistrationViewController: UIViewController, Storyboarded, CheckboxButton
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         signUpBtn.addTarget(self, action: #selector(actionSignUp), for: .touchUpInside)
         signInBtn.addTarget(self, action: #selector(actionLogin), for: .touchUpInside)
+        FullNameField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+        mobileNumberField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+    }
+    
+    @objc func textChanged(_ sender: MDCOutlinedTextField) {
+        signUpBtn.isEnabled = (mobileNumberField.text != "" && FullNameField.text != "")
+        switch sender {
+        case mobileNumberField:
+            mobileNumberField.leadingAssistiveLabel.text = (mobileNumberField.text == "") ? "Please enter mobile number" : ""
+            
+        case FullNameField:
+            FullNameField.leadingAssistiveLabel.text = (FullNameField.text == "") ? "Please enter full name" : ""
+        default:
+            break
+        }
+    }
+    
+    fileprivate func bindViewModel() {
+        self.viewModel.otpModel.bind({ model in
+            guard let model = model else {return}
+            UserDefaults.standard.set(self.mobileNumberField.text, forKey: "Mobile")
+            self.openOtpView(model: model)
+        })
+        self.viewModel.error?.bind({ error in
+            
+        })
     }
     
     @objc func actionLogin() {
@@ -43,13 +72,13 @@ class RegistrationViewController: UIViewController, Storyboarded, CheckboxButton
     }
     
     @objc func actionSignUp() {
-        guard let navigationController = self.navigationController else {return}
-        let coordinator = OtpCoordinator.init(navigationController: navigationController)
-        coordinator.start()
+        self.viewModel.register(self.FullNameField.text ?? "", withMobileNumber: self.mobileNumberField.text ?? "")
     }
-  
-    @objc func didTapCheckBox() {
-        
+    
+    fileprivate func openOtpView(model: OtpModel) {
+        guard let navigationController = self.navigationController else {return}
+        let coordinator = OtpCoordinator.init(navigationController: navigationController, model: model)
+        coordinator.start()
     }
 
 }
@@ -60,6 +89,8 @@ extension MDCOutlinedTextField {
         self.setOutlineColor(UIColor.init(hex: "46C9BD"), for: MDCTextControlState.editing)
         self.label.text = placeholder
         self.containerRadius = 12
+        self.setLeadingAssistiveLabelColor(UIColor.red, for: .editing)
+        self.setLeadingAssistiveLabelColor(UIColor.red, for: .normal)
         self.font = UIFont.systemFont(ofSize: 14)
         self.setFloatingLabelColor(UIColor.init(hex: "46C9BD"), for: MDCTextControlState.editing)
         self.setNormalLabelColor(UIColor.gray, for: .normal)

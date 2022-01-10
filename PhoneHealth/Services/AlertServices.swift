@@ -18,3 +18,11 @@ class AlertServices {
         return alert
     }
 }
+
+extension UIViewController {
+    
+    func showAlert(title: String?, message: String?, completion: AlertServices.CompletionHandler) {
+        let alert = AlertServices.showAlertWithOkAction(title: title, message: message, completion: completion)
+        self.present(alert, animated: true, completion: nil)
+    }
+}

@@ -7,6 +7,7 @@
 
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
+import Alamofire
 
 class SetPasswordViewController: UIViewController, Storyboarded {
 
@@ -19,6 +20,7 @@ class SetPasswordViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.proceedBtn.isEnabled = false
         passwordsValidationContainer.layer.borderWidth = 1
         passwordsValidationContainer.layer.borderColor = UIColor.black.withAlphaComponent(0.5).cgColor
         passwordsValidationContainer.addCornerRadius(12)
@@ -28,13 +30,49 @@ class SetPasswordViewController: UIViewController, Storyboarded {
         passwordField.isSecureTextEntry = true
         confirmPassword.isSecureTextEntry = true
         
+        passwordField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+        confirmPassword.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+        
         proceedBtn.addTarget(self, action: #selector(actionProceed), for: .touchUpInside)
+        
+        self.viewModel.status.bind { status in
+            self.proceedBtn.isEnabled = status ?? false
+            if status == true {
+                self.confirmPassword.leadingAssistiveLabel.text = ""
+            } else {
+                self.confirmPassword.leadingAssistiveLabel.text = "Passwords donot match"
+            }
+        }
+        
+        self.viewModel.error.bind { error in
+            self.showAlert(title: nil, message: error) { _ in
+                
+            }
+        }
+        
+        self.viewModel.setPasswordModel.bind { model in
+            UserDefaults.standard.set(model?.token, forKey: "AT")
+            UserDefaults.standard.set(model?.username, forKey: "mobile")
+            guard let navigationController = self.navigationController else {return}
+            let coodinator = UpdateProfileCoordinator.init(navigationController: navigationController)
+            coodinator.start()
+        }
+    }
+    
+    
+    @objc func textChanged(_ sender: MDCOutlinedTextField) {
+        switch sender {
+        case passwordField:
+            self.viewModel.password = passwordField.text
+        case confirmPassword:
+            self.viewModel.confirm = confirmPassword.text
+        default:
+            break
+        }
     }
     
     @objc func actionProceed() {
-        guard let navigationController = self.navigationController else {return}
-        let coodinator = UpdateProfileCoordinator.init(navigationController: navigationController)
-        coodinator.start()
+        self.viewModel.setPassword(password: self.viewModel.password ?? "")
     }
     
 

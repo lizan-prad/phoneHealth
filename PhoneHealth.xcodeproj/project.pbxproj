@@ -13,6 +13,11 @@
 		BE070BFF2789BE2000D994C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE070BFE2789BE2000D994C6 /* LoginViewController.swift */; };
 		BE070C052789C41300D994C6 /* Otp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE070C042789C41300D994C6 /* Otp.storyboard */; };
 		BE070C092789D03A00D994C6 /* OtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE070C082789D03A00D994C6 /* OtpViewController.swift */; };
+		BE2030D0278C04B500C61A48 /* BaseMappableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2030CF278C04B500C61A48 /* BaseMappableModel.swift */; };
+		BE2030D2278C07AA00C61A48 /* OtpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2030D1278C07AA00C61A48 /* OtpModel.swift */; };
+		BE2030D5278C1DC100C61A48 /* Habits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2030D4278C1DC100C61A48 /* Habits.storyboard */; };
+		BE2030D7278C1DD900C61A48 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2030D6278C1DD900C61A48 /* HabitsViewController.swift */; };
+		BE2030D9278C382800C61A48 /* SetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2030D8278C382800C61A48 /* SetPasswordModel.swift */; };
 		BE712A192789E29600D7985A /* SetPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A182789E29600D7985A /* SetPassword.storyboard */; };
 		BE712A1B2789E4E500D7985A /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A1A2789E4E500D7985A /* SetPasswordViewController.swift */; };
 		BE712A1E2789F1DF00D7985A /* UpdateProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A1D2789F1DF00D7985A /* UpdateProfile.storyboard */; };
@@ -103,6 +108,11 @@
 		BE070BFE2789BE2000D994C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BE070C042789C41300D994C6 /* Otp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Otp.storyboard; sourceTree = "<group>"; };
 		BE070C082789D03A00D994C6 /* OtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewController.swift; sourceTree = "<group>"; };
+		BE2030CF278C04B500C61A48 /* BaseMappableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMappableModel.swift; sourceTree = "<group>"; };
+		BE2030D1278C07AA00C61A48 /* OtpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpModel.swift; sourceTree = "<group>"; };
+		BE2030D4278C1DC100C61A48 /* Habits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Habits.storyboard; sourceTree = "<group>"; };
+		BE2030D6278C1DD900C61A48 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
+		BE2030D8278C382800C61A48 /* SetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordModel.swift; sourceTree = "<group>"; };
 		BE712A182789E29600D7985A /* SetPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetPassword.storyboard; sourceTree = "<group>"; };
 		BE712A1A2789E4E500D7985A /* SetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
 		BE712A1D2789F1DF00D7985A /* UpdateProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateProfile.storyboard; sourceTree = "<group>"; };
@@ -251,6 +261,25 @@
 			path = Otp;
 			sourceTree = "<group>";
 		};
+		BE2030CE278C04A400C61A48 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE2030CF278C04B500C61A48 /* BaseMappableModel.swift */,
+				BE2030D1278C07AA00C61A48 /* OtpModel.swift */,
+				BE2030D8278C382800C61A48 /* SetPasswordModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BE2030D3278C1DB100C61A48 /* Habit */ = {
+			isa = PBXGroup;
+			children = (
+				BE2030D4278C1DC100C61A48 /* Habits.storyboard */,
+				BE2030D6278C1DD900C61A48 /* HabitsViewController.swift */,
+			);
+			path = Habit;
+			sourceTree = "<group>";
+		};
 		BE712A172789E27D00D7985A /* SetPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				BE070C002789BF3E00D994C6 /* SubClasses */,
+				BE2030CE278C04A400C61A48 /* Models */,
 				BEB7124E2786C5F000486FB3 /* Config */,
 				BEB712572786C5F000486FB3 /* Services */,
 				BEB7121E2786C5AB00486FB3 /* AppDelegate.swift */,
@@ -435,6 +465,7 @@
 		BEB7126E2786C79000486FB3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BE2030D3278C1DB100C61A48 /* Habit */,
 				BE712A5C278AF52D00D7985A /* DashBoard */,
 				BE712A51278AF18500D7985A /* CronicDeases */,
 				BE712A44278ADFB900D7985A /* UserAllery */,
@@ -561,6 +592,7 @@
 				BE712A192789E29600D7985A /* SetPassword.storyboard in Resources */,
 				BE712A53278AF19700D7985A /* UserCronic.storyboard in Resources */,
 				BE070C052789C41300D994C6 /* Otp.storyboard in Resources */,
+				BE2030D5278C1DC100C61A48 /* Habits.storyboard in Resources */,
 				BE712A46278ADFCF00D7985A /* UserAllery.storyboard in Resources */,
 				BEB7122B2786C5B000486FB3 /* LaunchScreen.storyboard in Resources */,
 				BE712A3F278AC3FE00D7985A /* UserSteppingConatiner.storyboard in Resources */,
@@ -716,6 +748,7 @@
 				BEB7126D2786C73D00486FB3 /* RegistrationViewModel.swift in Sources */,
 				BE712A6E278B000500D7985A /* HospitalsTableViewCell.swift in Sources */,
 				BE712A6C278AFFFE00D7985A /* MedicationsTableViewCell.swift in Sources */,
+				BE2030D9278C382800C61A48 /* SetPasswordModel.swift in Sources */,
 				BEB712612786C5F000486FB3 /* Coordinator.swift in Sources */,
 				BE712A66278AFFDC00D7985A /* ServicesTableViewCell.swift in Sources */,
 				BEB712602786C5F000486FB3 /* ColorConfig.swift in Sources */,
@@ -728,12 +761,14 @@
 				BE712A41278AC69400D7985A /* UserSteppingViewModel.swift in Sources */,
 				BE712A59278AF1DC00D7985A /* UserCronicViewModel.swift in Sources */,
 				BEB7126B2786C71800486FB3 /* RegistrationCoodinator.swift in Sources */,
+				BE2030D7278C1DD900C61A48 /* HabitsViewController.swift in Sources */,
 				BE712A48278ADFEB00D7985A /* UserAlleryViewController.swift in Sources */,
 				BE712A68278AFFE600D7985A /* EmergenciesTableViewCell.swift in Sources */,
 				BE712A4A278ADFFE00D7985A /* UserAllergyCoordinator.swift in Sources */,
 				BE712A35278AB24700D7985A /* UserBasicCoordinator.swift in Sources */,
 				BE712A64278AF55A00D7985A /* DashboardViewModel.swift in Sources */,
 				BE712A2D278AAF7300D7985A /* SetPasswordViewModel.swift in Sources */,
+				BE2030D0278C04B500C61A48 /* BaseMappableModel.swift in Sources */,
 				BE712A3A278AB64D00D7985A /* OtpViewModel.swift in Sources */,
 				BE712A27278AAE0600D7985A /* LoginCoodinator.swift in Sources */,
 				BE712A57278AF1CA00D7985A /* UserCronicViewController.swift in Sources */,
@@ -743,6 +778,7 @@
 				BEB7121F2786C5AB00486FB3 /* AppDelegate.swift in Sources */,
 				BEB7125E2786C5F000486FB3 /* UI+Extensions.swift in Sources */,
 				BE712A29278AAE3200D7985A /* LoginViewModel.swift in Sources */,
+				BE2030D2278C07AA00C61A48 /* OtpModel.swift in Sources */,
 				BE712A3C278AC36F00D7985A /* UserSteppingConatinerViewController.swift in Sources */,
 				BE712A50278AEB3E00D7985A /* UserAllergyTableViewCell.swift in Sources */,
 			);

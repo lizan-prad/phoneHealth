@@ -32,6 +32,7 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         MobileNumber.setup("Mobile Number")
+        signInBtn.isEnabled = false
         Password.setup("Password")
         signInBtn.addCornerRadius(12)
         checkBox.checkBoxColor = CheckBoxColor.init(activeColor: ColorConfig.baseColor, inactiveColor: UIColor.white, inactiveBorderColor: UIColor.lightGray, checkMarkColor: UIColor.white)
@@ -39,6 +40,34 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
         
         signInBtn.addTarget(self, action: #selector(proceedSignIn), for: .touchUpInside)
         signUpbtn.addTarget(self, action: #selector(proceedSignUp), for: .touchUpInside)
+        
+        viewModel.loginModel.bind { model in
+            UserDefaults.standard.set(model?.token, forKey: "AT")
+            UserDefaults.standard.set(model?.username, forKey: "Mobile")
+            guard let nav = self.navigationController else {return}
+            let coordinator = DashboardCoordinator.init(navigationController: nav)
+            appdelegate.window?.rootViewController = coordinator.getMainView()
+        }
+        
+        viewModel.error.bind { error in
+            self.showAlert(title: nil, message: error) { _ in}
+        }
+        
+        MobileNumber.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+        Password.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+    }
+    
+    @objc func textChanged(_ sender: MDCOutlinedTextField) {
+        signInBtn.isEnabled = (MobileNumber.text != "" && Password.text != "")
+        switch sender {
+        case MobileNumber:
+            MobileNumber.leadingAssistiveLabel.text = (MobileNumber.text == "") ? "Please enter mobile number" : ""
+            
+        case Password:
+            Password.leadingAssistiveLabel.text = (Password.text == "") ? "Please enter password" : ""
+        default:
+            break
+        }
     }
     
     @objc func proceedSignUp() {
@@ -48,6 +77,7 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
     }
     
     @objc func proceedSignIn() {
-        
+        self.viewModel.login(MobileNumber.text ?? "", loginPassword: Password.text ?? "")
     }
 }
+

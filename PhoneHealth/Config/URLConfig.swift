@@ -10,8 +10,16 @@ import CoreData
 
 enum URLConfig {
     
-    static let baseUrl = "https://api.foursquare.com/v3/"
+    static let baseUrl = "https://uat-fonehealthapp-api.cogenthealth.com.np/fonehealth/api/v1/"
     static let apiKey = "fsq3j9q7oWWvICR6BzHmAo/cP6APlcP2SgONl6p3Rl4EyHk="
+    
+    enum Modules {
+        static let registration = URLConfig.baseUrl + "user/mobile-number-verification"
+        static let otpVerification = URLConfig.baseUrl + "user/otp-verification"
+        static let setPassword = URLConfig.baseUrl + "user/save-password"
+        static let login = URLConfig.baseUrl + "user/login"
+        static let getProvinence = URLConfig.baseUrl + "address/new/province"
+    }
 
     static var venueList: String {
         return baseUrl + "places/search"
