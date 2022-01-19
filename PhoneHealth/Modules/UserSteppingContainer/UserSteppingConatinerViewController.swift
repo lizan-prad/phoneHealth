@@ -100,6 +100,37 @@ class UserSteppingConatinerViewController: UIViewController, Storyboarded {
         }
         
         vc.didTapNext = { _ in
+            self.step3.addBorder(.clear)
+            self.step3.backgroundColor = ColorConfig.baseColor
+            self.s3lbl.textColor = .white
+            self.step4.addBorder(ColorConfig.baseColor)
+            self.step4.backgroundColor = .white
+            self.s4lbl.textColor = ColorConfig.baseColor
+            self.cronicViewController.removeFromParent()
+            self.container.addChildViewController(self.habitsViewController, parentViewController: self)
+        }
+        
+        return vc
+    }
+    
+    var habitsViewController: HabitsViewController {
+        guard let nav = self.navigationController else {return HabitsViewController()}
+        let coordinator = HabitsCoordinator.init(navigationController: nav)
+        let vc = coordinator.getMainView()
+        
+        
+        vc.didTapBack = { _ in
+            self.s4lbl.textColor = .white
+            self.s3lbl.textColor = ColorConfig.baseColor
+            self.step3.addBorder(ColorConfig.baseColor)
+            self.step3.backgroundColor = .white
+            self.step4.addBorder(.clear)
+            self.step4.backgroundColor = ColorConfig.baseColor
+            self.habitsViewController.removeFromParent()
+            self.container.addChildViewController(self.cronicViewController, parentViewController: self)
+        }
+        
+        vc.didTapNext = { _ in
             
         }
         
@@ -117,12 +148,6 @@ class UserSteppingConatinerViewController: UIViewController, Storyboarded {
         step5.rounded()
         step1.addBorder(UIColor.init(hex: "46C9BD"))
         container.addCornerRadius(36)
-        
-        
-        
-        
-        
-        
         self.container.addChildViewController(basicViewController, parentViewController: self)
     }
     

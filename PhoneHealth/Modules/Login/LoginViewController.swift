@@ -8,15 +8,33 @@
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import MBRadioCheckboxButton
+import WeScan
 
-class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegate {
+class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegate, ImageScannerControllerDelegate {
+    func imageScannerController(_ scanner: ImageScannerController, didFinishScanningWithResults results: ImageScannerResults) {
+        scanner.dismiss(animated: true) {
+            let vc = UIStoryboard.init(name: "Scan", bundle: nil).instantiateViewController(withIdentifier: "ScanViewController") as! ScanViewController
+            vc.image = results.enhancedScan?.image
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
+    
+    func imageScannerControllerDidCancel(_ scanner: ImageScannerController) {
+        
+    }
+    
+    func imageScannerController(_ scanner: ImageScannerController, didFailWithError error: Error) {
+        
+    }
+    
     
     func chechboxButtonDidSelect(_ button: CheckboxButton) {
         
     }
     
     func chechboxButtonDidDeselect(_ button: CheckboxButton) {
-        
+       
     }
     
 
@@ -34,7 +52,9 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
         MobileNumber.setup("Mobile Number")
         signInBtn.isEnabled = false
         Password.setup("Password")
+        checkBox.setTitle("", for: .normal)
         signInBtn.addCornerRadius(12)
+        MobileNumber.keyboardType = .namePhonePad
         checkBox.checkBoxColor = CheckBoxColor.init(activeColor: ColorConfig.baseColor, inactiveColor: UIColor.white, inactiveBorderColor: UIColor.lightGray, checkMarkColor: UIColor.white)
         checkBox.delegate = self
         
@@ -71,9 +91,12 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
     }
     
     @objc func proceedSignUp() {
-        guard let navigationController = self.navigationController else {return}
-        let coodinator = RegistrationCoordinator.init(navigationController: navigationController)
-        coodinator.start()
+        let scannerViewController = ImageScannerController()
+        scannerViewController.imageScannerDelegate = self
+        present(scannerViewController, animated: true)
+//        guard let navigationController = self.navigationController else {return}
+//        let coodinator = RegistrationCoordinator.init(navigationController: navigationController)
+//        coodinator.start()
     }
     
     @objc func proceedSignIn() {

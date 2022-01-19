@@ -38,6 +38,7 @@ PODS:
     - SDWebImage/Core (= 5.12.1)
   - SDWebImage/Core (5.12.1)
   - SwiftyJSON (4.3.0)
+  - WeScan (1.7.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - ObjectMapper
   - SDWebImage (~> 5.0)
   - SwiftyJSON (~> 4.0)
+  - WeScan (>= 0.9)
 
 SPEC REPOS:
   trunk:
@@ -60,6 +62,7 @@ SPEC REPOS:
     - ObjectMapper
     - SDWebImage
     - SwiftyJSON
+    - WeScan
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
@@ -71,7 +74,8 @@ SPEC CHECKSUMS:
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  WeScan: fed582f6c38014d529afb5aa9ffd1bad38fc72b7
 
-PODFILE CHECKSUM: 7a5ab51e32b06ece2283f04f56ce9a47f6832db7
+PODFILE CHECKSUM: 9eb67dc71cf74b33f424ae84c7f53998c047feb0
 
 COCOAPODS: 1.11.2

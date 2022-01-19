@@ -11,15 +11,21 @@ import Alamofire
 
 class SetPasswordViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var confirmShowHide: UIButton!
+    @IBOutlet weak var showHideBtn: UIButton!
     @IBOutlet weak var passwordsValidationContainer: UIView!
     @IBOutlet weak var proceedBtn: UIButton!
     @IBOutlet weak var passwordField: MDCOutlinedTextField!
     @IBOutlet weak var confirmPassword: MDCOutlinedTextField!
     
+    var passwordHidden = true
+    var confirmHidden = true
     var viewModel: SetPasswordViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showHideBtn.setTitle("", for: .normal)
+        confirmShowHide.setTitle("", for: .normal)
         self.proceedBtn.isEnabled = false
         passwordsValidationContainer.layer.borderWidth = 1
         passwordsValidationContainer.layer.borderColor = UIColor.black.withAlphaComponent(0.5).cgColor
@@ -59,6 +65,18 @@ class SetPasswordViewController: UIViewController, Storyboarded {
         }
     }
     
+    @IBAction func showHide(_ sender: UIButton) {
+        switch sender {
+        case showHideBtn:
+            passwordHidden = !passwordHidden
+            self.passwordField.isSecureTextEntry = passwordHidden
+        case confirmShowHide:
+            confirmHidden = !confirmHidden
+            self.confirmPassword.isSecureTextEntry = confirmHidden
+        default:
+            break
+        }
+    }
     
     @objc func textChanged(_ sender: MDCOutlinedTextField) {
         switch sender {

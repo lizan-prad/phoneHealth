@@ -13,7 +13,7 @@ target 'PhoneHealth' do
   pod 'MaterialComponents/TextControls+OutlinedTextFields'
   pod 'KAPinField'
   pod 'MBRadioCheckboxButton'
-
+  pod 'WeScan', '>= 0.9'
 
   target 'PhoneHealthTests' do
     inherit! :search_paths

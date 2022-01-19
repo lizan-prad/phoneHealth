@@ -22,15 +22,48 @@ class UserBasicViewController: UIViewController, Storyboarded {
     var didTapBack: ((Int) -> ())?
     var viewModel: UserBasicViewModel!
     
+    var bloodGroups: [String] = ["A-NEGATIVE", "A-POSITIVE", "AB-NEGATIVE", "AB-POSITIVE", "B-NEGATIVE", "B-POSITIVE", "O-NEGATIVE", "O-POSITIVE"]
+    var feetData = [String]()
+    var inchesData = [String]()
+    var kgData = [String]()
+    
+    var pickerBlood = UIPickerView()
+    var pickerFeet = UIPickerView()
+    var pickerInches = UIPickerView()
+    var pickerKG = UIPickerView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-
+        setupPicker()
+        feetData = (0 ..< 8).map({"\($0)"})
+        inchesData = (0 ..< 13).map({"\($0)"})
+        kgData = (0 ..< 200).map({"\($0)"})
+        nextBtn.isEnabled = false
+    }
+    
+    func setupPicker() {
+        pickerBlood.dataSource = self
+        pickerBlood.delegate = self
+        
+        pickerFeet.dataSource = self
+        pickerFeet.delegate = self
+        
+        pickerInches.dataSource = self
+        pickerInches.delegate = self
+        
+        pickerKG.dataSource = self
+        pickerKG.delegate = self
+        
+        bloodGroup.inputView = pickerBlood
+        feet.inputView = pickerFeet
+        inches.inputView = pickerInches
+        kg.inputView = pickerKG
     }
     
     func setupView() {
        
-        backBtn.addBorder(UIColor.black)
+        backBtn.addBorder(UIColor.lightGray)
         bloodGroup.setup("Blood Group")
         feet.setup("Feet")
         inches.setup("Inches")
@@ -41,12 +74,25 @@ class UserBasicViewController: UIViewController, Storyboarded {
         nextBtn.addTarget(self, action: #selector(actionNext), for: .touchUpInside)
         backBtn.addTarget(self, action: #selector(actionBack), for: .touchUpInside)
         setupLaterBtn.addTarget(self, action: #selector(setupLater), for: .touchUpInside)
+        
+        bloodGroup.addTarget(self, action: #selector(textCHanged(_:)), for: .allEditingEvents)
+        feet.addTarget(self, action: #selector(textCHanged(_:)), for: .allEditingEvents)
+        inches.addTarget(self, action: #selector(textCHanged(_:)), for: .allEditingEvents)
+        kg.addTarget(self, action: #selector(textCHanged(_:)), for: .allEditingEvents)
     }
     
     @objc func setupLater() {
         guard let nav = self.navigationController else {return}
         let coordinator = DashboardCoordinator.init(navigationController: nav)
         appdelegate.window?.rootViewController = coordinator.getMainView()
+    }
+    
+    @objc func textCHanged(_ sender: MDCOutlinedTextField) {
+        self.nextBtn.isEnabled = validate()
+    }
+    
+    func validate() -> Bool {
+        return bloodGroup.text != "" && feet.text != "" && inches.text != "" && kg.text != ""
     }
     
     @objc func actionNext() {
@@ -58,4 +104,56 @@ class UserBasicViewController: UIViewController, Storyboarded {
     }
     
 
+}
+
+extension UserBasicViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch pickerView {
+        case pickerBlood:
+            return bloodGroups.count
+        case pickerFeet:
+            return feetData.count
+        case pickerInches:
+            return inchesData.count
+        case pickerKG:
+            return kgData.count
+        default:
+            return 0
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView {
+        case pickerBlood:
+            return bloodGroups[row]
+        case pickerFeet:
+            return feetData[row]
+        case pickerInches:
+            return inchesData[row]
+        case pickerKG:
+            return kgData[row]
+        default:
+            return ""
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView {
+        case pickerBlood:
+            bloodGroup.text = bloodGroups[row]
+        case pickerFeet:
+            feet.text = feetData[row]
+        case pickerInches:
+            inches.text = inchesData[row]
+        case pickerKG:
+            kg.text = kgData[row]
+        default:
+            break
+        }
+    }
 }

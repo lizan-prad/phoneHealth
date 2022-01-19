@@ -12,11 +12,11 @@ import MBRadioCheckboxButton
 class RegistrationViewController: UIViewController, Storyboarded, CheckboxButtonDelegate {
     
     func chechboxButtonDidSelect(_ button: CheckboxButton) {
-        
+        signUpBtn.isEnabled = (mobileNumberField.text != "" && FullNameField.text != "") && checkBox.isOn
     }
     
     func chechboxButtonDidDeselect(_ button: CheckboxButton) {
-        
+        signUpBtn.isEnabled = (mobileNumberField.text != "" && FullNameField.text != "") && checkBox.isOn
     }
     
 
@@ -34,6 +34,8 @@ class RegistrationViewController: UIViewController, Storyboarded, CheckboxButton
         mobileNumberField.setup("Mobile Number")
         FullNameField.setup("Full Name")
         signUpBtn.addCornerRadius(12)
+        checkBox.setTitle("", for: .normal)
+        mobileNumberField.keyboardType = .phonePad
         checkBox.checkBoxColor = CheckBoxColor.init(activeColor: ColorConfig.baseColor, inactiveColor: UIColor.white, inactiveBorderColor: UIColor.lightGray, checkMarkColor: UIColor.white)
         checkBox.delegate = self
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -44,7 +46,7 @@ class RegistrationViewController: UIViewController, Storyboarded, CheckboxButton
     }
     
     @objc func textChanged(_ sender: MDCOutlinedTextField) {
-        signUpBtn.isEnabled = (mobileNumberField.text != "" && FullNameField.text != "")
+        signUpBtn.isEnabled = (mobileNumberField.text != "" && FullNameField.text != "") && checkBox.isOn
         switch sender {
         case mobileNumberField:
             mobileNumberField.leadingAssistiveLabel.text = (mobileNumberField.text == "") ? "Please enter mobile number" : ""
