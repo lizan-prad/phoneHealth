@@ -59,6 +59,21 @@
 		BE712A6A278AFFED00D7985A /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A69278AFFED00D7985A /* AppointmentTableViewCell.swift */; };
 		BE712A6C278AFFFE00D7985A /* MedicationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A6B278AFFFE00D7985A /* MedicationsTableViewCell.swift */; };
 		BE712A6E278B000500D7985A /* HospitalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE712A6D278B000500D7985A /* HospitalsTableViewCell.swift */; };
+		BE72A81E27B6D50D00FA91B7 /* HealthLockerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A81D27B6D50D00FA91B7 /* HealthLockerViewController.swift */; };
+		BE72A82027B6D51B00FA91B7 /* HealthLocker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72A81F27B6D51B00FA91B7 /* HealthLocker.storyboard */; };
+		BE72A82227B6D52A00FA91B7 /* HealthLockerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A82127B6D52A00FA91B7 /* HealthLockerViewModel.swift */; };
+		BE72A82427B6D53300FA91B7 /* HealthLockerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A82327B6D53300FA91B7 /* HealthLockerCoordinator.swift */; };
+		BE72A82727B6E96F00FA91B7 /* HealthLockerList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72A82627B6E96F00FA91B7 /* HealthLockerList.storyboard */; };
+		BE72A82927B6E97D00FA91B7 /* HealthLockerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A82827B6E97D00FA91B7 /* HealthLockerListViewController.swift */; };
+		BE72A82B27B6EEA200FA91B7 /* HealthLockerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A82A27B6EEA200FA91B7 /* HealthLockerListTableViewCell.swift */; };
+		BE72A82D27B6F3DE00FA91B7 /* HealthLockerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A82C27B6F3DE00FA91B7 /* HealthLockerListViewModel.swift */; };
+		BE72A82F27B6F3ED00FA91B7 /* HealthLockerListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A82E27B6F3ED00FA91B7 /* HealthLockerListCoordinator.swift */; };
+		BE72A83227B6F5AC00FA91B7 /* ConnectHospital.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72A83127B6F5AC00FA91B7 /* ConnectHospital.storyboard */; };
+		BE72A83427B6F5C400FA91B7 /* ConnectHospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A83327B6F5C400FA91B7 /* ConnectHospitalViewController.swift */; };
+		BE72A83627B6F8B800FA91B7 /* ConnectHospitalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A83527B6F8B800FA91B7 /* ConnectHospitalViewModel.swift */; };
+		BE72A83827B6F8CD00FA91B7 /* ConnectHospitalCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A83727B6F8CD00FA91B7 /* ConnectHospitalCoordinator.swift */; };
+		BE72A83A27B6F97700FA91B7 /* ConnectHospitalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A83927B6F97700FA91B7 /* ConnectHospitalTableViewCell.swift */; };
+		BE72A83C27B6F98E00FA91B7 /* ConnectHospitalHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A83B27B6F98E00FA91B7 /* ConnectHospitalHeaderTableViewCell.swift */; };
 		BEA53271279009C80041AAE5 /* HabitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA53270279009C70041AAE5 /* HabitsViewModel.swift */; };
 		BEA53273279009D00041AAE5 /* HabitsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA53272279009D00041AAE5 /* HabitsCoordinator.swift */; };
 		BEB7121F2786C5AB00486FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7121E2786C5AB00486FB3 /* AppDelegate.swift */; };
@@ -158,6 +173,21 @@
 		BE712A69278AFFED00D7985A /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
 		BE712A6B278AFFFE00D7985A /* MedicationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsTableViewCell.swift; sourceTree = "<group>"; };
 		BE712A6D278B000500D7985A /* HospitalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalsTableViewCell.swift; sourceTree = "<group>"; };
+		BE72A81D27B6D50D00FA91B7 /* HealthLockerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLockerViewController.swift; sourceTree = "<group>"; };
+		BE72A81F27B6D51B00FA91B7 /* HealthLocker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HealthLocker.storyboard; sourceTree = "<group>"; };
+		BE72A82127B6D52A00FA91B7 /* HealthLockerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLockerViewModel.swift; sourceTree = "<group>"; };
+		BE72A82327B6D53300FA91B7 /* HealthLockerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLockerCoordinator.swift; sourceTree = "<group>"; };
+		BE72A82627B6E96F00FA91B7 /* HealthLockerList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HealthLockerList.storyboard; sourceTree = "<group>"; };
+		BE72A82827B6E97D00FA91B7 /* HealthLockerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLockerListViewController.swift; sourceTree = "<group>"; };
+		BE72A82A27B6EEA200FA91B7 /* HealthLockerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLockerListTableViewCell.swift; sourceTree = "<group>"; };
+		BE72A82C27B6F3DE00FA91B7 /* HealthLockerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLockerListViewModel.swift; sourceTree = "<group>"; };
+		BE72A82E27B6F3ED00FA91B7 /* HealthLockerListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLockerListCoordinator.swift; sourceTree = "<group>"; };
+		BE72A83127B6F5AC00FA91B7 /* ConnectHospital.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConnectHospital.storyboard; sourceTree = "<group>"; };
+		BE72A83327B6F5C400FA91B7 /* ConnectHospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectHospitalViewController.swift; sourceTree = "<group>"; };
+		BE72A83527B6F8B800FA91B7 /* ConnectHospitalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectHospitalViewModel.swift; sourceTree = "<group>"; };
+		BE72A83727B6F8CD00FA91B7 /* ConnectHospitalCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectHospitalCoordinator.swift; sourceTree = "<group>"; };
+		BE72A83927B6F97700FA91B7 /* ConnectHospitalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectHospitalTableViewCell.swift; sourceTree = "<group>"; };
+		BE72A83B27B6F98E00FA91B7 /* ConnectHospitalHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectHospitalHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		BEA53270279009C70041AAE5 /* HabitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewModel.swift; sourceTree = "<group>"; };
 		BEA53272279009D00041AAE5 /* HabitsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsCoordinator.swift; sourceTree = "<group>"; };
 		BEB7121B2786C5AB00486FB3 /* PhoneHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -383,6 +413,43 @@
 			path = DashBoard;
 			sourceTree = "<group>";
 		};
+		BE72A81A27B6D4EA00FA91B7 /* HealthLocker */ = {
+			isa = PBXGroup;
+			children = (
+				BE72A82527B6E96000FA91B7 /* HealthLockerList */,
+				BE72A81D27B6D50D00FA91B7 /* HealthLockerViewController.swift */,
+				BE72A81F27B6D51B00FA91B7 /* HealthLocker.storyboard */,
+				BE72A82127B6D52A00FA91B7 /* HealthLockerViewModel.swift */,
+				BE72A82327B6D53300FA91B7 /* HealthLockerCoordinator.swift */,
+			);
+			path = HealthLocker;
+			sourceTree = "<group>";
+		};
+		BE72A82527B6E96000FA91B7 /* HealthLockerList */ = {
+			isa = PBXGroup;
+			children = (
+				BE72A82627B6E96F00FA91B7 /* HealthLockerList.storyboard */,
+				BE72A82A27B6EEA200FA91B7 /* HealthLockerListTableViewCell.swift */,
+				BE72A82827B6E97D00FA91B7 /* HealthLockerListViewController.swift */,
+				BE72A82C27B6F3DE00FA91B7 /* HealthLockerListViewModel.swift */,
+				BE72A82E27B6F3ED00FA91B7 /* HealthLockerListCoordinator.swift */,
+			);
+			path = HealthLockerList;
+			sourceTree = "<group>";
+		};
+		BE72A83027B6F59F00FA91B7 /* ConnectHospital */ = {
+			isa = PBXGroup;
+			children = (
+				BE72A83127B6F5AC00FA91B7 /* ConnectHospital.storyboard */,
+				BE72A83327B6F5C400FA91B7 /* ConnectHospitalViewController.swift */,
+				BE72A83527B6F8B800FA91B7 /* ConnectHospitalViewModel.swift */,
+				BE72A83927B6F97700FA91B7 /* ConnectHospitalTableViewCell.swift */,
+				BE72A83B27B6F98E00FA91B7 /* ConnectHospitalHeaderTableViewCell.swift */,
+				BE72A83727B6F8CD00FA91B7 /* ConnectHospitalCoordinator.swift */,
+			);
+			path = ConnectHospital;
+			sourceTree = "<group>";
+		};
 		BEB712122786C5AB00486FB3 = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +551,8 @@
 		BEB7126E2786C79000486FB3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BE72A83027B6F59F00FA91B7 /* ConnectHospital */,
+				BE72A81A27B6D4EA00FA91B7 /* HealthLocker */,
 				BE634D9627974E1600D61FA4 /* Scan */,
 				BE712A5C278AF52D00D7985A /* DashBoard */,
 				BE2030D3278C1DB100C61A48 /* Habit */,
@@ -611,14 +680,17 @@
 			files = (
 				BE712A192789E29600D7985A /* SetPassword.storyboard in Resources */,
 				BE712A53278AF19700D7985A /* UserCronic.storyboard in Resources */,
+				BE72A83227B6F5AC00FA91B7 /* ConnectHospital.storyboard in Resources */,
 				BE070C052789C41300D994C6 /* Otp.storyboard in Resources */,
 				BE2030D5278C1DC100C61A48 /* Habits.storyboard in Resources */,
+				BE72A82727B6E96F00FA91B7 /* HealthLockerList.storyboard in Resources */,
 				BE712A46278ADFCF00D7985A /* UserAllery.storyboard in Resources */,
 				BEB7122B2786C5B000486FB3 /* LaunchScreen.storyboard in Resources */,
 				BE712A3F278AC3FE00D7985A /* UserSteppingConatiner.storyboard in Resources */,
 				BEB712662786C6DD00486FB3 /* Registration.storyboard in Resources */,
 				BE712A5E278AF53C00D7985A /* Dashboard.storyboard in Resources */,
 				BE712A232789F93800D7985A /* UserBasic.storyboard in Resources */,
+				BE72A82027B6D51B00FA91B7 /* HealthLocker.storyboard in Resources */,
 				BE070BFD2789BC8800D994C6 /* Login.storyboard in Resources */,
 				BE634D9827974EF800D61FA4 /* Scan.storyboard in Resources */,
 				BE712A1E2789F1DF00D7985A /* UpdateProfile.storyboard in Resources */,
@@ -762,28 +834,39 @@
 				BE712A6A278AFFED00D7985A /* AppointmentTableViewCell.swift in Sources */,
 				BE712A5B278AF1F100D7985A /* UserCronicCoordinator.swift in Sources */,
 				BE712A202789F51000D7985A /* UpdateProfileViewController.swift in Sources */,
+				BE72A83A27B6F97700FA91B7 /* ConnectHospitalTableViewCell.swift in Sources */,
 				BE712A55278AF1B500D7985A /* UserCronicTableViewCell.swift in Sources */,
 				BE070BFF2789BE2000D994C6 /* LoginViewController.swift in Sources */,
 				BE712A60278AF54500D7985A /* DashboardViewController.swift in Sources */,
 				BE070C092789D03A00D994C6 /* OtpViewController.swift in Sources */,
 				BE712A62278AF55300D7985A /* DashboardCoordinator.swift in Sources */,
 				BE712A2B278AAF6900D7985A /* SetPasswordCoordinator.swift in Sources */,
+				BE72A82F27B6F3ED00FA91B7 /* HealthLockerListCoordinator.swift in Sources */,
+				BE72A83627B6F8B800FA91B7 /* ConnectHospitalViewModel.swift in Sources */,
 				BEB7126D2786C73D00486FB3 /* RegistrationViewModel.swift in Sources */,
 				BE712A6E278B000500D7985A /* HospitalsTableViewCell.swift in Sources */,
 				BE712A6C278AFFFE00D7985A /* MedicationsTableViewCell.swift in Sources */,
 				BE2030D9278C382800C61A48 /* SetPasswordModel.swift in Sources */,
 				BEB712612786C5F000486FB3 /* Coordinator.swift in Sources */,
+				BE72A82D27B6F3DE00FA91B7 /* HealthLockerListViewModel.swift in Sources */,
 				BE712A66278AFFDC00D7985A /* ServicesTableViewCell.swift in Sources */,
+				BE72A81E27B6D50D00FA91B7 /* HealthLockerViewController.swift in Sources */,
 				BEB712602786C5F000486FB3 /* ColorConfig.swift in Sources */,
 				BEB712622786C5F000486FB3 /* NetworkManager.swift in Sources */,
 				BEB712682786C6ED00486FB3 /* RegistrationViewController.swift in Sources */,
 				BE712A2F278AAFDD00D7985A /* UpdateProfileCoordinator.swift in Sources */,
 				BE712A252789FF7800D7985A /* UserBasicViewController.swift in Sources */,
+				BE72A82227B6D52A00FA91B7 /* HealthLockerViewModel.swift in Sources */,
+				BE72A83827B6F8CD00FA91B7 /* ConnectHospitalCoordinator.swift in Sources */,
+				BE72A82B27B6EEA200FA91B7 /* HealthLockerListTableViewCell.swift in Sources */,
 				BE712A1B2789E4E500D7985A /* SetPasswordViewController.swift in Sources */,
 				BEB7125D2786C5F000486FB3 /* URLConfig.swift in Sources */,
+				BE72A82927B6E97D00FA91B7 /* HealthLockerListViewController.swift in Sources */,
 				BE712A41278AC69400D7985A /* UserSteppingViewModel.swift in Sources */,
 				BE712A59278AF1DC00D7985A /* UserCronicViewModel.swift in Sources */,
+				BE72A83427B6F5C400FA91B7 /* ConnectHospitalViewController.swift in Sources */,
 				BEB7126B2786C71800486FB3 /* RegistrationCoodinator.swift in Sources */,
+				BE72A82427B6D53300FA91B7 /* HealthLockerCoordinator.swift in Sources */,
 				BE2030D7278C1DD900C61A48 /* HabitsViewController.swift in Sources */,
 				BE712A48278ADFEB00D7985A /* UserAlleryViewController.swift in Sources */,
 				BE712A68278AFFE600D7985A /* EmergenciesTableViewCell.swift in Sources */,
@@ -796,6 +879,7 @@
 				BE712A27278AAE0600D7985A /* LoginCoodinator.swift in Sources */,
 				BE712A57278AF1CA00D7985A /* UserCronicViewController.swift in Sources */,
 				BE712A33278AB23100D7985A /* UserBasicViewModel.swift in Sources */,
+				BE72A83C27B6F98E00FA91B7 /* ConnectHospitalHeaderTableViewCell.swift in Sources */,
 				BEB7125B2786C5F000486FB3 /* StringConstants.swift in Sources */,
 				BE634D9A27974F2700D61FA4 /* ScanViewController.swift in Sources */,
 				BEB7125A2786C5F000486FB3 /* QueueConfig.swift in Sources */,
