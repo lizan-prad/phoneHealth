@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HospitalCardViewController" customModule="PhoneHealth" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HospitalCardReportsTableViewCell" rowHeight="154" id="KGk-i7-Jjw" customClass="HospitalCardReportsTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="154"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="345" height="154"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgI-BF-fkT">
+                        <rect key="frame" x="10" y="5" width="325" height="144"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="My Reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsz-0s-FMK">
+                                <rect key="frame" x="15" y="10" width="76" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" red="0.27450980390000002" green="0.78823529410000004" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="d2j-YB-EMk">
+                                <rect key="frame" x="10" y="39" width="305" height="90"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jsQ-nu-bar">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="d2j-YB-EMk" firstAttribute="top" secondItem="zsz-0s-FMK" secondAttribute="bottom" constant="12" id="BdL-jZ-g9X"/>
+                            <constraint firstAttribute="trailing" secondItem="d2j-YB-EMk" secondAttribute="trailing" constant="10" id="F4g-OB-jW7"/>
+                            <constraint firstItem="zsz-0s-FMK" firstAttribute="top" secondItem="tgI-BF-fkT" secondAttribute="top" constant="10" id="J8Y-DF-Akj"/>
+                            <constraint firstItem="zsz-0s-FMK" firstAttribute="leading" secondItem="tgI-BF-fkT" secondAttribute="leading" constant="15" id="ryq-1F-VGD"/>
+                            <constraint firstAttribute="bottom" secondItem="d2j-YB-EMk" secondAttribute="bottom" constant="15" id="s1S-mD-sBA"/>
+                            <constraint firstItem="d2j-YB-EMk" firstAttribute="leading" secondItem="tgI-BF-fkT" secondAttribute="leading" constant="10" id="s3T-vs-7zb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.62745098040000002" green="0.81176470590000005" blue="0.81960784310000001" alpha="0.26000000000000001" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="tgI-BF-fkT" secondAttribute="bottom" constant="5" id="agD-YI-5cv"/>
+                    <constraint firstAttribute="trailing" secondItem="tgI-BF-fkT" secondAttribute="trailing" constant="10" id="nOY-N2-HOz"/>
+                    <constraint firstItem="tgI-BF-fkT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="wEt-2M-GeN"/>
+                    <constraint firstItem="tgI-BF-fkT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="xQu-Wh-DOY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionView" destination="d2j-YB-EMk" id="C31-Tv-eLi"/>
+                <outlet property="mainCOntainer" destination="tgI-BF-fkT" id="kYK-sl-8hV"/>
+            </connections>
+            <point key="canvasLocation" x="155.79710144927537" y="150.66964285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

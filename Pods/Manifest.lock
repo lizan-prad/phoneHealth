@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.4)
+  - FSCalendar (2.8.2)
   - IQKeyboardManagerSwift (6.5.9)
   - KAPinField (5.0.2)
   - MaterialComponents/AnimationTiming (124.2.0)
@@ -42,6 +43,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - FSCalendar
   - IQKeyboardManagerSwift
   - KAPinField
   - "MaterialComponents/TextControls+OutlinedTextFields"
@@ -54,6 +56,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - FSCalendar
     - IQKeyboardManagerSwift
     - KAPinField
     - MaterialComponents
@@ -66,6 +69,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   KAPinField: b7c0a68a3887f3a1c42446bfc4cbf76d5abf0f4f
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
@@ -76,6 +80,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   WeScan: fed582f6c38014d529afb5aa9ffd1bad38fc72b7
 
-PODFILE CHECKSUM: 9eb67dc71cf74b33f424ae84c7f53998c047feb0
+PODFILE CHECKSUM: 1c52b7362b1217820ad312e1d352bf64d6fabfa0
 
 COCOAPODS: 1.11.2

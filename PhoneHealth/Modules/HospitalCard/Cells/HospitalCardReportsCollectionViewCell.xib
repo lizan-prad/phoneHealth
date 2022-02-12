@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HospitalCardReportsTableViewCell" customModule="PhoneHealth" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HospitalCardReportsCollectionViewCell" id="gTV-IL-0wX" customClass="HospitalCardReportsCollectionViewCell" customModule="PhoneHealth" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="125" height="154"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="125" height="154"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hbe-J2-nni">
+                        <rect key="frame" x="10" y="10" width="105" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="CK3-ND-hw0"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phx-AY-VDR">
+                        <rect key="frame" x="10" y="116" width="105" height="28"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="phx-AY-VDR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="4Ye-cu-5Ab"/>
+                <constraint firstAttribute="trailing" secondItem="phx-AY-VDR" secondAttribute="trailing" constant="10" id="7eY-c5-Q47"/>
+                <constraint firstAttribute="trailing" secondItem="Hbe-J2-nni" secondAttribute="trailing" constant="10" id="APq-0S-CnW"/>
+                <constraint firstAttribute="bottom" secondItem="phx-AY-VDR" secondAttribute="bottom" constant="10" id="TrX-65-RXz"/>
+                <constraint firstItem="Hbe-J2-nni" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="eIt-5E-daa"/>
+                <constraint firstItem="phx-AY-VDR" firstAttribute="top" secondItem="Hbe-J2-nni" secondAttribute="bottom" constant="6" id="hJf-hs-qaA"/>
+                <constraint firstItem="Hbe-J2-nni" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="uU1-3L-RCg"/>
+            </constraints>
+            <size key="customSize" width="125" height="154"/>
+            <connections>
+                <outlet property="reportImageView" destination="Hbe-J2-nni" id="vxR-WG-ePY"/>
+                <outlet property="reportTitle" destination="phx-AY-VDR" id="6Oj-XT-Ggx"/>
+            </connections>
+            <point key="canvasLocation" x="192.0289855072464" y="148.66071428571428"/>
+        </collectionViewCell>
+    </objects>
+</document>

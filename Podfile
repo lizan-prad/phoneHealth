@@ -14,6 +14,7 @@ target 'PhoneHealth' do
   pod 'KAPinField'
   pod 'MBRadioCheckboxButton'
   pod 'WeScan', '>= 0.9'
+  pod 'FSCalendar'
 
   target 'PhoneHealthTests' do
     inherit! :search_paths

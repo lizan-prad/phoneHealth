@@ -74,6 +74,34 @@
 		BE72A83827B6F8CD00FA91B7 /* ConnectHospitalCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A83727B6F8CD00FA91B7 /* ConnectHospitalCoordinator.swift */; };
 		BE72A83A27B6F97700FA91B7 /* ConnectHospitalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A83927B6F97700FA91B7 /* ConnectHospitalTableViewCell.swift */; };
 		BE72A83C27B6F98E00FA91B7 /* ConnectHospitalHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A83B27B6F98E00FA91B7 /* ConnectHospitalHeaderTableViewCell.swift */; };
+		BE72A83F27B7A44800FA91B7 /* AddConnectHospital.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72A83E27B7A44800FA91B7 /* AddConnectHospital.storyboard */; };
+		BE72A84127B7AC9100FA91B7 /* AddConnectHospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A84027B7AC9100FA91B7 /* AddConnectHospitalViewController.swift */; };
+		BE72A84427B7B38200FA91B7 /* HospitalCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72A84327B7B38200FA91B7 /* HospitalCard.storyboard */; };
+		BE72A84627B7B39100FA91B7 /* HospitalCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A84527B7B39100FA91B7 /* HospitalCardViewController.swift */; };
+		BE72A84A27B7B3DC00FA91B7 /* HospitalCardDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A84827B7B3DC00FA91B7 /* HospitalCardDetailsTableViewCell.swift */; };
+		BE72A84B27B7B3DC00FA91B7 /* HospitalCardDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE72A84927B7B3DC00FA91B7 /* HospitalCardDetailsTableViewCell.xib */; };
+		BE72A85027B7B4E300FA91B7 /* HospitalCardNoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A84E27B7B4E300FA91B7 /* HospitalCardNoticeTableViewCell.swift */; };
+		BE72A85127B7B4E300FA91B7 /* HospitalCardNoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE72A84F27B7B4E300FA91B7 /* HospitalCardNoticeTableViewCell.xib */; };
+		BE72A85427B7B4F300FA91B7 /* HospitalCardLastCheckUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A85227B7B4F300FA91B7 /* HospitalCardLastCheckUpTableViewCell.swift */; };
+		BE72A85527B7B4F300FA91B7 /* HospitalCardLastCheckUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE72A85327B7B4F300FA91B7 /* HospitalCardLastCheckUpTableViewCell.xib */; };
+		BE72A85A27B7B51300FA91B7 /* HospitalCardAppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A85827B7B51300FA91B7 /* HospitalCardAppointmentTableViewCell.swift */; };
+		BE72A85B27B7B51300FA91B7 /* HospitalCardAppointmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE72A85927B7B51300FA91B7 /* HospitalCardAppointmentTableViewCell.xib */; };
+		BE72A85E27B7B52400FA91B7 /* HospitalCardReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A85C27B7B52400FA91B7 /* HospitalCardReportsTableViewCell.swift */; };
+		BE72A85F27B7B52400FA91B7 /* HospitalCardReportsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE72A85D27B7B52400FA91B7 /* HospitalCardReportsTableViewCell.xib */; };
+		BE72A86427B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A86227B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.swift */; };
+		BE72A86527B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE72A86327B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.xib */; };
+		BE72A86727B7F91B00FA91B7 /* HospitalCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A86627B7F91B00FA91B7 /* HospitalCardViewModel.swift */; };
+		BE72A86927B7F92500FA91B7 /* HospitalCardCoordinatoer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A86827B7F92500FA91B7 /* HospitalCardCoordinatoer.swift */; };
+		BE72A86C27B7F98500FA91B7 /* MedicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A86B27B7F98500FA91B7 /* MedicationViewController.swift */; };
+		BE72A86E27B7F98D00FA91B7 /* Medication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72A86D27B7F98D00FA91B7 /* Medication.storyboard */; };
+		BE72A87027B8023200FA91B7 /* MedicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A86F27B8023200FA91B7 /* MedicationViewModel.swift */; };
+		BE72A87227B8023A00FA91B7 /* MedicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A87127B8023A00FA91B7 /* MedicationCoordinator.swift */; };
+		BE72A87527B81F3100FA91B7 /* AddMedication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72A87427B81F3100FA91B7 /* AddMedication.storyboard */; };
+		BE72A87727B81F3F00FA91B7 /* AddMedicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A87627B81F3F00FA91B7 /* AddMedicationViewController.swift */; };
+		BE72A87A27B834D300FA91B7 /* MedicationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A87927B834D300FA91B7 /* MedicationListViewController.swift */; };
+		BE72A87C27B834DC00FA91B7 /* MedicationList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72A87B27B834DC00FA91B7 /* MedicationList.storyboard */; };
+		BE72A88227B8356500FA91B7 /* MedicationListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A88027B8356500FA91B7 /* MedicationListTableViewCell.swift */; };
+		BE72A88327B8356500FA91B7 /* MedicationListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE72A88127B8356500FA91B7 /* MedicationListTableViewCell.xib */; };
 		BEA53271279009C80041AAE5 /* HabitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA53270279009C70041AAE5 /* HabitsViewModel.swift */; };
 		BEA53273279009D00041AAE5 /* HabitsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA53272279009D00041AAE5 /* HabitsCoordinator.swift */; };
 		BEB7121F2786C5AB00486FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7121E2786C5AB00486FB3 /* AppDelegate.swift */; };
@@ -188,6 +216,34 @@
 		BE72A83727B6F8CD00FA91B7 /* ConnectHospitalCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectHospitalCoordinator.swift; sourceTree = "<group>"; };
 		BE72A83927B6F97700FA91B7 /* ConnectHospitalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectHospitalTableViewCell.swift; sourceTree = "<group>"; };
 		BE72A83B27B6F98E00FA91B7 /* ConnectHospitalHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectHospitalHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		BE72A83E27B7A44800FA91B7 /* AddConnectHospital.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddConnectHospital.storyboard; sourceTree = "<group>"; };
+		BE72A84027B7AC9100FA91B7 /* AddConnectHospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConnectHospitalViewController.swift; sourceTree = "<group>"; };
+		BE72A84327B7B38200FA91B7 /* HospitalCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HospitalCard.storyboard; sourceTree = "<group>"; };
+		BE72A84527B7B39100FA91B7 /* HospitalCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCardViewController.swift; sourceTree = "<group>"; };
+		BE72A84827B7B3DC00FA91B7 /* HospitalCardDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCardDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		BE72A84927B7B3DC00FA91B7 /* HospitalCardDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalCardDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		BE72A84E27B7B4E300FA91B7 /* HospitalCardNoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCardNoticeTableViewCell.swift; sourceTree = "<group>"; };
+		BE72A84F27B7B4E300FA91B7 /* HospitalCardNoticeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalCardNoticeTableViewCell.xib; sourceTree = "<group>"; };
+		BE72A85227B7B4F300FA91B7 /* HospitalCardLastCheckUpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCardLastCheckUpTableViewCell.swift; sourceTree = "<group>"; };
+		BE72A85327B7B4F300FA91B7 /* HospitalCardLastCheckUpTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalCardLastCheckUpTableViewCell.xib; sourceTree = "<group>"; };
+		BE72A85827B7B51300FA91B7 /* HospitalCardAppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCardAppointmentTableViewCell.swift; sourceTree = "<group>"; };
+		BE72A85927B7B51300FA91B7 /* HospitalCardAppointmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalCardAppointmentTableViewCell.xib; sourceTree = "<group>"; };
+		BE72A85C27B7B52400FA91B7 /* HospitalCardReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCardReportsTableViewCell.swift; sourceTree = "<group>"; };
+		BE72A85D27B7B52400FA91B7 /* HospitalCardReportsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalCardReportsTableViewCell.xib; sourceTree = "<group>"; };
+		BE72A86227B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCardReportsCollectionViewCell.swift; sourceTree = "<group>"; };
+		BE72A86327B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalCardReportsCollectionViewCell.xib; sourceTree = "<group>"; };
+		BE72A86627B7F91B00FA91B7 /* HospitalCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCardViewModel.swift; sourceTree = "<group>"; };
+		BE72A86827B7F92500FA91B7 /* HospitalCardCoordinatoer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCardCoordinatoer.swift; sourceTree = "<group>"; };
+		BE72A86B27B7F98500FA91B7 /* MedicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationViewController.swift; sourceTree = "<group>"; };
+		BE72A86D27B7F98D00FA91B7 /* Medication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Medication.storyboard; sourceTree = "<group>"; };
+		BE72A86F27B8023200FA91B7 /* MedicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationViewModel.swift; sourceTree = "<group>"; };
+		BE72A87127B8023A00FA91B7 /* MedicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationCoordinator.swift; sourceTree = "<group>"; };
+		BE72A87427B81F3100FA91B7 /* AddMedication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMedication.storyboard; sourceTree = "<group>"; };
+		BE72A87627B81F3F00FA91B7 /* AddMedicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicationViewController.swift; sourceTree = "<group>"; };
+		BE72A87927B834D300FA91B7 /* MedicationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationListViewController.swift; sourceTree = "<group>"; };
+		BE72A87B27B834DC00FA91B7 /* MedicationList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MedicationList.storyboard; sourceTree = "<group>"; };
+		BE72A88027B8356500FA91B7 /* MedicationListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationListTableViewCell.swift; sourceTree = "<group>"; };
+		BE72A88127B8356500FA91B7 /* MedicationListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicationListTableViewCell.xib; sourceTree = "<group>"; };
 		BEA53270279009C70041AAE5 /* HabitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewModel.swift; sourceTree = "<group>"; };
 		BEA53272279009D00041AAE5 /* HabitsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsCoordinator.swift; sourceTree = "<group>"; };
 		BEB7121B2786C5AB00486FB3 /* PhoneHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -440,6 +496,7 @@
 		BE72A83027B6F59F00FA91B7 /* ConnectHospital */ = {
 			isa = PBXGroup;
 			children = (
+				BE72A83D27B7A43100FA91B7 /* AddConnectHospital */,
 				BE72A83127B6F5AC00FA91B7 /* ConnectHospital.storyboard */,
 				BE72A83327B6F5C400FA91B7 /* ConnectHospitalViewController.swift */,
 				BE72A83527B6F8B800FA91B7 /* ConnectHospitalViewModel.swift */,
@@ -448,6 +505,87 @@
 				BE72A83727B6F8CD00FA91B7 /* ConnectHospitalCoordinator.swift */,
 			);
 			path = ConnectHospital;
+			sourceTree = "<group>";
+		};
+		BE72A83D27B7A43100FA91B7 /* AddConnectHospital */ = {
+			isa = PBXGroup;
+			children = (
+				BE72A83E27B7A44800FA91B7 /* AddConnectHospital.storyboard */,
+				BE72A84027B7AC9100FA91B7 /* AddConnectHospitalViewController.swift */,
+			);
+			path = AddConnectHospital;
+			sourceTree = "<group>";
+		};
+		BE72A84227B7B37300FA91B7 /* HospitalCard */ = {
+			isa = PBXGroup;
+			children = (
+				BE72A84727B7B3BB00FA91B7 /* Cells */,
+				BE72A84327B7B38200FA91B7 /* HospitalCard.storyboard */,
+				BE72A84527B7B39100FA91B7 /* HospitalCardViewController.swift */,
+				BE72A86627B7F91B00FA91B7 /* HospitalCardViewModel.swift */,
+				BE72A86827B7F92500FA91B7 /* HospitalCardCoordinatoer.swift */,
+			);
+			path = HospitalCard;
+			sourceTree = "<group>";
+		};
+		BE72A84727B7B3BB00FA91B7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BE72A84827B7B3DC00FA91B7 /* HospitalCardDetailsTableViewCell.swift */,
+				BE72A84E27B7B4E300FA91B7 /* HospitalCardNoticeTableViewCell.swift */,
+				BE72A85227B7B4F300FA91B7 /* HospitalCardLastCheckUpTableViewCell.swift */,
+				BE72A85827B7B51300FA91B7 /* HospitalCardAppointmentTableViewCell.swift */,
+				BE72A85C27B7B52400FA91B7 /* HospitalCardReportsTableViewCell.swift */,
+				BE72A85D27B7B52400FA91B7 /* HospitalCardReportsTableViewCell.xib */,
+				BE72A86227B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.swift */,
+				BE72A86327B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.xib */,
+				BE72A85927B7B51300FA91B7 /* HospitalCardAppointmentTableViewCell.xib */,
+				BE72A85327B7B4F300FA91B7 /* HospitalCardLastCheckUpTableViewCell.xib */,
+				BE72A84F27B7B4E300FA91B7 /* HospitalCardNoticeTableViewCell.xib */,
+				BE72A84927B7B3DC00FA91B7 /* HospitalCardDetailsTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BE72A86A27B7F97100FA91B7 /* Medication */ = {
+			isa = PBXGroup;
+			children = (
+				BE72A87827B834BC00FA91B7 /* MedicationList */,
+				BE72A87327B81F2100FA91B7 /* MedicationAdd */,
+				BE72A86B27B7F98500FA91B7 /* MedicationViewController.swift */,
+				BE72A86F27B8023200FA91B7 /* MedicationViewModel.swift */,
+				BE72A87127B8023A00FA91B7 /* MedicationCoordinator.swift */,
+				BE72A86D27B7F98D00FA91B7 /* Medication.storyboard */,
+			);
+			path = Medication;
+			sourceTree = "<group>";
+		};
+		BE72A87327B81F2100FA91B7 /* MedicationAdd */ = {
+			isa = PBXGroup;
+			children = (
+				BE72A87427B81F3100FA91B7 /* AddMedication.storyboard */,
+				BE72A87627B81F3F00FA91B7 /* AddMedicationViewController.swift */,
+			);
+			path = MedicationAdd;
+			sourceTree = "<group>";
+		};
+		BE72A87827B834BC00FA91B7 /* MedicationList */ = {
+			isa = PBXGroup;
+			children = (
+				BE72A87D27B8353900FA91B7 /* Cell */,
+				BE72A87927B834D300FA91B7 /* MedicationListViewController.swift */,
+				BE72A87B27B834DC00FA91B7 /* MedicationList.storyboard */,
+			);
+			path = MedicationList;
+			sourceTree = "<group>";
+		};
+		BE72A87D27B8353900FA91B7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BE72A88027B8356500FA91B7 /* MedicationListTableViewCell.swift */,
+				BE72A88127B8356500FA91B7 /* MedicationListTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BEB712122786C5AB00486FB3 = {
@@ -551,6 +689,8 @@
 		BEB7126E2786C79000486FB3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BE72A86A27B7F97100FA91B7 /* Medication */,
+				BE72A84227B7B37300FA91B7 /* HospitalCard */,
 				BE72A83027B6F59F00FA91B7 /* ConnectHospital */,
 				BE72A81A27B6D4EA00FA91B7 /* HealthLocker */,
 				BE634D9627974E1600D61FA4 /* Scan */,
@@ -679,20 +819,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE712A192789E29600D7985A /* SetPassword.storyboard in Resources */,
+				BE72A86527B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.xib in Resources */,
 				BE712A53278AF19700D7985A /* UserCronic.storyboard in Resources */,
 				BE72A83227B6F5AC00FA91B7 /* ConnectHospital.storyboard in Resources */,
+				BE72A85B27B7B51300FA91B7 /* HospitalCardAppointmentTableViewCell.xib in Resources */,
+				BE72A83F27B7A44800FA91B7 /* AddConnectHospital.storyboard in Resources */,
 				BE070C052789C41300D994C6 /* Otp.storyboard in Resources */,
+				BE72A85127B7B4E300FA91B7 /* HospitalCardNoticeTableViewCell.xib in Resources */,
 				BE2030D5278C1DC100C61A48 /* Habits.storyboard in Resources */,
 				BE72A82727B6E96F00FA91B7 /* HealthLockerList.storyboard in Resources */,
 				BE712A46278ADFCF00D7985A /* UserAllery.storyboard in Resources */,
+				BE72A84B27B7B3DC00FA91B7 /* HospitalCardDetailsTableViewCell.xib in Resources */,
 				BEB7122B2786C5B000486FB3 /* LaunchScreen.storyboard in Resources */,
+				BE72A85527B7B4F300FA91B7 /* HospitalCardLastCheckUpTableViewCell.xib in Resources */,
 				BE712A3F278AC3FE00D7985A /* UserSteppingConatiner.storyboard in Resources */,
+				BE72A84427B7B38200FA91B7 /* HospitalCard.storyboard in Resources */,
 				BEB712662786C6DD00486FB3 /* Registration.storyboard in Resources */,
+				BE72A87527B81F3100FA91B7 /* AddMedication.storyboard in Resources */,
 				BE712A5E278AF53C00D7985A /* Dashboard.storyboard in Resources */,
 				BE712A232789F93800D7985A /* UserBasic.storyboard in Resources */,
+				BE72A88327B8356500FA91B7 /* MedicationListTableViewCell.xib in Resources */,
 				BE72A82027B6D51B00FA91B7 /* HealthLocker.storyboard in Resources */,
+				BE72A87C27B834DC00FA91B7 /* MedicationList.storyboard in Resources */,
 				BE070BFD2789BC8800D994C6 /* Login.storyboard in Resources */,
+				BE72A86E27B7F98D00FA91B7 /* Medication.storyboard in Resources */,
 				BE634D9827974EF800D61FA4 /* Scan.storyboard in Resources */,
+				BE72A85F27B7B52400FA91B7 /* HospitalCardReportsTableViewCell.xib in Resources */,
 				BE712A1E2789F1DF00D7985A /* UpdateProfile.storyboard in Resources */,
 				BEB712282786C5B000486FB3 /* Assets.xcassets in Resources */,
 			);
@@ -832,17 +984,23 @@
 				BEA53273279009D00041AAE5 /* HabitsCoordinator.swift in Sources */,
 				BE712A43278AC6A800D7985A /* UserSteppingCoordinator.swift in Sources */,
 				BE712A6A278AFFED00D7985A /* AppointmentTableViewCell.swift in Sources */,
+				BE72A87727B81F3F00FA91B7 /* AddMedicationViewController.swift in Sources */,
+				BE72A84627B7B39100FA91B7 /* HospitalCardViewController.swift in Sources */,
 				BE712A5B278AF1F100D7985A /* UserCronicCoordinator.swift in Sources */,
 				BE712A202789F51000D7985A /* UpdateProfileViewController.swift in Sources */,
+				BE72A88227B8356500FA91B7 /* MedicationListTableViewCell.swift in Sources */,
 				BE72A83A27B6F97700FA91B7 /* ConnectHospitalTableViewCell.swift in Sources */,
 				BE712A55278AF1B500D7985A /* UserCronicTableViewCell.swift in Sources */,
 				BE070BFF2789BE2000D994C6 /* LoginViewController.swift in Sources */,
+				BE72A84A27B7B3DC00FA91B7 /* HospitalCardDetailsTableViewCell.swift in Sources */,
 				BE712A60278AF54500D7985A /* DashboardViewController.swift in Sources */,
 				BE070C092789D03A00D994C6 /* OtpViewController.swift in Sources */,
 				BE712A62278AF55300D7985A /* DashboardCoordinator.swift in Sources */,
 				BE712A2B278AAF6900D7985A /* SetPasswordCoordinator.swift in Sources */,
+				BE72A86C27B7F98500FA91B7 /* MedicationViewController.swift in Sources */,
 				BE72A82F27B6F3ED00FA91B7 /* HealthLockerListCoordinator.swift in Sources */,
 				BE72A83627B6F8B800FA91B7 /* ConnectHospitalViewModel.swift in Sources */,
+				BE72A85027B7B4E300FA91B7 /* HospitalCardNoticeTableViewCell.swift in Sources */,
 				BEB7126D2786C73D00486FB3 /* RegistrationViewModel.swift in Sources */,
 				BE712A6E278B000500D7985A /* HospitalsTableViewCell.swift in Sources */,
 				BE712A6C278AFFFE00D7985A /* MedicationsTableViewCell.swift in Sources */,
@@ -853,15 +1011,22 @@
 				BE72A81E27B6D50D00FA91B7 /* HealthLockerViewController.swift in Sources */,
 				BEB712602786C5F000486FB3 /* ColorConfig.swift in Sources */,
 				BEB712622786C5F000486FB3 /* NetworkManager.swift in Sources */,
+				BE72A87027B8023200FA91B7 /* MedicationViewModel.swift in Sources */,
 				BEB712682786C6ED00486FB3 /* RegistrationViewController.swift in Sources */,
+				BE72A85E27B7B52400FA91B7 /* HospitalCardReportsTableViewCell.swift in Sources */,
+				BE72A87A27B834D300FA91B7 /* MedicationListViewController.swift in Sources */,
 				BE712A2F278AAFDD00D7985A /* UpdateProfileCoordinator.swift in Sources */,
+				BE72A87227B8023A00FA91B7 /* MedicationCoordinator.swift in Sources */,
 				BE712A252789FF7800D7985A /* UserBasicViewController.swift in Sources */,
+				BE72A85427B7B4F300FA91B7 /* HospitalCardLastCheckUpTableViewCell.swift in Sources */,
 				BE72A82227B6D52A00FA91B7 /* HealthLockerViewModel.swift in Sources */,
 				BE72A83827B6F8CD00FA91B7 /* ConnectHospitalCoordinator.swift in Sources */,
+				BE72A86427B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.swift in Sources */,
 				BE72A82B27B6EEA200FA91B7 /* HealthLockerListTableViewCell.swift in Sources */,
 				BE712A1B2789E4E500D7985A /* SetPasswordViewController.swift in Sources */,
 				BEB7125D2786C5F000486FB3 /* URLConfig.swift in Sources */,
 				BE72A82927B6E97D00FA91B7 /* HealthLockerListViewController.swift in Sources */,
+				BE72A85A27B7B51300FA91B7 /* HospitalCardAppointmentTableViewCell.swift in Sources */,
 				BE712A41278AC69400D7985A /* UserSteppingViewModel.swift in Sources */,
 				BE712A59278AF1DC00D7985A /* UserCronicViewModel.swift in Sources */,
 				BE72A83427B6F5C400FA91B7 /* ConnectHospitalViewController.swift in Sources */,
@@ -869,7 +1034,10 @@
 				BE72A82427B6D53300FA91B7 /* HealthLockerCoordinator.swift in Sources */,
 				BE2030D7278C1DD900C61A48 /* HabitsViewController.swift in Sources */,
 				BE712A48278ADFEB00D7985A /* UserAlleryViewController.swift in Sources */,
+				BE72A84127B7AC9100FA91B7 /* AddConnectHospitalViewController.swift in Sources */,
+				BE72A86927B7F92500FA91B7 /* HospitalCardCoordinatoer.swift in Sources */,
 				BE712A68278AFFE600D7985A /* EmergenciesTableViewCell.swift in Sources */,
+				BE72A86727B7F91B00FA91B7 /* HospitalCardViewModel.swift in Sources */,
 				BE712A4A278ADFFE00D7985A /* UserAllergyCoordinator.swift in Sources */,
 				BE712A35278AB24700D7985A /* UserBasicCoordinator.swift in Sources */,
 				BE712A64278AF55A00D7985A /* DashboardViewModel.swift in Sources */,

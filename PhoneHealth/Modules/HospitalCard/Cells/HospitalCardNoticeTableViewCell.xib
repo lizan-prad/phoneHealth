@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HospitalCardViewController" customModule="PhoneHealth" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HospitalCardNoticeTableViewCell" rowHeight="121" id="KGk-i7-Jjw" customClass="HospitalCardNoticeTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAL-WB-m9Z">
+                        <rect key="frame" x="10" y="0.0" width="300" height="111"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Notice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n96-i2-DAm">
+                                <rect key="frame" x="20" y="10" width="43.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" red="0.27450980390000002" green="0.78823529410000004" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhY-Do-Ww8">
+                                <rect key="frame" x="20" y="32" width="260" height="43"/>
+                                <string key="text">Visitations are restricted in order to prevent Novel Coronavirus. If you have a special reason to visit the hospital , Please apply in advance.</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                                <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="MxN-B0-gbC">
+                                <rect key="frame" x="92" y="91" width="116" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="NCm-dV-oQP"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="WhY-Do-Ww8" secondAttribute="bottom" constant="36" id="8Ko-tU-UI7"/>
+                            <constraint firstAttribute="trailing" secondItem="WhY-Do-Ww8" secondAttribute="trailing" constant="20" id="FhN-98-4gW"/>
+                            <constraint firstAttribute="bottom" secondItem="MxN-B0-gbC" secondAttribute="bottom" constant="10" id="Qag-mQ-S6G"/>
+                            <constraint firstItem="WhY-Do-Ww8" firstAttribute="top" secondItem="n96-i2-DAm" secondAttribute="bottom" constant="5" id="aeZ-Lk-pAs"/>
+                            <constraint firstItem="n96-i2-DAm" firstAttribute="leading" secondItem="bAL-WB-m9Z" secondAttribute="leading" constant="20" id="gLZ-Dr-kwd"/>
+                            <constraint firstItem="WhY-Do-Ww8" firstAttribute="leading" secondItem="bAL-WB-m9Z" secondAttribute="leading" constant="20" id="igC-jt-1ub"/>
+                            <constraint firstItem="n96-i2-DAm" firstAttribute="top" secondItem="bAL-WB-m9Z" secondAttribute="top" constant="10" id="nSw-f6-B4y"/>
+                            <constraint firstItem="MxN-B0-gbC" firstAttribute="centerX" secondItem="bAL-WB-m9Z" secondAttribute="centerX" id="qrc-kC-Rx1"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.62745098040000002" green="0.81176470590000005" blue="0.81960784310000001" alpha="0.26000000000000001" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstItem="bAL-WB-m9Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="01i-fn-yrO"/>
+                    <constraint firstAttribute="trailing" secondItem="bAL-WB-m9Z" secondAttribute="trailing" constant="10" id="8WZ-gV-nNb"/>
+                    <constraint firstItem="bAL-WB-m9Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Aiu-03-iOF"/>
+                    <constraint firstAttribute="bottom" secondItem="bAL-WB-m9Z" secondAttribute="bottom" constant="10" id="f8t-Vz-K9n"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="hospitalNoticeLabel" destination="WhY-Do-Ww8" id="JAC-OG-bg1"/>
+                <outlet property="noticeCOnatiner" destination="bAL-WB-m9Z" id="T9b-y6-Z9h"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="138.95089285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

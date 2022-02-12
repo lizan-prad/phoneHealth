@@ -13,7 +13,7 @@ let appdelegate = UIApplication.shared.delegate as! AppDelegate
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var coordinator: LoginCoordinator?
+    var coordinator: MedicationCoordinator?
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         let navController = UINavigationController()
-        coordinator = LoginCoordinator(navigationController: navController)
+        coordinator = MedicationCoordinator(navigationController: navController)//LoginCoordinator(navigationController: navController)
 
         coordinator?.start()
 
