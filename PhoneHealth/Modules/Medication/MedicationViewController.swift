@@ -16,14 +16,41 @@ class MedicationViewController: UIViewController, Storyboarded {
     @IBOutlet weak var calender: FSCalendar!
     @IBOutlet weak var currentDate: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addBtn: UIButton!
+    
     let dateFormatter = DateFormatter()
     
     var viewModel: MedicationViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+        self.navigationItem.title = "Medications"
+        setupCells()
         dateFormatter.dateFormat = "EEE dd MMM"
-        self.setup()
+        setup()
+        setupViews()
+    }
+    
+    func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    func setupViews() {
+        addBtn.rounded()
+        addBtn.setTitle("", for: .normal)
+    }
+    
+    func setupCells() {
+        tableView.register(UINib.init(nibName: "MedicationListTableViewCell", bundle: nil), forCellReuseIdentifier: "MedicationListTableViewCell")
+    }
+    
+    @IBAction func addAction(_ sender: Any) {
+        guard let nav = self.navigationController else {return}
+        let coordinator = AddMedicationCoordinator.init(navigationController: nav)
+        coordinator.start()
     }
     
     func setup() {
@@ -53,9 +80,20 @@ class MedicationViewController: UIViewController, Storyboarded {
 extension MedicationViewController:  FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        
-        
         self.currentDate.text = dateFormatter.string(from: date)
     }
     
+}
+
+extension MedicationViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MedicationListTableViewCell") as! MedicationListTableViewCell
+        cell.setupViews()
+        return cell
+    }
 }

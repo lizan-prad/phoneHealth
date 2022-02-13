@@ -18,6 +18,8 @@
 		BE2030D5278C1DC100C61A48 /* Habits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2030D4278C1DC100C61A48 /* Habits.storyboard */; };
 		BE2030D7278C1DD900C61A48 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2030D6278C1DD900C61A48 /* HabitsViewController.swift */; };
 		BE2030D9278C382800C61A48 /* SetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2030D8278C382800C61A48 /* SetPasswordModel.swift */; };
+		BE2C2E2227B8D7FE008C878A /* AddMedicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C2E2127B8D7FE008C878A /* AddMedicationViewModel.swift */; };
+		BE2C2E2427B8D809008C878A /* AddMedicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C2E2327B8D809008C878A /* AddMedicationCoordinator.swift */; };
 		BE634D9827974EF800D61FA4 /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE634D9727974EF800D61FA4 /* Scan.storyboard */; };
 		BE634D9A27974F2700D61FA4 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE634D9927974F2700D61FA4 /* ScanViewController.swift */; };
 		BE712A192789E29600D7985A /* SetPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE712A182789E29600D7985A /* SetPassword.storyboard */; };
@@ -98,8 +100,6 @@
 		BE72A87227B8023A00FA91B7 /* MedicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A87127B8023A00FA91B7 /* MedicationCoordinator.swift */; };
 		BE72A87527B81F3100FA91B7 /* AddMedication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72A87427B81F3100FA91B7 /* AddMedication.storyboard */; };
 		BE72A87727B81F3F00FA91B7 /* AddMedicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A87627B81F3F00FA91B7 /* AddMedicationViewController.swift */; };
-		BE72A87A27B834D300FA91B7 /* MedicationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A87927B834D300FA91B7 /* MedicationListViewController.swift */; };
-		BE72A87C27B834DC00FA91B7 /* MedicationList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72A87B27B834DC00FA91B7 /* MedicationList.storyboard */; };
 		BE72A88227B8356500FA91B7 /* MedicationListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72A88027B8356500FA91B7 /* MedicationListTableViewCell.swift */; };
 		BE72A88327B8356500FA91B7 /* MedicationListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE72A88127B8356500FA91B7 /* MedicationListTableViewCell.xib */; };
 		BEA53271279009C80041AAE5 /* HabitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA53270279009C70041AAE5 /* HabitsViewModel.swift */; };
@@ -160,6 +160,8 @@
 		BE2030D4278C1DC100C61A48 /* Habits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Habits.storyboard; sourceTree = "<group>"; };
 		BE2030D6278C1DD900C61A48 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 		BE2030D8278C382800C61A48 /* SetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordModel.swift; sourceTree = "<group>"; };
+		BE2C2E2127B8D7FE008C878A /* AddMedicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicationViewModel.swift; sourceTree = "<group>"; };
+		BE2C2E2327B8D809008C878A /* AddMedicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicationCoordinator.swift; sourceTree = "<group>"; };
 		BE634D9727974EF800D61FA4 /* Scan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Scan.storyboard; sourceTree = "<group>"; };
 		BE634D9927974F2700D61FA4 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		BE712A182789E29600D7985A /* SetPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetPassword.storyboard; sourceTree = "<group>"; };
@@ -240,8 +242,6 @@
 		BE72A87127B8023A00FA91B7 /* MedicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationCoordinator.swift; sourceTree = "<group>"; };
 		BE72A87427B81F3100FA91B7 /* AddMedication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMedication.storyboard; sourceTree = "<group>"; };
 		BE72A87627B81F3F00FA91B7 /* AddMedicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicationViewController.swift; sourceTree = "<group>"; };
-		BE72A87927B834D300FA91B7 /* MedicationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationListViewController.swift; sourceTree = "<group>"; };
-		BE72A87B27B834DC00FA91B7 /* MedicationList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MedicationList.storyboard; sourceTree = "<group>"; };
 		BE72A88027B8356500FA91B7 /* MedicationListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationListTableViewCell.swift; sourceTree = "<group>"; };
 		BE72A88127B8356500FA91B7 /* MedicationListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicationListTableViewCell.xib; sourceTree = "<group>"; };
 		BEA53270279009C70041AAE5 /* HabitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewModel.swift; sourceTree = "<group>"; };
@@ -550,7 +550,7 @@
 		BE72A86A27B7F97100FA91B7 /* Medication */ = {
 			isa = PBXGroup;
 			children = (
-				BE72A87827B834BC00FA91B7 /* MedicationList */,
+				BE72A87D27B8353900FA91B7 /* Cell */,
 				BE72A87327B81F2100FA91B7 /* MedicationAdd */,
 				BE72A86B27B7F98500FA91B7 /* MedicationViewController.swift */,
 				BE72A86F27B8023200FA91B7 /* MedicationViewModel.swift */,
@@ -565,18 +565,10 @@
 			children = (
 				BE72A87427B81F3100FA91B7 /* AddMedication.storyboard */,
 				BE72A87627B81F3F00FA91B7 /* AddMedicationViewController.swift */,
+				BE2C2E2127B8D7FE008C878A /* AddMedicationViewModel.swift */,
+				BE2C2E2327B8D809008C878A /* AddMedicationCoordinator.swift */,
 			);
 			path = MedicationAdd;
-			sourceTree = "<group>";
-		};
-		BE72A87827B834BC00FA91B7 /* MedicationList */ = {
-			isa = PBXGroup;
-			children = (
-				BE72A87D27B8353900FA91B7 /* Cell */,
-				BE72A87927B834D300FA91B7 /* MedicationListViewController.swift */,
-				BE72A87B27B834DC00FA91B7 /* MedicationList.storyboard */,
-			);
-			path = MedicationList;
 			sourceTree = "<group>";
 		};
 		BE72A87D27B8353900FA91B7 /* Cell */ = {
@@ -840,7 +832,6 @@
 				BE712A232789F93800D7985A /* UserBasic.storyboard in Resources */,
 				BE72A88327B8356500FA91B7 /* MedicationListTableViewCell.xib in Resources */,
 				BE72A82027B6D51B00FA91B7 /* HealthLocker.storyboard in Resources */,
-				BE72A87C27B834DC00FA91B7 /* MedicationList.storyboard in Resources */,
 				BE070BFD2789BC8800D994C6 /* Login.storyboard in Resources */,
 				BE72A86E27B7F98D00FA91B7 /* Medication.storyboard in Resources */,
 				BE634D9827974EF800D61FA4 /* Scan.storyboard in Resources */,
@@ -1014,7 +1005,6 @@
 				BE72A87027B8023200FA91B7 /* MedicationViewModel.swift in Sources */,
 				BEB712682786C6ED00486FB3 /* RegistrationViewController.swift in Sources */,
 				BE72A85E27B7B52400FA91B7 /* HospitalCardReportsTableViewCell.swift in Sources */,
-				BE72A87A27B834D300FA91B7 /* MedicationListViewController.swift in Sources */,
 				BE712A2F278AAFDD00D7985A /* UpdateProfileCoordinator.swift in Sources */,
 				BE72A87227B8023A00FA91B7 /* MedicationCoordinator.swift in Sources */,
 				BE712A252789FF7800D7985A /* UserBasicViewController.swift in Sources */,
@@ -1031,6 +1021,7 @@
 				BE712A59278AF1DC00D7985A /* UserCronicViewModel.swift in Sources */,
 				BE72A83427B6F5C400FA91B7 /* ConnectHospitalViewController.swift in Sources */,
 				BEB7126B2786C71800486FB3 /* RegistrationCoodinator.swift in Sources */,
+				BE2C2E2227B8D7FE008C878A /* AddMedicationViewModel.swift in Sources */,
 				BE72A82427B6D53300FA91B7 /* HealthLockerCoordinator.swift in Sources */,
 				BE2030D7278C1DD900C61A48 /* HabitsViewController.swift in Sources */,
 				BE712A48278ADFEB00D7985A /* UserAlleryViewController.swift in Sources */,
@@ -1053,6 +1044,7 @@
 				BEB7125A2786C5F000486FB3 /* QueueConfig.swift in Sources */,
 				BEB7121F2786C5AB00486FB3 /* AppDelegate.swift in Sources */,
 				BEB7125E2786C5F000486FB3 /* UI+Extensions.swift in Sources */,
+				BE2C2E2427B8D809008C878A /* AddMedicationCoordinator.swift in Sources */,
 				BE712A29278AAE3200D7985A /* LoginViewModel.swift in Sources */,
 				BE2030D2278C07AA00C61A48 /* OtpModel.swift in Sources */,
 				BE712A3C278AC36F00D7985A /* UserSteppingConatinerViewController.swift in Sources */,
