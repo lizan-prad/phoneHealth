@@ -11,6 +11,7 @@ import ObjectMapper
 class OtpModel: Mappable {
     
     var otp: Int?
+    var number: String?
     
     required init?(map: Map) {
         

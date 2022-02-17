@@ -93,7 +93,7 @@ extension MDCOutlinedTextField {
         self.containerRadius = 12
         self.setLeadingAssistiveLabelColor(UIColor.red, for: .editing)
         self.setLeadingAssistiveLabelColor(UIColor.red, for: .normal)
-        self.font = UIFont.systemFont(ofSize: 14)
+        self.font = UIFont.systemFont(ofSize: 13)
         self.setFloatingLabelColor(UIColor.init(hex: "46C9BD"), for: MDCTextControlState.editing)
         self.setNormalLabelColor(UIColor.gray, for: .normal)
     }

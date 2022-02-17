@@ -21,16 +21,22 @@ class UserAlleryViewController: UIViewController, Storyboarded, UITableViewDataS
     
     var didTapNext: ((Int) -> ())?
     var didTapBack: ((Int) -> ())?
+    var delegate: HealthProfileUpdateDelegate?
     
-    var selectedAllergies = [String]()
+    var selectedAllergies = [DynamicUserDataModel?]()
     
-    var allergies: [String] {
-        return ["Grass and tree pollen", "Dust Mites", "Animal Dander, Hair, etc", "Food: Egg, nuts, shelfish", "Latex: gloves, condoms, etc", "Chemicals: Detergent"]
+    var allergies: [DynamicUserDataModel]? {
+        didSet {
+            tableViewHeight.constant = CGFloat((self.allergies?.count ?? 0)*50)
+            self.tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        bindViewModel()
+        self.viewModel.fetchAllergies()
         self.yesRadio.setTitle("", for: .normal)
         self.noRadio.setTitle("", for: .normal)
         self.yesRadio.isOn = true
@@ -42,7 +48,18 @@ class UserAlleryViewController: UIViewController, Storyboarded, UITableViewDataS
         backBtn.addTarget(self, action: #selector(actionBack), for: .touchUpInside)
         yesRadio.addTarget(self, action: #selector(didChangeRadioBtn(_:)), for: .touchUpInside)
         noRadio.addTarget(self, action: #selector(didChangeRadioBtn(_:)), for: .touchUpInside)
-        tableViewHeight.constant = CGFloat(self.allergies.count*50)
+    }
+    
+    func bindViewModel() {
+        self.viewModel.allergies.bind { models in
+            self.allergies = models
+        }
+        
+        self.viewModel.error.bind { error in
+            self.showAlert(title: nil, message: error?.localizedDescription) { _ in
+                
+            }
+        }
     }
     
     @objc func didChangeRadioBtn(_ sender: RadioButton) {
@@ -70,6 +87,10 @@ class UserAlleryViewController: UIViewController, Storyboarded, UITableViewDataS
     }
     
     @objc func actionNext() {
+        let model = self.viewModel.model
+        model?.haveAllergies = self.yesRadio.isOn ? "Y" : "N"
+        model?.userAllergyInfo = self.selectedAllergies.map({AllergyDetailModel.init(allergyId: $0?.value, allergyName: $0?.label, isPrimary: "N", status: "N")})
+        self.delegate?.didUpdatePage(index: 2, model: model)
         self.didTapNext?(2)
     }
     
@@ -86,7 +107,7 @@ class UserAlleryViewController: UIViewController, Storyboarded, UITableViewDataS
     }
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allergies.count
+        return allergies?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,20 +117,21 @@ class UserAlleryViewController: UIViewController, Storyboarded, UITableViewDataS
         cell.contentView.addBorder(UIColor.black.withAlphaComponent(0.2))
         cell.contentView.addCornerRadius(12)
         cell.checkBox.isOn = false
+        cell.index = indexPath.row
         cell.checkBox.delegate = cell
         cell.didSelectDeselect = { (index, status) in
             if status {
-                self.selectedAllergies.append(self.allergies[index ?? 0])
+                self.selectedAllergies.append(self.allergies?[index ?? 0])
                 self.nextBtn.isEnabled = self.validate()
             } else {
                 if self.selectedAllergies.count != 0 {
-                let removingIndex: Int = self.selectedAllergies.enumerated().filter({$0.element == self.allergies[index ?? 0]}).map({$0.offset}).first ?? 0
+                    let removingIndex: Int = self.selectedAllergies.enumerated().filter({$0.element?.value == self.allergies?[index ?? 0].value}).map({$0.offset}).first ?? 0
                 self.selectedAllergies.remove(at: removingIndex)
                 self.nextBtn.isEnabled = self.validate()
                 }
             }
         }
-        cell.allergyTitle.text = allergies[indexPath.row]
+        cell.allergyTitle.text = allergies?[indexPath.row].label
         return cell
     }
 

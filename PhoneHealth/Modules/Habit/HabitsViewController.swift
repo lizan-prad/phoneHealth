@@ -24,8 +24,19 @@ class HabitsViewController: UIViewController, Storyboarded {
    
     var didTapNext: ((Int) -> ())?
     var didTapBack: ((Int) -> ())?
+    var delegate: HealthProfileUpdateDelegate?
     
-    var foodTypeData = ["Non-vegetarian", "Vegan", "Vegetarian"]
+    var foodTypeData: [DynamicUserDataModel]? {
+        didSet {
+            self.foodTypePicker.reloadAllComponents()
+        }
+    }
+    var selectedFoodType: DynamicUserDataModel? {
+        didSet {
+            foodType.text = selectedFoodType?.label
+        }
+    }
+    
     var foodFrequency = ["1-2 meals/week", "3-5 meals/week", "More than 7 meals/week"]
     
     var snokeFrequency = ["1-2/day", "3-5/day", "5-10/day", "more than 10/day"]
@@ -42,6 +53,8 @@ class HabitsViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setup()
         setupPicker()
+        bindViewModel()
+        self.viewModel.fetchFoodType()
         self.smokeNoRadio.isOn = true
         self.smokeYesRadio.isOn = false
         
@@ -51,6 +64,17 @@ class HabitsViewController: UIViewController, Storyboarded {
         nextBtn.addTarget(self, action: #selector(actionNext), for: .touchUpInside)
         backBtn.addTarget(self, action: #selector(actionBack), for: .touchUpInside)
         nextBtn.isEnabled = false
+    }
+    
+    func bindViewModel() {
+        self.viewModel.foodType.bind { models in
+            self.foodTypeData = models
+        }
+        self.viewModel.error.bind { error in
+            self.showAlert(title: nil, message: error?.localizedDescription) { _ in
+                
+            }
+        }
     }
     
     func setupPicker() {
@@ -73,9 +97,20 @@ class HabitsViewController: UIViewController, Storyboarded {
     }
     
     @objc func actionNext() {
+        let model = self.viewModel.model
+        model?.foodTypeId = self.selectedFoodType?.value
+        model?.alcoholFrequency = self.drinkFrequency.text
+        model?.doYouDrinkAlcohol = self.drinkYesRadio.isOn ? "Y" : "N"
+        model?.doYouSmoke = self.smokeYesRadio.isOn ? "Y" : "N"
+        model?.smokeFrequency = self.smokeFrequency.text
+        model?.junkFoodFrequency = self.eatFrequency.text
         guard let nav = self.navigationController else {return}
-        let coordinator = DashboardCoordinator.init(navigationController: nav)
-        appdelegate.window?.rootViewController = coordinator.getMainView()
+        let coordinator = ProfileConfirmationCoordinator.init(navigationController: nav, model: model)
+        coordinator.start()
+        
+//        guard let nav = self.navigationController else {return}
+//        let coordinator = DashboardCoordinator.init(navigationController: nav)
+//        appdelegate.window?.rootViewController = coordinator.getMainView()
     }
     
     @objc func actionBack() {
@@ -164,7 +199,7 @@ extension HabitsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView {
         case foodTypePicker:
-            return foodTypeData.count
+            return foodTypeData?.count ?? 0
         case foodPicker:
             return foodFrequency.count
         case smokePicker:
@@ -179,7 +214,7 @@ extension HabitsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView {
         case foodTypePicker:
-            return foodTypeData[row]
+            return foodTypeData?[row].label
         case foodPicker:
             return foodFrequency[row]
         case smokePicker:
@@ -195,7 +230,7 @@ extension HabitsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         nextBtn.isEnabled = validate()
         switch pickerView {
         case foodTypePicker:
-            foodType.text = foodTypeData[row]
+            self.selectedFoodType = foodTypeData?[row]
         case foodPicker:
             eatFrequency.text = foodFrequency[row]
         case smokePicker:

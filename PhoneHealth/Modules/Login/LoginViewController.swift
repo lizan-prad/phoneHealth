@@ -64,9 +64,9 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
         viewModel.loginModel.bind { model in
             UserDefaults.standard.set(model?.token, forKey: "AT")
             UserDefaults.standard.set(model?.username, forKey: "Mobile")
-            guard let nav = self.navigationController else {return}
-            let coordinator = DashboardCoordinator.init(navigationController: nav)
-            appdelegate.window?.rootViewController = coordinator.getMainView()
+           
+            let vc = UIStoryboard.init(name: "BaseTabbar", bundle: nil).instantiateViewController(withIdentifier: "BaseTabbarViewController") as! BaseTabbarViewController
+            appdelegate.window?.rootViewController = vc
         }
         
         viewModel.error.bind { error in
@@ -91,12 +91,9 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
     }
     
     @objc func proceedSignUp() {
-        let scannerViewController = ImageScannerController()
-        scannerViewController.imageScannerDelegate = self
-        present(scannerViewController, animated: true)
-//        guard let navigationController = self.navigationController else {return}
-//        let coodinator = RegistrationCoordinator.init(navigationController: navigationController)
-//        coodinator.start()
+        guard let navigationController = self.navigationController else {return}
+        let coodinator = RegistrationCoordinator.init(navigationController: navigationController)
+        coodinator.start()
     }
     
     @objc func proceedSignIn() {

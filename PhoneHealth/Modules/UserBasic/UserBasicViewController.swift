@@ -8,6 +8,40 @@
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
+struct AllergyDetailModel {
+    var allergyId: Int?
+    var allergyName: String?
+    var isPrimary: String?
+    var status: String?
+}
+
+struct DiseaseDetailModel {
+    var diseaseId: Int?
+    var diseaseName: String?
+    var isPrimary: String?
+    var status: String?
+}
+
+class HealthProfileModel {
+    var alcoholFrequency: String?
+    var bloodGroupId: Int?
+    var doYouDrinkAlcohol: String?
+    var doYouSmoke: String?
+    var foodTypeId: Int?
+    var haveAllergies: String?
+    var haveCronicDease: String?
+    var height: String?
+    var junkFoodFrequency: String?
+    var smokeFrequency: String?
+    var userAllergyInfo: [AllergyDetailModel]?
+    var userDiseaseInfo: [DiseaseDetailModel]?
+    var weight: String?
+}
+
+protocol HealthProfileUpdateDelegate {
+    func didUpdatePage(index: Int, model: HealthProfileModel?)
+}
+
 class UserBasicViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var bloodGroup: MDCOutlinedTextField!
@@ -21,8 +55,20 @@ class UserBasicViewController: UIViewController, Storyboarded {
     var didTapNext: ((Int) -> ())?
     var didTapBack: ((Int) -> ())?
     var viewModel: UserBasicViewModel!
+    var delegate: HealthProfileUpdateDelegate?
     
-    var bloodGroups: [String] = ["A-NEGATIVE", "A-POSITIVE", "AB-NEGATIVE", "AB-POSITIVE", "B-NEGATIVE", "B-POSITIVE", "O-NEGATIVE", "O-POSITIVE"]
+    var bloodGroups: [DynamicUserDataModel]? {
+        didSet {
+            pickerBlood.reloadAllComponents()
+        }
+    }
+    
+    var selectedBloodGroup: DynamicUserDataModel? {
+        didSet {
+            bloodGroup.text = selectedBloodGroup?.label
+        }
+    }
+    
     var feetData = [String]()
     var inchesData = [String]()
     var kgData = [String]()
@@ -35,11 +81,19 @@ class UserBasicViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        bindViewModel()
+        viewModel.fetchBloodGroups()
         setupPicker()
         feetData = (0 ..< 8).map({"\($0)"})
         inchesData = (0 ..< 13).map({"\($0)"})
         kgData = (0 ..< 200).map({"\($0)"})
         nextBtn.isEnabled = false
+    }
+    
+    func bindViewModel() {
+        viewModel.bloodGroups.bind { models in
+            self.bloodGroups = models
+        }
     }
     
     func setupPicker() {
@@ -96,6 +150,11 @@ class UserBasicViewController: UIViewController, Storyboarded {
     }
     
     @objc func actionNext() {
+        let model = HealthProfileModel()
+        model.bloodGroupId = self.selectedBloodGroup?.value
+        model.weight = self.kg.text
+        model.height = "\(self.feet.text ?? "").\(self.inches.text ?? "")"
+        self.delegate?.didUpdatePage(index: 1, model: model)
         self.didTapNext?(1)
     }
     
@@ -115,7 +174,7 @@ extension UserBasicViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView {
         case pickerBlood:
-            return bloodGroups.count
+            return bloodGroups?.count ?? 0
         case pickerFeet:
             return feetData.count
         case pickerInches:
@@ -130,7 +189,7 @@ extension UserBasicViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView {
         case pickerBlood:
-            return bloodGroups[row]
+            return bloodGroups?[row].label
         case pickerFeet:
             return feetData[row]
         case pickerInches:
@@ -145,7 +204,7 @@ extension UserBasicViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView {
         case pickerBlood:
-            bloodGroup.text = bloodGroups[row]
+            self.selectedBloodGroup = bloodGroups?[row]
         case pickerFeet:
             feet.text = feetData[row]
         case pickerInches:

@@ -10,7 +10,7 @@ import CoreData
 
 enum URLConfig {
     
-    static let baseUrl = "https://uat-fonehealthapp-api.cogenthealth.com.np/fonehealth/api/v1/"
+    static let baseUrl = "https://uat-fonehealthapp-api.cogenthealth.com.np/fonehealth-app/api/v1/"
     static let apiKey = "fsq3j9q7oWWvICR6BzHmAo/cP6APlcP2SgONl6p3Rl4EyHk="
     
     enum Modules {

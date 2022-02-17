@@ -35,6 +35,10 @@ class HealthLockerViewController: UIViewController, Storyboarded {
         saveBtn.layer.cornerRadius = 12
         selectDocBtn.layer.cornerRadius = 4
         closeBtn.setTitle("", for: .normal)
+        
+//        let scannerViewController = ImageScannerController()
+//        scannerViewController.imageScannerDelegate = self
+//        present(scannerViewController, animated: true)
     }
 
 

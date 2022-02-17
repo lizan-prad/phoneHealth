@@ -7,7 +7,8 @@
 
 import UIKit
 
-class UserSteppingConatinerViewController: UIViewController, Storyboarded {
+class UserSteppingConatinerViewController: UIViewController, Storyboarded, HealthProfileUpdateDelegate {
+    
 
     @IBOutlet weak var s5lbl: UILabel!
     @IBOutlet weak var s4lbl: UILabel!
@@ -35,6 +36,7 @@ class UserSteppingConatinerViewController: UIViewController, Storyboarded {
         guard let nav = self.navigationController else {return UserBasicViewController()}
         let coordinator = UserBasicCoordinator.init(navigationController: nav)
         let vc = coordinator.getMainView()
+        vc.delegate = self
         vc.didTapNext = { index in
             self.step1.addBorder(.clear)
             self.step1.backgroundColor = ColorConfig.baseColor
@@ -55,8 +57,8 @@ class UserSteppingConatinerViewController: UIViewController, Storyboarded {
         guard let nav = self.navigationController else {return UserAlleryViewController()}
         let coordinator = UserAllergyCoordinator.init(navigationController: nav)
         let vc = coordinator.getMainView()
-        
-        
+        vc.viewModel.model = self.viewModel.model
+        vc.delegate = self
         vc.didTapBack = { _ in
             self.s1Lbl.textColor = ColorConfig.baseColor
             self.s2lbl.textColor = .white
@@ -86,8 +88,8 @@ class UserSteppingConatinerViewController: UIViewController, Storyboarded {
         guard let nav = self.navigationController else {return UserCronicViewController()}
         let coordinator = UserCronicCoordinator.init(navigationController: nav)
         let vc = coordinator.getMainView()
-        
-        
+        vc.viewModel.model = self.viewModel.model
+        vc.delegate = self
         vc.didTapBack = { _ in
             self.s3lbl.textColor = .white
             self.s2lbl.textColor = ColorConfig.baseColor
@@ -117,8 +119,8 @@ class UserSteppingConatinerViewController: UIViewController, Storyboarded {
         guard let nav = self.navigationController else {return HabitsViewController()}
         let coordinator = HabitsCoordinator.init(navigationController: nav)
         let vc = coordinator.getMainView()
-        
-        
+        vc.viewModel.model = self.viewModel.model
+        vc.delegate = self
         vc.didTapBack = { _ in
             self.s4lbl.textColor = .white
             self.s3lbl.textColor = ColorConfig.baseColor
@@ -135,6 +137,10 @@ class UserSteppingConatinerViewController: UIViewController, Storyboarded {
         }
         
         return vc
+    }
+    
+    func didUpdatePage(index: Int, model: HealthProfileModel?) {
+        self.viewModel.model = model
     }
     
     

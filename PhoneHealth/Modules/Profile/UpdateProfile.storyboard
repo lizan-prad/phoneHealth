@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAd-ca-LGF">
-                                        <rect key="frame" x="0.0" y="0.0" width="424" height="721"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="424" height="961"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="9AC-a1-uA5">
                                                 <rect key="frame" x="154.5" y="30" width="115" height="115"/>
@@ -46,7 +46,7 @@
                                                 </buttonConfiguration>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="40D-a7-EUh">
-                                                <rect key="frame" x="30" y="227" width="364" height="316"/>
+                                                <rect key="frame" x="30" y="227" width="364" height="556"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HuJ-zK-tow" customClass="MDCOutlinedTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
@@ -68,7 +68,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="S9b-5e-AVq">
-                                                        <rect key="frame" x="0.0" y="80" width="364" height="236"/>
+                                                        <rect key="frame" x="0.0" y="80" width="364" height="476"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lBc-Sj-22M">
                                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="76"/>
@@ -129,15 +129,72 @@
                                                                     </stackView>
                                                                 </subviews>
                                                             </stackView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pHu-eC-84k" customClass="MDCOutlinedTextField">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYb-Oa-ZDQ" customClass="MDCOutlinedTextField">
                                                                 <rect key="frame" x="0.0" y="106" width="364" height="50"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Gii-dI-KuQ">
+                                                                        <rect key="frame" x="333" y="19.5" width="15" height="11"/>
+                                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="15" id="2bn-Z1-aKj"/>
+                                                                            <constraint firstAttribute="height" constant="15" id="Njj-op-ipf"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="FFy-ZG-OcJ"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="Nnu-Oe-dGd"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Gii-dI-KuQ" secondAttribute="trailing" constant="16" id="Oyz-Tx-fXY"/>
+                                                                    <constraint firstItem="Gii-dI-KuQ" firstAttribute="centerY" secondItem="vYb-Oa-ZDQ" secondAttribute="centerY" id="qxJ-ld-N9x"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96F-AW-Ew2" customClass="MDCOutlinedTextField">
+                                                                <rect key="frame" x="0.0" y="186" width="364" height="50"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="n7p-Ru-VT3">
+                                                                        <rect key="frame" x="333" y="19.5" width="15" height="11"/>
+                                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="15" id="9Dt-At-Z1s"/>
+                                                                            <constraint firstAttribute="width" constant="15" id="Wfr-r5-2e6"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="n7p-Ru-VT3" secondAttribute="trailing" constant="16" id="IPk-JJ-gxB"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="Iqj-bx-1k6"/>
+                                                                    <constraint firstItem="n7p-Ru-VT3" firstAttribute="centerY" secondItem="96F-AW-Ew2" secondAttribute="centerY" id="J7E-K6-bJZ"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fj-Oz-qvQ" customClass="MDCOutlinedTextField">
+                                                                <rect key="frame" x="0.0" y="266" width="364" height="50"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7Ts-Eq-Epq">
+                                                                        <rect key="frame" x="333" y="19.5" width="15" height="11"/>
+                                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="15" id="NMo-oA-l6P"/>
+                                                                            <constraint firstAttribute="height" constant="15" id="dv1-0n-F2U"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="7Ts-Eq-Epq" firstAttribute="centerY" secondItem="2fj-Oz-qvQ" secondAttribute="centerY" id="8HN-pj-gRb"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="oeR-DN-1GM"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="7Ts-Eq-Epq" secondAttribute="trailing" constant="16" id="se1-ea-pEJ"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lER-YX-U6i" customClass="MDCOutlinedTextField">
+                                                                <rect key="frame" x="0.0" y="346" width="364" height="50"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="BY1-lq-gMR"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WF1-Hg-WcB" customClass="MDCOutlinedTextField">
-                                                                <rect key="frame" x="0.0" y="186" width="364" height="50"/>
+                                                                <rect key="frame" x="0.0" y="426" width="364" height="50"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="glr-Kc-3oK"/>
@@ -148,7 +205,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vY-jM-Tjs">
-                                                <rect key="frame" x="30" y="593" width="364" height="48"/>
+                                                <rect key="frame" x="30" y="833" width="364" height="48"/>
                                                 <color key="backgroundColor" red="0.27450980390000002" green="0.78823529410000004" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="hK5-Uf-iKg"/>
@@ -196,14 +253,17 @@
                     </view>
                     <connections>
                         <outlet property="adbsField" destination="WZw-O6-Nn9" id="iTK-zj-0KF"/>
-                        <outlet property="addressField" destination="pHu-eC-84k" id="CrH-Yx-FfH"/>
                         <outlet property="dayFIeld" destination="hTG-pk-VuD" id="TmO-eM-Xfe"/>
+                        <outlet property="districtField" destination="96F-AW-Ew2" id="3B8-wt-nyu"/>
                         <outlet property="emailAddressField" destination="WF1-Hg-WcB" id="45c-gF-m37"/>
                         <outlet property="genderField" destination="HuJ-zK-tow" id="yaU-Ih-tam"/>
                         <outlet property="monthField" destination="stf-kk-kqL" id="kpc-pz-l6k"/>
                         <outlet property="nextBtn" destination="3vY-jM-Tjs" id="T3g-sa-Vpw"/>
                         <outlet property="profileImage" destination="9AC-a1-uA5" id="9n6-jn-HPQ"/>
+                        <outlet property="provinceField" destination="vYb-Oa-ZDQ" id="waL-nL-4Wb"/>
                         <outlet property="uploadImageBtn" destination="8BH-9P-Oah" id="NaG-UA-fB9"/>
+                        <outlet property="vdcField" destination="2fj-Oz-qvQ" id="K0I-aZ-50H"/>
+                        <outlet property="wardNumberField" destination="lER-YX-U6i" id="gXT-sQ-jbH"/>
                         <outlet property="yearField" destination="GaV-Ap-bIA" id="gZX-aB-PLH"/>
                     </connections>
                 </viewController>

@@ -23,13 +23,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLo-tc-2Nx">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hc-NA-guV">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hc-NA-guV">
                                                 <rect key="frame" x="20" y="10" width="374" height="128"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hYS-Um-FiQ">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hospital_background" translatesAutoresizingMaskIntoConstraints="NO" id="hYS-Um-FiQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="128"/>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5B1-pR-cTM">
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5B1-pR-cTM">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="128"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WTq-in-Cco">
@@ -109,7 +109,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.29672706048220199" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.47643032452918044" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="XiO-zo-sgz" firstAttribute="leading" secondItem="WTq-in-Cco" secondAttribute="trailing" constant="10" id="7O1-hX-MBc"/>
                                                             <constraint firstItem="WTq-in-Cco" firstAttribute="leading" secondItem="5B1-pR-cTM" secondAttribute="leading" constant="10" id="J47-dl-DZf"/>
@@ -168,7 +168,7 @@
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="link" catalog="system" title="Connect" imagePadding="5">
-                                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
                                                                 </buttonConfiguration>
                                                             </button>
                                                         </subviews>
@@ -191,7 +191,7 @@
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="scan" title="Scan and Connect" imagePadding="5">
-                                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
                                                         </buttonConfiguration>
                                                     </button>
                                                 </subviews>
@@ -250,6 +250,7 @@
     </scenes>
     <resources>
         <image name="envelope.fill" catalog="system" width="128" height="93"/>
+        <image name="hospital_background" width="400" height="351.5"/>
         <image name="link" catalog="system" width="128" height="122"/>
         <image name="location.fill" catalog="system" width="128" height="121"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>

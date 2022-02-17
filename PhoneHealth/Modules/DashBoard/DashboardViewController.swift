@@ -14,8 +14,10 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarItem.imageInsets = UIEdgeInsets.init(top: 16, left: 0, bottom: 0, right: 0)
         tableView.dataSource = self
         tableView.delegate = self
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         // Do any additional setup after loading the view.
     }
     

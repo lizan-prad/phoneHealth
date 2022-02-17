@@ -8,5 +8,5 @@
 import Foundation
 
 struct HospitalCardViewModel {
-    
+    var hospitalModel: DynamicUserDataModel
 }

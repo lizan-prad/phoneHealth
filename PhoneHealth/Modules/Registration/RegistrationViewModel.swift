@@ -20,6 +20,7 @@ struct RegistrationViewModel {
             switch result {
             case .success(let model):
                 if let model = model.data {
+                    model.number = mobile
                     self.otpModel.value = model
                 }
             case .failure(let error):

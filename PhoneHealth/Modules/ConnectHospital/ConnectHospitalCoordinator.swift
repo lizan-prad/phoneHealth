@@ -19,7 +19,7 @@ class ConnectHospitalCoordinator: Coordinator {
 
     func start() {
         let vc = ConnectHospitalViewController.instantiate()
-        vc.viewModel = ConnectHospitalViewModel()
+//        vc.viewModel = ConnectHospitalViewModel()
         navigationController.pushViewController(vc, animated: true)
     }
 }

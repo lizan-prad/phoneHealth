@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct UserSteppingViewModel {
+class UserSteppingViewModel {
     
+    var model: HealthProfileModel?
 }

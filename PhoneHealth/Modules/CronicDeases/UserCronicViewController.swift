@@ -24,10 +24,15 @@ class UserCronicViewController: UIViewController, Storyboarded,  UITableViewData
     
     var didTapNext: ((Int) -> ())?
     var didTapBack: ((Int) -> ())?
-    var selectedCronics = [String]()
+    var delegate: HealthProfileUpdateDelegate?
     
-    var allergies: [String] {
-        return ["Diabetes", "Blood Pressure", "Hypothyroidism", "Migraine", "Asthama"]
+    var selectedCronics = [DynamicUserDataModel?]()
+    
+    var allergies: [DynamicUserDataModel]? {
+        didSet {
+            self.tableViewHeight.constant = CGFloat((self.allergies?.count ?? 0)*50)
+            self.tableView.reloadData()
+        }
     }
     
     
@@ -35,13 +40,31 @@ class UserCronicViewController: UIViewController, Storyboarded,  UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        viewModel.fetchAllergies()
+        bindViewModel()
         self.yesRadio.isOn = true
         nextBtn.addTarget(self, action: #selector(actionNext), for: .touchUpInside)
         backBtn.addTarget(self, action: #selector(actionBack), for: .touchUpInside)
     }
     
+    func bindViewModel() {
+        self.viewModel.cronics.bind { models in
+            self.allergies = models
+        }
+        
+        self.viewModel.error.bind { error in
+            self.showAlert(title: nil, message: error?.localizedDescription) { _ in
+                
+            }
+        }
+    }
+    
     @objc func actionNext() {
-        self.didTapNext?(2)
+        let model = self.viewModel.model
+        model?.haveCronicDease = self.yesRadio.isOn ? "Y" : "N"
+        model?.userDiseaseInfo = self.selectedCronics.map({DiseaseDetailModel.init(diseaseId: $0?.value, diseaseName: $0?.label, isPrimary: "N", status: "N")})
+        self.delegate?.didUpdatePage(index: 2, model: model)
+        self.didTapNext?(3)
     }
     
     @objc func actionBack() {
@@ -58,7 +81,7 @@ class UserCronicViewController: UIViewController, Storyboarded,  UITableViewData
         tableView.dataSource = self
         tableView.delegate = self
         otherField.setup("Other Diseases")
-        self.tableViewHeight.constant = CGFloat(self.allergies.count*50)
+        
         
         yesRadio.radioButtonColor = RadioButtonColor.init(active: ColorConfig.baseColor, inactive: UIColor.lightGray)
         yesRadio.tintColor = ColorConfig.baseColor
@@ -97,7 +120,7 @@ class UserCronicViewController: UIViewController, Storyboarded,  UITableViewData
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allergies.count
+        return allergies?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,21 +134,22 @@ class UserCronicViewController: UIViewController, Storyboarded,  UITableViewData
         cell.contentView.addBorder(UIColor.black.withAlphaComponent(0.2))
         cell.contentView.addCornerRadius(12)
         cell.checkBox.isOn = false
+        cell.index = indexPath.row
         cell.checkBox.delegate = cell
         cell.didSelectDeselect = { (index, status) in
             if status {
                 
-                self.selectedCronics.append(self.allergies[index ?? 0])
+                self.selectedCronics.append(self.allergies?[index ?? 0])
                 self.nextBtn.isEnabled = self.validate()
             } else {
                 if self.selectedCronics.count != 0 {
-                let removingIndex: Int = self.selectedCronics.enumerated().filter({$0.element == self.allergies[index ?? 0]}).map({$0.offset}).first ?? 0
+                    let removingIndex: Int = self.selectedCronics.enumerated().filter({$0.element?.value == self.allergies?[index ?? 0].value}).map({$0.offset}).first ?? 0
                 self.selectedCronics.remove(at: removingIndex)
                 self.nextBtn.isEnabled = self.validate()
                 }
             }
         }
-        cell.allergyTitle.text = allergies[indexPath.row]
+        cell.allergyTitle.text = allergies?[indexPath.row].label
         return cell
     }
     
