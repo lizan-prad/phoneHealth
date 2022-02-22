@@ -11,20 +11,22 @@ class ConnectHospitalOtpCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    var model: DynamicUserDataModel
+    var model: HospitalListModel
     var mobile: String
     var patientId: String
+    var otp: String
 
-    init(navigationController: UINavigationController, model: DynamicUserDataModel, mobile: String, patientId: String) {
+    init(navigationController: UINavigationController, model: HospitalListModel, mobile: String, patientId: String, otp: String) {
         self.navigationController = navigationController
         self.model = model
         self.mobile = mobile
         self.patientId = patientId
+        self.otp = otp
     }
 
     func start() {
         let vc = ConnectHospitalOtpViewController.instantiate()
-        vc.viewModel = ConnectHospitalOtpViewModel(hospitalModel: model, mobile: mobile, patientId: patientId)
+        vc.viewModel = ConnectHospitalOtpViewModel(hospitalModel: model, mobile: mobile, patientId: patientId, otp: otp)
         navigationController.pushViewController(vc, animated: true)
     }
 }

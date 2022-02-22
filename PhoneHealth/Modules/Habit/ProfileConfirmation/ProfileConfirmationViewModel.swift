@@ -10,9 +10,11 @@ import Alamofire
 
 struct ProfileConfirmationViewModel {
     var model: HealthProfileModel?
+    var updateProfile: UpdateProfileStruct?
     
     var error: Observable<Error> = Observable(nil)
     var success: Observable<String> = Observable(nil)
+    var loading: Observable<Bool> = Observable(nil)
     
     func getHealthParam() -> [String: Any] {
         let param: [String: Any] = [
@@ -54,7 +56,9 @@ struct ProfileConfirmationViewModel {
     }
     
     func uploadUserHealthData() {
+        self.loading.value = true
         NetworkManager.shared.request(BaseMappableModel<DynamicUserDataListModel>.self, urlExt: URLConfig.baseUrl + "user/profile/health/update", method: .put, param: self.getHealthParam(), encoding: JSONEncoding.default, headers: nil) { result in
+            self.loading.value = false
             switch result {
             case .success(let model):
                 self.success.value = model.responseStatus

@@ -12,22 +12,21 @@ class ProfileConfirmationCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var model: HealthProfileModel?
+    var updateProfileDetails: UpdateProfileStruct?
 
-    init(navigationController: UINavigationController, model: HealthProfileModel?) {
+    init(navigationController: UINavigationController, model: HealthProfileModel?, userDetails: UpdateProfileStruct?) {
         self.navigationController = navigationController
         self.model = model
+        self.updateProfileDetails = userDetails
     }
 
     func start() {
-        let vc = HabitsViewController.instantiate()
-        vc.viewModel = HabitsViewModel()
+        let vc = ProfileConfirmationViewController.instantiate()
+        vc.viewModel = ProfileConfirmationViewModel()
         vc.viewModel.model = self.model
+        vc.viewModel.updateProfile = self.updateProfileDetails
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func getMainView() -> HabitsViewController {
-        let vc = HabitsViewController.instantiate()
-        vc.viewModel = HabitsViewModel()
-        return vc
-    }
+    
 }

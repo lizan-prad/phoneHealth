@@ -62,11 +62,17 @@ class RegistrationViewController: UIViewController, Storyboarded, CheckboxButton
         self.viewModel.otpModel.bind({ model in
             guard let model = model else {return}
             UserDefaults.standard.set(self.mobileNumberField.text, forKey: "Mobile")
+            UserDefaults.standard.set(self.FullNameField.text, forKey: "FullName")
             self.openOtpView(model: model)
         })
         self.viewModel.error?.bind({ error in
-            
+            self.showAlert(title: nil, message: error) { _ in
+                
+            }
         })
+        self.viewModel.loading.bind { status in
+            if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
+        }
     }
     
     @objc func actionLogin() {
@@ -112,5 +118,10 @@ extension UIView {
     func addBorder(_ color: UIColor) {
         self.layer.borderColor = color.cgColor
         self.layer.borderWidth = 1
+    }
+    
+    func addBorderwith(_ color: UIColor, width: CGFloat) {
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = width
     }
 }

@@ -55,12 +55,15 @@ class SetPasswordViewController: UIViewController, Storyboarded {
                 
             }
         }
+        self.viewModel.loading.bind { status in
+            if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
+        }
         
         self.viewModel.setPasswordModel.bind { model in
             UserDefaults.standard.set(model?.token, forKey: "AT")
             UserDefaults.standard.set(model?.username, forKey: "mobile")
             guard let navigationController = self.navigationController else {return}
-            let coodinator = UpdateProfileCoordinator.init(navigationController: navigationController)
+            let coodinator = UpdateProfileCoordinator.init(navigationController: navigationController, user: nil)
             coodinator.start()
         }
     }

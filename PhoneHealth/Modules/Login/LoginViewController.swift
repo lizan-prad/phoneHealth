@@ -10,24 +10,7 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import MBRadioCheckboxButton
 import WeScan
 
-class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegate, ImageScannerControllerDelegate {
-    func imageScannerController(_ scanner: ImageScannerController, didFinishScanningWithResults results: ImageScannerResults) {
-        scanner.dismiss(animated: true) {
-            let vc = UIStoryboard.init(name: "Scan", bundle: nil).instantiateViewController(withIdentifier: "ScanViewController") as! ScanViewController
-            vc.image = results.enhancedScan?.image
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        
-    }
-    
-    func imageScannerControllerDidCancel(_ scanner: ImageScannerController) {
-        
-    }
-    
-    func imageScannerController(_ scanner: ImageScannerController, didFailWithError error: Error) {
-        
-    }
-    
+class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegate {
     
     func chechboxButtonDidSelect(_ button: CheckboxButton) {
         
@@ -71,6 +54,9 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
         
         viewModel.error.bind { error in
             self.showAlert(title: nil, message: error) { _ in}
+        }
+        self.viewModel.loading.bind { status in
+            if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
         }
         
         MobileNumber.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)

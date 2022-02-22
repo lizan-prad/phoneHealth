@@ -205,21 +205,9 @@
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W09-aQ-BI0" customClass="MDCOutlinedTextField">
                                                                 <rect key="frame" x="0.0" y="340" width="374" height="50"/>
-                                                                <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ExF-zO-YoQ">
-                                                                        <rect key="frame" x="343" y="21" width="15" height="8"/>
-                                                                        <color key="tintColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="15" id="AUm-Yj-22c"/>
-                                                                            <constraint firstAttribute="height" constant="12" id="DVB-we-e71"/>
-                                                                        </constraints>
-                                                                    </imageView>
-                                                                </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="ExF-zO-YoQ" secondAttribute="trailing" constant="16" id="E9w-qX-hF6"/>
                                                                     <constraint firstAttribute="height" constant="50" id="f7e-Nh-WfN"/>
-                                                                    <constraint firstItem="ExF-zO-YoQ" firstAttribute="centerY" secondItem="W09-aQ-BI0" secondAttribute="centerY" id="gFb-wd-h60"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>

@@ -35,12 +35,24 @@ class BaseTabbarViewController: UITabBarController {
 //        self.navigationController?.setNavigationBarHidden(true, animated: true)
         // Do any additional setup after loading the view.
         
-        
+        tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+        tabBar.layer.shadowRadius = 1
+        tabBar.layer.shadowColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor
+        tabBar.layer.shadowOpacity = 0.4
         addcoustmeTabBarView()
-        hideTabBarBorder()
+//        hideTabBarBorder()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(hideAction), name: Notification.Name.init(rawValue: "HT"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showAction), name: Notification.Name.init(rawValue: "ST"), object: nil)
 
-
+    }
+  
+    @objc func hideAction() {
+        coustmeTabBarView.isHidden = true
+    }
+    
+    @objc func showAction() {
+        coustmeTabBarView.isHidden = false
     }
     
 
@@ -65,14 +77,14 @@ class BaseTabbarViewController: UITabBarController {
         //
        coustmeTabBarView.frame = tabBar.frame
         
-        view.addSubview(coustmeTabBarView)
+//        view.addSubview(coustmeTabBarView)
         view.bringSubviewToFront(self.tabBar)
     }
     
     
     func hideTabBarBorder()  {
         let tabBar = self.tabBar
-        tabBar.backgroundImage = UIImage.from(color: .clear)
+        tabBar.backgroundImage = UIImage.from(color: .white)
         tabBar.shadowImage = UIImage()
         tabBar.clipsToBounds = true
 

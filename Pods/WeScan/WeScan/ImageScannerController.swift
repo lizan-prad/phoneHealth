@@ -50,8 +50,8 @@ public final class ImageScannerController: UINavigationController {
     /// A black UIView, used to quickly display a black screen when the shutter button is presseed.
     internal let blackFlashView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
-        view.isHidden = true
+        view.backgroundColor = .black //UIColor(white: 0.0, alpha: 0.5)
+//        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -72,6 +72,7 @@ public final class ImageScannerController: UINavigationController {
         }
         navigationBar.isTranslucent = false
         self.view.addSubview(blackFlashView)
+        self.view.insertSubview(blackFlashView, at: 0)
         setupConstraints()
         
         // If an image was passed in by the host app (e.g. picked from the photo library), use it instead of the document scanner.
@@ -82,6 +83,10 @@ public final class ImageScannerController: UINavigationController {
                 self.setViewControllers([editViewController], animated: false)
             }
         }
+    }
+    
+    public override func viewWillLayoutSubviews() {
+        self.view.insertSubview(blackFlashView, at: 0)
     }
 
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

@@ -1,38 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Scan View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="ScanViewController" id="Y6W-OH-hqX" customClass="ScanViewController" customModule="PhoneHealth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScanViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="Y6W-OH-hqX" customClass="ScanViewController" customModule="PhoneHealth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cSc-Qu-yqv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="778"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiO-DN-rC3">
+                                <rect key="frame" x="358" y="44" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Nyh-eB-IdG"/>
+                                    <constraint firstAttribute="height" constant="40" id="qPJ-zD-OyL"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="share">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cQ-ba-JBW">
+                                <rect key="frame" x="16" y="44" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2Y3-oT-CSj"/>
+                                    <constraint firstAttribute="width" constant="40" id="ycH-ZA-nuK"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.left" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCo-bU-YvT">
+                                <rect key="frame" x="187.5" y="55" width="39" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cSc-Qu-yqv" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="JzJ-Ln-QDq"/>
+                            <constraint firstItem="BCo-bU-YvT" firstAttribute="centerY" secondItem="5cQ-ba-JBW" secondAttribute="centerY" id="0so-8Q-kmC"/>
+                            <constraint firstItem="BCo-bU-YvT" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="3IH-pK-ig0"/>
+                            <constraint firstItem="5cQ-ba-JBW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Gqr-Pu-tBU"/>
+                            <constraint firstItem="yiO-DN-rC3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Zgh-YV-Fse"/>
                             <constraint firstItem="cSc-Qu-yqv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cLe-vt-cwd"/>
                             <constraint firstItem="cSc-Qu-yqv" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="d5a-ae-Pr5"/>
-                            <constraint firstAttribute="bottom" secondItem="cSc-Qu-yqv" secondAttribute="bottom" id="nLO-wY-zgS"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yiO-DN-rC3" secondAttribute="trailing" constant="16" id="ecs-Ri-mt3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cSc-Qu-yqv" secondAttribute="bottom" id="gU1-Rb-mRw"/>
+                            <constraint firstItem="5cQ-ba-JBW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="oaw-ta-7sI"/>
+                            <constraint firstItem="cSc-Qu-yqv" firstAttribute="top" secondItem="yiO-DN-rC3" secondAttribute="bottom" id="y7F-ZB-cAV"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeBtn" destination="5cQ-ba-JBW" id="6Ud-kC-1jv"/>
+                        <outlet property="docTitle" destination="BCo-bU-YvT" id="co9-ay-aOv"/>
                         <outlet property="scannedImage" destination="cSc-Qu-yqv" id="R4W-ME-PAD"/>
+                        <outlet property="shareBtn" destination="yiO-DN-rC3" id="SfB-yj-xvb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -41,8 +79,7 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="share" width="24" height="24"/>
     </resources>
 </document>

@@ -15,10 +15,14 @@ class ConnectHospitalTableViewCell: UITableViewCell {
     @IBOutlet weak var hospitalAddress: UILabel!
     @IBOutlet weak var hospitalPhone: UILabel!
     
-    var model: DynamicUserDataModel? {
+    var model: HospitalListModel? {
         didSet {
-            hospitalName.text = model?.label
-            hospitalLogo.image = UIImage.init(named: "hospital\(model?.value ?? 0)")
+            hospitalName.text = model?.hospitalName
+            hospitalLogo.sd_setImage(with: URL.init(string: model?.hospitalLogo?.replacingOccurrences(of: " ", with: "%20") ?? "")) { img,_,_,_ in
+                self.hospitalLogo.image = img
+            }
+            hospitalAddress.text = model?.hospitalAddress
+            hospitalPhone.text = "\(model?.contactNumber ?? "")"
         }
     }
     

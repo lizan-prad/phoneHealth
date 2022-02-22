@@ -10,49 +10,41 @@ import Alamofire
 
 struct HealthLockerViewModel {
     
+    var reportType: Observable<[DynamicUserDataModel]> = Observable([])
+    var error: Observable<Error> = Observable(nil)
+    var success: Observable<String> = Observable(nil)
+    var loading: Observable<Bool> = Observable(nil)
     
-    func addHealthLocker() {
+    func addHealthLocker(fileUri: String, fileType: StringLiteralType, fileSize: Int, hospitalName: String, name: String, reportDate: String, reportId: Int) {
         let param: [String: Any] = [
             "healthLockerFileRequestDTOS": [
                 [
-                  "fileSize": 0,
-                  "fileType": "string",
-                  "fileUri": "string"
+                  "fileSize": fileSize,
+                  "fileType": fileType,
+                  "fileUri": fileUri
                 ]
               ],
-              "hospitalName": "string",
-              "name": "string",
-              "reportDate": "2022-02-01T13:40:40.513Z",
-              "userReportTypeId": 0
+              "hospitalName": hospitalName,
+              "name": name,
+              "reportDate": reportDate,
+              "reportTypeId": reportId
         ]
-        NetworkManager.shared.request(BaseMappableModel<OtpModel>.self, urlExt: "healthLocker", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+        self.loading.value = true
+        NetworkManager.shared.request(BaseMappableModel<OtpModel>.self, urlExt: URLConfig.baseUrl + "healthLocker", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+            self.loading.value = false
             switch result {
             case .success(let model):
-                break
+                self.success.value = model.responseStatus
             case .failure(let error):
-                break
-            }
-        }
-    }
-    
-    func searchHealthLocker() {
-        let param: [String: Any] = [
-            "hospitalName": "string",
-             "name": "string",
-             "status": ""
-        ]
-        NetworkManager.shared.request(BaseMappableModel<OtpModel>.self, urlExt: "healthLocker/search", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
-            switch result {
-            case .success(let model):
-                break
-            case .failure(let error):
-                break
+                self.error.value = error
             }
         }
     }
     
     func getHealthLockerDetails(id: String) {
+        self.loading.value = true
         NetworkManager.shared.request(BaseMappableModel<OtpModel>.self, urlExt: "healthLocker/details/\(id)", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
+            self.loading.value = false
             switch result {
             case .success(let model):
                 break
@@ -63,12 +55,16 @@ struct HealthLockerViewModel {
     }
     
     func getReportTypeDropDown() {
-        NetworkManager.shared.request(BaseMappableModel<OtpModel>.self, urlExt: "healthLocker/reportType/active/minfetchUserReportTypeForDropDown", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
+        self.loading.value = true
+        NetworkManager.shared.request(BaseMappableModel<DynamicUserDataListModel>.self, urlExt: URLConfig.baseUrl + "healthLocker/reportType/active/min", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
+            self.loading.value = false
             switch result {
             case .success(let model):
-                break
+                self.reportType.value = model.data?.dataList
+                
             case .failure(let error):
-                break
+                self.error.value = error
+                
             }
         }
     }

@@ -57,6 +57,9 @@ class UserCronicViewController: UIViewController, Storyboarded,  UITableViewData
                 
             }
         }
+        self.viewModel.loading.bind { status in
+            if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
+        }
     }
     
     @objc func actionNext() {

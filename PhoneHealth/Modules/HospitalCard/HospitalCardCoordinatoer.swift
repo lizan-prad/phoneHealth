@@ -11,9 +11,9 @@ class HospitalCardCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    var model: DynamicUserDataModel
+    var model: HospitalListModel?
 
-    init(navigationController: UINavigationController, model: DynamicUserDataModel) {
+    init(navigationController: UINavigationController, model: HospitalListModel?) {
         self.navigationController = navigationController
         self.model = model
     }
@@ -21,6 +21,7 @@ class HospitalCardCoordinator: Coordinator {
     func start() {
         let vc = HospitalCardViewController.instantiate()
         vc.viewModel = HospitalCardViewModel(hospitalModel: model)
+        vc.hidesBottomBarWhenPushed = true
         navigationController.pushViewController(vc, animated: true)
     }
 }

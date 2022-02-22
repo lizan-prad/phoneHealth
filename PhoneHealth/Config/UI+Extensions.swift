@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 
 extension UIViewController {
@@ -100,12 +101,52 @@ extension UIView {
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+    func setGradientLeftRight(_ startColor: UIColor, endColor: UIColor) {
+        let gradientLayer = CAGradientLayer.init()
+        gradientLayer.colors = [startColor.cgColor,  endColor.cgColor, 
+                                endColor.cgColor]
+        gradientLayer.frame = CGRect.init(x: 0, y: 0, width: self.bounds.width + 100, height: self.bounds.height)
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
     func addChildViewController(_ childVc: UIViewController, parentViewController parentVc: UIViewController) {
         parentVc.addChild(childVc)
         childVc.didMove(toParent: parentVc)
         childVc.view.frame = self.bounds
         self.addSubview(childVc.view)
     }
+}
+
+extension UIImage {
+    func png(isOpaque: Bool = true) -> Data? { flattened(isOpaque: isOpaque).pngData() }
+    func flattened(isOpaque: Bool = true) -> UIImage {
+        if imageOrientation == .up { return self }
+        let format = imageRendererFormat
+        format.opaque = isOpaque
+        return UIGraphicsImageRenderer(size: size, format: format).image { _ in draw(at: .zero) }
+    }
+    
+    func rotateImage() -> UIImage
+        {
+            var rotatedImage = UIImage();
+            switch self.imageOrientation
+            {
+            case UIImage.Orientation.right:
+                rotatedImage = UIImage(cgImage: self.cgImage!, scale: 1, orientation:UIImage.Orientation.down);
+                
+            case UIImage.Orientation.down:
+                rotatedImage = UIImage(cgImage: self.cgImage!, scale: 1, orientation:UIImage.Orientation.left);
+                
+            case UIImage.Orientation.left:
+                rotatedImage = UIImage(cgImage:self.cgImage!, scale: 1, orientation:UIImage.Orientation.up);
+        
+                 default:
+                rotatedImage = UIImage(cgImage: self.cgImage!, scale: 1, orientation:UIImage.Orientation.right);
+            }
+            return rotatedImage;
+        }
 }
 
 extension UIColor {
@@ -164,4 +205,53 @@ extension Double {
     var inKilometerOrMeter: String  {
         return (self/1000) < 1 ? "\(Int(self))m" : "\(self/1000)km"
     }
+}
+
+struct Associate {
+    static var hud: UInt8 = 0
+    static var empty: UInt8 = 0
+}
+
+extension UIViewController{
+    private func setProgressHud() -> MBProgressHUD {
+        
+        let progressHud:  MBProgressHUD = MBProgressHUD.showAdded(to: self.view, animated: true)
+        progressHud.tintColor = UIColor.darkGray
+        progressHud.removeFromSuperViewOnHide = true
+        objc_setAssociatedObject(self, &Associate.hud, progressHud, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        return progressHud
+    }
+    
+    var progressHud: MBProgressHUD {
+        if let progressHud = objc_getAssociatedObject(self, &Associate.hud) as? MBProgressHUD {
+            progressHud.isUserInteractionEnabled = true
+            return progressHud
+        }
+        return setProgressHud()
+    }
+    
+    var progressHudIsShowing: Bool {
+        return self.progressHud.isHidden
+    }
+    
+    func showProgressHud() {
+        self.progressHud.show(animated: false)
+    }
+    func showMessageHud(_ message: String) {
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = message
+        hud.isUserInteractionEnabled = false
+    }
+    func hideHUD() {
+        MBProgressHUD.hide(for: self.view, animated: true)
+    }
+    
+    func hideProgressHud() {
+        self.progressHud.label.text = ""
+        self.progressHud.completionBlock = {
+            objc_setAssociatedObject(self, &Associate.hud, nil, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        self.progressHud.hide(animated: false)
+    }
+    
 }

@@ -21,14 +21,18 @@ struct SetPasswordViewModel {
             }
         }
     }
+    
     var error: Observable<String> = Observable(nil)
     var setPasswordModel: Observable<SetPasswordModel> = Observable(nil)
+    var loading: Observable<Bool> = Observable(nil)
     
     var status: Observable<Bool> = Observable(false)
     
     func setPassword(password: String) {
         guard let mobile = UserDefaults.standard.value(forKey: "Mobile") as? String else {return}
+        self.loading.value = true
         NetworkManager.shared.request(BaseMappableModel<SetPasswordModel>.self, urlExt: URLConfig.Modules.setPassword, method: .put, param: ["mobileNumber": mobile, "password": password], encoding: JSONEncoding.default, headers: nil) { result in
+            self.loading.value = false
             switch result {
             case .success(let model):
                 self.setPasswordModel.value = model.data

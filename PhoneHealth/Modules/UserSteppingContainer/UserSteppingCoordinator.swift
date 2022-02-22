@@ -11,14 +11,17 @@ class UserSteppingCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    var model: UpdateProfileStruct?
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, model: UpdateProfileStruct) {
         self.navigationController = navigationController
+        self.model = model
     }
 
     func start() {
         let vc = UserSteppingConatinerViewController.instantiate()
         vc.viewModel = UserSteppingViewModel()
+        vc.viewModel.updateProfileDetails = self.model
         navigationController.pushViewController(vc, animated: true)
     }
     

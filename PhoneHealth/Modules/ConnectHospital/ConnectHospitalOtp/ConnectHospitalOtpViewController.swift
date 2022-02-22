@@ -69,18 +69,21 @@ class ConnectHospitalOtpViewController: UIViewController, Storyboarded {
                 
             }
         }
+        self.viewModel.loading.bind { status in
+            if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
+        }
     }
     
     func setupData() {
-        hospitalLogo.image = UIImage.init(named: "hospital\(viewModel.hospitalModel.value ?? 0)")
-        hospitalName.text = viewModel.hospitalModel.label
-        hospitalEmail.text = "\(viewModel.hospitalModel.label?.replacingOccurrences(of: " ", with: "").lowercased() ?? "")@gmail.com"
+        hospitalLogo.sd_setImage(with: URL.init(string: viewModel.hospitalModel.hospitalLogo ?? ""))
+        hospitalName.text = viewModel.hospitalModel.hospitalName
+        hospitalEmail.text = "\(viewModel.hospitalModel.hospitalName?.replacingOccurrences(of: " ", with: "").lowercased() ?? "")@gmail.com"
     }
     
     @objc func actionVerify() {
         if otp?.count == 4 {
-            if otp == "" {
-                self.viewModel.verifyOtp(otp: otp ?? "")
+            if otp == viewModel.otp {
+                self.viewModel.verifyOtp()
             } else {
                 self.showAlert(title: nil, message: "Invalid Otp!") { _ in
                     self.pinView.reloadAppearance()

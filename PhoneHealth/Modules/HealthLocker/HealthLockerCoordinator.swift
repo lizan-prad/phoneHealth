@@ -21,5 +21,11 @@ class HealthLockerCoordinator: Coordinator {
         vc.viewModel = HealthLockerViewModel()
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func getMainView() -> HealthLockerViewController {
+        let vc = HealthLockerViewController.instantiate()
+        vc.viewModel = HealthLockerViewModel()
+        return vc
+    }
 }
 

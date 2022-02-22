@@ -14,9 +14,12 @@ struct OtpViewModel {
     
     var success: Observable<Bool> = Observable(false)
     var error: Observable<String> = Observable(nil)
+    var loading: Observable<Bool> = Observable(nil)
     
     func verifyOtp(otp: String) {
-        NetworkManager.shared.request(BaseMappableModel<OtpModel>.self, urlExt: URLConfig.Modules.otpVerification, method: .put, param: ["otp": otp, "mobileNumber": model.number ?? "", "hospitalId": 0], encoding: JSONEncoding.default, headers: nil) { result in
+        self.loading.value = true
+        NetworkManager.shared.request(BaseMappableModel<OtpModel>.self, urlExt: URLConfig.Modules.otpVerification, method: .put, param: ["otp": otp, "mobileNumber": model.number ?? ""], encoding: JSONEncoding.default, headers: nil) { result in
+            self.loading.value = false
             switch result {
             case .success(_ ):
                 self.success.value = true

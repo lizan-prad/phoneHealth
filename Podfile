@@ -15,6 +15,8 @@ target 'PhoneHealth' do
   pod 'MBRadioCheckboxButton'
   pod 'WeScan', '>= 0.9'
   pod 'FSCalendar'
+  pod 'MBProgressHUD'
+  pod 'lottie-ios'
 
   target 'PhoneHealthTests' do
     inherit! :search_paths

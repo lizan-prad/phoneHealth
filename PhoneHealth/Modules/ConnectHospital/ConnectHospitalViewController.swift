@@ -13,7 +13,7 @@ class ConnectHospitalViewController: UIViewController, Storyboarded {
     
     var viewModel = ConnectHospitalViewModel()
     
-    var hospitals: [DynamicUserDataModel]? {
+    var hospitals: [HospitalListModel]? {
         didSet {
             self.tableView.reloadData()
         }
@@ -23,13 +23,24 @@ class ConnectHospitalViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setupTableView()
         bindViewModel()
-        self.navigationItem.title = "Connect Hospital"
-        self.viewModel.fetchHospitals()
+  
         if #available(iOS 15.0, *) {
             self.tableView.sectionHeaderTopPadding = 0
         } else {
             // Fallback on earlier versions
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.showTabbar()
+        self.navigationItem.title = "Connect Hospital"
+        self.viewModel.fetchHospitals()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationItem.title = ""
     }
     
     func bindViewModel() {
@@ -41,6 +52,9 @@ class ConnectHospitalViewController: UIViewController, Storyboarded {
             self.showAlert(title: nil, message: error?.localizedDescription) { _ in
                 
             }
+        }
+        self.viewModel.loading.bind { status in
+            if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
         }
     }
     

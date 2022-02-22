@@ -17,6 +17,7 @@ struct UpdateProfileStruct {
     var province: Int
     var vdc: Int
     var wardNumber: String
+    var address: String?
 }
 
 
@@ -28,10 +29,12 @@ struct UpdateProfileViewModel {
     
     var error: Observable<Error> = Observable(nil)
     var success: Observable<String> = Observable(nil)
+    var loading: Observable<Bool> = Observable(nil)
+    var model: UserProfileModel?
     
     func updateprofile(model: UpdateProfileStruct) {
         let param: [String: Any] = [
-            "avatar": "",
+            "avatar": model.avatar,
             "dateOfBirth": model.dob,
             "districtId": model.districtId,
             "email": model.email ?? "",
@@ -40,8 +43,9 @@ struct UpdateProfileViewModel {
             "vdcOrMunicipalityId": model.vdc,
             "wardNumber": model.wardNumber
         ]
-        
+        self.loading.value = true
         NetworkManager.shared.request(BaseMappableModel<OtpModel>.self, urlExt: URLConfig.baseUrl + "user/profile/update", method: .put, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+            self.loading.value = false
             switch result {
             case .success(let model):
                 self.success.value = model.responseStatus

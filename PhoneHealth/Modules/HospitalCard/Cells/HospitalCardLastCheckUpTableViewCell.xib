@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HospitalCardViewController" customModule="PhoneHealth" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HospitalCardLastCheckUpTableViewCell" rowHeight="144" id="KGk-i7-Jjw" customClass="HospitalCardLastCheckUpTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HospitalCardLastCheckUpTableViewCell" rowHeight="144" id="KGk-i7-Jjw" customClass="HospitalCardLastCheckUpTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="350" height="144"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GM7-t9-ApS">
-                        <rect key="frame" x="10" y="5" width="330" height="134"/>
+                        <rect key="frame" x="16" y="5" width="318" height="134"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Last Checkup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUV-Qa-aAY">
                                 <rect key="frame" x="20" y="10" width="91" height="17"/>
@@ -30,7 +30,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3yL-xN-dUM">
                                 <rect key="frame" x="20" y="32" width="87" height="87"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vg6-GN-IDV">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lana" translatesAutoresizingMaskIntoConstraints="NO" id="vg6-GN-IDV">
                                         <rect key="frame" x="22.5" y="10" width="42" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="42" id="BV5-85-EHG"/>
@@ -57,13 +57,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date : Friday Dec 25, 2021 10 :00 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abu-ur-wQP">
-                                <rect key="frame" x="124" y="37" width="195" height="13.5"/>
+                                <rect key="frame" x="124" y="37" width="183" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gL7-qX-xGF">
-                                <rect key="frame" x="124" y="65.5" width="98" height="28"/>
+                                <rect key="frame" x="124" y="60.5" width="98" height="28"/>
                                 <color key="backgroundColor" red="0.27450980390000002" green="0.78823529410000004" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -72,7 +72,7 @@
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*5 days remaining for free followups" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duI-5X-DRN">
-                                <rect key="frame" x="124" y="100.5" width="195" height="13.5"/>
+                                <rect key="frame" x="124" y="100.5" width="183" height="13.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13.5" id="RqU-dk-u7B"/>
                                 </constraints>
@@ -83,7 +83,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gL7-qX-xGF" firstAttribute="top" secondItem="abu-ur-wQP" secondAttribute="bottom" constant="15" id="77y-UT-rFM"/>
+                            <constraint firstItem="duI-5X-DRN" firstAttribute="top" secondItem="gL7-qX-xGF" secondAttribute="bottom" constant="12" id="12B-em-Fk9"/>
+                            <constraint firstItem="gL7-qX-xGF" firstAttribute="top" secondItem="abu-ur-wQP" secondAttribute="bottom" constant="10" id="77y-UT-rFM"/>
                             <constraint firstItem="abu-ur-wQP" firstAttribute="top" secondItem="3yL-xN-dUM" secondAttribute="top" constant="5" id="8ON-ot-Tlh"/>
                             <constraint firstItem="3yL-xN-dUM" firstAttribute="leading" secondItem="GM7-t9-ApS" secondAttribute="leading" constant="20" id="DRm-AE-m1G"/>
                             <constraint firstItem="3yL-xN-dUM" firstAttribute="top" secondItem="BUV-Qa-aAY" secondAttribute="bottom" constant="5" id="F0p-cy-UT8"/>
@@ -99,12 +100,12 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.62745098040000002" green="0.81176470590000005" blue="0.81960784310000001" alpha="0.26000000000000001" colorSpace="custom" customColorSpace="displayP3"/>
+                <color key="backgroundColor" red="0.96078431372549022" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="GM7-t9-ApS" secondAttribute="trailing" constant="10" id="GcA-tY-Kck"/>
+                    <constraint firstAttribute="trailing" secondItem="GM7-t9-ApS" secondAttribute="trailing" constant="16" id="GcA-tY-Kck"/>
                     <constraint firstAttribute="bottom" secondItem="GM7-t9-ApS" secondAttribute="bottom" constant="5" id="Ru3-HM-F9u"/>
                     <constraint firstItem="GM7-t9-ApS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="U1w-fi-iBA"/>
-                    <constraint firstItem="GM7-t9-ApS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="i0R-Dc-cm4"/>
+                    <constraint firstItem="GM7-t9-ApS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="i0R-Dc-cm4"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -117,10 +118,11 @@
                 <outlet property="mainContainer" destination="GM7-t9-ApS" id="7j5-uN-A6L"/>
                 <outlet property="remainingDays" destination="duI-5X-DRN" id="Cq4-eN-vf4"/>
             </connections>
-            <point key="canvasLocation" x="159.42028985507247" y="147.32142857142856"/>
+            <point key="canvasLocation" x="159.42028985507247" y="146.65178571428569"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="lana" width="44" height="44"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

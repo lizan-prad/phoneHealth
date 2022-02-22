@@ -7,6 +7,7 @@
 
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
+import Alamofire
 
 class UpdateProfileViewController: UIViewController, Storyboarded {
 
@@ -26,6 +27,7 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
     @IBOutlet weak var nextBtn: UIButton!
     
     var viewModel: UpdateProfileViewModel!
+
     
     var genders = [("Male","M"), ("Female","F"), ("Others","O")]
     var ADBS = ["AD", "BS"]
@@ -59,6 +61,7 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
     let pickerView = UIPickerView()
     let genderPickerView = UIPickerView()
     
+    var updateProfileDetails: UpdateProfileStruct?
     var selectedVDC: ProvinceModel? {
         didSet {
             self.vdcField.text = selectedVDC?.label
@@ -78,13 +81,16 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
             viewModel.fetchMunicipality(districtId: selectedDistrict?.value ?? 0)
         }
     }
-    
+    var selectedImage: UIImage? {
+        didSet {
+            self.profileImage.image = selectedImage
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         bindViewModel()
-        
         pickerView.dataSource = self
         pickerView.delegate = self
         genderPickerView.dataSource = self
@@ -95,25 +101,62 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
         districtPicker.delegate = self
         vdcPicker.dataSource = self
         vdcPicker.delegate = self
-        
+        profileImage.isUserInteractionEnabled = true
+        profileImage.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openCameraAction)))
+        if let model = self.viewModel.model {
+            self.navigationItem.title = "Update Profile"
+            self.setupData(model: model)
+        }
         self.viewModel.fetchProvince()
     }
+    
+    @objc func openCameraAction() {
+        let imageManager = ImagePickerManager()
+        imageManager.userCustomCamera = false
+        imageManager.pickImage(self){ image in
+            self.selectedImage = image
+        }
+    }
+    
+    func setupData(model: UserProfileModel?) {
+        self.profileImage.sd_setImage(with: URL.init(string: model?.avatar ?? "")) { img, error, _,_ in
+            self.profileImage.image = img?.rotateImage()
+        }
+        self.selectedGender = (model?.gender ?? "", "\((model?.gender ?? "").prefix(0))")
+        self.selectedImage = self.profileImage.image
+        self.emailAddressField.text = model?.email
+        self.wardNumberField.text = "\(model?.wardNumber ?? 0)"
+    }
+    
     
     func bindViewModel() {
         viewModel.provinceList.bind { models in
             self.province = models
+            if self.viewModel.model != nil {
+                self.selectedProvince = self.province?.filter({$0.value == self.viewModel?.model?.provinceId}).first
+            }
         }
         viewModel.districtList.bind { models in
             self.districts = models
+            if self.viewModel.model != nil {
+                self.selectedDistrict = self.districts?.filter({$0.value == self.viewModel?.model?.districtId}).first
+            }
         }
         
         viewModel.vdcList.bind { models in
             self.vdcs = models
+            if self.viewModel.model != nil {
+                self.selectedVDC = self.vdcs?.filter({$0.value == self.viewModel?.model?.vdcOrMunicipalityId}).first
+            }
         }
         viewModel.success.bind { status in
-            guard let navigationController = self.navigationController else {return}
-            let coodinator = UserSteppingCoordinator.init(navigationController: navigationController)
+            if self.viewModel.model == nil {
+            guard let navigationController = self.navigationController, let model = self.updateProfileDetails else {return}
+            let coodinator = UserSteppingCoordinator.init(navigationController: navigationController, model: model)
             coodinator.start()
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
         
         viewModel.error.bind { error in
@@ -121,8 +164,12 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
                 
             }
         }
+        self.viewModel.loading.bind { status in
+            if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
+        }
     }
     
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -207,10 +254,35 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
     
     @objc func actionNext() {
         let dob = "\(self.yearField.text ?? "")-\(self.monthField.text ?? "")-\(self.dayFIeld.text ?? "") \(self.adbsField.text ?? "")"
-        self.viewModel.updateprofile(model: UpdateProfileStruct.init(avatar: "", dob: dob, districtId: selectedDistrict?.value ?? 0, email: emailAddressField.text, gender: selectedGender?.1 ?? "", province: selectedProvince?.value ?? 0, vdc: selectedVDC?.value ?? 0, wardNumber: wardNumberField.text ?? ""))
+        let imageURI = "IMG_\(Int(Date().timeIntervalSince1970)).jpeg"
+        var model = UpdateProfileStruct.init(avatar: URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as! String)/profileImage/\(imageURI)", dob: dob, districtId: selectedDistrict?.value ?? 0, email: emailAddressField.text, gender: selectedGender?.1 ?? "", province: selectedProvince?.value ?? 0, vdc: selectedVDC?.value ?? 0, wardNumber: wardNumberField.text ?? "")
+        model.address = "\(self.selectedDistrict?.label ?? ""), \(wardNumberField.text ?? "")"
+        self.updateProfileDetails = model
+        let param = ["fileName": URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as? String ?? "")/profileImage/\(imageURI)"]
+        self.showProgressHud()
+        MinioManager.shared.requestMinioUrl(param: param, encoding: JSONEncoding.default, headers: nil) { result in
+            switch result {
+            case .success(let url):
+                if let url = URL.init(string: url) {
+                    var request = URLRequest.init(url: url)
+                    request.method = .put
+                    request.headers = ["Content-Type": "image/jpeg"]
+                    guard let body = self.selectedImage?.pngData() else { return }
+                    request.httpBody = body
+                    AF.request(request).response { response in
+                        self.hideProgressHud()
+                        self.viewModel.updateprofile(model: model)
+                    }
+                }
+            case .failure( _):
+                break
+            }
+            
+        }
     }
 
 }
+
 
 
 extension UpdateProfileViewController: UIPickerViewDataSource, UIPickerViewDelegate {

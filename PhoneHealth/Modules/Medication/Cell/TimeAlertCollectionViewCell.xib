@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MedicationListTableViewCell" customModule="PhoneHealth" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeAlertCollectionViewCell" id="gTV-IL-0wX" customClass="TimeAlertCollectionViewCell" customModule="PhoneHealth" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="77" height="30"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="77" height="30"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1A-HE-p1n">
+                        <rect key="frame" x="0.0" y="0.0" width="77" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 A.M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cno-td-JYA">
+                                <rect key="frame" x="11" y="8.5" width="31" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deskclock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rmX-vs-Hkj">
+                                <rect key="frame" x="50" y="7" width="16" height="15.5"/>
+                                <color key="tintColor" red="0.27450980390000002" green="0.78823529410000004" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="GOp-yt-U4U"/>
+                                    <constraint firstAttribute="height" constant="16" id="Skv-DW-b0h"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="77" id="XKS-8L-93T"/>
+                            <constraint firstItem="Cno-td-JYA" firstAttribute="leading" secondItem="M1A-HE-p1n" secondAttribute="leading" constant="11" id="hOq-kZ-SS7"/>
+                            <constraint firstAttribute="trailing" secondItem="rmX-vs-Hkj" secondAttribute="trailing" constant="11" id="mBR-EU-Anm"/>
+                            <constraint firstAttribute="height" constant="30" id="oD8-5c-adD"/>
+                            <constraint firstItem="Cno-td-JYA" firstAttribute="centerY" secondItem="M1A-HE-p1n" secondAttribute="centerY" id="qzZ-bf-KYG"/>
+                            <constraint firstItem="rmX-vs-Hkj" firstAttribute="centerY" secondItem="Cno-td-JYA" secondAttribute="centerY" id="wab-G6-gWn"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="M1A-HE-p1n" secondAttribute="bottom" id="5nJ-gS-yF6"/>
+                <constraint firstItem="M1A-HE-p1n" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="E5S-N2-DWC"/>
+                <constraint firstAttribute="trailing" secondItem="M1A-HE-p1n" secondAttribute="trailing" id="FnY-Hc-GG2"/>
+                <constraint firstItem="M1A-HE-p1n" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HzS-P7-w7J"/>
+            </constraints>
+            <size key="customSize" width="149" height="50"/>
+            <connections>
+                <outlet property="timeIcon" destination="rmX-vs-Hkj" id="jNQ-OI-Ehm"/>
+                <outlet property="timeLabel" destination="Cno-td-JYA" id="Nb2-XV-tLz"/>
+            </connections>
+            <point key="canvasLocation" x="233" y="114"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="deskclock" catalog="system" width="128" height="124"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

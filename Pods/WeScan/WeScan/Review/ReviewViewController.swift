@@ -20,6 +20,7 @@ final class ReviewViewController: UIViewController {
         imageView.clipsToBounds = true
         imageView.isOpaque = true
         imageView.image = results.croppedScan.image
+        self.view.backgroundColor = .black
         imageView.backgroundColor = .black
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +43,8 @@ final class ReviewViewController: UIViewController {
     
     private lazy var doneButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(finishScan))
-        button.tintColor = navigationController?.navigationBar.tintColor
+        button.tintColor = .white
+        self.navigationItem.leftBarButtonItem?.tintColor = .white
         return button
     }()
     

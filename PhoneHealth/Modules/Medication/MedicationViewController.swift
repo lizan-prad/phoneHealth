@@ -22,15 +22,37 @@ class MedicationViewController: UIViewController, Storyboarded {
     let dateFormatter = DateFormatter()
     
     var viewModel: MedicationViewModel!
+    var medicationList: [MedicationDataModel]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        bindViewModel()
+        
+        self.hideTabbar()
         self.navigationItem.title = "Medications"
         setupCells()
         dateFormatter.dateFormat = "EEE dd MMM"
         setup()
         setupViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.fetchMedication()
+    }
+    
+    func bindViewModel() {
+        self.viewModel.medications.bind { models in
+            self.medicationList = models
+        }
+        self.viewModel.loading.bind { status in
+            if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
+        }
     }
     
     func setupTableView() {
@@ -88,12 +110,13 @@ extension MedicationViewController:  FSCalendarDelegate, FSCalendarDataSource {
 extension MedicationViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return medicationList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MedicationListTableViewCell") as! MedicationListTableViewCell
         cell.setupViews()
+        cell.model = self.medicationList?[indexPath.row]
         return cell
     }
 }

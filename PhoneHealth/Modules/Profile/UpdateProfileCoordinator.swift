@@ -11,14 +11,21 @@ class UpdateProfileCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-
-    init(navigationController: UINavigationController) {
+    var model: UserProfileModel?
+    
+    init(navigationController: UINavigationController, user: UserProfileModel?) {
         self.navigationController = navigationController
+        self.model = user
     }
 
     func start() {
         let vc = UpdateProfileViewController.instantiate()
-        vc.viewModel = UpdateProfileViewModel()
+        var viewModel = UpdateProfileViewModel()
+        viewModel.model = self.model
+        vc.viewModel = viewModel
+        if model != nil {
+            vc.hidesBottomBarWhenPushed = true
+        }
         navigationController.pushViewController(vc, animated: true)
     }
 }

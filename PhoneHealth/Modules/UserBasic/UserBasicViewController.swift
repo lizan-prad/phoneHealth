@@ -24,6 +24,8 @@ struct DiseaseDetailModel {
 
 class HealthProfileModel {
     var alcoholFrequency: String?
+    var bloodGroup: String?
+    var foodType: String?
     var bloodGroupId: Int?
     var doYouDrinkAlcohol: String?
     var doYouSmoke: String?
@@ -94,6 +96,9 @@ class UserBasicViewController: UIViewController, Storyboarded {
         viewModel.bloodGroups.bind { models in
             self.bloodGroups = models
         }
+        self.viewModel.loading.bind { status in
+            if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
+        }
     }
     
     func setupPicker() {
@@ -152,6 +157,7 @@ class UserBasicViewController: UIViewController, Storyboarded {
     @objc func actionNext() {
         let model = HealthProfileModel()
         model.bloodGroupId = self.selectedBloodGroup?.value
+        model.bloodGroup = self.selectedBloodGroup?.label
         model.weight = self.kg.text
         model.height = "\(self.feet.text ?? "").\(self.inches.text ?? "")"
         self.delegate?.didUpdatePage(index: 1, model: model)

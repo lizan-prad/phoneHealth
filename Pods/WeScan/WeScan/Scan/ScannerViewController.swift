@@ -106,7 +106,7 @@ public final class ScannerViewController: UIViewController {
         super.viewWillDisappear(animated)
         UIApplication.shared.isIdleTimerDisabled = false
         
-        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barStyle = originalBarStyle ?? .default
         captureSessionManager?.stop()
         guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
@@ -131,7 +131,7 @@ public final class ScannerViewController: UIViewController {
     private func setupNavigationBar() {
         navigationItem.setLeftBarButton(flashButton, animated: false)
         navigationItem.setRightBarButton(autoScanButton, animated: false)
-        
+        self.navigationController?.navigationBar.barTintColor = .black
         if UIImagePickerController.isFlashAvailable(for: .rear) == false {
             let flashOffImage = UIImage(systemName: "bolt.slash.fill", named: "flashUnavailable", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
             flashButton.image = flashOffImage

@@ -13,16 +13,16 @@
         <!--Health Locker List View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="HealthLockerListViewController" id="Y6W-OH-hqX" customClass="HealthLockerListViewController" customModule="PhoneHealth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HealthLockerListViewController" modalPresentationStyle="overFullScreen" id="Y6W-OH-hqX" customClass="HealthLockerListViewController" customModule="PhoneHealth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1Dv-Vb-zmk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1Dv-Vb-zmk">
                                 <rect key="frame" x="0.0" y="114" width="414" height="748"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HealthLockerListTableViewCell" rowHeight="169" id="Inq-6h-lOd" customClass="HealthLockerListTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HealthLockerListTableViewCell" rowHeight="169" id="Inq-6h-lOd" customClass="HealthLockerListTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="169"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Inq-6h-lOd" id="21B-M1-STM">
@@ -43,6 +43,9 @@
                                                             <color key="textColor" red="0.27450980390000002" green="0.78823529410000004" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tNu-eM-LSi">
+                                                            <rect key="frame" x="15" y="39.5" width="70" height="70"/>
+                                                        </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="EVo-Kt-uti">
                                                             <rect key="frame" x="109" y="47" width="250" height="55"/>
                                                             <subviews>
@@ -95,9 +98,13 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
+                                                        <constraint firstItem="tNu-eM-LSi" firstAttribute="bottom" secondItem="N1t-t8-xPj" secondAttribute="bottom" id="6rw-J0-4Ir"/>
                                                         <constraint firstAttribute="trailing" secondItem="EVo-Kt-uti" secondAttribute="trailing" constant="15" id="70C-sc-tdL"/>
+                                                        <constraint firstItem="tNu-eM-LSi" firstAttribute="leading" secondItem="N1t-t8-xPj" secondAttribute="leading" id="U6c-zd-0tD"/>
                                                         <constraint firstItem="N1t-t8-xPj" firstAttribute="centerY" secondItem="pjf-Vh-nND" secondAttribute="centerY" id="W6q-yZ-E4M"/>
                                                         <constraint firstItem="EVo-Kt-uti" firstAttribute="centerY" secondItem="N1t-t8-xPj" secondAttribute="centerY" id="YAG-0i-Mfx"/>
+                                                        <constraint firstItem="tNu-eM-LSi" firstAttribute="trailing" secondItem="N1t-t8-xPj" secondAttribute="trailing" id="e0F-sj-Faj"/>
+                                                        <constraint firstItem="tNu-eM-LSi" firstAttribute="top" secondItem="N1t-t8-xPj" secondAttribute="top" id="qFw-Z6-Tbg"/>
                                                         <constraint firstItem="EVo-Kt-uti" firstAttribute="leading" secondItem="N1t-t8-xPj" secondAttribute="trailing" constant="24" id="t6a-NW-Bk2"/>
                                                         <constraint firstItem="N1t-t8-xPj" firstAttribute="leading" secondItem="pjf-Vh-nND" secondAttribute="leading" constant="15" id="ywA-CE-RAN"/>
                                                     </constraints>
@@ -115,6 +122,7 @@
                                             <outlet property="container" destination="pjf-Vh-nND" id="Vrc-EJ-Saf"/>
                                             <outlet property="hospitalName" destination="QMc-QS-tBJ" id="Cxb-1n-LZU"/>
                                             <outlet property="logoContainer" destination="N1t-t8-xPj" id="aL8-s8-wpa"/>
+                                            <outlet property="logoImage" destination="tNu-eM-LSi" id="LVi-gz-wlT"/>
                                             <outlet property="reportDate" destination="Kde-ws-FPC" id="SUl-vz-pqy"/>
                                             <outlet property="reportName" destination="cJi-Hk-JjB" id="qfn-sB-5Xo"/>
                                         </connections>
@@ -124,7 +132,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akG-65-e2t">
                                 <rect key="frame" x="0.0" y="44" width="414" height="70"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQJ-yk-bdv">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQJ-yk-bdv">
                                         <rect key="frame" x="20" y="20" width="100" height="30"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.72549019609999998" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -135,7 +143,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omh-VH-PcB">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omh-VH-PcB">
                                         <rect key="frame" x="380" y="28" width="14" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="SUk-Jd-TDy"/>
@@ -158,7 +166,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pW5-qg-2GA">
                                 <rect key="frame" x="339" y="705" width="55" height="100"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HaH-gn-ZOZ">
+                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HaH-gn-ZOZ">
                                         <rect key="frame" x="0.0" y="0.0" width="55" height="100"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dye-a9-GXJ">
@@ -239,8 +247,11 @@
                         <outlet property="addFilterStack" destination="HaH-gn-ZOZ" id="RHt-3O-438"/>
                         <outlet property="closeBtn" destination="omh-VH-PcB" id="Q3k-t7-bnG"/>
                         <outlet property="filterBtn" destination="AFw-Oh-DHq" id="PEP-x4-FvP"/>
+                        <outlet property="filterContainer" destination="pW5-qg-2GA" id="zqY-2V-PPx"/>
                         <outlet property="filterTextLabel" destination="jQJ-yk-bdv" id="9Yl-mN-upf"/>
                         <outlet property="fliterListSection" destination="Ztt-y3-wgd" id="46b-XU-yYr"/>
+                        <outlet property="reportsHeader" destination="akG-65-e2t" id="SXD-7F-CG0"/>
+                        <outlet property="reportsHeight" destination="Ztt-y3-wgd" id="mnG-SF-iLo"/>
                         <outlet property="tableView" destination="1Dv-Vb-zmk" id="mY5-Ty-pBg"/>
                     </connections>
                 </viewController>

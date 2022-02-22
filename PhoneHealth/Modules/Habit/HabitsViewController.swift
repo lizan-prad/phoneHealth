@@ -22,8 +22,9 @@ class HabitsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var eatFrequency: MDCOutlinedTextField!
     @IBOutlet weak var foodType: MDCOutlinedTextField!
    
-    var didTapNext: ((Int) -> ())?
+    var didTapNext: ((HealthProfileModel) -> ())?
     var didTapBack: ((Int) -> ())?
+    
     var delegate: HealthProfileUpdateDelegate?
     
     var foodTypeData: [DynamicUserDataModel]? {
@@ -48,6 +49,8 @@ class HabitsViewController: UIViewController, Storyboarded {
     var drinkPicker = UIPickerView()
     
     var viewModel: HabitsViewModel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +78,9 @@ class HabitsViewController: UIViewController, Storyboarded {
                 
             }
         }
+        self.viewModel.loading.bind { status in
+            if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
+        }
     }
     
     func setupPicker() {
@@ -98,19 +104,15 @@ class HabitsViewController: UIViewController, Storyboarded {
     
     @objc func actionNext() {
         let model = self.viewModel.model
+        model?.foodType = self.selectedFoodType?.label
         model?.foodTypeId = self.selectedFoodType?.value
         model?.alcoholFrequency = self.drinkFrequency.text
         model?.doYouDrinkAlcohol = self.drinkYesRadio.isOn ? "Y" : "N"
         model?.doYouSmoke = self.smokeYesRadio.isOn ? "Y" : "N"
         model?.smokeFrequency = self.smokeFrequency.text
         model?.junkFoodFrequency = self.eatFrequency.text
-        guard let nav = self.navigationController else {return}
-        let coordinator = ProfileConfirmationCoordinator.init(navigationController: nav, model: model)
-        coordinator.start()
-        
-//        guard let nav = self.navigationController else {return}
-//        let coordinator = DashboardCoordinator.init(navigationController: nav)
-//        appdelegate.window?.rootViewController = coordinator.getMainView()
+        guard let model = model else {return}
+        self.didTapNext?(model)
     }
     
     @objc func actionBack() {

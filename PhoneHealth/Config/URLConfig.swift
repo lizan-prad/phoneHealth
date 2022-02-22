@@ -12,7 +12,7 @@ enum URLConfig {
     
     static let baseUrl = "https://uat-fonehealthapp-api.cogenthealth.com.np/fonehealth-app/api/v1/"
     static let apiKey = "fsq3j9q7oWWvICR6BzHmAo/cP6APlcP2SgONl6p3Rl4EyHk="
-    
+    static let minioBase = "public/fonehealth/user/"
     enum Modules {
         static let registration = URLConfig.baseUrl + "user/mobile-number-verification"
         static let otpVerification = URLConfig.baseUrl + "user/otp-verification"

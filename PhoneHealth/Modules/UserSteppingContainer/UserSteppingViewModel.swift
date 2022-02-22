@@ -10,4 +10,5 @@ import Foundation
 class UserSteppingViewModel {
     
     var model: HealthProfileModel?
+    var updateProfileDetails: UpdateProfileStruct?
 }

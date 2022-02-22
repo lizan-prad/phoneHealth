@@ -19,6 +19,7 @@ class HealthLockerListCoordinator: Coordinator {
     func start() {
         let vc = HealthLockerListViewController.instantiate()
         vc.viewModel = HealthLockerListViewModel()
+        vc.hidesBottomBarWhenPushed = true
         navigationController.pushViewController(vc, animated: true)
     }
 }

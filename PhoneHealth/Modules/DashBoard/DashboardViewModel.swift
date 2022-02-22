@@ -8,5 +8,5 @@
 import Foundation
 
 struct DashboardViewModel {
-    
+    var loading: Observable<Bool> = Observable(nil)
 }

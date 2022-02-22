@@ -60,6 +60,10 @@ class OtpViewController: UIViewController, Storyboarded {
             self.present(alert, animated: true, completion: nil)
             
         })
+        
+        self.viewModel.loading.bind { status in
+            if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

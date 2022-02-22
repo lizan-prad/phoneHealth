@@ -3,6 +3,7 @@ PODS:
   - FSCalendar (2.8.2)
   - IQKeyboardManagerSwift (6.5.9)
   - KAPinField (5.0.2)
+  - lottie-ios (3.3.0)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/private/Math (124.2.0)
@@ -32,6 +33,7 @@ PODS:
     - MaterialComponents/Availability
     - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
     - "MaterialComponents/TextControls+BaseTextFields"
+  - MBProgressHUD (1.2.0)
   - MBRadioCheckboxButton (2.0)
   - MDFInternationalization (3.0.0)
   - ObjectMapper (4.2.0)
@@ -46,7 +48,9 @@ DEPENDENCIES:
   - FSCalendar
   - IQKeyboardManagerSwift
   - KAPinField
+  - lottie-ios
   - "MaterialComponents/TextControls+OutlinedTextFields"
+  - MBProgressHUD
   - MBRadioCheckboxButton
   - ObjectMapper
   - SDWebImage (~> 5.0)
@@ -59,7 +63,9 @@ SPEC REPOS:
     - FSCalendar
     - IQKeyboardManagerSwift
     - KAPinField
+    - lottie-ios
     - MaterialComponents
+    - MBProgressHUD
     - MBRadioCheckboxButton
     - MDFInternationalization
     - ObjectMapper
@@ -72,7 +78,9 @@ SPEC CHECKSUMS:
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   KAPinField: b7c0a68a3887f3a1c42446bfc4cbf76d5abf0f4f
+  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MBRadioCheckboxButton: 6e2a2cdc441e292e45b64c4e65eb8fc1fc05eef2
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
@@ -80,6 +88,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   WeScan: fed582f6c38014d529afb5aa9ffd1bad38fc72b7
 
-PODFILE CHECKSUM: 1c52b7362b1217820ad312e1d352bf64d6fabfa0
+PODFILE CHECKSUM: 977aa8a5bbf10c2f149f66819d8c904458a5e991
 
 COCOAPODS: 1.11.2

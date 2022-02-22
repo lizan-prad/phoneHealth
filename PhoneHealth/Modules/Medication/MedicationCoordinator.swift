@@ -18,6 +18,7 @@ class MedicationCoordinator: Coordinator {
     func start() {
         let vc = MedicationViewController.instantiate()
         vc.viewModel = MedicationViewModel()
+        vc.hidesBottomBarWhenPushed = true
         navigationController.pushViewController(vc, animated: true)
     }
     

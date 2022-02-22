@@ -23,7 +23,7 @@ class UserSteppingConatinerViewController: UIViewController, Storyboarded, Healt
     @IBOutlet weak var container: UIView!
     
     var viewModel: UserSteppingViewModel!
-    
+
     enum UserBasicSteps: Int {
         case basic = 1
         case allergy
@@ -132,8 +132,10 @@ class UserSteppingConatinerViewController: UIViewController, Storyboarded, Healt
             self.container.addChildViewController(self.cronicViewController, parentViewController: self)
         }
         
-        vc.didTapNext = { _ in
-            
+        vc.didTapNext = { model in
+            guard let nav = self.navigationController else {return}
+            let coordinator = ProfileConfirmationCoordinator.init(navigationController: nav, model: model, userDetails: self.viewModel.updateProfileDetails)
+            coordinator.start()
         }
         
         return vc
