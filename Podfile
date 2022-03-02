@@ -17,7 +17,7 @@ target 'PhoneHealth' do
   pod 'FSCalendar'
   pod 'MBProgressHUD'
   pod 'lottie-ios'
-
+  
   target 'PhoneHealthTests' do
     inherit! :search_paths
     # Pods for testing

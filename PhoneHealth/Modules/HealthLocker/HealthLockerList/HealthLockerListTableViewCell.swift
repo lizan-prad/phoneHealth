@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import PDFKit
 
 class HealthLockerListTableViewCell: UITableViewCell {
 
@@ -20,7 +21,15 @@ class HealthLockerListTableViewCell: UITableViewCell {
     var model: HealthLockerListModel? {
         didSet {
             logoImage.layer.cornerRadius = 8
-            logoImage.sd_setImage(with: URL.init(string: model?.thumbnails ?? ""))
+            if model?.thumbnails?.components(separatedBy: ".").last == "pdf" {
+                guard let url = URL.init(string: model?.thumbnails ?? "") else {return}
+                let pdfDOc = PDFDocument.init(url: url)
+                let page = pdfDOc?.page(at: 0)
+                let image = page?.thumbnail(of: self.logoImage.bounds.size, for: .mediaBox)
+                self.logoImage.image = image
+            } else {
+                logoImage.sd_setImage(with: URL.init(string: model?.thumbnails ?? ""))
+            }
             reportName.text = model?.reportTypeName
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-mm-dd"

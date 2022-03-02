@@ -19,7 +19,7 @@ struct MedicaitonModel {
 
 struct AddMedicationViewModel {
     
-    var success: Observable<Bool> = Observable(nil)
+    var success: Observable<MedicationDataModel> = Observable(nil)
     var error: Observable<Error> = Observable(nil)
     var loading: Observable<Bool> = Observable(nil)
     
@@ -32,11 +32,11 @@ struct AddMedicationViewModel {
             "quantity": model.quantity ?? ""
         ]
         self.loading.value = true
-        NetworkManager.shared.request(BaseMappableModel<OtpModel>.self, urlExt: URLConfig.baseUrl + "medication", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+        NetworkManager.shared.request(BaseMappableModel<MedicationDataModel>.self, urlExt: URLConfig.baseUrl + "medication", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
             self.loading.value = false
             switch result {
-            case .success(_):
-                self.success.value = true
+            case .success(let model):
+                self.success.value = model.data
             case .failure(let error):
                 self.error.value = error
             }

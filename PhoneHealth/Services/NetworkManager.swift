@@ -21,11 +21,15 @@ class NetworkManager {
         let header = headers == nil ? ["Accept" : "application/json", "Authorization":  "Bearer \(UserDefaults.standard.string(forKey: "AT") ?? "")"] : headers
 //        "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5ODE4ODA0MTI2IiwiZXhwIjoxNjc2NjI3ODk0LCJpYXQiOjE2NDUwOTE4OTR9.qwvgoOAvgcisBb5z7F589CA2TvXnIUgzN86HktHDuNlpKFOeqNre46OIrUfvWLn7g6cg7nFVcDZDQ3mHMuRz1w"]
         AF.request(urlExt, method: method, parameters: param, encoding: encoding, headers: header).responseJSON { (response) in
-            print(response.result)
             switch response.result {
             case .success(let data):
                 if let data = data as? [String:Any], let model = Mapper<T>().map(JSON: data) {
-                    completion(.success(model))
+                    print(data)
+                    if response.response?.statusCode == 401 {
+                        completion(.failure(NSError.init(domain: "login", code: 0, userInfo:   [NSLocalizedDescriptionKey: (data["message"] as? String) ?? ""]  )))
+                    } else {
+                        completion(.success(model))
+                    }
                 }
             case .failure(let error):
                 print(String(describing: error))

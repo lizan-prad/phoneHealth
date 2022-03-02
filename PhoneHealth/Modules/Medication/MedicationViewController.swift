@@ -22,8 +22,32 @@ class MedicationViewController: UIViewController, Storyboarded {
     let dateFormatter = DateFormatter()
     
     var viewModel: MedicationViewModel!
+    var original: [MedicationDataModel]?  {
+        didSet {
+            let expired = medicationList?.filter({ model in
+                let formatter = DateFormatter.init()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let current = formatter.string(from: Date())
+                return current == model.expiryDate
+            })
+            expired?.forEach({ model in
+                model.time?.forEach({ time in
+                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(model.medicationId ?? 0)-\(time.id ?? 0)"])
+                    print("notif removed")
+                })
+                
+            })
+            medicationList = original?.filter({ model in
+                let formatter = DateFormatter.init()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let current = formatter.string(from: Date())
+                return current != model.expiryDate
+            })
+        }
+    }
     var medicationList: [MedicationDataModel]? {
         didSet {
+            
             tableView.reloadData()
         }
     }
@@ -38,7 +62,21 @@ class MedicationViewController: UIViewController, Storyboarded {
         setupCells()
         dateFormatter.dateFormat = "EEE dd MMM"
         setup()
+        self.navigationController?.navigationBar.barTintColor = .white
         setupViews()
+        if viewModel.isFromNotif {
+//            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Dashboard", style: .plain, target: self, action: #selector(goToHome))
+            guard let nav = self.navigationController, let model = self.viewModel.model else {return}
+            let coordinator = MedicationDetailCoordinator.init(navigationController: nav, model: model, isFromNotif: true)
+            coordinator.start()
+        }
+    }
+    
+    
+    
+    @objc func goToHome() {
+        let vc = UIStoryboard.init(name: "BaseTabbar", bundle: nil).instantiateViewController(withIdentifier: "BaseTabbarViewController") as! BaseTabbarViewController
+        appdelegate.window?.rootViewController = vc
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +86,7 @@ class MedicationViewController: UIViewController, Storyboarded {
     
     func bindViewModel() {
         self.viewModel.medications.bind { models in
-            self.medicationList = models
+            self.original = models
         }
         self.viewModel.loading.bind { status in
             if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
@@ -116,7 +154,11 @@ extension MedicationViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MedicationListTableViewCell") as! MedicationListTableViewCell
         cell.setupViews()
+        cell.index = indexPath.row
         cell.model = self.medicationList?[indexPath.row]
+        cell.didTurnOff = { index in
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: self.medicationList?[index].time?.compactMap({"\(self.self.medicationList?[index].medicationId ?? 0)-\($0.id ?? 0)"}) ?? [])
+        }
         return cell
     }
 }

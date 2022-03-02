@@ -88,7 +88,7 @@ extension HospitalCardViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalCardDetailsTableViewCell") as! HospitalCardDetailsTableViewCell
             cell.container.addCornerRadius(12)
             cell.hospitalLogo.addCornerRadius(8)
-            cell.container.addBorder(UIColor.lightGray.withAlphaComponent(0.3))
+            cell.container.addBorder(.lightGray.withAlphaComponent(0.3))
             cell.model = self.model
             cell.didTapAmbulance = { phone in
                 guard let number = URL(string: "tel://" + (phone)) else { return }
@@ -102,7 +102,7 @@ extension HospitalCardViewController: UITableViewDataSource, UITableViewDelegate
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalCardNoticeTableViewCell") as! HospitalCardNoticeTableViewCell
             cell.noticeCOnatiner.addCornerRadius(12)
-            cell.noticeCOnatiner.addBorder(.lightGray.withAlphaComponent(0.3))
+            cell.noticeCOnatiner.setStandardShadow()
             cell.setup()
             cell.notices = model?.hospitalNoticeDetail
             return cell
@@ -110,7 +110,7 @@ extension HospitalCardViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalCardAppointmentTableViewCell") as! HospitalCardAppointmentTableViewCell
             cell.mainCOntaienr.addCornerRadius(8)
             cell.logoContainer.rounded()
-            cell.mainCOntaienr.addBorder(.lightGray.withAlphaComponent(0.3))
+            cell.mainCOntaienr.setStandardShadow()
             return cell
             
         case 3:
@@ -118,7 +118,7 @@ extension HospitalCardViewController: UITableViewDataSource, UITableViewDelegate
             cell.mainContainer.addCornerRadius(12)
             cell.followUpBtn.rounded()
             cell.followUpBtn.setAttributedTitle("Free Followup".getAtrribText(), for: .normal)
-            cell.mainContainer.addBorder(.lightGray.withAlphaComponent(0.3))
+            cell.mainContainer.setStandardShadow()
             return cell
         default:
             return UITableViewCell()

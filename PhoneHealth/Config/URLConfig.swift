@@ -10,9 +10,10 @@ import CoreData
 
 enum URLConfig {
     
-    static let baseUrl = "https://uat-fonehealthapp-api.cogenthealth.com.np/fonehealth-app/api/v1/"
+    static let baseUrl = "https://qa-fonehealthapp-api.cogenthealth.com.np/fonehealth-app/api/v1/"//"http://10.13.171.39:8081/fonehealth-app/api/v1/" //
+    //"https://uat-fonehealthapp-api.cogenthealth.com.np/fonehealth-app/api/v1/"
     static let apiKey = "fsq3j9q7oWWvICR6BzHmAo/cP6APlcP2SgONl6p3Rl4EyHk="
-    static let minioBase = "public/fonehealth/user/"
+    static let minioBase = "public/user/"
     enum Modules {
         static let registration = URLConfig.baseUrl + "user/mobile-number-verification"
         static let otpVerification = URLConfig.baseUrl + "user/otp-verification"

@@ -54,6 +54,7 @@ struct ProfileConfirmationViewModel {
         ]}) ?? [[String:Any]]()
         return param
     }
+
     
     func uploadUserHealthData() {
         self.loading.value = true

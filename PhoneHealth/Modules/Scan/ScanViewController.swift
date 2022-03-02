@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import PDFKit
 
 class ScanViewController: UIViewController {
 
@@ -16,16 +17,39 @@ class ScanViewController: UIViewController {
     var image: HealthLockerListModel?
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var closeBtn: UIButton!
+    var pdfView: PDFView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.scannedImage.sd_setImage(with: URL.init(string: image?.thumbnails ?? ""))
+        if image?.thumbnails?.components(separatedBy: ".").last == "pdf" {
+            setupPdfView()
+            guard let url = URL.init(string: image?.thumbnails ?? "") else {return}
+            let pdfDOc = PDFDocument.init(url: url)
+            pdfView.document = pdfDOc
+        } else {
+            self.scannedImage.sd_setImage(with: URL.init(string: image?.thumbnails ?? ""))
+        }
         self.docTitle.text = image?.reportTypeName
         shareBtn.setTitle("", for: .normal)
         closeBtn.setTitle("", for: .normal)
         shareBtn.addTarget(self, action: #selector(shareAction(_:)), for: .touchUpInside)
         closeBtn.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
+        self.view.bringSubviewToFront(docTitle)
+        self.view.bringSubviewToFront(shareBtn)
+        self.view.bringSubviewToFront(closeBtn)
+    }
+    
+    func setupPdfView() {
+        let pdfView = PDFView()
+
+        pdfView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(pdfView)
+        self.pdfView = pdfView
+        self.pdfView.backgroundColor = .black
+        pdfView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        pdfView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        pdfView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        pdfView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
 
     @objc func shareAction(_ sender: UIButton) {

@@ -14,7 +14,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HospitalCardLastCheckUpTableViewCell" rowHeight="144" id="KGk-i7-Jjw" customClass="HospitalCardLastCheckUpTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="350" height="144"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="350" height="144"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>

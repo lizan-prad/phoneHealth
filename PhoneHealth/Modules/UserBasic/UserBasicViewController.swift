@@ -33,11 +33,13 @@ class HealthProfileModel {
     var haveAllergies: String?
     var haveCronicDease: String?
     var height: String?
+    var userId: String?
     var junkFoodFrequency: String?
     var smokeFrequency: String?
     var userAllergyInfo: [AllergyDetailModel]?
     var userDiseaseInfo: [DiseaseDetailModel]?
     var weight: String?
+    var familyData: FmailyProfileStruct?
 }
 
 protocol HealthProfileUpdateDelegate {

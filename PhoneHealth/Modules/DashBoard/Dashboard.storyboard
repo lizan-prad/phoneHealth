@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Hi-0A-jMg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Hi-0A-jMg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -126,15 +126,15 @@
                                             <outlet property="dateContainer" destination="p5w-ix-1CR" id="qGp-NW-l7N"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DashboardHeaderTableViewCell" rowHeight="28" id="m2U-yF-Umn" customClass="DashboardHeaderTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="247.5" width="414" height="28"/>
+                                    <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DashboardHeaderTableViewCell" rowHeight="30" id="m2U-yF-Umn" customClass="DashboardHeaderTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="247.5" width="414" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m2U-yF-Umn" id="RQI-Wh-Vc0">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="28"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Services" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxZ-xK-JrG">
-                                                    <rect key="frame" x="22" y="12" width="50" height="14.5"/>
+                                                    <rect key="frame" x="22" y="8" width="50" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -142,7 +142,7 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
-                                                <constraint firstItem="DxZ-xK-JrG" firstAttribute="centerY" secondItem="RQI-Wh-Vc0" secondAttribute="centerY" constant="5" id="3ag-RG-08V"/>
+                                                <constraint firstItem="DxZ-xK-JrG" firstAttribute="centerY" secondItem="RQI-Wh-Vc0" secondAttribute="centerY" id="3ag-RG-08V"/>
                                                 <constraint firstItem="DxZ-xK-JrG" firstAttribute="leading" secondItem="RQI-Wh-Vc0" secondAttribute="leading" constant="22" id="uOj-DE-0ag"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -152,7 +152,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HospitalsTableViewCell" rowHeight="139" id="NPj-LN-wde" customClass="HospitalsTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="275.5" width="414" height="139"/>
+                                        <rect key="frame" x="0.0" y="277.5" width="414" height="139"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NPj-LN-wde" id="okB-Ao-Mox">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
@@ -182,7 +182,7 @@
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServicesTableViewCell" rowHeight="154" id="gQ6-ej-NvF" customClass="ServicesTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="414.5" width="414" height="154"/>
+                                        <rect key="frame" x="0.0" y="416.5" width="414" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gQ6-ej-NvF" id="sAt-tF-I6N">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="154"/>
@@ -193,55 +193,58 @@
                                                     <subviews>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hxq-Ai-N6l">
                                                             <rect key="frame" x="10" y="0.0" width="346" height="134"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LG6-3w-M6x">
                                                                 <size key="itemSize" width="113" height="92"/>
                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                <inset key="sectionInset" minX="10" minY="10" maxX="0.0" maxY="0.0"/>
+                                                                <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                             </collectionViewFlowLayout>
                                                             <cells>
                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearviceCollectionViewCell" id="9zG-N1-uQ5" customClass="SearviceCollectionViewCell" customModule="PhoneHealth" customModuleProvider="target">
-                                                                    <rect key="frame" x="10" y="10" width="113" height="92"/>
+                                                                    <rect key="frame" x="0.0" y="10" width="113" height="92"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Nh8-ZI-3Ht">
                                                                         <rect key="frame" x="0.0" y="0.0" width="113" height="92"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CNZ-jq-BeW">
-                                                                                <rect key="frame" x="41.5" y="10" width="30" height="30"/>
-                                                                                <color key="tintColor" red="0.39607843139999999" green="0.82352941180000006" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9qO-vp-ouG">
+                                                                                <rect key="frame" x="29" y="18.5" width="55" height="55"/>
+                                                                                <subviews>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CNZ-jq-BeW">
+                                                                                        <rect key="frame" x="12.5" y="12.5" width="30" height="30"/>
+                                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="30" id="t8W-Ls-fZW"/>
+                                                                                            <constraint firstAttribute="width" constant="30" id="xUc-Ac-uUN"/>
+                                                                                        </constraints>
+                                                                                    </imageView>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" red="0.56470588235294117" green="0.40392156862745099" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="30" id="Vww-Fg-x79"/>
-                                                                                    <constraint firstAttribute="height" constant="30" id="Z6T-su-oFf"/>
+                                                                                    <constraint firstAttribute="height" constant="55" id="Mjv-Ul-mJN"/>
+                                                                                    <constraint firstAttribute="width" constant="55" id="jMq-bU-vkp"/>
+                                                                                    <constraint firstItem="CNZ-jq-BeW" firstAttribute="centerX" secondItem="9qO-vp-ouG" secondAttribute="centerX" id="p0X-Yt-dxm"/>
+                                                                                    <constraint firstItem="CNZ-jq-BeW" firstAttribute="centerY" secondItem="9qO-vp-ouG" secondAttribute="centerY" id="sXx-aS-Mu5"/>
                                                                                 </constraints>
-                                                                            </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, Lana Del Ray" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvR-22-vtk">
-                                                                                <rect key="frame" x="4" y="44" width="105" height="44"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
+                                                                            </view>
                                                                         </subviews>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="bottom" secondItem="WvR-22-vtk" secondAttribute="bottom" constant="4" id="Bi3-nF-MtM"/>
-                                                                            <constraint firstItem="WvR-22-vtk" firstAttribute="top" secondItem="CNZ-jq-BeW" secondAttribute="bottom" constant="4" id="YOx-EQ-qKV"/>
-                                                                            <constraint firstItem="CNZ-jq-BeW" firstAttribute="centerX" secondItem="Nh8-ZI-3Ht" secondAttribute="centerX" id="fjW-cM-7fV"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="WvR-22-vtk" secondAttribute="trailing" constant="4" id="mob-le-UyM"/>
-                                                                            <constraint firstItem="WvR-22-vtk" firstAttribute="leading" secondItem="Nh8-ZI-3Ht" secondAttribute="leading" constant="4" id="peq-8C-qr0"/>
-                                                                            <constraint firstItem="CNZ-jq-BeW" firstAttribute="top" secondItem="Nh8-ZI-3Ht" secondAttribute="top" constant="10" id="q85-vg-gCu"/>
+                                                                            <constraint firstItem="9qO-vp-ouG" firstAttribute="centerX" secondItem="Nh8-ZI-3Ht" secondAttribute="centerX" id="PVM-Yg-Xuy"/>
+                                                                            <constraint firstItem="9qO-vp-ouG" firstAttribute="centerY" secondItem="Nh8-ZI-3Ht" secondAttribute="centerY" id="c7w-1N-7pM"/>
                                                                         </constraints>
                                                                     </collectionViewCellContentView>
                                                                     <size key="customSize" width="113" height="92"/>
                                                                     <connections>
+                                                                        <outlet property="container" destination="9qO-vp-ouG" id="8et-Le-FOW"/>
                                                                         <outlet property="serviceIcon" destination="CNZ-jq-BeW" id="A1T-zb-upg"/>
-                                                                        <outlet property="serviceName" destination="WvR-22-vtk" id="9Hd-41-X9W"/>
                                                                     </connections>
                                                                 </collectionViewCell>
                                                             </cells>
                                                         </collectionView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="Hxq-Ai-N6l" secondAttribute="trailing" constant="10" id="UOP-YR-3Zm"/>
                                                         <constraint firstAttribute="bottom" secondItem="Hxq-Ai-N6l" secondAttribute="bottom" id="r9k-av-EZs"/>
@@ -268,10 +271,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="34j-a3-C0k">
                                 <rect key="frame" x="0.0" y="88" width="414" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, Lana Del Ray" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTR-IB-l6f">
-                                        <rect key="frame" x="17" y="16" width="107.5" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTR-IB-l6f">
+                                        <rect key="frame" x="17" y="30" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lana" translatesAutoresizingMaskIntoConstraints="NO" id="QFr-Ph-J0f">
@@ -308,13 +311,13 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="myV-wK-oBW" secondAttribute="trailing" constant="17" id="ADQ-fm-Zdk"/>
                                     <constraint firstAttribute="height" constant="60" id="Iol-m1-Aks"/>
+                                    <constraint firstItem="mTR-IB-l6f" firstAttribute="centerY" secondItem="QFr-Ph-J0f" secondAttribute="centerY" id="LGo-Qg-fkq"/>
                                     <constraint firstItem="myV-wK-oBW" firstAttribute="centerY" secondItem="34j-a3-C0k" secondAttribute="centerY" id="RtG-vY-6i8"/>
                                     <constraint firstItem="myV-wK-oBW" firstAttribute="leading" secondItem="QFr-Ph-J0f" secondAttribute="trailing" constant="10" id="XDh-kv-aew"/>
                                     <constraint firstItem="mTR-IB-l6f" firstAttribute="leading" secondItem="34j-a3-C0k" secondAttribute="leading" constant="17" id="XFD-vL-7wB"/>
                                     <constraint firstItem="QFr-Ph-J0f" firstAttribute="centerY" secondItem="34j-a3-C0k" secondAttribute="centerY" id="aqm-4X-rB8"/>
                                     <constraint firstItem="mVE-Yt-gq8" firstAttribute="centerY" secondItem="34j-a3-C0k" secondAttribute="centerY" id="ckq-DX-wkj"/>
                                     <constraint firstItem="QFr-Ph-J0f" firstAttribute="leading" secondItem="mVE-Yt-gq8" secondAttribute="trailing" constant="10" id="gXZ-qR-yuT"/>
-                                    <constraint firstItem="mTR-IB-l6f" firstAttribute="top" secondItem="34j-a3-C0k" secondAttribute="top" constant="16" id="qdq-ko-dT8"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -337,6 +340,7 @@
                         <outlet property="notifIcon" destination="mVE-Yt-gq8" id="jVS-1h-bFS"/>
                         <outlet property="profileImage" destination="QFr-Ph-J0f" id="90R-iZ-mAY"/>
                         <outlet property="tableView" destination="BsA-9M-Cml" id="ESW-8w-xP1"/>
+                        <outlet property="userName" destination="mTR-IB-l6f" id="N26-Ss-1zc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

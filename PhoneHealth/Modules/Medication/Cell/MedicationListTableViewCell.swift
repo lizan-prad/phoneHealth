@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import PDFKit
 class MedicationListTableViewCell: UITableViewCell {
 
    
@@ -20,11 +20,26 @@ class MedicationListTableViewCell: UITableViewCell {
     @IBOutlet weak var moreBtn: UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var time = [Date]()
+    var index: Int?
+    var didTurnOff: ((Int) -> ())?
+    var expoiry: String?
     
     var model: MedicationDataModel? {
         didSet {
+            
+            let alarmFormat = DateFormatter()
+            alarmFormat.dateFormat = "yyyy-MM-dd"
+            self.expoiry = model?.expiryDate
+            let d = alarmFormat.string(from: Date())
+            alarmFormat.dateFormat = "yyyy-MM-dd HH:mm"
+            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
+            let times = model?.time?.compactMap({"\(d) \($0.time ?? "")"})
+//            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
+            self.time = times?.compactMap({alarmFormat.date(from: $0)}).sorted(by: {$0 < $1}) ?? []
             medName.text = model?.medicineName
             doseLabel.text = model?.medicineName?.components(separatedBy: " ").last
+            alarmFormat.timeZone = TimeZone.current
             let formatter = DateFormatter()
             let date = formatter.date(from: model?.firstIntake ?? "") ?? Date()
             formatter.dateFormat = "dd MMM"
@@ -32,6 +47,76 @@ class MedicationListTableViewCell: UITableViewCell {
             medQuantity.text = "Quantity - \(model?.quantity ?? "0") Pills"
             collectionView.reloadData()
             collectionView.register(UINib.init(nibName: "TimeAlertCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TimeAlertCollectionViewCell")
+            //            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            self.container.alpha = 1
+            self.alertSwitch.isOn = true
+            
+            if !UserDefaults.standard.bool(forKey: "Medication-\(self.model?.medicationId ?? 0)") {
+                self.container.alpha = 1
+                self.alertSwitch.isOn = true
+                UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+                    self.model?.time?.enumerated().forEach { (index, date) in
+                        print(self.model?.medicationId ?? 0, self.model?.time?[index].id ?? 0)
+                        if requests.compactMap({($0.content.userInfo["id"] as? String)}).filter({$0 == "\(self.model?.medicationId ?? 0)-\(date.id ?? 0)"}).count == 0 {
+                            
+                            self.setNotification(date: self.time[index], title: self.model?.medicineName ?? "", body: "Take your meds", id: "\(self.model?.medicationId ?? 0)-\(date.id ?? 0)", repeats: true)
+                        }
+                    }
+                }
+            } else {
+                self.container.alpha = 0.5
+                self.alertSwitch.isOn = false
+            }
+            alertSwitch.addTarget(self, action: #selector(switchAction(_:)), for: .valueChanged)
+        }
+    }
+    
+    @objc func switchAction(_ sender: UISwitch) {
+        if sender.isOn {
+            UserDefaults.standard.set(false, forKey: "Medication-\(self.model?.medicationId ?? 0)")
+            self.container.alpha = 1
+            self.model?.time?.enumerated().forEach({ index,model in
+                self.setNotification(date: self.time[index], title: self.model?.medicineName ?? "", body: "Take your meds", id: "\(self.model?.medicationId ?? 0)-\(model.id ?? 0)")
+            })
+        } else {
+            UserDefaults.standard.set(true, forKey: "Medication-\(self.model?.medicationId ?? 0)")
+            self.container.alpha = 0.5
+            self.didTurnOff?(index ?? 0)
+        }
+    }
+    
+    func setNotification(date: Date, title: String, body: String, id: String, repeats: Bool? = false) {
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        
+        if #available(iOS 15.0, *) {
+            content.interruptionLevel = .critical
+        } else {
+            // Fallback on earlier versions
+        }
+        content.userInfo = ["pills_no": self.model?.quantity ?? "", "time": self.model?.firstIntake ?? "", "id" : id]
+        content.sound = UNNotificationSound.init(named: UNNotificationSoundName.init(rawValue: "alert.mp3"))
+    
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date.addingTimeInterval(-20700))
+//        dateComponents.timeZone = TimeZone.current
+        // Create the trigger as a repeating event.
+        let trigger = UNCalendarNotificationTrigger.init(dateMatching: dateComponents, repeats: false)
+        
+        let uuidString = id
+        let request = UNNotificationRequest(identifier: uuidString,
+                    content: content, trigger: trigger)
+
+        // Schedule the request with the system.
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.add(request) { (error) in
+           if error != nil {
+              
+               } else {
+                   DispatchQueue.main.async {
+                      print("set reminders")
+                   }
+           }
         }
     }
     
@@ -55,11 +140,15 @@ class MedicationListTableViewCell: UITableViewCell {
 extension MedicationListTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.model?.frequency ?? 0
+        return self.time.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeAlertCollectionViewCell", for: indexPath) as! TimeAlertCollectionViewCell
+        let format = DateFormatter()
+        format.timeZone = TimeZone.init(abbreviation: "GMT")
+        format.dateFormat = "h:mm a"
+        cell.timeLabel.text = format.string(from: self.time[indexPath.row])
         cell.setup()
         return cell
     }

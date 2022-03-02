@@ -26,7 +26,8 @@ class AddMedicationViewController: UIViewController, Storyboarded {
     
     let dateFormatter = DateFormatter()
     var viewModel: AddMedicationViewModel!
-    
+    var reminderDate: String?
+    var reminderTime: String?
     let frequencyPicker = UIPickerView()
     let quantityPicker = UIPickerView()
     let medicationPicker = UIPickerView()
@@ -41,9 +42,16 @@ class AddMedicationViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Add Medication"
         dateFormatter.dateFormat = "EEE dd MMM"
         setup()
         bindViewModel()
+        self.calender.select(Date())
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sss'Z'"
+        self.selectedDate = format.string(from: Date()).components(separatedBy: "T").first
+        format.dateFormat = "yyyy-MM-dd"
+        self.reminderDate = format.string(from: Date())
         
         firstIntakePicker.preferredDatePickerStyle = .wheels
         firstIntake.inputView = firstIntakePicker
@@ -65,9 +73,16 @@ class AddMedicationViewController: UIViewController, Storyboarded {
     }
     
     func bindViewModel() {
-        self.viewModel.success.bind { _ in
-           
-                self.AddReminder(title: self.medicineName.text ?? "", priority: 1, note: "Take your meds", alarmTIme: "\(self.selectedDate ?? "")T\(self.selectedTime ?? "")")
+        self.viewModel.success.bind { model in
+            let format = DateFormatter()
+            format.locale = .current
+            format.dateFormat = "yyyy-MM-dd hh:mm a"
+            let date = format.date(from: "\(self.reminderDate ?? "") \(self.reminderTime ?? "")")
+            self.showAlert(title: nil, message: "Medication reminder set") { _ in
+                self.navigationController?.popViewController(animated: true)
+            }
+//            self.setNotification(date: date ?? Date(), title: self.medicineName.text ?? "", body: "Take your meds", id: "Medication-\(model?.medicationId ?? 0)")
+//                self.AddReminder(title: self.medicineName.text ?? "", priority: 1, note: "Take your meds", alarmTIme: "\(self.selectedDate ?? "")T\(self.selectedTime ?? "")")
             
             
         }
@@ -87,10 +102,17 @@ class AddMedicationViewController: UIViewController, Storyboarded {
     
     @objc func selectedTime(_ sender: UIDatePicker) {
         let format = DateFormatter()
+        
+        format.dateFormat = "yyyy-MM-dd'T'hh:mm:ss.sss'Z'"
+        format.timeZone = TimeZone(abbreviation: "GMT")
+        self.selectedTime = format.string(from: sender.date).components(separatedBy: "T").last
+        format.timeZone = TimeZone.current
+        format.dateFormat = "hh:mm"
+        self.reminderTime = format.string(from: sender.date)
         format.dateFormat = "HH:mm a"
         self.firstIntake.text = format.string(from: sender.date)
-        format.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sss'Z'"
-        self.selectedTime = format.string(from: sender.date).components(separatedBy: "T").last
+        
+        
     }
     
     func setup() {
@@ -123,8 +145,10 @@ class AddMedicationViewController: UIViewController, Storyboarded {
     
     func AddReminder(title: String, priority: Int, note: String, alarmTIme: String) {
         let format = DateFormatter()
-        format.dateFormat = "yyyy-mm-dd'T'hh:mm:ss.sss'Z'"
-        let date = format.date(from: alarmTIme)
+        format.locale = .current
+//        format.timeZone = TimeZone(abbreviation: "GMT")
+        format.dateFormat = "yyyy-MM-dd HH:mm a"
+        let date = format.date(from: "\(self.reminderDate ?? "") \(self.reminderTime ?? "")")
         eventStore.requestAccess(to: EKEntityType.reminder, completion: {
             granted, error in
             if (granted) && (error == nil) {
@@ -133,7 +157,7 @@ class AddMedicationViewController: UIViewController, Storyboarded {
                 
                 let reminder:EKReminder = EKReminder(eventStore: self.eventStore)
                 reminder.title = title
-                reminder.priority = 1
+                reminder.priority = 3
                 
                 //  How to show completed
                 //reminder.completionDate = Date()
@@ -146,7 +170,7 @@ class AddMedicationViewController: UIViewController, Storyboarded {
                 reminder.addAlarm(alarm)
                 
                 reminder.calendar = self.eventStore.defaultCalendarForNewReminders()
-                
+                reminder.timeZone = TimeZone(abbreviation: "GMT")
                 
                 do {
                     try self.eventStore.save(reminder, commit: true)
@@ -166,6 +190,43 @@ class AddMedicationViewController: UIViewController, Storyboarded {
         
     }
 
+    func setNotification(date: Date, title: String, body: String, id: String) {
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        if #available(iOS 15.0, *) {
+            content.interruptionLevel = .critical
+        } else {
+            // Fallback on earlier versions
+        }
+        content.userInfo = ["pills_no": self.quantity.text ?? "", "time": self.firstIntake.text ?? "", "id": id]
+        content.sound = UNNotificationSound.init(named: UNNotificationSoundName.init(rawValue: "alert.mp3"))
+        let dateComponents = Calendar.current.dateComponents([.year, .day, .month,.hour, .minute], from: date)
+           
+        // Create the trigger as a repeating event.
+        let trigger = UNCalendarNotificationTrigger(
+                 dateMatching: dateComponents, repeats: true)
+        
+        let uuidString = id
+        let request = UNNotificationRequest(identifier: uuidString,
+                    content: content, trigger: trigger)
+
+        // Schedule the request with the system.
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.add(request) { (error) in
+           if error != nil {
+               self.showAlert(title: nil, message: error?.localizedDescription) { _ in
+                   
+               }
+               } else {
+                   DispatchQueue.main.async {
+                       self.showAlert(title: nil, message: "Medication reminder set") { _ in
+                           self.navigationController?.popViewController(animated: true)
+                       }
+                   }
+           }
+        }
+    }
 
 }
 
@@ -178,7 +239,8 @@ extension AddMedicationViewController:  FSCalendarDelegate, FSCalendarDataSource
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sss'Z'"
         self.selectedDate = format.string(from: date).components(separatedBy: "T").first
-        
+        format.dateFormat = "yyyy-MM-dd"
+        self.reminderDate = format.string(from: date)
     }
     
 }

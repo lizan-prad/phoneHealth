@@ -103,6 +103,7 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
         vdcPicker.delegate = self
         profileImage.isUserInteractionEnabled = true
         profileImage.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openCameraAction)))
+        
         if let model = self.viewModel.model {
             self.navigationItem.title = "Update Profile"
             self.setupData(model: model)
@@ -120,9 +121,10 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
     
     func setupData(model: UserProfileModel?) {
         self.profileImage.sd_setImage(with: URL.init(string: model?.avatar ?? "")) { img, error, _,_ in
-            self.profileImage.image = img?.rotateImage()
+        
+            self.profileImage.image = img
         }
-        self.selectedGender = (model?.gender ?? "", "\((model?.gender ?? "").prefix(0))")
+        self.selectedGender = (model?.gender?.capitalized ?? "", "\((model?.gender ?? "").first ?? Character.init("M"))")
         self.selectedImage = self.profileImage.image
         self.emailAddressField.text = model?.email
         self.wardNumberField.text = "\(model?.wardNumber ?? 0)"
@@ -267,7 +269,7 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
                     var request = URLRequest.init(url: url)
                     request.method = .put
                     request.headers = ["Content-Type": "image/jpeg"]
-                    guard let body = self.selectedImage?.pngData() else { return }
+                    guard let body = self.selectedImage?.jpegData(compressionQuality: 0.3) else { return }
                     request.httpBody = body
                     AF.request(request).response { response in
                         self.hideProgressHud()

@@ -30,6 +30,9 @@ class HealthLockerViewController: UIViewController, Storyboarded {
             self.reportPicker.reloadAllComponents()
         }
     }
+    
+    var images = [UIImage]()
+    
     var selectedReport: DynamicUserDataModel? {
         didSet {
             self.reportTypeField.text = selectedReport?.label
@@ -54,7 +57,14 @@ class HealthLockerViewController: UIViewController, Storyboarded {
         self.closeBtn.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
         self.saveBtn.addTarget(self, action: #selector(saveAction), for: .touchUpInside)
         self.selectDocBtn.addTarget(self, action: #selector(selectDocAction), for: .touchUpInside)
-        
+        self.scannedImageView.isUserInteractionEnabled = true
+        self.scannedImageView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(addMultiple)))
+    }
+    
+    @objc func addMultiple() {
+        self.showAlert(title: nil, message: "Add more images?") { _ in
+            self.selectAdditionalDocAction()
+        }
     }
     
     func bindViewModel() {
@@ -68,6 +78,23 @@ class HealthLockerViewController: UIViewController, Storyboarded {
         }
         self.viewModel.loading.bind { status in
             if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
+        }
+    }
+    
+    func selectAdditionalDocAction() {
+        let imageManager = ImagePickerManager()
+        imageManager.userCustomCamera = true
+        imageManager.didRequestCustomCamera = {
+            let scannerViewController = ImageScannerController()
+            scannerViewController.imageScannerDelegate = self
+            scannerViewController.modalPresentationStyle = .overFullScreen
+            self.present(scannerViewController, animated: true)
+        }
+        imageManager.pickImage(self){ image in
+            self.uploadContainer.isHidden = true
+            self.uploadedImage.isHidden = false
+            self.scannedImageView.image = image
+            self.images.append(image)
         }
     }
     
@@ -85,14 +112,15 @@ class HealthLockerViewController: UIViewController, Storyboarded {
             self.uploadContainer.isHidden = true
             self.uploadedImage.isHidden = false
             self.scannedImageView.image = image
+            self.images.append(image)
         }
     }
     
     @objc func saveAction() {
-        let imageKey = "IMG_\(Int(Date().timeIntervalSince1970)).png"
+        let imageKey = "\(images.count == 1 ? "IMG_" : "Doc_")\(Int(Date().timeIntervalSince1970)).\(images.count == 1 ? "jpeg" : "pdf")"
         
-        let pdf = [self.scannedImageView.image ?? UIImage()].makePDF()
-        let param = ["fileName": URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "mobile") as? String ?? "")/healthLocker/\(imageKey)"]
+        let pdf = images.makePDF()
+        let param = ["fileName": URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as? String ?? "")/healthLocker/\(imageKey)"]
         MinioManager.shared.requestMinioUrl(param: param, encoding: JSONEncoding.default, headers: nil) { result in
             switch result {
             case .success(let url):
@@ -100,13 +128,13 @@ class HealthLockerViewController: UIViewController, Storyboarded {
                     
                     var request = URLRequest.init(url: url)
                     request.method = .put
-                    request.headers = ["Content-Type": "image/png"]
+                    request.headers = ["Content-Type": "\(self.images.count == 1 ? "image/jpeg" : "application/document" )"]
 //                    var data = Data("Content-Disposition: form-data".utf8)
 //                    data += Data("Content-Type: octet-stream\r\n\r\n".utf8)
-                    guard let body = self.scannedImageView.image?.pngData() else { return }
+                    guard let body = (self.images.count == 1) ? self.scannedImageView.image?.jpegData(compressionQuality: 0.2) : pdf?.dataRepresentation() else {return}//self.scannedImageView.image?.pngData() else { return }
                     request.httpBody = body
                     AF.request(request).response { response in
-                        self.viewModel.addHealthLocker(fileUri: param["fileName"]!, fileType: "image/png", fileSize: body.count, hospitalName: self.hospitalNameField.text ?? "", name: self.selectedReport?.label ?? "", reportDate: self.selectedDate ?? "", reportId: self.selectedReport?.value ?? 0)
+                        self.viewModel.addHealthLocker(fileUri: param["fileName"]!, fileType: "\(self.images.count == 1 ? "image/jpeg" : "application/document" )", fileSize: body.count, hospitalName: self.hospitalNameField.text ?? "", name: self.selectedReport?.label ?? "", reportDate: self.selectedDate ?? "", reportId: self.selectedReport?.value ?? 0)
                     }
 //                    MinioManager.shared.upload(image: [(self.scannedImageView.image?.pngData() ?? Data()).base64EncodedData()], to: request, params: [String:Any]())
                 }
@@ -163,6 +191,7 @@ extension HealthLockerViewController: ImageScannerControllerDelegate {
             self.uploadContainer.isHidden = true
             self.uploadedImage.isHidden = false
             self.scannedImageView.image = results.enhancedScan?.image
+            self.images.append(results.enhancedScan?.image ?? UIImage())
         }
         
     }

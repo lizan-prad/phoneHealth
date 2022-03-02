@@ -9,7 +9,8 @@ import UIKit
 
 class SearviceCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var serviceName: UILabel!
+//    @IBOutlet weak var serviceName: UILabel!
+    @IBOutlet weak var container: UIView!
     @IBOutlet weak var serviceIcon: UIImageView!
     
 }

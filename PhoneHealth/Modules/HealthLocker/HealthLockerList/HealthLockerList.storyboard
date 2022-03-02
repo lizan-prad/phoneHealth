@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1Dv-Vb-zmk">
-                                <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="114" width="414" height="782"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HealthLockerListTableViewCell" rowHeight="169" id="Inq-6h-lOd" customClass="HealthLockerListTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
@@ -233,12 +233,12 @@
                         <constraints>
                             <constraint firstItem="akG-65-e2t" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2If-H8-PSH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1Dv-Vb-zmk" secondAttribute="trailing" id="Cc0-Sj-nEW"/>
+                            <constraint firstAttribute="bottom" secondItem="1Dv-Vb-zmk" secondAttribute="bottom" id="K9z-nl-5gG"/>
                             <constraint firstItem="1Dv-Vb-zmk" firstAttribute="top" secondItem="akG-65-e2t" secondAttribute="bottom" id="Ptc-JG-i0Q"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pW5-qg-2GA" secondAttribute="trailing" constant="20" id="V24-Hj-van"/>
                             <constraint firstItem="akG-65-e2t" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Vz0-XG-zkk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="akG-65-e2t" secondAttribute="trailing" id="XE2-aV-HP2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="pW5-qg-2GA" secondAttribute="bottom" constant="57" id="b7j-GH-cia"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1Dv-Vb-zmk" secondAttribute="bottom" id="bYC-94-iNO"/>
                             <constraint firstItem="1Dv-Vb-zmk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hUq-sH-SoM"/>
                         </constraints>
                     </view>

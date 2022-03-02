@@ -111,6 +111,16 @@ extension UIView {
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+    func setGradientLeftRightNoExtra(_ startColor: UIColor, endColor: UIColor) {
+        let gradientLayer = CAGradientLayer.init()
+        gradientLayer.colors = [startColor.cgColor,  endColor.cgColor,
+                                endColor.cgColor]
+        gradientLayer.frame = CGRect.init(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
     func addChildViewController(_ childVc: UIViewController, parentViewController parentVc: UIViewController) {
         parentVc.addChild(childVc)
         childVc.didMove(toParent: parentVc)

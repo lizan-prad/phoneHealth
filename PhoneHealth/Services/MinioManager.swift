@@ -10,6 +10,30 @@ import Alamofire
 import ObjectMapper
 import SwiftyJSON
 
+class MinioModelConatiner: Mappable {
+    var data: MinioURLModel?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        data <- map["data"]
+    }
+}
+
+class MinioURLModel: Mappable {
+    var url: String?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        url <- map["url"]
+    }
+}
+
 class MinioManager {
     
     static let shared = MinioManager()
@@ -21,9 +45,16 @@ class MinioManager {
         let header = headers == nil ? ["Accept" : "application/json", "Authorization":  "Bearer \(UserDefaults.standard.string(forKey: "AT") ?? "")"] : headers
 //        "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5ODE4ODA0MTI2IiwiZXhwIjoxNjc2NjI3ODk0LCJpYXQiOjE2NDUwOTE4OTR9.qwvgoOAvgcisBb5z7F589CA2TvXnIUgzN86HktHDuNlpKFOeqNre46OIrUfvWLn7g6cg7nFVcDZDQ3mHMuRz1w"]
         AF.request(URLConfig.baseUrl + "file/putPresignedURL", method: .put, parameters: param, encoding: encoding, headers: header).responseJSON { (response) in
-            if let data = response.data, let url = String.init(data: data, encoding: .utf8) {
-                completion(.success(url))
+            switch response.result {
+            case .success(let model):
+                if let urlData = Mapper<MinioModelConatiner>().map(JSONObject: model) {// let url = String.init(data: data, encoding: .utf8) {
+                    completion(.success(urlData.data?.url ?? ""))
+                }
+                break
+            default:
+                break
             }
+            
         }
     }
     

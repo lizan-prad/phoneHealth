@@ -57,10 +57,10 @@ class BaseTabbarViewController: UITabBarController {
     
 
 
-    override func viewDidLayoutSubviews() {
-          super.viewDidLayoutSubviews()
-         coustmeTabBarView.frame = tabBar.frame
-      }
+//    override func viewDidLayoutSubviews() {
+//          super.viewDidLayoutSubviews()
+//         coustmeTabBarView.frame = tabBar.frame
+//      }
     
     override func viewDidAppear(_ animated: Bool) {
 //        var newSafeArea = UIEdgeInsets()
