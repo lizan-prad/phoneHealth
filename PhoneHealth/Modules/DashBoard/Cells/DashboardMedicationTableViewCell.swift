@@ -60,6 +60,6 @@ class DashboardMedicationTableViewCell: UITableViewCell, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 80, height: 70)
+        return CGSize.init(width: 65, height: 70)
     }
 }

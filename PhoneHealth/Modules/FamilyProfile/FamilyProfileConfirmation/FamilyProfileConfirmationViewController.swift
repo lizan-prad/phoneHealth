@@ -78,12 +78,12 @@ class FamilyProfileConfirmationViewController: UIViewController, Storyboarded {
         self.height.text = (viewModel.model?.height ?? "") + " ft"
         self.age.text = self.viewModel.model?.familyData?.dateOfBirth
         self.weight.text = (viewModel.model?.weight ?? "") + "kg"
-        self.allergies.text = "\(self.viewModel.model?.userAllergyInfo?.map({$0.allergyName ?? ""}).reduce(", ", +) ?? "")"
+        self.allergies.text = "\(self.viewModel.model?.userAllergyInfo?.map({$0.allergyName ?? ""}).joined(separator: ", ") ?? "")"
         self.smoking.text = viewModel.model?.doYouSmoke
         self.drinking.text = viewModel.model?.doYouDrinkAlcohol
         self.foodType.text = viewModel.model?.foodType
         self.junkFOod.text = viewModel.model?.junkFoodFrequency
-        self.chronicDisease.text = "\(self.viewModel.model?.userDiseaseInfo?.map({$0.diseaseName ?? ""}).reduce(", ", +) ?? "")"
+        self.chronicDisease.text = "\(self.viewModel.model?.userDiseaseInfo?.map({$0.diseaseName ?? ""}).joined(separator: ", ") ?? "")"
         
         
     }

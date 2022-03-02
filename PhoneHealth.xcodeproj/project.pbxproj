@@ -140,6 +140,8 @@
 		BE8A2E0727C6E7FD0029E173 /* DashboardMedicationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE8A2E0527C6E7FD0029E173 /* DashboardMedicationCollectionViewCell.xib */; };
 		BEA53271279009C80041AAE5 /* HabitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA53270279009C70041AAE5 /* HabitsViewModel.swift */; };
 		BEA53273279009D00041AAE5 /* HabitsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA53272279009D00041AAE5 /* HabitsCoordinator.swift */; };
+		BEA57C5227CF7B0D0037F197 /* ProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA57C5027CF7B0D0037F197 /* ProfileHeaderTableViewCell.swift */; };
+		BEA57C5327CF7B0D0037F197 /* ProfileHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEA57C5127CF7B0D0037F197 /* ProfileHeaderTableViewCell.xib */; };
 		BEB7121F2786C5AB00486FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7121E2786C5AB00486FB3 /* AppDelegate.swift */; };
 		BEB712282786C5B000486FB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEB712272786C5B000486FB3 /* Assets.xcassets */; };
 		BEB7122B2786C5B000486FB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB712292786C5B000486FB3 /* LaunchScreen.storyboard */; };
@@ -379,6 +381,8 @@
 		BE8A2E0527C6E7FD0029E173 /* DashboardMedicationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardMedicationCollectionViewCell.xib; sourceTree = "<group>"; };
 		BEA53270279009C70041AAE5 /* HabitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewModel.swift; sourceTree = "<group>"; };
 		BEA53272279009D00041AAE5 /* HabitsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsCoordinator.swift; sourceTree = "<group>"; };
+		BEA57C5027CF7B0D0037F197 /* ProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		BEA57C5127CF7B0D0037F197 /* ProfileHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		BEB7121B2786C5AB00486FB3 /* PhoneHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB7121E2786C5AB00486FB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEB712272786C5B000486FB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1061,6 +1065,8 @@
 			isa = PBXGroup;
 			children = (
 				BECB453A27BF9A1500ABFE12 /* ProfileCardTableViewCell.swift */,
+				BEA57C5027CF7B0D0037F197 /* ProfileHeaderTableViewCell.swift */,
+				BEA57C5127CF7B0D0037F197 /* ProfileHeaderTableViewCell.xib */,
 				BECB453B27BF9A1500ABFE12 /* ProfileCardTableViewCell.xib */,
 				BECB453E27BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.swift */,
 				BECB453F27BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.xib */,
@@ -1285,6 +1291,7 @@
 				BE72A83227B6F5AC00FA91B7 /* ConnectHospital.storyboard in Resources */,
 				BEF32CA027CCD388005D7370 /* FamilyAppointmentsTableViewCell.xib in Resources */,
 				BE72A85B27B7B51300FA91B7 /* HospitalCardAppointmentTableViewCell.xib in Resources */,
+				BEA57C5327CF7B0D0037F197 /* ProfileHeaderTableViewCell.xib in Resources */,
 				BE1386F027CF4EBC0070004B /* EmergencyDashboardCollectionViewCell.xib in Resources */,
 				BECB454127BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.xib in Resources */,
 				BE72A83F27B7A44800FA91B7 /* AddConnectHospital.storyboard in Resources */,
@@ -1478,6 +1485,7 @@
 				BECB450727BE678900ABFE12 /* DynamicUserDataModel.swift in Sources */,
 				BE712A31278AB19800D7985A /* UpdateProfileViewModel.swift in Sources */,
 				BECB452227BECD2E00ABFE12 /* ProfileViewController.swift in Sources */,
+				BEA57C5227CF7B0D0037F197 /* ProfileHeaderTableViewCell.swift in Sources */,
 				BEA53273279009D00041AAE5 /* HabitsCoordinator.swift in Sources */,
 				BE8A2DF327C6B4810029E173 /* AmbulanceCoordinator.swift in Sources */,
 				BE712A43278AC6A800D7985A /* UserSteppingCoordinator.swift in Sources */,

@@ -7,6 +7,20 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
+
+class FamilyResponseIdModel: Mappable {
+    
+    var userId: Int?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        userId <- map["userId"]
+    }
+}
 
 struct AddFamilyProfileViewModel {
     
@@ -39,16 +53,16 @@ struct AddFamilyProfileViewModel {
             "gender": model.gender ?? "",
             "provinceId": model.provinceId ?? 0,
             "relationId": model.relationId ?? 0,
-            "fullname": model.fullName ?? "",
+            "fullName": model.fullName ?? "",
             "vdcOrMunicipalityId": model.vdcOrMunicipalityId ?? 0,
             "wardNumber": model.wardNumber ?? ""
         ]
         self.loading.value = true
-        NetworkManager.shared.request(BaseMappableModel<OtpModel>.self, urlExt: URLConfig.baseUrl + "user-family/profile/update", method: .put, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+        NetworkManager.shared.request(BaseMappableModel<FamilyResponseIdModel>.self, urlExt: URLConfig.baseUrl + "user-family/profile/update", method: .put, param: param, encoding: JSONEncoding.default, headers: nil) { result in
             self.loading.value = false
             switch result {
             case .success(let model):
-                self.success.value = model.responseStatus
+                self.success.value = "\(model.data?.userId ?? 0)"
             case .failure(let error):
                 self.error.value = error
             }

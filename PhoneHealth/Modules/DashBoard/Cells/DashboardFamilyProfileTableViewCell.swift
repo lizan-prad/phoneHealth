@@ -14,7 +14,7 @@ class DashboardFamilyProfileTableViewCell: UITableViewCell, UICollectionViewData
     @IBOutlet weak var addView: UIView!
     
     var didTapAdd: (() -> ())?
-    var didSelectRow: (() -> ())?
+    var didSelectRow: ((Int) -> ())?
     
     var model: [FamilyProfileListModel]? {
         didSet {
@@ -54,10 +54,10 @@ class DashboardFamilyProfileTableViewCell: UITableViewCell, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 80, height: 80)
+        return CGSize.init(width: 65, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.didSelectRow?()
+        self.didSelectRow?(indexPath.row)
     }
 }

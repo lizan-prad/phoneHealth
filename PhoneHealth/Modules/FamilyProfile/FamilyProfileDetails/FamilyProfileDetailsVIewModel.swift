@@ -42,5 +42,5 @@ class FamilyProfileListModel: Mappable {
 }
 
 struct FamilyProfileDetailsViewModel {
-    
+    var model: FamilyProfileListModel?
 }

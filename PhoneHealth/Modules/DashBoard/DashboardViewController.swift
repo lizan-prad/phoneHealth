@@ -213,9 +213,10 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
                 let coordinator = AddFamilyProfileCoordinator.init(navigationController: nav)
                 coordinator.start()
             }
-            cell.didSelectRow = {
+            cell.didSelectRow = { index in
                 guard let nav = self.navigationController else {return}
                 let coordinator = FamilyProfileDetailsCoordinator.init(navigationController: nav)
+                coordinator.model = self.familyList?[index]
                 coordinator.start()
             }
             return cell
@@ -265,7 +266,7 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 4 {
+        if indexPath.section == 5 {
             guard let nav = self.navigationController else {return}
             
             let coordinator = HospitalCardCoordinator.init(navigationController: nav, model: nil)

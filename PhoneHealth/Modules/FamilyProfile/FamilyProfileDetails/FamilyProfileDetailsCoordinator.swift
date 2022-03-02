@@ -11,7 +11,7 @@ class FamilyProfileDetailsCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    
+    var model: FamilyProfileListModel?
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -19,6 +19,7 @@ class FamilyProfileDetailsCoordinator: Coordinator {
     func start() {
         let vc = FamilyProfileDetailsViewController.instantiate()
         vc.viewModel = FamilyProfileDetailsViewModel()
+        vc.viewModel.model = model
         vc.hidesBottomBarWhenPushed = true
         navigationController.pushViewController(vc, animated: true)
     }

@@ -139,28 +139,32 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
     @objc func nextAction() {
         let dob = "\(self.year.text ?? "")-\(self.month.text ?? "")-\(self.day.text ?? "") \(self.adbs.text ?? "")"
         let imageURI = "IMG_\(Int(Date().timeIntervalSince1970)).jpeg"
-        let model = FmailyProfileStruct.init(avatar: URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as! String)/profileImage/\(imageURI)", dateOfBirth: dob, districtId: userProfileModel?.districtId, email: userProfileModel?.email, gender: self.selectedGender?.1, provinceId: self.userProfileModel?.provinceId, fullName: fullName.text, relationId: self.selectedRelation?.value, vdcOrMunicipalityId: self.userProfileModel?.vdcOrMunicipalityId, wardNumber: "\(self.userProfileModel?.wardNumber ?? 0)")
+        let model = FmailyProfileStruct.init(avatar: self.selectedImage == nil ? "" : URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as! String)/profileImage/\(imageURI)", dateOfBirth: dob, districtId: userProfileModel?.districtId, email: userProfileModel?.email, gender: self.selectedGender?.1, provinceId: self.userProfileModel?.provinceId, fullName: fullName.text, relationId: self.selectedRelation?.value, vdcOrMunicipalityId: self.userProfileModel?.vdcOrMunicipalityId, wardNumber: "\(self.userProfileModel?.wardNumber ?? 0)")
         self.familyStruct = model
-        let param = ["fileName": URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as? String ?? "")/profileImage/\(imageURI)"]
-        self.showProgressHud()
-        MinioManager.shared.requestMinioUrl(param: param, encoding: JSONEncoding.default, headers: nil) { result in
-            switch result {
-            case .success(let url):
-                if let url = URL.init(string: url) {
-                    var request = URLRequest.init(url: url)
-                    request.method = .put
-                    request.headers = ["Content-Type": "image/jpeg"]
-                    guard let body = self.selectedImage?.jpegData(compressionQuality: 0.3) else { return }
-                    request.httpBody = body
-                    AF.request(request).response { response in
-                        self.hideProgressHud()
-                        self.viewModel.updateprofile(model: model)
+        if self.selectedImage == nil {
+            self.viewModel.updateprofile(model: model)
+        } else {
+            let param = ["fileName": URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as? String ?? "")/profileImage/\(imageURI)"]
+            self.showProgressHud()
+            MinioManager.shared.requestMinioUrl(param: param, encoding: JSONEncoding.default, headers: nil) { result in
+                switch result {
+                case .success(let url):
+                    if let url = URL.init(string: url) {
+                        var request = URLRequest.init(url: url)
+                        request.method = .put
+                        request.headers = ["Content-Type": "image/jpeg"]
+                        guard let body = self.selectedImage?.jpegData(compressionQuality: 0.3) else { return }
+                        request.httpBody = body
+                        AF.request(request).response { response in
+                            self.hideProgressHud()
+                            self.viewModel.updateprofile(model: model)
+                        }
                     }
+                case .failure( _):
+                    break
                 }
-            case .failure( _):
-                break
+                
             }
-            
         }
         
     }
@@ -179,21 +183,18 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
             if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
         }
         viewModel.success.bind { msg in
-            self.showAlert(title: nil, message: msg) { _ in
-                self.showAlert(title: nil, message: "Your family profile has been created.") { _ in
-                    guard let nav = self.navigationController else {return}
-                    let model = HealthProfileModel()
-                    model.familyData = self.familyStruct
-                    model.userId = msg
-                    model.weight = self.weight.text
-                    model.height = "\(self.feet.text ?? "").\(self.inch.text ?? "")"
-                    model.bloodGroup = self.selectedBloodGroup?.label
-                    model.bloodGroupId = self.selectedBloodGroup?.value ?? 0
-                    let coordinator = AddFamilyProfile2Coordinator.init(navigationController: nav)
-                    coordinator.model = model
-                    coordinator.start()
-                }
-                
+            self.showAlert(title: nil, message: "Your family profile has been created.") { _ in
+                guard let nav = self.navigationController else {return}
+                let model = HealthProfileModel()
+                model.familyData = self.familyStruct
+                model.userId = msg
+                model.weight = self.weight.text
+                model.height = "\(self.feet.text ?? "").\(self.inch.text ?? "")"
+                model.bloodGroup = self.selectedBloodGroup?.label
+                model.bloodGroupId = self.selectedBloodGroup?.value ?? 0
+                let coordinator = AddFamilyProfile2Coordinator.init(navigationController: nav)
+                coordinator.model = model
+                coordinator.start()
             }
         }
     }
@@ -213,7 +214,7 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
     }
     
     func setupView() {
-        nextnt.layer.cornerRadius = 6
+        nextnt.layer.cornerRadius = 12
         uploadBtn.layer.cornerRadius = 6
         profileImage.layer.cornerRadius = profileImage.frame.width/2
         

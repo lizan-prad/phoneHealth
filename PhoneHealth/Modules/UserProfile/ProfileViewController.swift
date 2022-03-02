@@ -17,15 +17,30 @@ class ProfileViewController: UIViewController {
             tableView.reloadData()
         }
     }
-   
+    var showAllergies = true {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    var showDiseases = true {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        } else {
+            // Fallback on earlier versions
+        }
         fetchProfile()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "edit"), style: .done, target: self, action: #selector(editOption))
         
+        tableView.register(UINib.init(nibName: "FamilyHealthAllergiesTableViewCell", bundle: nil), forCellReuseIdentifier: "FamilyHealthAllergiesTableViewCell")
+        tableView.register(UINib.init(nibName: "ProfileHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileHeaderTableViewCell")
         tableView.register(UINib.init(nibName: "UserBasicInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "UserBasicInfoTableViewCell")
         tableView.register(UINib.init(nibName: "ProfileCardTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileCardTableViewCell")
         
@@ -69,12 +84,16 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCardTableViewCell") as! ProfileCardTableViewCell
             cell.model = self.model
@@ -85,16 +104,57 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             cell.setup()
             cell.model = self.model
             return cell
-
+        case 2,3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyHealthAllergiesTableViewCell") as! FamilyHealthAllergiesTableViewCell
+            cell.allergiesLabel.text = indexPath.section == 2 ? self.model?.userAllergyInfo : self.model?.userDiseaseInfo
+            return cell
         default:
             return UITableViewCell()
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 194
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 2,3:
+            return 50
+        default:
+            return 0
         }
-        return 133
+       
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 2 || section == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderTableViewCell") as! ProfileHeaderTableViewCell
+            cell.headerTitleLabel.text = section == 2 ? "Allergies" : "Chronic Diseases"
+            cell.setup()
+            cell.showing = section == 2 ? showAllergies : showDiseases
+            cell.section = section
+            cell.didTap = { s, status in
+                if s == 2 {
+                    self.showAllergies = status
+                } else {
+                    self.showDiseases = status
+                }
+            }
+            return cell
+        }
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            return 194
+        case 1:
+            return 133
+        case 2:
+            return self.showAllergies ? UITableView.automaticDimension : 0
+        case 3:
+            return self.showDiseases ? UITableView.automaticDimension : 0
+        default:
+            return 0
+        }
+       
     }
 }

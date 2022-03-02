@@ -90,7 +90,7 @@ class AddFamilyProfile2ViewController: UIViewController, Storyboarded {
         healthModel?.haveAllergies = self.alleryYes.isOn ? "Y" : "N"
         healthModel?.haveCronicDease = self.chronicYes.isOn ? "Y" : "N"
         healthModel?.userAllergyInfo = self.selectedAllergies.map({AllergyDetailModel.init(allergyId: $0?.value, allergyName: $0?.label, isPrimary: "", status: "")})
-        healthModel?.userDiseaseInfo = self.selectedAllergies.map({DiseaseDetailModel.init(diseaseId: $0?.value, diseaseName: $0?.label, isPrimary: "", status: "")})
+        healthModel?.userDiseaseInfo = self.selectedDiseases.map({DiseaseDetailModel.init(diseaseId: $0?.value, diseaseName: $0?.label, isPrimary: "", status: "")})
         guard let nav = self.navigationController else {return}
         let coordinator = FamilyProfileConfirmationCoordinator.init(navigationController: nav, model: healthModel)
         coordinator.start()
