@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,8 +47,8 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="g8s-3h-KdL" firstAttribute="leading" secondItem="nKn-c6-gTu" secondAttribute="leading" constant="10" id="J5P-K1-aCH"/>
-                                                            <constraint firstItem="g8s-3h-KdL" firstAttribute="top" secondItem="nKn-c6-gTu" secondAttribute="top" constant="16" id="QTT-Ud-eJ0"/>
                                                             <constraint firstAttribute="width" constant="90" id="RuK-Gh-Y28"/>
+                                                            <constraint firstAttribute="bottom" secondItem="g8s-3h-KdL" secondAttribute="bottom" constant="76" id="wXC-g1-4Hx"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChE-Oa-FBi">
@@ -151,6 +151,7 @@
                                                 <constraints>
                                                     <constraint firstItem="nKn-c6-gTu" firstAttribute="leading" secondItem="J6S-wv-rHp" secondAttribute="leading" id="52s-dq-xCi"/>
                                                     <constraint firstItem="blf-ar-WiJ" firstAttribute="leading" secondItem="ChE-Oa-FBi" secondAttribute="leading" id="7WY-3Q-8U8"/>
+                                                    <constraint firstItem="ChE-Oa-FBi" firstAttribute="top" secondItem="J6S-wv-rHp" secondAttribute="top" constant="16" id="GhS-0w-xJs"/>
                                                     <constraint firstItem="ChE-Oa-FBi" firstAttribute="top" secondItem="g8s-3h-KdL" secondAttribute="top" id="KNw-Ja-7Vr"/>
                                                     <constraint firstItem="blf-ar-WiJ" firstAttribute="top" secondItem="ChE-Oa-FBi" secondAttribute="bottom" constant="2" id="KgF-M8-IED"/>
                                                     <constraint firstItem="BZc-Lo-JuQ" firstAttribute="top" secondItem="blf-ar-WiJ" secondAttribute="bottom" constant="20" id="QJy-TG-1ns"/>

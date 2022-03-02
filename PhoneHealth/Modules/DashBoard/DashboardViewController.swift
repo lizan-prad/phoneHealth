@@ -64,11 +64,23 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
             // Fallback on earlier versions
         }
         dropIcon.addTarget(self, action: #selector(openProfileEdit), for: .touchUpInside)
+        
         // Do any additional setup after loading the view.
     }
     
     @objc func openProfileEdit() {
-        
+        let alert = UIAlertController.init(title: nil, message: "Settings", preferredStyle: .actionSheet)
+        let logout = UIAlertAction.init(title: "Log Out", style: .destructive) { _ in
+            UserDefaults.standard.set(nil, forKey: "AT")
+            UserDefaults.standard.set(nil, forKey: "Mobile")
+            guard let nav = self.navigationController else {return}
+            let coordinator = LoginCoordinator(navigationController: nav)
+            appdelegate.window?.rootViewController =  UINavigationController.init(rootViewController: coordinator.getMainView())
+        }
+        let cancel = UIAlertAction.init(title: "Cancel", style: .default, handler: nil)
+        alert.addAction(logout)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func bindViewModel() {

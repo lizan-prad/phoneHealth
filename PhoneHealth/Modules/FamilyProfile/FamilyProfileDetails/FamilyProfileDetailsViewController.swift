@@ -45,17 +45,54 @@ class FamilyProfileDetailsViewController: UIViewController, Storyboarded {
         }
     }
     
+    var model: UserProfileModel? {
+        didSet {
+            setupData()
+            self.tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
         self.navigationItem.title = "Family Profile"
         self.setupNav()
+        self.bindViewModel()
+        self.viewModel.fetchProfile()
         setupTableView()
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         } else {
             // Fallback on earlier versions
         }
+    }
+    
+    func bindViewModel() {
+        self.viewModel.success.bind { model in
+            self.model = model
+        }
+        self.viewModel.loading.bind { status in
+            if status ?? false {
+                self.showProgressHud()
+            } else {
+                self.hideProgressHud()
+            }
+        }
+        self.viewModel.error.bind { error in
+            self.showAlert(title: nil, message: error?.localizedDescription) { _ in
+                
+            }
+        }
+    }
+    
+    func setupData() {
+        self.nameLabel.text = model?.name
+        self.genderLabel.text = model?.gender?.capitalized
+        self.idLabel.text = "ID: \(model?.id ?? 0)"
+        self.locationLabel.text = model?.districtName
+        self.emailLabel.text = model?.email
+        self.dobLabel.text = model?.dateOfBirth
+        self.profileImageLabel.sd_setImage(with: URL.init(string: model?.avatar ?? ""))
     }
     
     func setupNav() {
@@ -153,7 +190,7 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
         
         if scrollView.contentOffset.y != 0 {
             
-            UIView.animate(withDuration: 0.8, animations: { () -> Void in
+            UIView.animate(withDuration: 0.5, animations: { () -> Void in
 //                self.cardHeight.constant = (scrollView.contentOffset.y > 0) ? 0 : 162
                 self.cardView.isHidden = (scrollView.contentOffset.y > 0)
                 self.view.layoutIfNeeded()
@@ -166,7 +203,7 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y == 0 {
             
-            UIView.animate(withDuration: 0.8, animations: { () -> Void in
+            UIView.animate(withDuration: 0.5, animations: { () -> Void in
 //                self.cardHeight.constant = !(scrollView.contentOffset.y > 0) ? 0 : 162
                 self.cardView.isHidden = !(scrollView.contentOffset.y > 0)
                 self.view.layoutIfNeeded()
@@ -198,20 +235,26 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 2 {
+            return 0
+        }
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if currentHealthSection == .allergies || currentHealthSection == .diseases {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyHealthAllergiesTableViewCell") as! FamilyHealthAllergiesTableViewCell
+            
+            cell.section = currentHealthSection == .allergies ? 2 : 3
+            cell.allergiesLabel.text = currentHealthSection == .allergies ? model?.userAllergyInfo : model?.userDiseaseInfo
             cell.setup()
-            cell.allergiesLabel.text = "- Dogs \n- pollen\n- nuts and dry fruits\n- plants and flowers"
             return cell
         }
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserBasicInfoTableViewCell") as! UserBasicInfoTableViewCell
             cell.setup()
+            cell.model = self.model
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyHealthLockerTableViewCell") as! FamilyHealthLockerTableViewCell
@@ -230,7 +273,7 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
             return 0
         }
         switch section {
-        case 1,2:
+        case 1:
             return 25
         default:
             return 0

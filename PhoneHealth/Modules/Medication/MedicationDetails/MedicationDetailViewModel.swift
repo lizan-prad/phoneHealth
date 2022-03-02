@@ -10,4 +10,5 @@ import Foundation
 struct MedicationDetailViewModel {
     
     var model: MedicationAlertModel
+    
 }

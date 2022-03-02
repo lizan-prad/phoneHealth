@@ -106,7 +106,9 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case 2,3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyHealthAllergiesTableViewCell") as! FamilyHealthAllergiesTableViewCell
-            cell.allergiesLabel.text = indexPath.section == 2 ? self.model?.userAllergyInfo : self.model?.userDiseaseInfo
+            cell.allergiesLabel.text = indexPath.section == 2 ? (self.model?.userAllergyInfo) : self.model?.userDiseaseInfo
+            cell.section = indexPath.section
+            cell.setup()
             return cell
         default:
             return UITableViewCell()

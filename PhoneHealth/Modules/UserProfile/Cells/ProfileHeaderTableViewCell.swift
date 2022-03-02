@@ -18,8 +18,9 @@ class ProfileHeaderTableViewCell: UITableViewCell {
     var section: Int?
     var showing = true
     func setup() {
-        container.addCornerRadius(8)
-        container.addBorder(.lightGray.withAlphaComponent(0.3))
+       
+        container.setStandardShadow()
+        container.addCornerRadius(12)
         self.contentView.isUserInteractionEnabled = true
         self.contentView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapAction)))
     }

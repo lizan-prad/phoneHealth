@@ -54,7 +54,7 @@ class DashboardFamilyProfileTableViewCell: UITableViewCell, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 65, height: 80)
+        return CGSize.init(width: 75, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -21,4 +21,10 @@ class LoginCoordinator: Coordinator {
         vc.viewModel = LoginViewModel()
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func getMainView() -> LoginViewController {
+        let vc = LoginViewController.instantiate()
+        vc.viewModel = LoginViewModel()
+        return vc
+    }
 }

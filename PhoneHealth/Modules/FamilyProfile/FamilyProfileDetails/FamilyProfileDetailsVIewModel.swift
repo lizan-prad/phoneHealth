@@ -7,6 +7,7 @@
 
 import Foundation
 import ObjectMapper
+import Alamofire
 
 class FamilyProfilelistContainer: Mappable {
     
@@ -42,5 +43,23 @@ class FamilyProfileListModel: Mappable {
 }
 
 struct FamilyProfileDetailsViewModel {
+    
     var model: FamilyProfileListModel?
+    var success: Observable<UserProfileModel> = Observable(nil)
+    var error: Observable<Error> = Observable(nil)
+    var loading: Observable<Bool> = Observable(nil)
+    
+    func fetchProfile() {
+        self.loading.value = true
+        NetworkManager.shared.request(BaseMappableModel<UserProfileContainerModel>.self, urlExt: URLConfig.baseUrl + "user-family/profile/details/\(model?.id ?? 0)", method: .get, param: nil, encoding: JSONEncoding.default, headers: nil) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.success.value = model.data?.userProfileDetail
+            case .failure(let error):
+                self.error.value = error
+            }
+        }
+        
+    }
 }
