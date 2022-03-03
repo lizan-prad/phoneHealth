@@ -38,6 +38,17 @@ class NetworkManager {
         }
     }
     
+    func requestData(urlExt: String, method: HTTPMethod, param: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?, completion: @escaping (Data) -> ()){
+        
+        let header = headers == nil ? ["Accept" : "application/json", "Authorization":  "Bearer \(UserDefaults.standard.string(forKey: "AT") ?? "")"] : headers
+//        "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5ODE4ODA0MTI2IiwiZXhwIjoxNjc2NjI3ODk0LCJpYXQiOjE2NDUwOTE4OTR9.qwvgoOAvgcisBb5z7F589CA2TvXnIUgzN86HktHDuNlpKFOeqNre46OIrUfvWLn7g6cg7nFVcDZDQ3mHMuRz1w"]
+        AF.request(urlExt, method: method, parameters: param, encoding: encoding, headers: header).responseData { data in
+            if let data = data.data {
+                completion(data)
+            }
+        }
+    }
+    
     func requestMultipart<T: Mappable>(_value: T.Type, param:[String: Any],arrImage:[UIImage],imageKey:String,URlName:String,controller:UIViewController, withblock:@escaping (_ response: AnyObject?)->Void){
 
         let headers: HTTPHeaders

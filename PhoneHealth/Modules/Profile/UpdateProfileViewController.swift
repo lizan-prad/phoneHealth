@@ -101,14 +101,15 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
         districtPicker.delegate = self
         vdcPicker.dataSource = self
         vdcPicker.delegate = self
-        profileImage.isUserInteractionEnabled = true
-        profileImage.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openCameraAction)))
+        
         
         if let model = self.viewModel.model {
             self.navigationItem.title = "Update Profile"
             self.setupData(model: model)
         }
+        self.navigationItem.title = "Setup Profile"
         self.viewModel.fetchProvince()
+        uploadImageBtn.addTarget(self, action: #selector(openCameraAction), for: .touchUpInside)
     }
     
     @objc func openCameraAction() {
@@ -127,7 +128,11 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
         self.selectedGender = (model?.gender?.capitalized ?? "", "\((model?.gender ?? "").first ?? Character.init("M"))")
         self.selectedImage = self.profileImage.image
         self.emailAddressField.text = model?.email
-        self.wardNumberField.text = "\(model?.wardNumber ?? 0)"
+        self.yearField.text = model?.dateOfBirth?.components(separatedBy: "-").first
+        self.monthField.text = model?.dateOfBirth?.components(separatedBy: "-")[1]
+        self.dayFIeld.text = model?.dateOfBirth?.components(separatedBy: "-").last
+        self.adbsField.text = "AD"
+        self.wardNumberField.text = model?.wardNumber ?? ""
     }
     
     

@@ -50,7 +50,7 @@ class UserProfileModel: Mappable {
     var userHealthInfoId: Int?
     var vdcOrMunicipalityId: Int?
     var vdcOrMunicipalityName: String?
-    var wardNumber: Int?
+    var wardNumber: String?
     var weight: Int?
     
     required init?(map: Map) {

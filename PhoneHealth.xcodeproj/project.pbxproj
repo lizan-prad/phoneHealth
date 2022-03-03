@@ -13,6 +13,18 @@
 		BE070BFF2789BE2000D994C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE070BFE2789BE2000D994C6 /* LoginViewController.swift */; };
 		BE070C052789C41300D994C6 /* Otp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE070C042789C41300D994C6 /* Otp.storyboard */; };
 		BE070C092789D03A00D994C6 /* OtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE070C082789D03A00D994C6 /* OtpViewController.swift */; };
+		BE10C6B827D0A9B7004A24CA /* RightLayoutPlaceholderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10C6B627D0A9B7004A24CA /* RightLayoutPlaceholderTableViewCell.swift */; };
+		BE10C6B927D0A9B7004A24CA /* RightLayoutPlaceholderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE10C6B727D0A9B7004A24CA /* RightLayoutPlaceholderTableViewCell.xib */; };
+		BE10C6BE27D0BAD1004A24CA /* LeftLayoutPlaceholderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10C6BC27D0BAD1004A24CA /* LeftLayoutPlaceholderTableViewCell.swift */; };
+		BE10C6BF27D0BAD1004A24CA /* LeftLayoutPlaceholderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE10C6BD27D0BAD1004A24CA /* LeftLayoutPlaceholderTableViewCell.xib */; };
+		BE10C6C227D0C07A004A24CA /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE10C6C127D0C07A004A24CA /* Onboarding.storyboard */; };
+		BE10C6C427D0C089004A24CA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10C6C327D0C089004A24CA /* OnboardingViewController.swift */; };
+		BE10C6C627D0C09C004A24CA /* OnboardingCoordnator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10C6C527D0C09C004A24CA /* OnboardingCoordnator.swift */; };
+		BE10C6C827D0C0A8004A24CA /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10C6C727D0C0A8004A24CA /* OnboardingViewModel.swift */; };
+		BE10C6CD27D0E276004A24CA /* DashboardHospitalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10C6CB27D0E275004A24CA /* DashboardHospitalTableViewCell.swift */; };
+		BE10C6CE27D0E276004A24CA /* DashboardHospitalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE10C6CC27D0E275004A24CA /* DashboardHospitalTableViewCell.xib */; };
+		BE10C6D327D0E2DD004A24CA /* DashboardHospitalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10C6D127D0E2DD004A24CA /* DashboardHospitalCollectionViewCell.swift */; };
+		BE10C6D427D0E2DD004A24CA /* DashboardHospitalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE10C6D227D0E2DD004A24CA /* DashboardHospitalCollectionViewCell.xib */; };
 		BE1386E527CF3F630070004B /* FamilyHealthAllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1386E327CF3F630070004B /* FamilyHealthAllergiesTableViewCell.swift */; };
 		BE1386E627CF3F630070004B /* FamilyHealthAllergiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE1386E427CF3F630070004B /* FamilyHealthAllergiesTableViewCell.xib */; };
 		BE1386EB27CF4DBA0070004B /* EmergenciesDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1386E927CF4DBA0070004B /* EmergenciesDashboardTableViewCell.swift */; };
@@ -254,6 +266,18 @@
 		BE070BFE2789BE2000D994C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BE070C042789C41300D994C6 /* Otp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Otp.storyboard; sourceTree = "<group>"; };
 		BE070C082789D03A00D994C6 /* OtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewController.swift; sourceTree = "<group>"; };
+		BE10C6B627D0A9B7004A24CA /* RightLayoutPlaceholderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightLayoutPlaceholderTableViewCell.swift; sourceTree = "<group>"; };
+		BE10C6B727D0A9B7004A24CA /* RightLayoutPlaceholderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightLayoutPlaceholderTableViewCell.xib; sourceTree = "<group>"; };
+		BE10C6BC27D0BAD1004A24CA /* LeftLayoutPlaceholderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftLayoutPlaceholderTableViewCell.swift; sourceTree = "<group>"; };
+		BE10C6BD27D0BAD1004A24CA /* LeftLayoutPlaceholderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftLayoutPlaceholderTableViewCell.xib; sourceTree = "<group>"; };
+		BE10C6C127D0C07A004A24CA /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		BE10C6C327D0C089004A24CA /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		BE10C6C527D0C09C004A24CA /* OnboardingCoordnator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordnator.swift; sourceTree = "<group>"; };
+		BE10C6C727D0C0A8004A24CA /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		BE10C6CB27D0E275004A24CA /* DashboardHospitalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHospitalTableViewCell.swift; sourceTree = "<group>"; };
+		BE10C6CC27D0E275004A24CA /* DashboardHospitalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardHospitalTableViewCell.xib; sourceTree = "<group>"; };
+		BE10C6D127D0E2DD004A24CA /* DashboardHospitalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHospitalCollectionViewCell.swift; sourceTree = "<group>"; };
+		BE10C6D227D0E2DD004A24CA /* DashboardHospitalCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardHospitalCollectionViewCell.xib; sourceTree = "<group>"; };
 		BE1386E327CF3F630070004B /* FamilyHealthAllergiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyHealthAllergiesTableViewCell.swift; sourceTree = "<group>"; };
 		BE1386E427CF3F630070004B /* FamilyHealthAllergiesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyHealthAllergiesTableViewCell.xib; sourceTree = "<group>"; };
 		BE1386E927CF4DBA0070004B /* EmergenciesDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciesDashboardTableViewCell.swift; sourceTree = "<group>"; };
@@ -552,6 +576,35 @@
 			path = Otp;
 			sourceTree = "<group>";
 		};
+		BE10C6B327D0A935004A24CA /* PlaceholdersCell */ = {
+			isa = PBXGroup;
+			children = (
+				BE10C6B627D0A9B7004A24CA /* RightLayoutPlaceholderTableViewCell.swift */,
+				BE10C6B727D0A9B7004A24CA /* RightLayoutPlaceholderTableViewCell.xib */,
+				BE10C6BC27D0BAD1004A24CA /* LeftLayoutPlaceholderTableViewCell.swift */,
+				BE10C6BD27D0BAD1004A24CA /* LeftLayoutPlaceholderTableViewCell.xib */,
+			);
+			path = PlaceholdersCell;
+			sourceTree = "<group>";
+		};
+		BE10C6C027D0C06D004A24CA /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				BE10C6C127D0C07A004A24CA /* Onboarding.storyboard */,
+				BE10C6C327D0C089004A24CA /* OnboardingViewController.swift */,
+				BE10C6C527D0C09C004A24CA /* OnboardingCoordnator.swift */,
+				BE10C6C727D0C0A8004A24CA /* OnboardingViewModel.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		BE10C6D527D0EFAE004A24CA /* PdfHospital */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PdfHospital;
+			sourceTree = "<group>";
+		};
 		BE2030CE278C04A400C61A48 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +724,7 @@
 				BE712A5D278AF53C00D7985A /* Dashboard.storyboard */,
 				BE1386E927CF4DBA0070004B /* EmergenciesDashboardTableViewCell.swift */,
 				BE1386ED27CF4EBC0070004B /* EmergencyDashboardCollectionViewCell.swift */,
+				BE10C6B327D0A935004A24CA /* PlaceholdersCell */,
 				BE1386EE27CF4EBC0070004B /* EmergencyDashboardCollectionViewCell.xib */,
 				BE1386EA27CF4DBA0070004B /* EmergenciesDashboardTableViewCell.xib */,
 				BECB454227BFA6DD00ABFE12 /* SearviceCollectionViewCell.swift */,
@@ -740,6 +794,7 @@
 		BE72A84227B7B37300FA91B7 /* HospitalCard */ = {
 			isa = PBXGroup;
 			children = (
+				BE10C6D527D0EFAE004A24CA /* PdfHospital */,
 				BE72A84727B7B3BB00FA91B7 /* Cells */,
 				BE72A84327B7B38200FA91B7 /* HospitalCard.storyboard */,
 				BE72A84527B7B39100FA91B7 /* HospitalCardViewController.swift */,
@@ -873,6 +928,10 @@
 				BEF32CB827CCE7B8005D7370 /* DashboardFamilyProfileTableViewCell.swift */,
 				BEF32CB927CCE7B8005D7370 /* DashboardFamilyProfileTableViewCell.xib */,
 				BE8A2DF927C6E2460029E173 /* DashboardMedicationTableViewCell.xib */,
+				BE10C6CB27D0E275004A24CA /* DashboardHospitalTableViewCell.swift */,
+				BE10C6CC27D0E275004A24CA /* DashboardHospitalTableViewCell.xib */,
+				BE10C6D127D0E2DD004A24CA /* DashboardHospitalCollectionViewCell.swift */,
+				BE10C6D227D0E2DD004A24CA /* DashboardHospitalCollectionViewCell.xib */,
 				BE8A2E0427C6E7FD0029E173 /* DashboardMedicationCollectionViewCell.swift */,
 				BE8A2E0527C6E7FD0029E173 /* DashboardMedicationCollectionViewCell.xib */,
 			);
@@ -910,6 +969,7 @@
 				BEB712572786C5F000486FB3 /* Services */,
 				BEB7121E2786C5AB00486FB3 /* AppDelegate.swift */,
 				BEB7126E2786C79000486FB3 /* Modules */,
+				BE10C6C027D0C06D004A24CA /* Onboarding */,
 				BEB712272786C5B000486FB3 /* Assets.xcassets */,
 				BEB712292786C5B000486FB3 /* LaunchScreen.storyboard */,
 				BE8A2DDD27C63A940029E173 /* alert.mp3 */,
@@ -1285,6 +1345,7 @@
 				BE38599C27C3B71400606C0E /* HospitalNoticeCollectionViewCell.xib in Resources */,
 				BE1386EC27CF4DBA0070004B /* EmergenciesDashboardTableViewCell.xib in Resources */,
 				BECB452A27BEDFA000ABFE12 /* ProfileConfirmation.storyboard in Resources */,
+				BE10C6BF27D0BAD1004A24CA /* LeftLayoutPlaceholderTableViewCell.xib in Resources */,
 				BE8A2DFB27C6E2460029E173 /* DashboardMedicationTableViewCell.xib in Resources */,
 				BE72A86527B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.xib in Resources */,
 				BE712A53278AF19700D7985A /* UserCronic.storyboard in Resources */,
@@ -1294,6 +1355,7 @@
 				BEA57C5327CF7B0D0037F197 /* ProfileHeaderTableViewCell.xib in Resources */,
 				BE1386F027CF4EBC0070004B /* EmergencyDashboardCollectionViewCell.xib in Resources */,
 				BECB454127BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.xib in Resources */,
+				BE10C6C227D0C07A004A24CA /* Onboarding.storyboard in Resources */,
 				BE72A83F27B7A44800FA91B7 /* AddConnectHospital.storyboard in Resources */,
 				BECB453D27BF9A1500ABFE12 /* ProfileCardTableViewCell.xib in Resources */,
 				BE070C052789C41300D994C6 /* Otp.storyboard in Resources */,
@@ -1301,7 +1363,10 @@
 				BE72A85127B7B4E300FA91B7 /* HospitalCardNoticeTableViewCell.xib in Resources */,
 				BEF32C8727CBFE07005D7370 /* AddFamilyDiseaseAllergyCollectionViewCell.xib in Resources */,
 				BE2030D5278C1DC100C61A48 /* Habits.storyboard in Resources */,
+				BE10C6CE27D0E276004A24CA /* DashboardHospitalTableViewCell.xib in Resources */,
 				BE8A2E0727C6E7FD0029E173 /* DashboardMedicationCollectionViewCell.xib in Resources */,
+				BE10C6B927D0A9B7004A24CA /* RightLayoutPlaceholderTableViewCell.xib in Resources */,
+				BE10C6D427D0E2DD004A24CA /* DashboardHospitalCollectionViewCell.xib in Resources */,
 				BEF32C6E27CBD9CC005D7370 /* FamilyProfile.storyboard in Resources */,
 				BEF32C9A27CCD35C005D7370 /* FamilyHealthLockerTableViewCell.xib in Resources */,
 				BE72A82727B6E96F00FA91B7 /* HealthLockerList.storyboard in Resources */,
@@ -1505,6 +1570,7 @@
 				BE712A55278AF1B500D7985A /* UserCronicTableViewCell.swift in Sources */,
 				BE858FE027C2629C005A1CC4 /* MinioManager.swift in Sources */,
 				BECB453C27BF9A1500ABFE12 /* ProfileCardTableViewCell.swift in Sources */,
+				BE10C6C427D0C089004A24CA /* OnboardingViewController.swift in Sources */,
 				BE070BFF2789BE2000D994C6 /* LoginViewController.swift in Sources */,
 				BEF32C8927CCA090005D7370 /* TagFlowLayout.swift in Sources */,
 				BE72A84A27B7B3DC00FA91B7 /* HospitalCardDetailsTableViewCell.swift in Sources */,
@@ -1512,6 +1578,7 @@
 				BE712A60278AF54500D7985A /* DashboardViewController.swift in Sources */,
 				BE070C092789D03A00D994C6 /* OtpViewController.swift in Sources */,
 				BECB451827BECA7A00ABFE12 /* BaseTabbarViewController.swift in Sources */,
+				BE10C6BE27D0BAD1004A24CA /* LeftLayoutPlaceholderTableViewCell.swift in Sources */,
 				BE8A2DE527C69E7D0029E173 /* BloodBankViewModel.swift in Sources */,
 				BE712A62278AF55300D7985A /* DashboardCoordinator.swift in Sources */,
 				BECB452C27BEDFAD00ABFE12 /* ProfileConfirmationViewController.swift in Sources */,
@@ -1561,6 +1628,7 @@
 				BE72A86427B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.swift in Sources */,
 				BE72A82B27B6EEA200FA91B7 /* HealthLockerListTableViewCell.swift in Sources */,
 				BEF32C7A27CBDEB8005D7370 /* AddFamilyProfile2ViewController.swift in Sources */,
+				BE10C6CD27D0E276004A24CA /* DashboardHospitalTableViewCell.swift in Sources */,
 				BE712A1B2789E4E500D7985A /* SetPasswordViewController.swift in Sources */,
 				BE8A2DF127C6B4780029E173 /* AmbulanceViewModel.swift in Sources */,
 				BEB7125D2786C5F000486FB3 /* URLConfig.swift in Sources */,
@@ -1573,6 +1641,7 @@
 				BEF32C7C27CBE43C005D7370 /* FamilyProfile2ViewModel.swift in Sources */,
 				BEB7126B2786C71800486FB3 /* RegistrationCoodinator.swift in Sources */,
 				BE2C2E2227B8D7FE008C878A /* AddMedicationViewModel.swift in Sources */,
+				BE10C6C827D0C0A8004A24CA /* OnboardingViewModel.swift in Sources */,
 				BEF32C8527CBF3C8005D7370 /* AddFamilyDiseaseAllergyCollectionViewCell.swift in Sources */,
 				BECB451427BEBEC100ABFE12 /* ConnectHospitalOtpViewModel.swift in Sources */,
 				BE72A82427B6D53300FA91B7 /* HealthLockerCoordinator.swift in Sources */,
@@ -1582,7 +1651,9 @@
 				BE38599527C3744600606C0E /* HealthLockerListModel.swift in Sources */,
 				BE72A84127B7AC9100FA91B7 /* AddConnectHospitalViewController.swift in Sources */,
 				BE72A86927B7F92500FA91B7 /* HospitalCardCoordinatoer.swift in Sources */,
+				BE10C6B827D0A9B7004A24CA /* RightLayoutPlaceholderTableViewCell.swift in Sources */,
 				BE72A86727B7F91B00FA91B7 /* HospitalCardViewModel.swift in Sources */,
+				BE10C6C627D0C09C004A24CA /* OnboardingCoordnator.swift in Sources */,
 				BE712A4A278ADFFE00D7985A /* UserAllergyCoordinator.swift in Sources */,
 				BEF32C9027CCC9F0005D7370 /* FamilyProfileConfirmationViewModel.swift in Sources */,
 				BE712A35278AB24700D7985A /* UserBasicCoordinator.swift in Sources */,
@@ -1593,6 +1664,7 @@
 				BE858FDE27C23999005A1CC4 /* ImagePickerManager.swift in Sources */,
 				BE712A3A278AB64D00D7985A /* OtpViewModel.swift in Sources */,
 				BE38599B27C3B71400606C0E /* HospitalNoticeCollectionViewCell.swift in Sources */,
+				BE10C6D327D0E2DD004A24CA /* DashboardHospitalCollectionViewCell.swift in Sources */,
 				BE712A27278AAE0600D7985A /* LoginCoodinator.swift in Sources */,
 				BE38599727C38A6700606C0E /* HospitalListModel.swift in Sources */,
 				BE712A57278AF1CA00D7985A /* UserCronicViewController.swift in Sources */,
@@ -1795,6 +1867,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhoneHealth/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fone Health";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Phone health would like to request calender access";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Phone health would like to use your camera";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Phone health would like to request gallery access";
@@ -1832,6 +1905,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhoneHealth/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fone Health";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Phone health would like to request calender access";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Phone health would like to use your camera";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Phone health would like to request gallery access";

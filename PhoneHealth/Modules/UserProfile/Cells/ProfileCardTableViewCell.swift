@@ -27,9 +27,9 @@ class ProfileCardTableViewCell: UITableViewCell {
             self.nameLabel.text = model?.name
             self.profileImageLabel.sd_setImage(with: URL.init(string: model?.avatar ?? "")) { img, error, _, _ in
                
-                if img?.imageOrientation != .up {
-                self.profileImageLabel.image = img?.rotateImage()
-                }
+//                if img?.imageOrientation != .up {
+                self.profileImageLabel.image = img
+//                }
                
             }
             self.idLabel.text = "\(UserDefaults.standard.value(forKey: "Mobile") as? String ?? "")"

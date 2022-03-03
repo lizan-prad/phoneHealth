@@ -23,9 +23,8 @@ class UpdateProfileCoordinator: Coordinator {
         var viewModel = UpdateProfileViewModel()
         viewModel.model = self.model
         vc.viewModel = viewModel
-        if model != nil {
+
             vc.hidesBottomBarWhenPushed = true
-        }
         navigationController.pushViewController(vc, animated: true)
     }
 }

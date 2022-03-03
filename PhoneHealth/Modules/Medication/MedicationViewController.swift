@@ -58,14 +58,14 @@ class MedicationViewController: UIViewController, Storyboarded {
         bindViewModel()
         
         self.hideTabbar()
-        self.navigationItem.title = "Medications"
+       
         setupCells()
         dateFormatter.dateFormat = "EEE dd MMM"
         setup()
         self.navigationController?.navigationBar.barTintColor = .white
         setupViews()
         if viewModel.isFromNotif {
-//            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Dashboard", style: .plain, target: self, action: #selector(goToHome))
+            //            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Dashboard", style: .plain, target: self, action: #selector(goToHome))
             guard let nav = self.navigationController, let model = self.viewModel.model else {return}
             let coordinator = MedicationDetailCoordinator.init(navigationController: nav, model: model, isFromNotif: true)
             coordinator.start()
@@ -81,7 +81,13 @@ class MedicationViewController: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.title = "Medications"
         self.viewModel.fetchMedication()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationItem.title = ""
     }
     
     func bindViewModel() {

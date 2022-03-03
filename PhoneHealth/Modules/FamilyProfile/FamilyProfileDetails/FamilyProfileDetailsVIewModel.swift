@@ -45,6 +45,7 @@ class FamilyProfileListModel: Mappable {
 struct FamilyProfileDetailsViewModel {
     
     var model: FamilyProfileListModel?
+    var healthLocker: Observable<[HealthLockerListModel]> = Observable([])
     var success: Observable<UserProfileModel> = Observable(nil)
     var error: Observable<Error> = Observable(nil)
     var loading: Observable<Bool> = Observable(nil)
@@ -61,5 +62,25 @@ struct FamilyProfileDetailsViewModel {
             }
         }
         
+    }
+    
+    func searchHealthLocker() {
+        let param: [String: Any] = [
+            "hospitalName": "",
+             "name": "",
+             "status": "",
+            "userId": model?.id ?? 0
+            
+        ]
+        self.loading.value = true
+        NetworkManager.shared.request(BaseMappableModel<HealthLockerListConatinerModel>.self, urlExt: URLConfig.baseUrl + "healthLocker/search", method: .put, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.healthLocker.value = model.data?.healthLockerList
+            case .failure(let error):
+                self.error.value = error
+            }
+        }
     }
 }

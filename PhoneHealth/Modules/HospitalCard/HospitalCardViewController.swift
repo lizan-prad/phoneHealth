@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PDFKit
 
 class HospitalCardViewController: UIViewController, Storyboarded {
 
@@ -17,17 +18,26 @@ class HospitalCardViewController: UIViewController, Storyboarded {
             self.tableView.reloadData()
         }
     }
+    var pdfView: PDFDocument? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupTableView()
         bindViewModel()
-        self.viewModel.fetchHospitalDetail()
-        self.navigationItem.title = "Chirayu Hospital"
+        self.viewModel.fetchHospitalDetail(id: "\(viewModel.hospitalModel?.hospitalId ?? 0)", patient: viewModel.hospitalModel?.patientId ?? "")
+        self.viewModel.fetchReports()
+        self.navigationItem.title = viewModel.hospitalModel?.hospitalName
     }
     
     func bindViewModel() {
+        self.viewModel.pdf.bind { doc in
+            self.pdfView = doc
+        }
         self.viewModel.model.bind { model in
             self.model = model
         }
@@ -77,6 +87,8 @@ extension HospitalCardViewController: UITableViewDataSource, UITableViewDelegate
             return 70
         case 3:
             return 144
+        case 4:
+            return 160
         default:
             return 0
         }
@@ -101,24 +113,42 @@ extension HospitalCardViewController: UITableViewDataSource, UITableViewDelegate
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalCardNoticeTableViewCell") as! HospitalCardNoticeTableViewCell
-            cell.noticeCOnatiner.addCornerRadius(12)
+            
             cell.noticeCOnatiner.setStandardShadow()
+            cell.noticeCOnatiner.addCornerRadius(12)
             cell.setup()
             cell.notices = model?.hospitalNoticeDetail
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalCardAppointmentTableViewCell") as! HospitalCardAppointmentTableViewCell
-            cell.mainCOntaienr.addCornerRadius(8)
+            
             cell.logoContainer.rounded()
             cell.mainCOntaienr.setStandardShadow()
+            cell.mainCOntaienr.addCornerRadius(12)
             return cell
             
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalCardLastCheckUpTableViewCell") as! HospitalCardLastCheckUpTableViewCell
-            cell.mainContainer.addCornerRadius(12)
+            
             cell.followUpBtn.rounded()
+            cell.doctorImage.addCornerRadius(6)
             cell.followUpBtn.setAttributedTitle("Free Followup".getAtrribText(), for: .normal)
             cell.mainContainer.setStandardShadow()
+            cell.mainContainer.addCornerRadius(12)
+            return cell
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalCardReportsTableViewCell") as! HospitalCardReportsTableViewCell
+            cell.setupViews()
+            cell.setupCollectionView()
+            cell.didSelect = {
+                if let pdf = self.pdfView {
+                    let vc = PDFViewController()
+                    vc.modalTransitionStyle = .crossDissolve
+//                    vc.modalPresentationStyle = .overFullScreen
+                    vc.pdf = pdf
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }
             return cell
         default:
             return UITableViewCell()
@@ -126,4 +156,22 @@ extension HospitalCardViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     
+}
+
+
+final class PDFViewController: UIViewController {
+    
+    var pdf: PDFDocument?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .black
+        let pdfView = PDFView(frame: view.frame)
+        
+        title = "Test Report"
+        if let pdf = self.pdf {
+            pdfView.document = pdf
+        }
+        self.view.addSubview(pdfView)
+    }
 }

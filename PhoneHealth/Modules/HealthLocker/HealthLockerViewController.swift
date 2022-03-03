@@ -46,8 +46,12 @@ class HealthLockerViewController: UIViewController, Storyboarded {
     let picker = UIDatePicker()
     var selectedDate: String?
     
+    var isFamily = false
+    var familyId: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel.isFamily = isFamily
         setup()
         bindViewModel()
         self.uploadedImage.isHidden = true
@@ -120,7 +124,7 @@ class HealthLockerViewController: UIViewController, Storyboarded {
         let imageKey = "\(images.count == 1 ? "IMG_" : "Doc_")\(Int(Date().timeIntervalSince1970)).\(images.count == 1 ? "jpeg" : "pdf")"
         
         let pdf = images.makePDF()
-        let param = ["fileName": URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as? String ?? "")/healthLocker/\(imageKey)"]
+        let param = ["fileName": URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as? String ?? "")\(isFamily ? "/user-family" : "")/healthLocker/\(imageKey)"]
         MinioManager.shared.requestMinioUrl(param: param, encoding: JSONEncoding.default, headers: nil) { result in
             switch result {
             case .success(let url):
@@ -134,7 +138,7 @@ class HealthLockerViewController: UIViewController, Storyboarded {
                     guard let body = (self.images.count == 1) ? self.scannedImageView.image?.jpegData(compressionQuality: 0.2) : pdf?.dataRepresentation() else {return}//self.scannedImageView.image?.pngData() else { return }
                     request.httpBody = body
                     AF.request(request).response { response in
-                        self.viewModel.addHealthLocker(fileUri: param["fileName"]!, fileType: "\(self.images.count == 1 ? "image/jpeg" : "application/document" )", fileSize: body.count, hospitalName: self.hospitalNameField.text ?? "", name: self.selectedReport?.label ?? "", reportDate: self.selectedDate ?? "", reportId: self.selectedReport?.value ?? 0)
+                        self.viewModel.addHealthLocker(fileUri: param["fileName"]!, fileType: "\(self.images.count == 1 ? "image/jpeg" : "application/document" )", fileSize: body.count, hospitalName: self.hospitalNameField.text ?? "", name: self.selectedReport?.label ?? "", reportDate: self.selectedDate ?? "", reportId: self.selectedReport?.value ?? 0, userId: self.isFamily ? "\(self.familyId ?? 0)" : nil)
                     }
 //                    MinioManager.shared.upload(image: [(self.scannedImageView.image?.pngData() ?? Data()).base64EncodedData()], to: request, params: [String:Any]())
                 }

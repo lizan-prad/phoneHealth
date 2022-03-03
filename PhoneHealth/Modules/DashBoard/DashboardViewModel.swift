@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 struct DashboardViewModel {
-    
+    var hospitals: Observable<[HospitalListModel]> = Observable([])
     var families: Observable<[FamilyProfileListModel]> = Observable([])
     var medications: Observable<[MedicationDataModel]> = Observable([])
     var error: Observable<Error> = Observable(nil)
@@ -41,6 +41,19 @@ struct DashboardViewModel {
             switch result {
             case .success(let model):
                 self.families.value = model.data?.familyData
+            case .failure(let error):
+                self.error.value = error
+            }
+        }
+    }
+    
+    func fetchHospitals() {
+        self.loading.value = true
+        NetworkManager.shared.request(BaseMappableModel<HospitalListContainerModel>.self, urlExt: URLConfig.baseUrl + "connect-hospital/user/connected-hospital", method: .get, param: nil, encoding: JSONEncoding.default, headers: nil) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.hospitals.value = model.data?.hospitalLists
             case .failure(let error):
                 self.error.value = error
             }

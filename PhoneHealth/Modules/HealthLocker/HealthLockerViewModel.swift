@@ -14,8 +14,8 @@ struct HealthLockerViewModel {
     var error: Observable<Error> = Observable(nil)
     var success: Observable<String> = Observable(nil)
     var loading: Observable<Bool> = Observable(nil)
-    
-    func addHealthLocker(fileUri: String, fileType: StringLiteralType, fileSize: Int, hospitalName: String, name: String, reportDate: String, reportId: Int) {
+    var isFamily = false
+    func addHealthLocker(fileUri: String, fileType: StringLiteralType, fileSize: Int, hospitalName: String, name: String, reportDate: String, reportId: Int, userId: String?) {
         let param: [String: Any] = [
             "healthLockerFileRequestDTOS": [
                 [
@@ -29,8 +29,22 @@ struct HealthLockerViewModel {
               "reportDate": reportDate,
               "reportTypeId": reportId
         ]
+        
+        let familyParam: [String: Any] = [
+            "healthLockerFileRequestDTOS": [
+                [
+                  "fileSize": fileSize,
+                  "fileType": fileType,
+                  "fileUri": fileUri
+                ]
+              ],
+              "hospitalName": hospitalName,
+              "userId": userId ?? "",
+              "reportDate": reportDate,
+              "reportTypeId": reportId
+        ]
         self.loading.value = true
-        NetworkManager.shared.request(BaseMappableModel<OtpModel>.self, urlExt: URLConfig.baseUrl + "healthLocker", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+        NetworkManager.shared.request(BaseMappableModel<OtpModel>.self, urlExt: URLConfig.baseUrl + (isFamily ? "user-family/healthLocker" : "healthLocker"), method: .post, param: isFamily ? familyParam : param, encoding: JSONEncoding.default, headers: nil) { result in
             self.loading.value = false
             switch result {
             case .success(let model):

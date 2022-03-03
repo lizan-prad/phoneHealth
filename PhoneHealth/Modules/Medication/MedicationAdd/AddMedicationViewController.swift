@@ -43,6 +43,7 @@ class AddMedicationViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Add Medication"
+        self.navigationController?.navigationBar.barTintColor = .white
         dateFormatter.dateFormat = "EEE dd MMM"
         setup()
         bindViewModel()

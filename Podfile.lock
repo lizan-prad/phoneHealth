@@ -37,6 +37,7 @@ PODS:
   - MBRadioCheckboxButton (2.0)
   - MDFInternationalization (3.0.0)
   - ObjectMapper (4.2.0)
+  - OnboardKit (1.5.0)
   - SDWebImage (5.12.1):
     - SDWebImage/Core (= 5.12.1)
   - SDWebImage/Core (5.12.1)
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - MBRadioCheckboxButton
   - ObjectMapper
+  - OnboardKit
   - SDWebImage (~> 5.0)
   - SwiftyJSON (~> 4.0)
   - WeScan (>= 0.9)
@@ -69,6 +71,7 @@ SPEC REPOS:
     - MBRadioCheckboxButton
     - MDFInternationalization
     - ObjectMapper
+    - OnboardKit
     - SDWebImage
     - SwiftyJSON
     - WeScan
@@ -84,10 +87,11 @@ SPEC CHECKSUMS:
   MBRadioCheckboxButton: 6e2a2cdc441e292e45b64c4e65eb8fc1fc05eef2
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  OnboardKit: 73a4e9c9a1ae88afee0514ac3f2bc4f82126b66e
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   WeScan: fed582f6c38014d529afb5aa9ffd1bad38fc72b7
 
-PODFILE CHECKSUM: 977aa8a5bbf10c2f149f66819d8c904458a5e991
+PODFILE CHECKSUM: 4348dedbf719b811920d32ad178038312e3f8167
 
 COCOAPODS: 1.11.2

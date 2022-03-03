@@ -35,7 +35,7 @@ class SetPasswordViewController: UIViewController, Storyboarded {
         confirmPassword.setup("Confirm Password")
         passwordField.isSecureTextEntry = true
         confirmPassword.isSecureTextEntry = true
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         passwordField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
         confirmPassword.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
         
@@ -66,6 +66,16 @@ class SetPasswordViewController: UIViewController, Storyboarded {
             let coodinator = UpdateProfileCoordinator.init(navigationController: navigationController, user: nil)
             coodinator.start()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Set Password"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationItem.title = ""
     }
     
     @IBAction func showHide(_ sender: UIButton) {

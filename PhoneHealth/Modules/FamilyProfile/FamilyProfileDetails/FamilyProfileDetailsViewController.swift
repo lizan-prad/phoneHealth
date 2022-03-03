@@ -52,13 +52,18 @@ class FamilyProfileDetailsViewController: UIViewController, Storyboarded {
         }
     }
     
+    var healthLockerList: [HealthLockerListModel]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
         self.navigationItem.title = "Family Profile"
         self.setupNav()
         self.bindViewModel()
-        self.viewModel.fetchProfile()
         setupTableView()
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
@@ -67,7 +72,16 @@ class FamilyProfileDetailsViewController: UIViewController, Storyboarded {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.fetchProfile()
+        self.viewModel.searchHealthLocker()
+    }
+    
     func bindViewModel() {
+        self.viewModel.healthLocker.bind { model in
+            self.healthLockerList = model
+        }
         self.viewModel.success.bind { model in
             self.model = model
         }
@@ -86,9 +100,9 @@ class FamilyProfileDetailsViewController: UIViewController, Storyboarded {
     }
     
     func setupData() {
-        self.nameLabel.text = model?.name
+        self.nameLabel.text = "ID: \(model?.id ?? 0)"
         self.genderLabel.text = model?.gender?.capitalized
-        self.idLabel.text = "ID: \(model?.id ?? 0)"
+        self.idLabel.text = model?.name
         self.locationLabel.text = model?.districtName
         self.emailLabel.text = model?.email
         self.dobLabel.text = model?.dateOfBirth
@@ -99,6 +113,7 @@ class FamilyProfileDetailsViewController: UIViewController, Storyboarded {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.backgroundColor = UIColor.init(hex: "F5FAFA")
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorConfig.baseColor]
         self.navigationController?.navigationBar.standardAppearance = appearance
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
@@ -129,6 +144,17 @@ class FamilyProfileDetailsViewController: UIViewController, Storyboarded {
         basicLabel.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(didTapBasic)))
         allergyLabel.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(didTapAllergy)))
         chronicLabel.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(didTapChronic)))
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = UIColor.clear
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorConfig.baseColor]
+        self.navigationController?.navigationBar.standardAppearance = appearance
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
     }
     
     func setupTableView() {
@@ -259,6 +285,21 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyHealthLockerTableViewCell") as! FamilyHealthLockerTableViewCell
             cell.setup()
+            cell.models = self.healthLockerList
+            cell.didTapAdd = {
+                guard let nav = self.navigationController else {return}
+                let coordinator = HealthLockerCoordinator.init(navigationController: nav)
+                let vc = coordinator.getMainView()
+                vc.isFamily = true
+                vc.familyId = self.model?.id
+                self.present(vc , animated: true, completion: nil)
+            }
+            
+            cell.didTapOpen = { model in
+                let vc = UIStoryboard.init(name: "Scan", bundle: nil).instantiateViewController(withIdentifier: "ScanViewController") as! ScanViewController
+                vc.image = model
+                self.present(vc, animated: true, completion: nil)
+            }
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyAppointmentsTableViewCell") as! FamilyAppointmentsTableViewCell

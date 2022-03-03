@@ -9,6 +9,7 @@ import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import MBRadioCheckboxButton
 import WeScan
+import Alamofire
 
 class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegate {
     
@@ -47,9 +48,18 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
         viewModel.loginModel.bind { model in
             UserDefaults.standard.set(model?.token, forKey: "AT")
             UserDefaults.standard.set(model?.username, forKey: "Mobile")
-           
-            let vc = UIStoryboard.init(name: "BaseTabbar", bundle: nil).instantiateViewController(withIdentifier: "BaseTabbarViewController") as! BaseTabbarViewController
-            appdelegate.window?.rootViewController = vc
+            if model?.isProfileUpdated == "Y" {
+                if model?.isHealthProfileUpdated == "Y" {
+                    let vc = UIStoryboard.init(name: "BaseTabbar", bundle: nil).instantiateViewController(withIdentifier: "BaseTabbarViewController") as! BaseTabbarViewController
+                    appdelegate.window?.rootViewController = vc
+                }else {
+                    self.fetchProfile()
+                }
+            } else {
+            guard let nav = self.navigationController else {return}
+            let coordinator = UpdateProfileCoordinator.init(navigationController: nav, user: nil)
+            coordinator.start()
+            }
         }
         
         viewModel.error.bind { error in
@@ -61,6 +71,24 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
         
         MobileNumber.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
         Password.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+    }
+    
+    func fetchProfile() {
+        self.showProgressHud()
+        NetworkManager.shared.request(BaseMappableModel<UserProfileContainerModel>.self, urlExt: URLConfig.baseUrl + "user/profile/details", method: .get, param: nil, encoding: JSONEncoding.default, headers: nil) { result in
+            self.hideProgressHud()
+            switch result {
+            case .success(let model):
+                guard let nav = self.navigationController, let model = model.data?.userProfileDetail else {return}
+                let coordinator = UserSteppingCoordinator.init(navigationController: nav, model: UpdateProfileStruct.init(avatar: model.avatar ?? "", dob: model.dateOfBirth ?? "", districtId: model.districtId ?? 0, email: model.email ?? "", gender: model.gender ?? "", province: model.provinceId ?? 0, vdc: model.vdcOrMunicipalityId ?? 0, wardNumber: "\(model.wardNumber ?? "")", address: model.districtName ?? ""))
+                coordinator.start()
+                
+            case .failure(let _):
+                let vc = UIStoryboard.init(name: "BaseTabbar", bundle: nil).instantiateViewController(withIdentifier: "BaseTabbarViewController") as! BaseTabbarViewController
+                appdelegate.window?.rootViewController = vc
+            }
+        }
+        
     }
     
     @objc func textChanged(_ sender: MDCOutlinedTextField) {

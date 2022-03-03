@@ -23,17 +23,25 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
             self.userName.text = "Hi, " + (model?.name ?? "")
             self.profileImage.rounded()
             self.profileImage.sd_setImage(with: URL.init(string: model?.avatar ?? "")) { img,_,_,_ in
-                if img?.imageOrientation != .up {
-                self.profileImage.image = img?.rotateImage()
-                }
+//                if img?.imageOrientation != .up {
+                self.profileImage.image = img
+//                }
             }
         }
     }
+    
     var familyList: [FamilyProfileListModel]? {
         didSet {
             tableView.reloadData()
         }
     }
+    
+    var hospitals: [HospitalListModel]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     
     var medicationList: [MedicationDataModel]? {
         didSet {
@@ -54,7 +62,10 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
         tableView.register(UINib.init(nibName: "DashboardFamilyProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "DashboardFamilyProfileTableViewCell")
         
         tableView.register(UINib.init(nibName: "EmergenciesDashboardTableViewCell", bundle: nil), forCellReuseIdentifier: "EmergenciesDashboardTableViewCell")
-        
+        tableView.register(UINib.init(nibName: "RightLayoutPlaceholderTableViewCell", bundle: nil), forCellReuseIdentifier: "RightLayoutPlaceholderTableViewCell")
+        tableView.register(UINib.init(nibName: "LeftLayoutPlaceholderTableViewCell", bundle: nil), forCellReuseIdentifier: "LeftLayoutPlaceholderTableViewCell")
+        tableView.register(UINib.init(nibName: "DashboardHospitalTableViewCell", bundle: nil), forCellReuseIdentifier: "DashboardHospitalTableViewCell")
+
         bindViewModel()
         dropIcon.setTitle("", for: .normal)
         notifIcon.setTitle("", for: .normal)
@@ -84,6 +95,9 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
     }
     
     func bindViewModel() {
+        self.viewModel.hospitals.bind { models in
+            self.hospitals = models
+        }
         self.viewModel.families.bind { models in
             self.familyList = models
         }
@@ -117,6 +131,7 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
         self.showTabbar()
         self.viewModel.fetchMedication()
         self.viewModel.fetchFamily()
+        self.viewModel.fetchHospitals()
         self.fetchProfile()
     }
     
@@ -138,17 +153,17 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 203
+            return 180
         case 1:
             return 110
         case 2:
             return 110
         case 3:
-            return 120
+            return (medicationList?.count == 0 || medicationList?.count == nil) ? 170 : 120
         case 4:
-            return 120
+            return (familyList?.count == 0 || familyList?.count == nil) ? 170 : 120
         case 5:
-            return 141
+            return (hospitals?.count == 0 || hospitals?.count == nil) ? 170 : 120
         default:
             return 0
         }
@@ -157,9 +172,20 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentTableViewCell") as! AppointmentTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RightLayoutPlaceholderTableViewCell") as! RightLayoutPlaceholderTableViewCell
             cell.setup()
+            cell.infoText.text = "Ease scheduling pains with a doctor appointment booking and making payment"
+            cell.proceedBtn.setAttributedTitle("Book Now".getAtrribText(), for: .normal)
+            cell.placeholderImage.image = UIImage.init(named: "E-appointment-Dashboard")
+            cell.didTapProceed = {
+                self.showAlert(title: nil, message: "E-Appointment is comming soon.") { _ in
+                    
+                }
+            }
             return cell
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentTableViewCell") as! AppointmentTableViewCell
+//            cell.setup()
+//            return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "EmergenciesDashboardTableViewCell") as! EmergenciesDashboardTableViewCell
             cell.setup()
@@ -197,6 +223,19 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
             }
             return cell
         case 3:
+            if medicationList?.count == 0 || medicationList?.count == nil {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "LeftLayoutPlaceholderTableViewCell") as! LeftLayoutPlaceholderTableViewCell
+                cell.setup()
+                cell.infoText.text = "Tracks your medications, receives alerts as reminders to take your meds"
+                cell.proceedBtn.setAttributedTitle("Add Medicines".getAtrribText(), for: .normal)
+                cell.placeholderImage.image = UIImage.init(named: "Medication-Dashboard")
+                cell.didTapProceed = {
+                    guard let nav = self.navigationController else {return}
+                    let coordinator = MedicationCoordinator.init(navigationController: nav)
+                    coordinator.start()
+                }
+                return cell
+            }
             let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardMedicationTableViewCell") as! DashboardMedicationTableViewCell
             cell.setup()
             cell.medications = self.medicationList
@@ -216,6 +255,19 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
             }
             return cell
         case 4:
+            if familyList?.count == 0 || familyList?.count == nil {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "RightLayoutPlaceholderTableViewCell") as! RightLayoutPlaceholderTableViewCell
+                cell.setup()
+                cell.infoText.text = "A personal health profile for each of your family members"
+                cell.proceedBtn.setAttributedTitle("Add Family Profile".getAtrribText(), for: .normal)
+                cell.placeholderImage.image = UIImage.init(named: "Family-Profile-Dashboard")
+                cell.didTapProceed = {
+                    guard let nav = self.navigationController else {return}
+                    let coordinator = AddFamilyProfileCoordinator.init(navigationController: nav)
+                    coordinator.start()
+                }
+                return cell
+            }
             let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardFamilyProfileTableViewCell") as! DashboardFamilyProfileTableViewCell
             cell.setup()
             cell.setupCollection()
@@ -233,7 +285,28 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
             }
             return cell
         case 5:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalsTableViewCell") as! HospitalsTableViewCell
+            if hospitals?.count == 0 || hospitals?.count == nil {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "LeftLayoutPlaceholderTableViewCell") as! LeftLayoutPlaceholderTableViewCell
+                cell.setup()
+                cell.infoText.text = "Get connected with your health service providers"
+                cell.proceedBtn.setAttributedTitle("Add Hospital".getAtrribText(), for: .normal)
+                cell.placeholderImage.image = UIImage.init(named: "Connect-Hospital-Dashboard")
+                cell.didTapProceed = {
+                    guard let nav = self.navigationController else {return}
+                    let coordinator = MedicationCoordinator.init(navigationController: nav)
+                    coordinator.start()
+                }
+                return cell
+            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardHospitalTableViewCell") as! DashboardHospitalTableViewCell
+            cell.setup()
+            cell.models = self.hospitals
+            cell.didselect = { model in
+                guard let nav = self.navigationController else {return}
+                
+                let coordinator = HospitalCardCoordinator.init(navigationController: nav, model: model)
+                coordinator.start()
+            }
             return cell
         default:
             return UITableViewCell()
@@ -278,13 +351,7 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 5 {
-            guard let nav = self.navigationController else {return}
-            
-            let coordinator = HospitalCardCoordinator.init(navigationController: nav, model: nil)
-            coordinator.start()
-        }
-        
+       
     }
     
 }

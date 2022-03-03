@@ -139,7 +139,7 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
     @objc func nextAction() {
         let dob = "\(self.year.text ?? "")-\(self.month.text ?? "")-\(self.day.text ?? "") \(self.adbs.text ?? "")"
         let imageURI = "IMG_\(Int(Date().timeIntervalSince1970)).jpeg"
-        let model = FmailyProfileStruct.init(avatar: self.selectedImage == nil ? "" : URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as! String)/profileImage/\(imageURI)", dateOfBirth: dob, districtId: userProfileModel?.districtId, email: userProfileModel?.email, gender: self.selectedGender?.1, provinceId: self.userProfileModel?.provinceId, fullName: fullName.text, relationId: self.selectedRelation?.value, vdcOrMunicipalityId: self.userProfileModel?.vdcOrMunicipalityId, wardNumber: "\(self.userProfileModel?.wardNumber ?? 0)")
+        let model = FmailyProfileStruct.init(avatar: self.selectedImage == nil ? "" : URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as! String)/profileImage/\(imageURI)", dateOfBirth: dob, districtId: userProfileModel?.districtId, email: userProfileModel?.email, gender: self.selectedGender?.1, provinceId: self.userProfileModel?.provinceId, fullName: fullName.text, relationId: self.selectedRelation?.value, vdcOrMunicipalityId: self.userProfileModel?.vdcOrMunicipalityId, wardNumber: "\(self.userProfileModel?.wardNumber ?? "")")
         self.familyStruct = model
         if self.selectedImage == nil {
             self.viewModel.updateprofile(model: model)

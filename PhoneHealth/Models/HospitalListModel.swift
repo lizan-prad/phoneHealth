@@ -50,6 +50,7 @@ class HospitalListModel: Mappable {
     var hospitalAddress: String?
     var hospitalLogo: String?
     var hospitalName: String?
+    
     var id: Int?
     var status: String?
     var email: String?
@@ -57,7 +58,8 @@ class HospitalListModel: Mappable {
     var hospitalCode: String?
     var hospitalColourDetail: [HospitalColorModel]?
     var hospitalEmail: String?
-    var hospitalId: String?
+    var hospitalId: Int?
+    var patientId: String?
     var hospitalNoticeDetail: [HospitalNoticeModel]?
     
     required init?(map: Map) {
@@ -76,6 +78,7 @@ class HospitalListModel: Mappable {
         hospitalColourDetail <- map["hospitalColourDetail"]
         hospitalEmail <- map["hospitalEmail"]
         hospitalId <- map["hospitalId"]
+        patientId <- map["patientId"]
         hospitalNoticeDetail <- map["hospitalNoticeDetail"]
     }
 }

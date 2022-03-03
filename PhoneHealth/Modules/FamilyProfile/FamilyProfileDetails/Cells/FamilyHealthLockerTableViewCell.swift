@@ -13,12 +13,12 @@ class FamilyHealthLockerTableViewCell: UITableViewCell, UICollectionViewDataSour
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var medications: [MedicationDataModel]? {
+    var models: [HealthLockerListModel]? {
         didSet {
             collectionView.reloadData()
         }
     }
-    var didTapOpen: ((MedicationDataModel?) -> ())?
+    var didTapOpen: ((HealthLockerListModel?) -> ())?
     var didTapAdd: (() -> ())?
     func setup() {
         self.addCOntainer.addBorder(ColorConfig.baseColor)
@@ -27,8 +27,8 @@ class FamilyHealthLockerTableViewCell: UITableViewCell, UICollectionViewDataSour
         self.container.addCornerRadius(12)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        self.collectionView.register(UINib.init(nibName: "DashboardMedicationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DashboardMedicationCollectionViewCell")
-
+        self.collectionView.register(UINib.init(nibName: "FamilyHealthLockerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FamilyHealthLockerCollectionViewCell")
+        
         addCOntainer.isUserInteractionEnabled = true
         addCOntainer.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(addAction)))
     }
@@ -38,24 +38,22 @@ class FamilyHealthLockerTableViewCell: UITableViewCell, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.didTapOpen?(self.medications?[indexPath.row])
+        self.didTapOpen?(self.models?[indexPath.row])
         
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (medications?.count ?? 0)
+        return (models?.count ?? 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DashboardMedicationCollectionViewCell", for: indexPath) as! DashboardMedicationCollectionViewCell
-
-        cell.model = medications?[indexPath.row]
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FamilyHealthLockerCollectionViewCell", for: indexPath) as! FamilyHealthLockerCollectionViewCell
+        cell.model = models?[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 80, height: 70)
+        return CGSize.init(width: 90, height: 80)
     }
 }

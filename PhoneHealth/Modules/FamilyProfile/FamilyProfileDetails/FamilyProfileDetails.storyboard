@@ -187,7 +187,7 @@
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IeY-2G-u29">
                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.42490470730000002" green="0.77769625190000002" blue="0.74122085240000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.27450980392156865" green="0.78823529411764703" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IpE-7g-mlM">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
