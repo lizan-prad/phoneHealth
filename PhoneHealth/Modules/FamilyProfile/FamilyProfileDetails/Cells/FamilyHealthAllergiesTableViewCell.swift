@@ -20,6 +20,8 @@ class FamilyHealthAllergiesTableViewCell: UITableViewCell {
         if allergiesLabel.text == "" || allergiesLabel.text == nil {
             self.allergiesLabel.textAlignment = .center
             self.allergiesLabel.text = section == 2 ? "User has no Allergies." : "User has no Diseases."
+        } else {
+            self.allergiesLabel.textAlignment = .left
         }
     }
     

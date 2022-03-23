@@ -21,6 +21,38 @@ class UserProfileContainerModel: Mappable {
     }
 }
 
+class ChronicDiseaseModel: Mappable {
+    var diseaseId: Int?
+    var diseaseName: String?
+    var userDiseaseInfoId: Int?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        diseaseId <- map["diseaseId"]
+        diseaseName <- map["diseaseName"]
+        userDiseaseInfoId <- map["userDiseaseInfoId"]
+    }
+}
+
+class AllergyModel: Mappable {
+    var allergyId: Int?
+    var allergyName: String?
+    var userAllergyInfoId: Int?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        allergyId <- map["allergyId"]
+        allergyName <- map["allergyName"]
+        userAllergyInfoId <- map["userAllergyInfoId"]
+    }
+}
+
 class UserProfileModel: Mappable {
     
     var alcoholFrequency: String?
@@ -45,8 +77,8 @@ class UserProfileModel: Mappable {
     var provinceId: Int?
     var provinceName: String?
     var smokeFrequency: String?
-    var userAllergyInfo: String?
-    var userDiseaseInfo: String?
+    var userAllergyInfo: [AllergyModel]?
+    var userDiseaseInfo: [ChronicDiseaseModel]?
     var userHealthInfoId: Int?
     var vdcOrMunicipalityId: Int?
     var vdcOrMunicipalityName: String?

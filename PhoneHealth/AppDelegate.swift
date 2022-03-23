@@ -38,7 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         if let _ = UserDefaults.standard.value(forKey: "AT") as? String {
             self.window = UIWindow(frame: UIScreen.main.bounds)
+            let navController = UINavigationController()
             let vc = UIStoryboard.init(name: "BaseTabbar", bundle: nil).instantiateViewController(withIdentifier: "BaseTabbarViewController") as! BaseTabbarViewController
+//            vc.start()
             self.window?.rootViewController = vc
             window?.makeKeyAndVisible()
             window?.overrideUserInterfaceStyle = .light

@@ -174,6 +174,20 @@
 		BEB712682786C6ED00486FB3 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB712672786C6ED00486FB3 /* RegistrationViewController.swift */; };
 		BEB7126B2786C71800486FB3 /* RegistrationCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7126A2786C71800486FB3 /* RegistrationCoodinator.swift */; };
 		BEB7126D2786C73D00486FB3 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7126C2786C73D00486FB3 /* RegistrationViewModel.swift */; };
+		BEBDAEEF27E654F50075651B /* SearchMedicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBDAEEE27E654F50075651B /* SearchMedicationViewController.swift */; };
+		BEBDAEF127E655000075651B /* SearchMedication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEBDAEF027E655000075651B /* SearchMedication.storyboard */; };
+		BEBDAEF327E6563B0075651B /* SearchMedicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBDAEF227E6563B0075651B /* SearchMedicationTableViewCell.swift */; };
+		BEBDAEF527E656460075651B /* SearchMedicationAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBDAEF427E656460075651B /* SearchMedicationAddTableViewCell.swift */; };
+		BEBDAEF827E662620075651B /* Immunization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEBDAEF727E662610075651B /* Immunization.storyboard */; };
+		BEBDAEFA27E662720075651B /* ImmunizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBDAEF927E662720075651B /* ImmunizationViewController.swift */; };
+		BEBDAEFD27E6F9BF0075651B /* Vaccine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEBDAEFC27E6F9BF0075651B /* Vaccine.storyboard */; };
+		BEBDAEFF27E6F9C60075651B /* VaccineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBDAEFE27E6F9C60075651B /* VaccineViewController.swift */; };
+		BEBDAF0227E6F9DE0075651B /* ImmunizationHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEBDAF0127E6F9DE0075651B /* ImmunizationHistory.storyboard */; };
+		BEBDAF0427E6F9E90075651B /* ImmunizationHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBDAF0327E6F9E90075651B /* ImmunizationHistoryViewController.swift */; };
+		BEBDAF0927E6FA180075651B /* ImmunizationCalendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEBDAF0827E6FA180075651B /* ImmunizationCalendar.storyboard */; };
+		BEBDAF0B27E6FA210075651B /* ImmunizationCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBDAF0A27E6FA210075651B /* ImmunizationCalendarViewController.swift */; };
+		BEBDAF0E27E6FEBA0075651B /* ImmunizationCalenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBDAF0D27E6FEBA0075651B /* ImmunizationCalenderViewModel.swift */; };
+		BEBDAF1027E6FEC80075651B /* ImmunizationCalendarCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBDAF0F27E6FEC80075651B /* ImmunizationCalendarCoodinator.swift */; };
 		BECB450727BE678900ABFE12 /* DynamicUserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB450627BE678900ABFE12 /* DynamicUserDataModel.swift */; };
 		BECB450927BEB44800ABFE12 /* AddConnectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB450827BEB44800ABFE12 /* AddConnectViewModel.swift */; };
 		BECB450B27BEB46C00ABFE12 /* AddConnectHosiptalCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB450A27BEB46C00ABFE12 /* AddConnectHosiptalCoordinator.swift */; };
@@ -431,6 +445,20 @@
 		BEB712672786C6ED00486FB3 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		BEB7126A2786C71800486FB3 /* RegistrationCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCoodinator.swift; sourceTree = "<group>"; };
 		BEB7126C2786C73D00486FB3 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		BEBDAEEE27E654F50075651B /* SearchMedicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMedicationViewController.swift; sourceTree = "<group>"; };
+		BEBDAEF027E655000075651B /* SearchMedication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchMedication.storyboard; sourceTree = "<group>"; };
+		BEBDAEF227E6563B0075651B /* SearchMedicationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMedicationTableViewCell.swift; sourceTree = "<group>"; };
+		BEBDAEF427E656460075651B /* SearchMedicationAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMedicationAddTableViewCell.swift; sourceTree = "<group>"; };
+		BEBDAEF727E662610075651B /* Immunization.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Immunization.storyboard; sourceTree = "<group>"; };
+		BEBDAEF927E662720075651B /* ImmunizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmunizationViewController.swift; sourceTree = "<group>"; };
+		BEBDAEFC27E6F9BF0075651B /* Vaccine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vaccine.storyboard; sourceTree = "<group>"; };
+		BEBDAEFE27E6F9C60075651B /* VaccineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineViewController.swift; sourceTree = "<group>"; };
+		BEBDAF0127E6F9DE0075651B /* ImmunizationHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImmunizationHistory.storyboard; sourceTree = "<group>"; };
+		BEBDAF0327E6F9E90075651B /* ImmunizationHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmunizationHistoryViewController.swift; sourceTree = "<group>"; };
+		BEBDAF0827E6FA180075651B /* ImmunizationCalendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImmunizationCalendar.storyboard; sourceTree = "<group>"; };
+		BEBDAF0A27E6FA210075651B /* ImmunizationCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmunizationCalendarViewController.swift; sourceTree = "<group>"; };
+		BEBDAF0D27E6FEBA0075651B /* ImmunizationCalenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmunizationCalenderViewModel.swift; sourceTree = "<group>"; };
+		BEBDAF0F27E6FEC80075651B /* ImmunizationCalendarCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmunizationCalendarCoodinator.swift; sourceTree = "<group>"; };
 		BECB450627BE678900ABFE12 /* DynamicUserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicUserDataModel.swift; sourceTree = "<group>"; };
 		BECB450827BEB44800ABFE12 /* AddConnectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConnectViewModel.swift; sourceTree = "<group>"; };
 		BECB450A27BEB46C00ABFE12 /* AddConnectHosiptalCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConnectHosiptalCoordinator.swift; sourceTree = "<group>"; };
@@ -841,6 +869,7 @@
 		BE72A87327B81F2100FA91B7 /* MedicationAdd */ = {
 			isa = PBXGroup;
 			children = (
+				BEBDAEED27E654DE0075651B /* SeatchMedication */,
 				BE72A87427B81F3100FA91B7 /* AddMedication.storyboard */,
 				BE72A87627B81F3F00FA91B7 /* AddMedicationViewController.swift */,
 				BE2C2E2127B8D7FE008C878A /* AddMedicationViewModel.swift */,
@@ -1044,6 +1073,7 @@
 		BEB7126E2786C79000486FB3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BEBDAEF627E662550075651B /* Immunization */,
 				BEF32C6C27CBD9B6005D7370 /* FamilyProfile */,
 				BE8A2DEB27C6B4090029E173 /* Ambulance */,
 				BE8A2DDF27C69E460029E173 /* BloodBank */,
@@ -1067,6 +1097,58 @@
 				BEB712642786C6CE00486FB3 /* Registration */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		BEBDAEED27E654DE0075651B /* SeatchMedication */ = {
+			isa = PBXGroup;
+			children = (
+				BEBDAEEE27E654F50075651B /* SearchMedicationViewController.swift */,
+				BEBDAEF227E6563B0075651B /* SearchMedicationTableViewCell.swift */,
+				BEBDAEF427E656460075651B /* SearchMedicationAddTableViewCell.swift */,
+				BEBDAEF027E655000075651B /* SearchMedication.storyboard */,
+			);
+			path = SeatchMedication;
+			sourceTree = "<group>";
+		};
+		BEBDAEF627E662550075651B /* Immunization */ = {
+			isa = PBXGroup;
+			children = (
+				BEBDAF0527E6F9FA0075651B /* ImmunizationCalendar */,
+				BEBDAEFB27E6F9AF0075651B /* Vaccine */,
+				BEBDAF0027E6F9CE0075651B /* ImmunizationHistory */,
+				BEBDAEF727E662610075651B /* Immunization.storyboard */,
+				BEBDAEF927E662720075651B /* ImmunizationViewController.swift */,
+			);
+			path = Immunization;
+			sourceTree = "<group>";
+		};
+		BEBDAEFB27E6F9AF0075651B /* Vaccine */ = {
+			isa = PBXGroup;
+			children = (
+				BEBDAEFC27E6F9BF0075651B /* Vaccine.storyboard */,
+				BEBDAEFE27E6F9C60075651B /* VaccineViewController.swift */,
+			);
+			path = Vaccine;
+			sourceTree = "<group>";
+		};
+		BEBDAF0027E6F9CE0075651B /* ImmunizationHistory */ = {
+			isa = PBXGroup;
+			children = (
+				BEBDAF0127E6F9DE0075651B /* ImmunizationHistory.storyboard */,
+				BEBDAF0327E6F9E90075651B /* ImmunizationHistoryViewController.swift */,
+			);
+			path = ImmunizationHistory;
+			sourceTree = "<group>";
+		};
+		BEBDAF0527E6F9FA0075651B /* ImmunizationCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				BEBDAF0827E6FA180075651B /* ImmunizationCalendar.storyboard */,
+				BEBDAF0A27E6FA210075651B /* ImmunizationCalendarViewController.swift */,
+				BEBDAF0D27E6FEBA0075651B /* ImmunizationCalenderViewModel.swift */,
+				BEBDAF0F27E6FEC80075651B /* ImmunizationCalendarCoodinator.swift */,
+			);
+			path = ImmunizationCalendar;
 			sourceTree = "<group>";
 		};
 		BECB450C27BEBE0700ABFE12 /* ConnectHospitalOtp */ = {
@@ -1343,6 +1425,7 @@
 				BECB451B27BECCDB00ABFE12 /* Eappointments.storyboard in Resources */,
 				BE712A192789E29600D7985A /* SetPassword.storyboard in Resources */,
 				BE38599C27C3B71400606C0E /* HospitalNoticeCollectionViewCell.xib in Resources */,
+				BEBDAF0927E6FA180075651B /* ImmunizationCalendar.storyboard in Resources */,
 				BE1386EC27CF4DBA0070004B /* EmergenciesDashboardTableViewCell.xib in Resources */,
 				BECB452A27BEDFA000ABFE12 /* ProfileConfirmation.storyboard in Resources */,
 				BE10C6BF27D0BAD1004A24CA /* LeftLayoutPlaceholderTableViewCell.xib in Resources */,
@@ -1376,9 +1459,11 @@
 				BE72A84B27B7B3DC00FA91B7 /* HospitalCardDetailsTableViewCell.xib in Resources */,
 				BEB7122B2786C5B000486FB3 /* LaunchScreen.storyboard in Resources */,
 				BECB450E27BEBE3000ABFE12 /* ConnectHospitalOtp.storyboard in Resources */,
+				BEBDAF0227E6F9DE0075651B /* ImmunizationHistory.storyboard in Resources */,
 				BEF32CB727CCE1C8005D7370 /* FamilyProfileHeaderTableViewCell.xib in Resources */,
 				BECB453427BF8B2200ABFE12 /* TimeAlertCollectionViewCell.xib in Resources */,
 				BE8A2DE127C69E530029E173 /* BloodBank.storyboard in Resources */,
+				BEBDAEF827E662620075651B /* Immunization.storyboard in Resources */,
 				BEF32CBB27CCE7B8005D7370 /* DashboardFamilyProfileTableViewCell.xib in Resources */,
 				BE8A2DD427C60BC40029E173 /* MedicationDetail.storyboard in Resources */,
 				BE72A85527B7B4F300FA91B7 /* HospitalCardLastCheckUpTableViewCell.xib in Resources */,
@@ -1392,6 +1477,7 @@
 				BE712A232789F93800D7985A /* UserBasic.storyboard in Resources */,
 				BEF32CA527CCD5C1005D7370 /* FamilyHealthLockerCollectionViewCell.xib in Resources */,
 				BE8A2DCC27C4F94B0029E173 /* anime.json in Resources */,
+				BEBDAEF127E655000075651B /* SearchMedication.storyboard in Resources */,
 				BE72A88327B8356500FA91B7 /* MedicationListTableViewCell.xib in Resources */,
 				BEF32CAB27CCD5DC005D7370 /* FamilyAppointmentsCollectionViewCell.xib in Resources */,
 				BE1386E627CF3F630070004B /* FamilyHealthAllergiesTableViewCell.xib in Resources */,
@@ -1399,6 +1485,7 @@
 				BEF32C8C27CCC9CD005D7370 /* FamilyProfileConfirmation.storyboard in Resources */,
 				BE72A82027B6D51B00FA91B7 /* HealthLocker.storyboard in Resources */,
 				BE070BFD2789BC8800D994C6 /* Login.storyboard in Resources */,
+				BEBDAEFD27E6F9BF0075651B /* Vaccine.storyboard in Resources */,
 				BECB452027BECD2500ABFE12 /* Profile.storyboard in Resources */,
 				BE8A2DDC27C62A030029E173 /* tone.wav in Resources */,
 				BE72A86E27B7F98D00FA91B7 /* Medication.storyboard in Resources */,
@@ -1533,6 +1620,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEBDAEFF27E6F9C60075651B /* VaccineViewController.swift in Sources */,
 				BE8A2DD827C610810029E173 /* MedicationDetailCoordinator.swift in Sources */,
 				BECB454027BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.swift in Sources */,
 				BEB7125F2786C5F000486FB3 /* Observable.swift in Sources */,
@@ -1587,6 +1675,7 @@
 				BE72A82F27B6F3ED00FA91B7 /* HealthLockerListCoordinator.swift in Sources */,
 				BE72A83627B6F8B800FA91B7 /* ConnectHospitalViewModel.swift in Sources */,
 				BE72A85027B7B4E300FA91B7 /* HospitalCardNoticeTableViewCell.swift in Sources */,
+				BEBDAF0427E6F9E90075651B /* ImmunizationHistoryViewController.swift in Sources */,
 				BEB7126D2786C73D00486FB3 /* RegistrationViewModel.swift in Sources */,
 				BECB453627BF976000ABFE12 /* UserProfileModel.swift in Sources */,
 				BE8A2DF627C6B6030029E173 /* AmbulanceTableViewCell.swift in Sources */,
@@ -1628,6 +1717,7 @@
 				BE72A86427B7EFD100FA91B7 /* HospitalCardReportsCollectionViewCell.swift in Sources */,
 				BE72A82B27B6EEA200FA91B7 /* HealthLockerListTableViewCell.swift in Sources */,
 				BEF32C7A27CBDEB8005D7370 /* AddFamilyProfile2ViewController.swift in Sources */,
+				BEBDAF1027E6FEC80075651B /* ImmunizationCalendarCoodinator.swift in Sources */,
 				BE10C6CD27D0E276004A24CA /* DashboardHospitalTableViewCell.swift in Sources */,
 				BE712A1B2789E4E500D7985A /* SetPasswordViewController.swift in Sources */,
 				BE8A2DF127C6B4780029E173 /* AmbulanceViewModel.swift in Sources */,
@@ -1638,6 +1728,7 @@
 				BE712A59278AF1DC00D7985A /* UserCronicViewModel.swift in Sources */,
 				BECB450B27BEB46C00ABFE12 /* AddConnectHosiptalCoordinator.swift in Sources */,
 				BE72A83427B6F5C400FA91B7 /* ConnectHospitalViewController.swift in Sources */,
+				BEBDAEF527E656460075651B /* SearchMedicationAddTableViewCell.swift in Sources */,
 				BEF32C7C27CBE43C005D7370 /* FamilyProfile2ViewModel.swift in Sources */,
 				BEB7126B2786C71800486FB3 /* RegistrationCoodinator.swift in Sources */,
 				BE2C2E2227B8D7FE008C878A /* AddMedicationViewModel.swift in Sources */,
@@ -1654,9 +1745,12 @@
 				BE10C6B827D0A9B7004A24CA /* RightLayoutPlaceholderTableViewCell.swift in Sources */,
 				BE72A86727B7F91B00FA91B7 /* HospitalCardViewModel.swift in Sources */,
 				BE10C6C627D0C09C004A24CA /* OnboardingCoordnator.swift in Sources */,
+				BEBDAEFA27E662720075651B /* ImmunizationViewController.swift in Sources */,
 				BE712A4A278ADFFE00D7985A /* UserAllergyCoordinator.swift in Sources */,
+				BEBDAF0E27E6FEBA0075651B /* ImmunizationCalenderViewModel.swift in Sources */,
 				BEF32C9027CCC9F0005D7370 /* FamilyProfileConfirmationViewModel.swift in Sources */,
 				BE712A35278AB24700D7985A /* UserBasicCoordinator.swift in Sources */,
+				BEBDAEF327E6563B0075651B /* SearchMedicationTableViewCell.swift in Sources */,
 				BE712A64278AF55A00D7985A /* DashboardViewModel.swift in Sources */,
 				BE712A2D278AAF7300D7985A /* SetPasswordViewModel.swift in Sources */,
 				BE2030D0278C04B500C61A48 /* BaseMappableModel.swift in Sources */,
@@ -1665,9 +1759,11 @@
 				BE712A3A278AB64D00D7985A /* OtpViewModel.swift in Sources */,
 				BE38599B27C3B71400606C0E /* HospitalNoticeCollectionViewCell.swift in Sources */,
 				BE10C6D327D0E2DD004A24CA /* DashboardHospitalCollectionViewCell.swift in Sources */,
+				BEBDAEEF27E654F50075651B /* SearchMedicationViewController.swift in Sources */,
 				BE712A27278AAE0600D7985A /* LoginCoodinator.swift in Sources */,
 				BE38599727C38A6700606C0E /* HospitalListModel.swift in Sources */,
 				BE712A57278AF1CA00D7985A /* UserCronicViewController.swift in Sources */,
+				BEBDAF0B27E6FA210075651B /* ImmunizationCalendarViewController.swift in Sources */,
 				BE712A33278AB23100D7985A /* UserBasicViewModel.swift in Sources */,
 				BEF32C7E27CBE452005D7370 /* FamilyProfile2Coordinator.swift in Sources */,
 				BECB453327BF8B2200ABFE12 /* TimeAlertCollectionViewCell.swift in Sources */,
@@ -1860,7 +1956,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = E93436VDRS;
+				DEVELOPMENT_TEAM = X8YE27GARE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PhoneHealth",
@@ -1882,7 +1978,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.PhoneHealth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.qa.foneHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1898,7 +1994,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = E93436VDRS;
+				DEVELOPMENT_TEAM = X8YE27GARE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PhoneHealth",
@@ -1920,7 +2016,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.PhoneHealth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.qa.foneHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

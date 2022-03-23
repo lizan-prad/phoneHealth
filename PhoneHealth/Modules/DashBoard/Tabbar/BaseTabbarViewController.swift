@@ -31,7 +31,7 @@ class BaseTabbarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(openHospitalTab), name: Notification.Name.init(rawValue: "TAB2"), object: nil)
 //        self.navigationController?.setNavigationBarHidden(true, animated: true)
         // Do any additional setup after loading the view.
         
@@ -45,6 +45,10 @@ class BaseTabbarViewController: UITabBarController {
         NotificationCenter.default.addObserver(self, selector: #selector(hideAction), name: Notification.Name.init(rawValue: "HT"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showAction), name: Notification.Name.init(rawValue: "ST"), object: nil)
 
+    }
+    
+    @objc func openHospitalTab() {
+        self.selectedIndex = 1
     }
   
     @objc func hideAction() {

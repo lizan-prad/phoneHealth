@@ -127,7 +127,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="S9G-58-FUw">
                                                         <rect key="frame" x="20" y="64" width="374" height="390"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hc1-LB-82k" customClass="MDCOutlinedTextField">
+                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hc1-LB-82k" customClass="MDCOutlinedTextField">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="r6s-JX-lab">
@@ -212,6 +212,11 @@
                                                             </view>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nf0-6q-lyr">
+                                                        <rect key="frame" x="20" y="64" width="374" height="50"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -219,9 +224,13 @@
                                                     <constraint firstItem="S9G-58-FUw" firstAttribute="leading" secondItem="6Ov-Dn-5Gf" secondAttribute="leading" constant="20" id="BCG-nE-KOt"/>
                                                     <constraint firstItem="qIx-cb-4gP" firstAttribute="top" secondItem="6Ov-Dn-5Gf" secondAttribute="top" constant="20" id="Ii2-9i-sBR"/>
                                                     <constraint firstAttribute="trailing" secondItem="S9G-58-FUw" secondAttribute="trailing" constant="20" id="Iti-wO-ymO"/>
+                                                    <constraint firstItem="Nf0-6q-lyr" firstAttribute="leading" secondItem="Hc1-LB-82k" secondAttribute="leading" id="MNX-vb-aor"/>
                                                     <constraint firstItem="S9G-58-FUw" firstAttribute="top" secondItem="qIx-cb-4gP" secondAttribute="bottom" constant="20" id="Mid-oX-XTB"/>
+                                                    <constraint firstItem="Nf0-6q-lyr" firstAttribute="top" secondItem="Hc1-LB-82k" secondAttribute="top" id="Nlr-Ba-JIo"/>
+                                                    <constraint firstItem="Nf0-6q-lyr" firstAttribute="trailing" secondItem="Hc1-LB-82k" secondAttribute="trailing" id="SE6-Ts-K1Z"/>
                                                     <constraint firstItem="qIx-cb-4gP" firstAttribute="leading" secondItem="6Ov-Dn-5Gf" secondAttribute="leading" constant="20" id="SRE-WD-eWB"/>
                                                     <constraint firstAttribute="bottom" secondItem="S9G-58-FUw" secondAttribute="bottom" constant="50" id="vCv-E5-XjV"/>
+                                                    <constraint firstItem="Nf0-6q-lyr" firstAttribute="bottom" secondItem="Hc1-LB-82k" secondAttribute="bottom" id="zKV-zg-tD4"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -284,6 +293,7 @@
                         <outlet property="firstIntake" destination="hAR-od-q4W" id="vn9-lb-bXZ"/>
                         <outlet property="frequency" destination="2W0-aM-8IB" id="gH3-gA-f74"/>
                         <outlet property="leftBtn" destination="rJm-bC-joH" id="03q-sP-dyY"/>
+                        <outlet property="medicationbtn" destination="Nf0-6q-lyr" id="6d3-do-stE"/>
                         <outlet property="medicineName" destination="Hc1-LB-82k" id="Qqn-oH-Y0A"/>
                         <outlet property="numberOfDays" destination="W09-aQ-BI0" id="1rn-hM-I0r"/>
                         <outlet property="quantity" destination="ecS-ju-doe" id="kJ1-To-wt0"/>
@@ -293,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RaS-MB-xbU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="98"/>
+            <point key="canvasLocation" x="692.75362318840587" y="97.767857142857139"/>
         </scene>
     </scenes>
     <resources>

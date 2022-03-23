@@ -292,9 +292,7 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
                 cell.proceedBtn.setAttributedTitle("Add Hospital".getAtrribText(), for: .normal)
                 cell.placeholderImage.image = UIImage.init(named: "Connect-Hospital-Dashboard")
                 cell.didTapProceed = {
-                    guard let nav = self.navigationController else {return}
-                    let coordinator = MedicationCoordinator.init(navigationController: nav)
-                    coordinator.start()
+                    NotificationCenter.default.post(name: Notification.Name.init(rawValue: "TAB2"), object: nil)
                 }
                 return cell
             }
@@ -325,6 +323,8 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
             return 25
         case 4:
             return 25
+        case 5:
+            return 25
         default:
             return 0
         }
@@ -344,6 +344,8 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
             cell.headerLabel.text = "Current Medications"
         case 4:
             cell.headerLabel.text = "Family Profiles"
+        case 5:
+            cell.headerLabel.text = "My Hospitals"
         default:
             cell.headerLabel.text = ""
         }

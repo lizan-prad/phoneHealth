@@ -143,9 +143,8 @@ class UserBasicViewController: UIViewController, Storyboarded {
     }
     
     @objc func setupLater() {
-        guard let nav = self.navigationController else {return}
-        let coordinator = DashboardCoordinator.init(navigationController: nav)
-        appdelegate.window?.rootViewController = coordinator.getMainView()
+        let vc = UIStoryboard.init(name: "BaseTabbar", bundle: nil).instantiateViewController(withIdentifier: "BaseTabbarViewController") as! BaseTabbarViewController
+        appdelegate.window?.rootViewController = vc
     }
     
     @objc func textCHanged(_ sender: MDCOutlinedTextField) {

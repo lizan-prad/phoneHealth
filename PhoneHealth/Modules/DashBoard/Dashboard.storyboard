@@ -278,7 +278,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QFr-Ph-J0f">
-                                        <rect key="frame" x="342" y="15.5" width="30" height="29"/>
+                                        <rect key="frame" x="338" y="15.5" width="30" height="29"/>
                                         <color key="tintColor" red="0.42352941179999998" green="0.77647058820000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="OgM-9d-Al1"/>
@@ -293,10 +293,12 @@
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="chevron.down" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="chevron.down" catalog="system" symbolScale="medium"/>
+                                        </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVE-Yt-gq8">
-                                        <rect key="frame" x="302" y="15" width="30" height="30"/>
+                                        <rect key="frame" x="298" y="15" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="D5p-8H-Xok"/>
                                             <constraint firstAttribute="height" constant="30" id="gbQ-mf-EWX"/>
@@ -304,7 +306,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="bell" catalog="system" symbolScale="large"/>
+                                            <imageReference key="image" image="bell" catalog="system" symbolScale="medium"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
@@ -314,7 +316,7 @@
                                     <constraint firstAttribute="height" constant="60" id="Iol-m1-Aks"/>
                                     <constraint firstItem="mTR-IB-l6f" firstAttribute="centerY" secondItem="QFr-Ph-J0f" secondAttribute="centerY" id="LGo-Qg-fkq"/>
                                     <constraint firstItem="myV-wK-oBW" firstAttribute="centerY" secondItem="34j-a3-C0k" secondAttribute="centerY" id="RtG-vY-6i8"/>
-                                    <constraint firstItem="myV-wK-oBW" firstAttribute="leading" secondItem="QFr-Ph-J0f" secondAttribute="trailing" constant="10" id="XDh-kv-aew"/>
+                                    <constraint firstItem="myV-wK-oBW" firstAttribute="leading" secondItem="QFr-Ph-J0f" secondAttribute="trailing" constant="14" id="XDh-kv-aew"/>
                                     <constraint firstItem="mTR-IB-l6f" firstAttribute="leading" secondItem="34j-a3-C0k" secondAttribute="leading" constant="17" id="XFD-vL-7wB"/>
                                     <constraint firstItem="QFr-Ph-J0f" firstAttribute="centerY" secondItem="34j-a3-C0k" secondAttribute="centerY" id="aqm-4X-rB8"/>
                                     <constraint firstItem="mVE-Yt-gq8" firstAttribute="centerY" secondItem="34j-a3-C0k" secondAttribute="centerY" id="ckq-DX-wkj"/>

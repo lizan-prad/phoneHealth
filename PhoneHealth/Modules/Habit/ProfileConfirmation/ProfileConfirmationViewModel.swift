@@ -39,8 +39,8 @@ struct ProfileConfirmationViewModel {
         let param: [[String: Any]] = self.model?.userAllergyInfo?.map({[
             "allergyId": $0.allergyId ?? 0,
             "allergyName": $0.allergyName ?? "",
-            "isPrimary": "N",
-            "status": "N"
+            "isPrimary": "Y",
+            "status": "Y"
         ]}) ?? [[String:Any]]()
         return param
     }
@@ -49,8 +49,8 @@ struct ProfileConfirmationViewModel {
         let param: [[String: Any]] = self.model?.userDiseaseInfo?.map({[
             "diseaseId": $0.diseaseId ?? 0,
             "diseaseName": $0.diseaseName ?? "",
-            "isPrimary": "N",
-            "status": "N"
+            "isPrimary": "Y",
+            "status": "Y"
         ]}) ?? [[String:Any]]()
         return param
     }

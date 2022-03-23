@@ -61,7 +61,8 @@ class AddConnectHospitalViewController: UIViewController, Storyboarded {
         hospitalLogo.layer.cornerRadius = 3
         connectBtn.layer.cornerRadius = 12
         scanBtn.layer.cornerRadius = 12
-        
+        MobileNo.keyboardType = .numberPad
+        patientId.keyboardType = .numberPad
         MobileNo.setup("Mobile No")
         patientId.setup("Patient ID")
         fullName.setup("Full Name")

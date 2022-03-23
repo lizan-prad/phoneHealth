@@ -154,6 +154,6 @@ extension MedicationListTableViewCell: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 77, height: 30)
+        return CGSize.init(width: 90, height: 30)
     }
 }

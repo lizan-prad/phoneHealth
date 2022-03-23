@@ -191,6 +191,8 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
         dayFIeld.keyboardType = .numberPad
         yearField.keyboardType = .numberPad
         monthField.keyboardType = .numberPad
+        wardNumberField.keyboardType = .numberPad
+        emailAddressField.keyboardType = .emailAddress
         self.nextBtn.isEnabled = false
         uploadImageBtn.addCornerRadius(8)
         

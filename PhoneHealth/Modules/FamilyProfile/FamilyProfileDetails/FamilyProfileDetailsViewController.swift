@@ -272,7 +272,7 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyHealthAllergiesTableViewCell") as! FamilyHealthAllergiesTableViewCell
             
             cell.section = currentHealthSection == .allergies ? 2 : 3
-            cell.allergiesLabel.text = currentHealthSection == .allergies ? model?.userAllergyInfo : model?.userDiseaseInfo
+            cell.allergiesLabel.text = currentHealthSection == .allergies ?  "- \(self.model?.userAllergyInfo?.compactMap({$0.allergyName}).joined(separator: "\n- ") ?? "")" : "- \(self.model?.userDiseaseInfo?.compactMap({$0.diseaseName}).joined(separator: "\n- ") ?? "")"
             cell.setup()
             return cell
         }

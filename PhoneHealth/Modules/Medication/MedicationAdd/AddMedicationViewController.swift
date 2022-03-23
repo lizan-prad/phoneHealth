@@ -12,6 +12,7 @@ import EventKit
 
 class AddMedicationViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var medicationbtn: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var leftBtn: UIButton!
     @IBOutlet weak var rightBtn: UIButton!
@@ -59,7 +60,7 @@ class AddMedicationViewController: UIViewController, Storyboarded {
         frequency.inputView = frequencyPicker
         medicineName.inputView = medicationPicker
         quantity.inputView = quantityPicker
-        
+        medicationbtn.setTitle("", for: .normal)
         firstIntakePicker.datePickerMode = .time
         firstIntakePicker.addTarget(self, action: #selector(selectedTime(_:)), for: .valueChanged)
         numberOfDays.keyboardType = .numberPad
@@ -71,6 +72,16 @@ class AddMedicationViewController: UIViewController, Storyboarded {
         medicationPicker.dataSource = self
         medicationPicker.delegate = self
         saveBtn.addTarget(self, action: #selector(saveAction), for: .touchUpInside)
+        
+        medicationbtn.addTarget(self, action: #selector(openMedicationSearch), for: .touchUpInside)
+    }
+    
+    @objc func openMedicationSearch() {
+        let vc = UIStoryboard.init(name: "SearchMedication", bundle: nil).instantiateViewController(withIdentifier: "SearchMedicationViewController") as! SearchMedicationViewController
+        vc.didTapAdd = { medName in
+            self.medicineName.text = medName
+        }
+        self.present(vc, animated: true, completion: nil)
     }
     
     func bindViewModel() {
