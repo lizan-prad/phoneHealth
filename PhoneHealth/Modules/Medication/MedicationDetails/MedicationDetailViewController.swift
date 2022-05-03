@@ -8,7 +8,7 @@
 import UIKit
 
 struct MedicationAlertModel {
-    
+    var alertTime: String?
     var time: String?
     var numberOfPill: String?
     var id: String?
@@ -28,6 +28,7 @@ class MedicationDetailViewController: UIViewController, Storyboarded {
     @IBOutlet weak var container: UIView!
     
     var viewModel: MedicationDetailViewModel!
+    var id: String?
     var isFromNotif: Bool = false
     
     override func viewDidLoad() {
@@ -40,12 +41,12 @@ class MedicationDetailViewController: UIViewController, Storyboarded {
         
         if isFromNotif {
             self.alarmDesc.text = "Its time to take your \(viewModel.model.time ?? "") Med(s)."
-            self.alarmTimeLabel.text = viewModel.model.time
+            self.alarmTimeLabel.text = viewModel.model.alertTime
             self.alarmName.text = viewModel.model.title
             self.alarmdetajls.text = "\(self.viewModel.model.title?.components(separatedBy: " ").last ?? ""), Take \(self.viewModel.model.numberOfPill ?? "") Pill(s)"
         } else {
             self.alarmDesc.text = "Your next medication alert is at \(viewModel.model.time ?? "")"
-            self.alarmTimeLabel.text = viewModel.model.time
+            self.alarmTimeLabel.text = viewModel.model.alertTime
             self.alarmName.text = viewModel.model.title
             self.alarmdetajls.text = "\(self.viewModel.model.title?.components(separatedBy: " ").last ?? ""), Take \(self.viewModel.model.numberOfPill ?? "") Pill(s)"
             takeBtn.isEnabled = false
@@ -57,10 +58,32 @@ class MedicationDetailViewController: UIViewController, Storyboarded {
         snoozeBtn.rounded()
         self.takeBtn.addTarget(self, action: #selector(takeAction), for:
                                     .touchUpInside)
+        
         self.closeBtn.addTarget(self, action: #selector(closeAction), for:
                                     .touchUpInside)
         self.skipBtn.addTarget(self, action: #selector(skipAction), for: .touchUpInside)
         self.snoozeBtn.addTarget(self, action: #selector(snoozeAction), for: .touchUpInside)
+        
+        viewModel.loading.bind { status in
+            if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
+        }
+        
+        self.viewModel.success.bind { status in
+            self.showAlert(title: nil, message: self.viewModel.getMsg(status: status ?? "")) { _ in
+               
+                switch status {
+                case "S":
+                    let vc = UIStoryboard.init(name: "BaseTabbar", bundle: nil).instantiateViewController(withIdentifier: "BaseTabbarViewController") as! BaseTabbarViewController
+                    appdelegate.window?.rootViewController = vc
+                case "O":
+                    self.setNotification(date: Date().addingTimeInterval(600), title: self.viewModel.model.title ?? "", body: "Take your meds", id: "snooze")
+                case "T":
+                    let vc = UIStoryboard.init(name: "BaseTabbar", bundle: nil).instantiateViewController(withIdentifier: "BaseTabbarViewController") as! BaseTabbarViewController
+                    appdelegate.window?.rootViewController = vc
+                default: break
+                }
+            }
+        }
     }
     
     @objc func closeAction() {
@@ -69,7 +92,8 @@ class MedicationDetailViewController: UIViewController, Storyboarded {
     
     @objc func snoozeAction() {
         self.showAlert(title: nil, message: "You have snoozed your alarm for 10mins") { _ in
-            self.setNotification(date: Date().addingTimeInterval(600), title: self.viewModel.model.title ?? "", body: "Take your meds", id: "snooze")
+            self.viewModel.medicationAction(status: "O", id: self.viewModel.model.id ?? "")
+            
         }
     }
     
@@ -115,8 +139,7 @@ class MedicationDetailViewController: UIViewController, Storyboarded {
     @objc func skipAction() {
         let alert = UIAlertController.init(title: nil, message: "Are you sure you want to skip?", preferredStyle: .alert)
         let okAction = UIAlertAction.init(title: "Ok", style: .destructive) { _ in
-            let vc = UIStoryboard.init(name: "BaseTabbar", bundle: nil).instantiateViewController(withIdentifier: "BaseTabbarViewController") as! BaseTabbarViewController
-            appdelegate.window?.rootViewController = vc
+            self.viewModel.medicationAction(status: "S", id: self.viewModel.model.id ?? "")
         }
         let cancel = UIAlertAction.init(title: "Cancel", style: .default, handler: nil)
         alert.addAction(cancel)
@@ -126,9 +149,9 @@ class MedicationDetailViewController: UIViewController, Storyboarded {
     }
     
     @objc func takeAction() {
-        self.showAlert(title: "Congratulations", message: "Thank you for taking your meds in time.") { _ in
-            let vc = UIStoryboard.init(name: "BaseTabbar", bundle: nil).instantiateViewController(withIdentifier: "BaseTabbarViewController") as! BaseTabbarViewController
-            appdelegate.window?.rootViewController = vc
+        self.showAlert(title: "Great Job!", message: "Thank you for taking your meds in time.") { _ in
+            self.viewModel.medicationAction(status: "T", id: self.viewModel.model.id ?? "")
+            
         }
     }
     

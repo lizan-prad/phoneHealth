@@ -18,6 +18,34 @@ target 'PhoneHealth' do
   pod 'MBProgressHUD'
   pod 'lottie-ios'
   pod 'OnboardKit'
+  pod 'Firebase/Analytics'
+
+  # For Analytics without IDFA collection capability, use this pod instead
+  # pod ‘Firebase/AnalyticsWithoutAdIdSupport’
+
+  # Add the pods for any other Firebase products you want to use in your app
+  # For example, to use Firebase Authentication and Cloud Firestore
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+
+#
+#  target 'CogentIOSFramework' do
+  
+#  target 'CogentIOSFramework' do
+#      use_frameworks!
+##      project '../../cogent-ios-framework/CogentIOSFramework/CogentIOSFramework.xcodeproj'
+#      pod 'SwiftyJSON'
+#      pod 'SkeletonView'
+#      pod 'JTAppleCalendar'
+#      pod 'ActiveLabel'
+#      pod 'Alamofire'
+#      pod 'SwiftyUserDefaults'
+#      pod 'SwiftyDrop'
+#      pod 'SDWebImage', :modular_headers => true
+#      pod 'NepaliDateConverter'
+
+# 'ActiveLabel', 'NepaliDateConverter', 'SwiftyDrop'
+  
   
   target 'PhoneHealthTests' do
     inherit! :search_paths

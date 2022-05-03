@@ -38,7 +38,7 @@ class MedicationListTableViewCell: UITableViewCell {
 //            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
             self.time = times?.compactMap({alarmFormat.date(from: $0)}).sorted(by: {$0 < $1}) ?? []
             medName.text = model?.medicineName
-            doseLabel.text = model?.medicineName?.components(separatedBy: " ").last
+            doseLabel.text = (model?.dose?.replacingOccurrences(of: "mg", with: "") ?? "") + "mg"
             alarmFormat.timeZone = TimeZone.current
             let formatter = DateFormatter()
             let date = formatter.date(from: model?.firstIntake ?? "") ?? Date()
@@ -59,7 +59,7 @@ class MedicationListTableViewCell: UITableViewCell {
                         print(self.model?.medicationId ?? 0, self.model?.time?[index].id ?? 0)
                         if requests.compactMap({($0.content.userInfo["id"] as? String)}).filter({$0 == "\(self.model?.medicationId ?? 0)-\(date.id ?? 0)"}).count == 0 {
                             
-                            self.setNotification(date: self.time[index], title: self.model?.medicineName ?? "", body: "Take your meds", id: "\(self.model?.medicationId ?? 0)-\(date.id ?? 0)", repeats: true)
+                            self.setNotification(takeTime: date.time ?? "", date: self.time[index], title: self.model?.medicineName ?? "", body: "Take your meds", id: "\(self.model?.medicationId ?? 0)-\(date.id ?? 0)", repeats: true)
                         }
                     }
                 }
@@ -76,7 +76,7 @@ class MedicationListTableViewCell: UITableViewCell {
             UserDefaults.standard.set(false, forKey: "Medication-\(self.model?.medicationId ?? 0)")
             self.container.alpha = 1
             self.model?.time?.enumerated().forEach({ index,model in
-                self.setNotification(date: self.time[index], title: self.model?.medicineName ?? "", body: "Take your meds", id: "\(self.model?.medicationId ?? 0)-\(model.id ?? 0)")
+                self.setNotification(takeTime: model.time ?? "" ,date: self.time[index], title: self.model?.medicineName ?? "", body: "Take your meds", id: "\(self.model?.medicationId ?? 0)-\(model.id ?? 0)")
             })
         } else {
             UserDefaults.standard.set(true, forKey: "Medication-\(self.model?.medicationId ?? 0)")
@@ -85,7 +85,7 @@ class MedicationListTableViewCell: UITableViewCell {
         }
     }
     
-    func setNotification(date: Date, title: String, body: String, id: String, repeats: Bool? = false) {
+    func setNotification(takeTime: String, date: Date, title: String, body: String, id: String, repeats: Bool? = false) {
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
@@ -95,7 +95,7 @@ class MedicationListTableViewCell: UITableViewCell {
         } else {
             // Fallback on earlier versions
         }
-        content.userInfo = ["pills_no": self.model?.quantity ?? "", "time": self.model?.firstIntake ?? "", "id" : id]
+        content.userInfo = ["timeAlert": takeTime, "pills_no": self.model?.quantity ?? "", "time": self.model?.firstIntake ?? "", "id" : id]
         content.sound = UNNotificationSound.init(named: UNNotificationSoundName.init(rawValue: "alert.mp3"))
     
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date.addingTimeInterval(-20700))

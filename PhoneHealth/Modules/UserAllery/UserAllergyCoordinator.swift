@@ -11,9 +11,11 @@ class UserAllergyCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-
-    init(navigationController: UINavigationController) {
+    var usModel: UserProfileModel?
+    
+    init(navigationController: UINavigationController, usModel: UserProfileModel? = nil) {
         self.navigationController = navigationController
+        self.usModel = usModel
     }
 
     func start() {
@@ -25,6 +27,7 @@ class UserAllergyCoordinator: Coordinator {
     func getMainView() -> UserAlleryViewController {
         let vc = UserAlleryViewController.instantiate()
         vc.viewModel = UserAllergyViewModel()
+        vc.viewModel.usModel = self.usModel
         return vc
     }
 }

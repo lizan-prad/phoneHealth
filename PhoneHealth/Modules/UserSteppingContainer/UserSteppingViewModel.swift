@@ -11,4 +11,5 @@ class UserSteppingViewModel {
     
     var model: HealthProfileModel?
     var updateProfileDetails: UpdateProfileStruct?
+    var userProfModel: UserProfileModel?
 }

@@ -58,7 +58,7 @@ struct AddFamilyProfileViewModel {
             "wardNumber": model.wardNumber ?? ""
         ]
         self.loading.value = true
-        NetworkManager.shared.request(BaseMappableModel<FamilyResponseIdModel>.self, urlExt: URLConfig.baseUrl + "user-family/profile/update", method: .put, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+        NetworkManager.shared.request(BaseMappableModel<FamilyResponseIdModel>.self, urlExt: URLConfig.baseUrl + "user-family", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
             self.loading.value = false
             switch result {
             case .success(let model):

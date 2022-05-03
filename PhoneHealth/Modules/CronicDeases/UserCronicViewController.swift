@@ -50,6 +50,7 @@ class UserCronicViewController: UIViewController, Storyboarded,  UITableViewData
     func bindViewModel() {
         self.viewModel.cronics.bind { models in
             self.allergies = models
+            self.nextBtn.isEnabled = self.validate()
         }
         
         self.viewModel.error.bind { error in
@@ -75,7 +76,6 @@ class UserCronicViewController: UIViewController, Storyboarded,  UITableViewData
     }
     
     func setup() {
-        nextBtn.isEnabled = false
         yesRadio.setTitle("", for: .normal)
         noRadio.setTitle("", for: .normal)
         backBtn.addBorder(UIColor.lightGray)
@@ -96,7 +96,7 @@ class UserCronicViewController: UIViewController, Storyboarded,  UITableViewData
     }
     
     @objc func didChangeRadioBtn(_ sender: RadioButton) {
-        self.nextBtn.isEnabled = validate()
+        
         switch sender {
         case yesRadio:
             self.yesRadio.isOn = true
@@ -104,6 +104,7 @@ class UserCronicViewController: UIViewController, Storyboarded,  UITableViewData
             self.tableView.isHidden = false
             self.selectDiseases.isHidden = false
             otherField.isHidden = false
+            self.nextBtn.isEnabled = validate()
         case noRadio:
             self.selectedCronics = []
             self.tableView.reloadData()
@@ -112,13 +113,14 @@ class UserCronicViewController: UIViewController, Storyboarded,  UITableViewData
             self.tableView.isHidden = true
             self.selectDiseases.isHidden = true
             otherField.isHidden = true
+            self.nextBtn.isEnabled = validate()
         default:
             break
         }
     }
  
     func validate() -> Bool {
-        return (noRadio.isOn && selectedCronics.count != 0) || yesRadio.isOn
+        return (yesRadio.isOn && selectedCronics.count != 0) || noRadio.isOn
     }
     
     

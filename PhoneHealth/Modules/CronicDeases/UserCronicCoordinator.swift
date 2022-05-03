@@ -11,9 +11,11 @@ class UserCronicCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    var usModel: UserProfileModel?
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, usModel: UserProfileModel? = nil) {
         self.navigationController = navigationController
+        self.usModel = usModel
     }
 
     func start() {
@@ -25,6 +27,7 @@ class UserCronicCoordinator: Coordinator {
     func getMainView() -> UserCronicViewController {
         let vc = UserCronicViewController.instantiate()
         vc.viewModel = UserCronicViewModel()
+        vc.viewModel.usModel = usModel
         return vc
     }
 }

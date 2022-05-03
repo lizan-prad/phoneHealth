@@ -9,6 +9,7 @@ import UIKit
 
 class FamilyProfileHeaderTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var viewAll: UILabel!
     @IBOutlet weak var headerTitle: UILabel!
     
     

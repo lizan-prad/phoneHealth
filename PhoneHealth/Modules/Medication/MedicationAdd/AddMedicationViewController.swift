@@ -40,6 +40,7 @@ class AddMedicationViewController: UIViewController, Storyboarded {
     let frequencies = [1, 2, 3, 4]
     let quantities = [1, 2, 3, 4]
     let medications = ["Paracitamol 500mg", "Asprine", "Icon 100mg", "Niko 500mg", "Buscopan", "Flexon"]
+    var dose: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,11 @@ class AddMedicationViewController: UIViewController, Storyboarded {
         format.dateFormat = "yyyy-MM-dd"
         self.reminderDate = format.string(from: Date())
         
-        firstIntakePicker.preferredDatePickerStyle = .wheels
+        if #available(iOS 13.4, *) {
+            firstIntakePicker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
         firstIntake.inputView = firstIntakePicker
         frequency.inputView = frequencyPicker
         medicineName.inputView = medicationPicker
@@ -78,8 +83,9 @@ class AddMedicationViewController: UIViewController, Storyboarded {
     
     @objc func openMedicationSearch() {
         let vc = UIStoryboard.init(name: "SearchMedication", bundle: nil).instantiateViewController(withIdentifier: "SearchMedicationViewController") as! SearchMedicationViewController
-        vc.didTapAdd = { medName in
+        vc.didTapAdd = { medName, dose in
             self.medicineName.text = medName
+            self.dose = dose
         }
         self.present(vc, animated: true, completion: nil)
     }
@@ -109,7 +115,7 @@ class AddMedicationViewController: UIViewController, Storyboarded {
     }
     
     @objc func saveAction() {
-        self.viewModel.addMedicaiton(model: MedicaitonModel.init(firstIntake: "\(self.selectedDate ?? "")T\(self.selectedTime ?? "")", frequency: Int(self.frequency.text ?? ""), medicineName: self.medicineName.text, numberOfDays: Int(self.numberOfDays.text ?? ""), quantity: self.quantity.text))
+        self.viewModel.addMedicaiton(model: MedicaitonModel.init(dose: "\(self.dose ?? 0)", firstIntake: "\(self.selectedDate ?? "")T\(self.selectedTime ?? "")", frequency: Int(self.frequency.text ?? ""), medicineName: self.medicineName.text, numberOfDays: Int(self.numberOfDays.text ?? ""), quantity: self.quantity.text))
     }
     
     @objc func selectedTime(_ sender: UIDatePicker) {

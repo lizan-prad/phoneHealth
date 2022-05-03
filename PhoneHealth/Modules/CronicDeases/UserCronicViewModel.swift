@@ -14,6 +14,7 @@ class UserCronicViewModel {
     var cronics: Observable<[DynamicUserDataModel]> = Observable([])
     var error: Observable<Error> = Observable(nil)
     var loading: Observable<Bool> = Observable(nil)
+    var usModel: UserProfileModel?
     
     func fetchAllergies() {
         self.loading.value = true

@@ -14,7 +14,8 @@ import PDFKit
 
 class HealthLockerViewController: UIViewController, Storyboarded {
 
-    @IBOutlet weak var uploadedImage: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
+//    @IBOutlet weak var uploadedImage: UIView!
     @IBOutlet weak var uploadContainer: UIView!
     @IBOutlet weak var selectDocBtn: UIButton!
     @IBOutlet weak var reportTypeField: MDCOutlinedTextField!
@@ -23,7 +24,7 @@ class HealthLockerViewController: UIViewController, Storyboarded {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var closeBtn: UIButton!
-    @IBOutlet weak var scannedImageView: UIImageView!
+//    @IBOutlet weak var scannedImageView: UIImageView!
     
     var reports: [DynamicUserDataModel]? {
         didSet {
@@ -31,7 +32,12 @@ class HealthLockerViewController: UIViewController, Storyboarded {
         }
     }
     
-    var images = [UIImage]()
+    var images = [UIImage]() {
+        didSet {
+            self.collectionView.reloadData()
+            self.uploadContainer.isHidden = images.count != 0
+        }
+    }
     
     var selectedReport: DynamicUserDataModel? {
         didSet {
@@ -54,15 +60,15 @@ class HealthLockerViewController: UIViewController, Storyboarded {
         self.viewModel.isFamily = isFamily
         setup()
         bindViewModel()
-        self.uploadedImage.isHidden = true
-        self.scannedImageView.layer.cornerRadius = 12
+//        self.uploadedImage.isHidden = true
+//        self.scannedImageView.layer.cornerRadius = 12
         self.viewModel.getReportTypeDropDown()
         self.selectDocBtn.setAttributedTitle("Select Document".getAtrribTextwith(10), for: .normal)
         self.closeBtn.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
         self.saveBtn.addTarget(self, action: #selector(saveAction), for: .touchUpInside)
         self.selectDocBtn.addTarget(self, action: #selector(selectDocAction), for: .touchUpInside)
-        self.scannedImageView.isUserInteractionEnabled = true
-        self.scannedImageView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(addMultiple)))
+//        self.scannedImageView.isUserInteractionEnabled = true
+//        self.scannedImageView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(addMultiple)))
     }
     
     @objc func addMultiple() {
@@ -96,9 +102,10 @@ class HealthLockerViewController: UIViewController, Storyboarded {
         }
         imageManager.pickImage(self){ image in
             self.uploadContainer.isHidden = true
-            self.uploadedImage.isHidden = false
-            self.scannedImageView.image = image
             self.images.append(image)
+//            self.uploadedImage.isHidden = false
+//            self.scannedImageView.image = image
+//            self.images.append(image)
         }
     }
     
@@ -114,8 +121,8 @@ class HealthLockerViewController: UIViewController, Storyboarded {
         }
         imageManager.pickImage(self){ image in
             self.uploadContainer.isHidden = true
-            self.uploadedImage.isHidden = false
-            self.scannedImageView.image = image
+//            self.uploadedImage.isHidden = false
+//            self.scannedImageView.image = image
             self.images.append(image)
         }
     }
@@ -135,7 +142,7 @@ class HealthLockerViewController: UIViewController, Storyboarded {
                     request.headers = ["Content-Type": "\(self.images.count == 1 ? "image/jpeg" : "application/document" )"]
 //                    var data = Data("Content-Disposition: form-data".utf8)
 //                    data += Data("Content-Type: octet-stream\r\n\r\n".utf8)
-                    guard let body = (self.images.count == 1) ? self.scannedImageView.image?.jpegData(compressionQuality: 0.2) : pdf?.dataRepresentation() else {return}//self.scannedImageView.image?.pngData() else { return }
+                    guard let body = (self.images.count == 1) ? self.images.first?.jpegData(compressionQuality: 0.2) : pdf?.dataRepresentation() else {return}//self.scannedImageView.image?.pngData() else { return }
                     request.httpBody = body
                     AF.request(request).response { response in
                         self.viewModel.addHealthLocker(fileUri: param["fileName"]!, fileType: "\(self.images.count == 1 ? "image/jpeg" : "application/document" )", fileSize: body.count, hospitalName: self.hospitalNameField.text ?? "", name: self.selectedReport?.label ?? "", reportDate: self.selectedDate ?? "", reportId: self.selectedReport?.value ?? 0, userId: self.isFamily ? "\(self.familyId ?? 0)" : nil)
@@ -155,11 +162,19 @@ class HealthLockerViewController: UIViewController, Storyboarded {
     }
     
     private func setup() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
         reportTypeField.inputView = reportPicker
         reportPicker.dataSource = self
         reportPicker.delegate = self
         picker.datePickerMode = .date
-        picker.preferredDatePickerStyle = .inline
+        if #available(iOS 13.4, *) {
+            if #available(iOS 14.0, *) {
+            picker.preferredDatePickerStyle = .inline
+            }
+        } else {
+            // Fallback on earlier versions
+        }
         picker.addTarget(self, action: #selector(didSelectData(_:)), for: .valueChanged)
         
         reportDateField.inputView = picker
@@ -188,14 +203,46 @@ class HealthLockerViewController: UIViewController, Storyboarded {
 
 }
 
-extension HealthLockerViewController: ImageScannerControllerDelegate {
+extension HealthLockerViewController: ImageScannerControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count == 0 ? 0 : images.count + 1
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.row == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HealthLockerAddCollectionViewCell", for: indexPath) as! HealthLockerAddCollectionViewCell
+            return cell
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HealthLockerImageCollectionViewCell", for: indexPath) as! HealthLockerImageCollectionViewCell
+        cell.setup()
+        cell.didTapClose = { index in
+            self.images.remove(at: index)
+        }
+        cell.index = indexPath.row - 1
+        cell.image = self.images[indexPath.row - 1]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            self.selectDocAction()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: 90, height: 90)
+    }
+    
+    
     
     func imageScannerController(_ scanner: ImageScannerController, didFinishScanningWithResults results: ImageScannerResults) {
         scanner.dismiss(animated: true) {
             self.uploadContainer.isHidden = true
-            self.uploadedImage.isHidden = false
-            self.scannedImageView.image = results.enhancedScan?.image
-            self.images.append(results.enhancedScan?.image ?? UIImage())
+//            self.uploadedImage.isHidden = false
+//            self.scannedImageView.image = results.enhancedScan?.image
+            self.images.append(results.originalScan.image)
         }
         
     }

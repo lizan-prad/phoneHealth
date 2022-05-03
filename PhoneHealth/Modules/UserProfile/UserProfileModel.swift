@@ -53,6 +53,8 @@ class AllergyModel: Mappable {
     }
 }
 
+
+
 class UserProfileModel: Mappable {
     
     var alcoholFrequency: String?
@@ -71,6 +73,7 @@ class UserProfileModel: Mappable {
     var haveAllergies: String?
     var haveCronicDisease: String?
     var height: Double?
+    var immunizationMinInfo: String?
     var id: Int?
     var junkFoodFrequency: String?
     var name: String?
@@ -107,6 +110,7 @@ class UserProfileModel: Mappable {
         haveCronicDisease <- map["haveCronicDisease"]
         height <- map["height"]
         id <- map["id"]
+        immunizationMinInfo <- map["immunizationMinInfo.daysLeft"]
         junkFoodFrequency <- map["junkFoodFrequency"]
         name <- map["name"]
         provinceId <- map["provinceId"]

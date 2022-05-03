@@ -60,6 +60,7 @@ class UserBasicViewController: UIViewController, Storyboarded {
     var didTapBack: ((Int) -> ())?
     var viewModel: UserBasicViewModel!
     var delegate: HealthProfileUpdateDelegate?
+
     
     var bloodGroups: [DynamicUserDataModel]? {
         didSet {
@@ -97,6 +98,12 @@ class UserBasicViewController: UIViewController, Storyboarded {
     func bindViewModel() {
         viewModel.bloodGroups.bind { models in
             self.bloodGroups = models
+            if self.viewModel.model != nil {
+                self.selectedBloodGroup = models?.filter({$0.value == self.viewModel.model?.bloodGroupId}).first
+                self.feet.text = "\(self.viewModel.model?.height ?? 0)".components(separatedBy: ".").first
+                self.inches.text = "\(self.viewModel.model?.height ?? 0)".components(separatedBy: ".").last
+                self.kg.text = "\(self.viewModel.model?.weight ?? 0)"
+            }
         }
         self.viewModel.loading.bind { status in
             if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
@@ -152,7 +159,7 @@ class UserBasicViewController: UIViewController, Storyboarded {
     }
     
     func validate() -> Bool {
-        return bloodGroup.text != "" && feet.text != "" && inches.text != "" && kg.text != ""
+        return bloodGroup.text != "" && (feet.text != "" && feet.text != "0") && (inches.text != "" && inches.text != "0") && (kg.text != "" && kg.text != "0")
     }
     
     @objc func actionNext() {

@@ -62,7 +62,7 @@ class SearchMedicationViewController: UIViewController {
         }
     }
     
-    var didTapAdd: ((String) -> ())?
+    var didTapAdd: ((String, Int) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,14 +131,14 @@ extension SearchMedicationViewController: UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? SearchMedicationAddTableViewCell {
             self.dismiss(animated: true) {
-                self.didTapAdd?(cell.medicationName.text ?? "")
+                self.didTapAdd?(cell.medicationName.text ?? "",0)
             }
             
             return
         }
         self.dismiss(animated: true) {
             let mg = (self.filteredList?[self.searchField.text != "" ? (indexPath.row - 1) : indexPath.row].brand ?? "").components(separatedBy: "-").count == 2 ? (self.filteredList?[self.searchField.text != "" ? (indexPath.row - 1) : indexPath.row].brand ?? "").components(separatedBy: "-").last : ""
-            self.didTapAdd?((self.filteredList?[self.searchField.text != "" ? (indexPath.row - 1) : indexPath.row].name ?? "") + " \(mg)")
+            self.didTapAdd?((self.filteredList?[self.searchField.text != "" ? (indexPath.row - 1) : indexPath.row].name ?? ""), (self.filteredList?[self.searchField.text != "" ? (indexPath.row - 1) : indexPath.row].strength ?? 0) )
         }
     }
 }

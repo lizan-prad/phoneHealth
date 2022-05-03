@@ -53,6 +53,7 @@ class UserAlleryViewController: UIViewController, Storyboarded, UITableViewDataS
     func bindViewModel() {
         self.viewModel.allergies.bind { models in
             self.allergies = models
+            self.nextBtn.isEnabled = self.validate()
         }
         
         self.viewModel.error.bind { error in
@@ -73,6 +74,7 @@ class UserAlleryViewController: UIViewController, Storyboarded, UITableViewDataS
             self.noRadio.isOn = false
             self.tableView.isHidden = false
             self.selectAllergy.isHidden = false
+            self.nextBtn.isEnabled = validate()
         case noRadio:
             self.selectedAllergies = []
             self.tableView.reloadData()
@@ -80,13 +82,14 @@ class UserAlleryViewController: UIViewController, Storyboarded, UITableViewDataS
             self.yesRadio.isOn = false
             self.tableView.isHidden = true
             self.selectAllergy.isHidden = true
+            self.nextBtn.isEnabled = validate()
         default:
             break
         }
     }
     
     func validate() -> Bool {
-        return (noRadio.isOn && selectedAllergies.count != 0) || yesRadio.isOn
+        return (yesRadio.isOn && selectedAllergies.count != 0) || noRadio.isOn
     }
     
     @objc func actionNext() {

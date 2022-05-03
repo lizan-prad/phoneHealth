@@ -11,7 +11,7 @@ import MBRadioCheckboxButton
 import WeScan
 import Alamofire
 
-class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegate {
+class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegate, UITextFieldDelegate {
     
     func chechboxButtonDidSelect(_ button: CheckboxButton) {
         
@@ -41,6 +41,7 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
         MobileNumber.keyboardType = .namePhonePad
         checkBox.checkBoxColor = CheckBoxColor.init(activeColor: ColorConfig.baseColor, inactiveColor: UIColor.white, inactiveBorderColor: UIColor.lightGray, checkMarkColor: UIColor.white)
         checkBox.delegate = self
+        MobileNumber.delegate = self
         
         signInBtn.addTarget(self, action: #selector(proceedSignIn), for: .touchUpInside)
         signUpbtn.addTarget(self, action: #selector(proceedSignUp), for: .touchUpInside)
@@ -63,7 +64,7 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
         }
         
         viewModel.error.bind { error in
-            self.showAlert(title: nil, message: error) { _ in}
+            self.MobileNumber.leadingAssistiveLabel.text = error
         }
         self.viewModel.loading.bind { status in
             if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
@@ -80,7 +81,7 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
             switch result {
             case .success(let model):
                 guard let nav = self.navigationController, let model = model.data?.userProfileDetail else {return}
-                let coordinator = UserSteppingCoordinator.init(navigationController: nav, model: UpdateProfileStruct.init(avatar: model.avatar ?? "", dob: model.dateOfBirth ?? "", districtId: model.districtId ?? 0, email: model.email ?? "", gender: model.gender ?? "", province: model.provinceId ?? 0, vdc: model.vdcOrMunicipalityId ?? 0, wardNumber: "\(model.wardNumber ?? "")", address: model.districtName ?? ""))
+                let coordinator = UserSteppingCoordinator.init(navigationController: nav, model: UpdateProfileStruct.init(avatar: model.avatar ?? "", dob: model.dateOfBirth ?? "", districtId: model.districtId ?? 0, email: model.email ?? "", gender: model.gender ?? "", province: model.provinceId ?? 0, vdc: model.vdcOrMunicipalityId ?? 0, wardNumber: "\(model.wardNumber ?? "")", address: model.districtName ?? ""), usModel: model)
                 coordinator.start()
                 
             case .failure(let _):
@@ -91,11 +92,17 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
         
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let MAX_LENGTH = 10
+        let updatedString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        return updatedString.count <= MAX_LENGTH
+    }
+    
     @objc func textChanged(_ sender: MDCOutlinedTextField) {
         signInBtn.isEnabled = (MobileNumber.text != "" && Password.text != "")
         switch sender {
         case MobileNumber:
-            MobileNumber.leadingAssistiveLabel.text = (MobileNumber.text == "") ? "Please enter mobile number" : ""
+            MobileNumber.leadingAssistiveLabel.text = ((MobileNumber.text?.count ?? 0) < 10) ? "Mobile number must be 10 digit" : ""
             
         case Password:
             Password.leadingAssistiveLabel.text = (Password.text == "") ? "Please enter password" : ""

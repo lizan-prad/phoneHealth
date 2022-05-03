@@ -10,6 +10,7 @@ import FSCalendar
 
 class MedicationViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var medicationHistoryBtn: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var leftBtn: UIButton!
     @IBOutlet weak var rightBtn: UIButton!
@@ -51,11 +52,13 @@ class MedicationViewController: UIViewController, Storyboarded {
             tableView.reloadData()
         }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         bindViewModel()
+        medicationHistoryBtn.rounded()
         
         self.hideTabbar()
        
@@ -72,6 +75,11 @@ class MedicationViewController: UIViewController, Storyboarded {
         }
     }
     
+    @IBAction func historyAction(_ sender: Any) {
+        guard let nav = self.navigationController else {return}
+        let coordinator = MedicationHistoryCoordinator.init(navigationController: nav)
+        coordinator.start()
+    }
     
     
     @objc func goToHome() {

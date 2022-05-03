@@ -13,6 +13,7 @@ struct UserBasicViewModel {
     var bloodGroups: Observable<[DynamicUserDataModel]> = Observable([])
     var error: Observable<Error> = Observable(nil)
     var loading: Observable<Bool> = Observable(nil)
+    var model: UserProfileModel?
     
     func fetchBloodGroups() {
         self.loading.value = true

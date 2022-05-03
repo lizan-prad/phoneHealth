@@ -40,6 +40,7 @@ struct UpdateProfileViewModel {
             "email": model.email ?? "",
             "gender": model.gender,
             "provinceId": model.province,
+            "isAvatarUpdated": (model.avatar != "") ? "Y" : "N",
             "vdcOrMunicipalityId": model.vdc,
             "wardNumber": model.wardNumber
         ]

@@ -12,7 +12,7 @@ import UIKit
 struct RegistrationViewModel {
     
     var otpModel: Observable<OtpModel> = Observable(nil)
-    var error: Observable<String>?
+    var error: Observable<String> = Observable(nil)
     var loading: Observable<Bool> = Observable(nil)
     
     func register(_ fullName: String, withMobileNumber mobile: String) {
@@ -26,7 +26,7 @@ struct RegistrationViewModel {
                     self.otpModel.value = model
                 }
             case .failure(let error):
-                self.error?.value = error.localizedDescription
+                self.error.value = error.localizedDescription
             }
         }
     }

@@ -155,7 +155,6 @@ class HabitsViewController: UIViewController, Storyboarded {
     }
     
     @objc func didChangeSmokeRadioBtn(_ sender: RadioButton) {
-        nextBtn.isEnabled = validate()
         switch sender {
         case smokeYesRadio:
             self.smokeYesRadio.isOn = true
@@ -168,10 +167,12 @@ class HabitsViewController: UIViewController, Storyboarded {
         default:
             break
         }
-    }
-    
-    @objc func didChangeDrinkRadioBtn(_ sender: RadioButton) {
+        
         nextBtn.isEnabled = validate()
+    }
+
+    @objc func didChangeDrinkRadioBtn(_ sender: RadioButton) {
+        
         switch sender {
         case drinkYesRadio:
             self.drinkYesRadio.isOn = true
@@ -184,6 +185,7 @@ class HabitsViewController: UIViewController, Storyboarded {
         default:
             break
         }
+        nextBtn.isEnabled = validate()
     }
     
     func validate() -> Bool {
@@ -235,10 +237,13 @@ extension HabitsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             self.selectedFoodType = foodTypeData?[row]
         case foodPicker:
             eatFrequency.text = foodFrequency[row]
+            nextBtn.isEnabled = validate()
         case smokePicker:
             smokeFrequency.text = snokeFrequency[row]
+            nextBtn.isEnabled = validate()
         case drinkPicker:
             drinkFrequency.text = drinkFrequencyData[row]
+            nextBtn.isEnabled = validate()
         default:
             break
         }

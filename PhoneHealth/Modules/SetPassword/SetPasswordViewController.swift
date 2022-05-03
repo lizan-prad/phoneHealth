@@ -11,7 +11,7 @@ import Alamofire
 
 class SetPasswordViewController: UIViewController, Storyboarded {
 
-    @IBOutlet weak var confirmShowHide: UIButton!
+//    @IBOutlet weak var confirmShowHide: UIButton!
     @IBOutlet weak var showHideBtn: UIButton!
     @IBOutlet weak var passwordsValidationContainer: UIView!
     @IBOutlet weak var proceedBtn: UIButton!
@@ -19,13 +19,13 @@ class SetPasswordViewController: UIViewController, Storyboarded {
     @IBOutlet weak var confirmPassword: MDCOutlinedTextField!
     
     var passwordHidden = true
-    var confirmHidden = true
+//    var confirmHidden = true
     var viewModel: SetPasswordViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showHideBtn.setTitle("", for: .normal)
-        confirmShowHide.setTitle("", for: .normal)
+//        confirmShowHide.setTitle("", for: .normal)
         self.proceedBtn.isEnabled = false
         passwordsValidationContainer.layer.borderWidth = 1
         passwordsValidationContainer.layer.borderColor = UIColor.black.withAlphaComponent(0.5).cgColor
@@ -42,11 +42,20 @@ class SetPasswordViewController: UIViewController, Storyboarded {
         proceedBtn.addTarget(self, action: #selector(actionProceed), for: .touchUpInside)
         
         self.viewModel.status.bind { status in
-            self.proceedBtn.isEnabled = status ?? false
-            if status == true {
+            self.proceedBtn.isEnabled = (status?.0 ?? false) && self.passwordField.text == self.confirmPassword.text
+            if status?.0 == true {
+                self.passwordField.leadingAssistiveLabel.text = ""
+            } else {
+                self.passwordField.leadingAssistiveLabel.text = status?.1
+            }
+        }
+        
+        self.viewModel.confirmStatus.bind { status in
+            self.proceedBtn.isEnabled = status?.0 ?? false && self.passwordField.leadingAssistiveLabel.text == ""
+            if status?.0 == true {
                 self.confirmPassword.leadingAssistiveLabel.text = ""
             } else {
-                self.confirmPassword.leadingAssistiveLabel.text = "Passwords donot match"
+                self.confirmPassword.leadingAssistiveLabel.text = status?.1
             }
         }
         
@@ -79,17 +88,17 @@ class SetPasswordViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func showHide(_ sender: UIButton) {
-        switch sender {
-        case showHideBtn:
-            passwordHidden = !passwordHidden
-            self.passwordField.isSecureTextEntry = passwordHidden
-        case confirmShowHide:
-            confirmHidden = !confirmHidden
-            self.confirmPassword.isSecureTextEntry = confirmHidden
-        default:
-            break
-        }
+        
+        passwordHidden = !passwordHidden
+        self.passwordField.isSecureTextEntry = passwordHidden
+        self.confirmPassword.isSecureTextEntry = passwordHidden
+        
     }
+//
+//    @IBAction func showCOnfirmPass(_ sender: Any) {
+//        confirmHidden = !confirmHidden
+//        self.confirmPassword.isSecureTextEntry = confirmHidden
+//    }
     
     @objc func textChanged(_ sender: MDCOutlinedTextField) {
         switch sender {

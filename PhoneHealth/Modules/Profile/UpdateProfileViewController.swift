@@ -89,6 +89,7 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupView()
         bindViewModel()
         pickerView.dataSource = self
@@ -133,6 +134,10 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
         self.dayFIeld.text = model?.dateOfBirth?.components(separatedBy: "-").last
         self.adbsField.text = "AD"
         self.wardNumberField.text = model?.wardNumber ?? ""
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            self.nextBtn.isEnabled = self.validateForm()
+        }
+        
     }
     
     
@@ -157,13 +162,13 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
             }
         }
         viewModel.success.bind { status in
-            if self.viewModel.model == nil {
+//            if self.viewModel.model == nil {
             guard let navigationController = self.navigationController, let model = self.updateProfileDetails else {return}
-            let coodinator = UserSteppingCoordinator.init(navigationController: navigationController, model: model)
+            let coodinator = UserSteppingCoordinator.init(navigationController: navigationController, model: model, usModel: self.viewModel.model)
             coodinator.start()
-            } else {
-                self.navigationController?.popViewController(animated: true)
-            }
+//            } else {
+//                self.navigationController?.popViewController(animated: true)
+//            }
         }
         
         viewModel.error.bind { error in
@@ -263,30 +268,37 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
     
     @objc func actionNext() {
         let dob = "\(self.yearField.text ?? "")-\(self.monthField.text ?? "")-\(self.dayFIeld.text ?? "") \(self.adbsField.text ?? "")"
-        let imageURI = "IMG_\(Int(Date().timeIntervalSince1970)).jpeg"
-        var model = UpdateProfileStruct.init(avatar: URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as! String)/profileImage/\(imageURI)", dob: dob, districtId: selectedDistrict?.value ?? 0, email: emailAddressField.text, gender: selectedGender?.1 ?? "", province: selectedProvince?.value ?? 0, vdc: selectedVDC?.value ?? 0, wardNumber: wardNumberField.text ?? "")
-        model.address = "\(self.selectedDistrict?.label ?? ""), \(wardNumberField.text ?? "")"
-        self.updateProfileDetails = model
-        let param = ["fileName": URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as? String ?? "")/profileImage/\(imageURI)"]
-        self.showProgressHud()
-        MinioManager.shared.requestMinioUrl(param: param, encoding: JSONEncoding.default, headers: nil) { result in
-            switch result {
-            case .success(let url):
-                if let url = URL.init(string: url) {
-                    var request = URLRequest.init(url: url)
-                    request.method = .put
-                    request.headers = ["Content-Type": "image/jpeg"]
-                    guard let body = self.selectedImage?.jpegData(compressionQuality: 0.3) else { return }
-                    request.httpBody = body
-                    AF.request(request).response { response in
-                        self.hideProgressHud()
-                        self.viewModel.updateprofile(model: model)
+        if selectedImage == nil {
+            var model = UpdateProfileStruct.init(avatar: "", dob: dob, districtId: selectedDistrict?.value ?? 0, email: emailAddressField.text, gender: selectedGender?.1 ?? "", province: selectedProvince?.value ?? 0, vdc: selectedVDC?.value ?? 0, wardNumber: wardNumberField.text ?? "")
+            model.address = "\(self.selectedDistrict?.label ?? ""), \(wardNumberField.text ?? "")"
+            self.updateProfileDetails = model
+            self.viewModel.updateprofile(model: model)
+        } else {
+            let imageURI = "IMG_\(Int(Date().timeIntervalSince1970)).jpeg"
+            var model = UpdateProfileStruct.init(avatar: URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as! String)/profileImage/\(imageURI)", dob: dob, districtId: selectedDistrict?.value ?? 0, email: emailAddressField.text, gender: selectedGender?.1 ?? "", province: selectedProvince?.value ?? 0, vdc: selectedVDC?.value ?? 0, wardNumber: wardNumberField.text ?? "")
+            model.address = "\(self.selectedDistrict?.label ?? ""), \(wardNumberField.text ?? "")"
+            self.updateProfileDetails = model
+            let param = ["fileName": URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as? String ?? "")/profileImage/\(imageURI)"]
+            self.showProgressHud()
+            MinioManager.shared.requestMinioUrl(param: param, encoding: JSONEncoding.default, headers: nil) { result in
+                switch result {
+                case .success(let url):
+                    if let url = URL.init(string: url) {
+                        var request = URLRequest.init(url: url)
+                        request.method = .put
+                        request.headers = ["Content-Type": "image/jpeg"]
+                        guard let body = self.selectedImage?.jpegData(compressionQuality: 0.3) else { return }
+                        request.httpBody = body
+                        AF.request(request).response { response in
+                            self.hideProgressHud()
+                            self.viewModel.updateprofile(model: model)
+                        }
                     }
+                case .failure( _):
+                    break
                 }
-            case .failure( _):
-                break
+                
             }
-            
         }
     }
 

@@ -9,7 +9,7 @@ import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import MBRadioCheckboxButton
 
-class RegistrationViewController: UIViewController, Storyboarded, CheckboxButtonDelegate {
+class RegistrationViewController: UIViewController, Storyboarded, CheckboxButtonDelegate, UITextFieldDelegate {
     
     func chechboxButtonDidSelect(_ button: CheckboxButton) {
         signUpBtn.isEnabled = (mobileNumberField.text != "" && FullNameField.text != "") && checkBox.isOn
@@ -43,13 +43,14 @@ class RegistrationViewController: UIViewController, Storyboarded, CheckboxButton
         signInBtn.addTarget(self, action: #selector(actionLogin), for: .touchUpInside)
         FullNameField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
         mobileNumberField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+        mobileNumberField.delegate = self
     }
     
     @objc func textChanged(_ sender: MDCOutlinedTextField) {
         signUpBtn.isEnabled = (mobileNumberField.text != "" && FullNameField.text != "") && checkBox.isOn
         switch sender {
         case mobileNumberField:
-            mobileNumberField.leadingAssistiveLabel.text = (mobileNumberField.text == "") ? "Please enter mobile number" : ""
+            mobileNumberField.leadingAssistiveLabel.text = ((mobileNumberField.text?.count ?? 0) < 10) ? "Mobile number must be 10 digit" : ""
             
         case FullNameField:
             FullNameField.leadingAssistiveLabel.text = (FullNameField.text == "") ? "Please enter full name" : ""
@@ -65,10 +66,11 @@ class RegistrationViewController: UIViewController, Storyboarded, CheckboxButton
             UserDefaults.standard.set(self.FullNameField.text, forKey: "FullName")
             self.openOtpView(model: model)
         })
-        self.viewModel.error?.bind({ error in
-            self.showAlert(title: nil, message: error) { _ in
-                
-            }
+        self.viewModel.error.bind({ error in
+            self.mobileNumberField.leadingAssistiveLabel.text = error
+//            self.showAlert(title: nil, message: error) { _ in
+//
+//            }
         })
         self.viewModel.loading.bind { status in
             if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
@@ -87,6 +89,12 @@ class RegistrationViewController: UIViewController, Storyboarded, CheckboxButton
         guard let navigationController = self.navigationController else {return}
         let coordinator = OtpCoordinator.init(navigationController: navigationController, model: model)
         coordinator.start()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let MAX_LENGTH = 10
+        let updatedString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        return updatedString.count <= MAX_LENGTH
     }
 
 }

@@ -25,8 +25,12 @@ class NetworkManager {
             case .success(let data):
                 if let data = data as? [String:Any], let model = Mapper<T>().map(JSON: data) {
                     print(data)
-                    if response.response?.statusCode == 401 {
-                        completion(.failure(NSError.init(domain: "login", code: 0, userInfo:   [NSLocalizedDescriptionKey: (data["message"] as? String) ?? ""]  )))
+                    if (400 ... 405).contains(response.response?.statusCode ?? 0) {
+                        if let error = data["error"] as? String {
+                            completion(.failure(NSError.init(domain: "login", code: 0, userInfo:   [NSLocalizedDescriptionKey: error]  )))
+                        } else {
+                        completion(.failure(NSError.init(domain: "login", code: 0, userInfo:   [NSLocalizedDescriptionKey: (data["errorMessage"] as? String) ?? ""]  )))
+                        }
                     } else {
                         completion(.success(model))
                     }

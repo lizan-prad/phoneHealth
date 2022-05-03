@@ -34,7 +34,7 @@ class UserSteppingConatinerViewController: UIViewController, Storyboarded, Healt
     
     var basicViewController: UserBasicViewController {
         guard let nav = self.navigationController else {return UserBasicViewController()}
-        let coordinator = UserBasicCoordinator.init(navigationController: nav)
+        let coordinator = UserBasicCoordinator.init(navigationController: nav, usModel: self.viewModel.userProfModel)
         let vc = coordinator.getMainView()
         vc.delegate = self
         vc.didTapNext = { index in
@@ -55,7 +55,7 @@ class UserSteppingConatinerViewController: UIViewController, Storyboarded, Healt
     
     var allergyViewController: UserAlleryViewController {
         guard let nav = self.navigationController else {return UserAlleryViewController()}
-        let coordinator = UserAllergyCoordinator.init(navigationController: nav)
+        let coordinator = UserAllergyCoordinator.init(navigationController: nav, usModel: self.viewModel.userProfModel)
         let vc = coordinator.getMainView()
         vc.viewModel.model = self.viewModel.model
         vc.delegate = self

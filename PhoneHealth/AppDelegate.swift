@@ -7,6 +7,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Firebase
 
 let appdelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -23,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UITabBar.appearance().unselectedItemTintColor = .lightGray
         UINavigationBar.appearance().tintColor = .darkGray
         
+        FirebaseApp.configure()
 //        UINavigationBar.appearance().isTranslucent = false
         if #available(iOS 10.0, *) {
                 UNUserNotificationCenter.current().delegate = self
@@ -43,7 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //            vc.start()
             self.window?.rootViewController = vc
             window?.makeKeyAndVisible()
-            window?.overrideUserInterfaceStyle = .light
+            if #available(iOS 13.0, *) {
+                window?.overrideUserInterfaceStyle = .light
+            } else {
+                // Fallback on earlier versions
+            }
             return true
         }
         
@@ -56,7 +62,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.rootViewController = navController
             window?.makeKeyAndVisible()
-            window?.overrideUserInterfaceStyle = .light
+            if #available(iOS 13.0, *) {
+                window?.overrideUserInterfaceStyle = .light
+            } else {
+                // Fallback on earlier versions
+            }
             return true
         }
         
@@ -68,7 +78,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
-        window?.overrideUserInterfaceStyle = .light
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
         
         // Override point for customization after application launch.
         return true
@@ -104,7 +118,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
        let userInfo = response.notification.request.content.userInfo
             let time = userInfo["time"] as? String
         let pills = userInfo["pills_no"] as? String
-        let model = MedicationAlertModel.init(time: time, numberOfPill: pills, id: response.notification.request.content.categoryIdentifier, title: response.notification.request.content.title)
+        let alertTime = userInfo["timeAlert"] as? String
+        let id = userInfo["id"] as? String
+        let model = MedicationAlertModel.init(alertTime: alertTime, time: time, numberOfPill: pills, id: id, title: response.notification.request.content.title)
         let navController = UINavigationController()
         let coordinator = MedicationCoordinator(navigationController: navController)
         coordinator.isfromNotif = true
@@ -113,7 +129,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
-        window?.overrideUserInterfaceStyle = .light
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
 //       if response.notification.request.content.categoryIdentifier ==
 //                  "MEETING_INVITATION" {
           // Retrieve the meeting details.

@@ -110,13 +110,20 @@ class FamilyProfileDetailsViewController: UIViewController, Storyboarded {
     }
     
     func setupNav() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = UIColor.init(hex: "F5FAFA")
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorConfig.baseColor]
-        self.navigationController?.navigationBar.standardAppearance = appearance
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            appearance.backgroundColor = UIColor.init(hex: "F5FAFA")
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorConfig.baseColor]
+            self.navigationController?.navigationBar.standardAppearance = appearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
+            
+            // Fallback on earlier versions
+        }
+        
+        
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
+        
     }
     
     func setup() {
@@ -148,13 +155,20 @@ class FamilyProfileDetailsViewController: UIViewController, Storyboarded {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = UIColor.clear
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorConfig.baseColor]
-        self.navigationController?.navigationBar.standardAppearance = appearance
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            appearance.backgroundColor = UIColor.clear
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorConfig.baseColor]
+            self.navigationController?.navigationBar.standardAppearance = appearance
+            self.navigationController?.navigationBar.shadowImage = UIImage()
+            self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
+        
     }
     
     func setupTableView() {
@@ -166,6 +180,8 @@ class FamilyProfileDetailsViewController: UIViewController, Storyboarded {
         tableView.register(UINib.init(nibName: "FamilyHealthLockerTableViewCell", bundle: nil), forCellReuseIdentifier: "FamilyHealthLockerTableViewCell")
         tableView.register(UINib.init(nibName: "FamilyProfileHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "FamilyProfileHeaderTableViewCell")
         tableView.register(UINib.init(nibName: "FamilyHealthAllergiesTableViewCell", bundle: nil), forCellReuseIdentifier: "FamilyHealthAllergiesTableViewCell")
+        tableView.register(UINib.init(nibName: "FamilyProfileImmunizationTableViewCell", bundle: nil), forCellReuseIdentifier: "FamilyProfileImmunizationTableViewCell")
+        
         
     }
     
@@ -241,6 +257,9 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
         if currentHealthSection == .allergies ||  currentHealthSection == .diseases {
             return UITableView.automaticDimension
         }
+        if (model?.immunizationMinInfo != nil || model?.immunizationMinInfo != "") && indexPath.section == 2 {
+            return 97
+        }
         switch indexPath.section {
         case 0:
             return 133
@@ -261,7 +280,9 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 2 {
+        if (model?.immunizationMinInfo != nil || model?.immunizationMinInfo != "") && section == 2 {
+            return 1
+        } else if (model?.immunizationMinInfo == nil || model?.immunizationMinInfo == "") && section == 2 {
             return 0
         }
         return 1
@@ -276,6 +297,14 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
             cell.setup()
             return cell
         }
+        
+        if (model?.immunizationMinInfo != nil || model?.immunizationMinInfo != "") && indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyProfileImmunizationTableViewCell") as! FamilyProfileImmunizationTableViewCell
+            cell.setup()
+            cell.daysLeft.text = model?.immunizationMinInfo?.components(separatedBy: " ").first
+            return cell
+        }
+    
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserBasicInfoTableViewCell") as! UserBasicInfoTableViewCell
@@ -309,6 +338,17 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 2 && (model?.immunizationMinInfo != nil || model?.immunizationMinInfo != "") {
+            guard let nav = self.navigationController else {return}
+            let coordinator = ImmunizationCoordinator.init(navigationController: nav)
+            let model = ImmunizationProfileModel()
+            model.id = self.model?.id
+            coordinator.model = model
+            coordinator.start()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if currentHealthSection == .allergies || currentHealthSection == .diseases {
             return 0
@@ -316,6 +356,8 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
         switch section {
         case 1:
             return 25
+        case 2:
+            return (model?.immunizationMinInfo == nil || model?.immunizationMinInfo == "") ? 0 : 25
         default:
             return 0
         }
@@ -332,7 +374,8 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyProfileHeaderTableViewCell") as! FamilyProfileHeaderTableViewCell
-            cell.headerTitle.text = "Appointment History"
+            cell.headerTitle.text = "Immunization Card"
+            cell.viewAll.isHidden = true
             return cell
         default:
             return nil

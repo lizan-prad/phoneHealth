@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MedicationHistoryViewController" customModule="PhoneHealth" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MedicationHistoryTableViewCell" rowHeight="170" id="sI9-7C-m0A" customClass="MedicationHistoryTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sI9-7C-m0A" id="Yz1-Bb-JUf">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uE-wA-DNG">
+                        <rect key="frame" x="20" y="10" width="374" height="150"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="capsule.portrait.tophalf.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ynO-fM-XGh">
+                                <rect key="frame" x="15" y="23.5" width="30" height="32.5"/>
+                                <color key="tintColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OSa-Uw-dkR"/>
+                                    <constraint firstAttribute="width" constant="30" id="UFl-Cc-obu"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xo4-YS-IdU">
+                                <rect key="frame" x="60" y="15" width="294" height="115"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Paracetamol Tablet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1T-Mq-A8k">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-3J-dZi">
+                                        <rect key="frame" x="0.0" y="24" width="294" height="19.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Quantity - 2 Pills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ds2-rQ-VkG">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="19.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="DuP-bQ-MkH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="200mg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdX-h1-UJV">
+                                                <rect key="frame" x="102" y="0.0" width="45" height="19.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="45" id="QUh-DA-Dyb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.7638903024" green="0.98125430000000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsZ-p1-Ulu">
+                                                <rect key="frame" x="149" y="0.0" width="145" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.7638903024" green="0.98125430000000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 Jul - 28 Jul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnX-vb-e6o">
+                                        <rect key="frame" x="0.0" y="47.5" width="294" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 Jul - 28 Jul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jac-uJ-2q8">
+                                        <rect key="frame" x="0.0" y="71.5" width="294" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 Jul - 28 Jul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1H-Js-A1r">
+                                        <rect key="frame" x="0.0" y="95" width="294" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ynO-fM-XGh" firstAttribute="top" secondItem="A1T-Mq-A8k" secondAttribute="top" constant="10" id="35o-nH-oZc"/>
+                            <constraint firstItem="xo4-YS-IdU" firstAttribute="top" secondItem="5uE-wA-DNG" secondAttribute="top" constant="15" id="9o2-Gq-KRy"/>
+                            <constraint firstAttribute="bottom" secondItem="xo4-YS-IdU" secondAttribute="bottom" constant="20" id="b0b-pI-WUa"/>
+                            <constraint firstItem="ynO-fM-XGh" firstAttribute="leading" secondItem="5uE-wA-DNG" secondAttribute="leading" constant="15" id="dM0-bA-U7n"/>
+                            <constraint firstAttribute="trailing" secondItem="xo4-YS-IdU" secondAttribute="trailing" constant="20" id="igC-MP-3d0"/>
+                            <constraint firstItem="xo4-YS-IdU" firstAttribute="leading" secondItem="ynO-fM-XGh" secondAttribute="trailing" constant="15" id="tjT-lg-h2a"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="5uE-wA-DNG" secondAttribute="trailing" constant="20" id="Pux-5m-rqE"/>
+                    <constraint firstAttribute="bottom" secondItem="5uE-wA-DNG" secondAttribute="bottom" constant="10" id="Ryp-aJ-mOJ"/>
+                    <constraint firstItem="5uE-wA-DNG" firstAttribute="leading" secondItem="Yz1-Bb-JUf" secondAttribute="leading" constant="20" id="TFh-fw-m7h"/>
+                    <constraint firstItem="5uE-wA-DNG" firstAttribute="top" secondItem="Yz1-Bb-JUf" secondAttribute="top" constant="10" id="ZYq-u2-0kp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="container" destination="5uE-wA-DNG" id="EMW-kD-fHB"/>
+                <outlet property="dateRange" destination="VnX-vb-e6o" id="P6w-dl-CkA"/>
+                <outlet property="desc" destination="jac-uJ-2q8" id="ybO-Vn-iCv"/>
+                <outlet property="medicationName" destination="A1T-Mq-A8k" id="4oK-DJ-3DT"/>
+                <outlet property="mg" destination="TdX-h1-UJV" id="b7c-3y-2ED"/>
+                <outlet property="quantity" destination="ds2-rQ-VkG" id="weI-Kj-JJg"/>
+                <outlet property="timeRange" destination="K1H-Js-A1r" id="baz-Po-haN"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="114"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="capsule.portrait.tophalf.filled" catalog="system" width="108" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

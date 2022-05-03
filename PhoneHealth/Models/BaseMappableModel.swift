@@ -13,6 +13,7 @@ class BaseMappableModel<T: Mappable>: Mappable {
     var data: T?
     var responseCode: Int?
     var responseStatus: String?
+    var errorMessage: String?
     
     required init?(map: Map) {
         
@@ -22,5 +23,6 @@ class BaseMappableModel<T: Mappable>: Mappable {
         data <- map["data"]
         responseCode <- map["responseCode"]
         responseStatus <- map["responseStatus"]
+        errorMessage <- map["errorMessage"]
     }
 }

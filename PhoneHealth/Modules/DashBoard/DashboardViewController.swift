@@ -221,6 +221,13 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
                 let coordinator = MedicationCoordinator.init(navigationController: nav)
                 coordinator.start()
             }
+            cell.didSelectEappointment = {
+                guard let nav = self.navigationController else {return}
+                let coordinator = ImmunizationProfileCoordinator.init(navigationController: nav)
+                coordinator.start()
+//                let vc = UIStoryboard.init(name: "WebViewTest", bundle: nil).instantiateViewController(withIdentifier: "WebViewTestViewController") as! WebViewTestViewController
+//                self.navigationController?.pushViewController(vc, animated: true)
+            }
             return cell
         case 3:
             if medicationList?.count == 0 || medicationList?.count == nil {

@@ -25,6 +25,7 @@ class ScanViewController: UIViewController {
             setupPdfView()
             guard let url = URL.init(string: image?.thumbnails ?? "") else {return}
             let pdfDOc = PDFDocument.init(url: url)
+            pdfView.autoScales = true
             pdfView.document = pdfDOc
         } else {
             self.scannedImage.sd_setImage(with: URL.init(string: image?.thumbnails ?? ""))

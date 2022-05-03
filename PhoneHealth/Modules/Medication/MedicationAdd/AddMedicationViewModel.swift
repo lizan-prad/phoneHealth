@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 
 struct MedicaitonModel {
+    var dose: String?
     var firstIntake: String?
     var frequency: Int?
     var medicineName: String?
@@ -25,6 +26,7 @@ struct AddMedicationViewModel {
     
     func addMedicaiton(model: MedicaitonModel) {
         let param: [String: Any] = [
+            "dose": model.dose ?? "",
             "firstIntake": model.firstIntake ?? "",
             "frequency": model.frequency ?? 0,
             "medicineName": model.medicineName ?? "",

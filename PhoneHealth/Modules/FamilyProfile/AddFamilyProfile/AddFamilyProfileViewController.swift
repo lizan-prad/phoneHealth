@@ -43,6 +43,8 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
     
     var viewModel: AddFamilyProfileViewModel!
     
+    var isChild: Bool = false
+    
     let relationPickerView = UIPickerView()
     let genderPickerView = UIPickerView()
     let adbsPickerView = UIPickerView()
@@ -184,6 +186,10 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
         }
         viewModel.success.bind { msg in
             self.showAlert(title: nil, message: "Your family profile has been created.") { _ in
+                if self.isChild {
+                    self.navigationController?.popViewController(animated: true)
+                    return
+                }
                 guard let nav = self.navigationController else {return}
                 let model = HealthProfileModel()
                 model.familyData = self.familyStruct

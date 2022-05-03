@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>742707960198-q46fiubd59dc96eikvh0o0pgmsqq9vb7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.742707960198-q46fiubd59dc96eikvh0o0pgmsqq9vb7</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>742707960198-q90vcqldmsbo24ckemhb2hks3i1h2r0u.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCbbThdBUC4pU7flfB1s4Wb-b3COz46N6s</string>
+	<key>GCM_SENDER_ID</key>
+	<string>742707960198</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.cogentHealth.qa.foneHealth</string>
+	<key>PROJECT_ID</key>
+	<string>fone-health</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fone-health.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:742707960198:ios:1a7b288f97ad3745bc7407</string>
+</dict>
+</plist>
