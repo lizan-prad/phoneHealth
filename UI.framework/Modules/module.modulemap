@@ -1,0 +1,11 @@
+framework module UI {
+  umbrella header "UI.h"
+
+  export *
+  module * { export * }
+}
+
+module UI.Swift {
+    header "UI-Swift.h"
+    requires objc
+}

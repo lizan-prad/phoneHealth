@@ -1,0 +1,11 @@
+framework module CogentIOSFramework {
+  umbrella header "CogentIOSFramework.h"
+
+  export *
+  module * { export * }
+}
+
+module CogentIOSFramework.Swift {
+    header "CogentIOSFramework-Swift.h"
+    requires objc
+}

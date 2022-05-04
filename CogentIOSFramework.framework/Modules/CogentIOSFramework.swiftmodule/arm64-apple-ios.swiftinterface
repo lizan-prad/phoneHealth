@@ -1,0 +1,252 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name CogentIOSFramework
+import ActiveLabel
+import Alamofire
+@_exported import CogentIOSFramework
+import ContactsUI
+import CoreLocation
+import DynamicMerchantFramework
+import Foundation
+import JTAppleCalendar
+import NepaliDateConverter
+import SDWebImage
+import Security
+import Swift
+import SwiftyJSON
+import SwiftyUserDefaults
+import UI
+import UIKit
+import _Concurrency
+@objc public protocol SPStorkControllerDelegate {
+  @objc optional func didDismissStorkBySwipe()
+  @objc optional func didDismissStorkByTap()
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class FormChipButtonsView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) final public let bottomInset: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var leftPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) final public let errorLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) final public let boxLayer: QuartzCore.CAShapeLayer
+  @_Concurrency.MainActor(unsafe) public var validationType: CogentIOSFramework.ChipValidationType
+  @_Concurrency.MainActor(unsafe) public var characterLimit: Swift.Int
+  @_Concurrency.MainActor(unsafe) public var isRequired: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isErrorPresent: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isValid: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var messageEmptyField: Swift.String
+  @_Concurrency.MainActor(unsafe) public var isItemSelected: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isAmount: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isRequestID: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var requestKey: Swift.String
+  @_Concurrency.MainActor(unsafe) public var isMultipleSelection: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) public func showError(message: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func hideError()
+  @_Concurrency.MainActor(unsafe) public func reset()
+  @_Concurrency.MainActor(unsafe) public func showValidIndicator()
+  @_Concurrency.MainActor(unsafe) public func hideValidIndicator()
+  @objc deinit
+}
+@objc public protocol SPStorkControllerConfirmDelegate {
+  @objc var needConfirm: Swift.Bool { get }
+  @objc func confirm(_ completion: @escaping (_ isConfirmed: Swift.Bool) -> ())
+}
+public enum SPStorkController {
+  public static func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+  public static func dismissWithConfirmation(controller: UIKit.UIViewController, completion: (() -> ())?)
+  public static var topScrollIndicatorInset: CoreGraphics.CGFloat {
+    get
+  }
+  public static func updatePresentingController(parent controller: UIKit.UIViewController)
+  public static func updatePresentingController(modal controller: UIKit.UIViewController)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class SPStorkIndicatorView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func sizeToFit()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class SPStorkSegue : UIKit.UIStoryboardSegue {
+  @_Concurrency.MainActor(unsafe) public var transitioningDelegate: CogentIOSFramework.SPStorkTransitioningDelegate?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func perform()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(identifier: Swift.String?, source: UIKit.UIViewController, destination: UIKit.UIViewController)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class SPStorkTransitioningDelegate : ObjectiveC.NSObject, UIKit.UIViewControllerTransitioningDelegate {
+  @_Concurrency.MainActor(unsafe) final public var swipeToDismissEnabled: Swift.Bool
+  @_Concurrency.MainActor(unsafe) final public var tapAroundToDismissEnabled: Swift.Bool
+  @_Concurrency.MainActor(unsafe) final public var showCloseButton: Swift.Bool
+  @_Concurrency.MainActor(unsafe) final public var showIndicator: Swift.Bool
+  @_Concurrency.MainActor(unsafe) final public var indicatorColor: UIKit.UIColor
+  @_Concurrency.MainActor(unsafe) final public var hideIndicatorWhenScroll: Swift.Bool
+  @_Concurrency.MainActor(unsafe) final public var customHeight: CoreGraphics.CGFloat?
+  @_Concurrency.MainActor(unsafe) final public var translateForDismiss: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) final public var cornerRadius: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) final public var hapticMoments: [CogentIOSFramework.SPStorkHapticMoments]
+  @_Concurrency.MainActor(unsafe) weak final public var storkDelegate: CogentIOSFramework.SPStorkControllerDelegate?
+  @_Concurrency.MainActor(unsafe) weak final public var confirmDelegate: CogentIOSFramework.SPStorkControllerConfirmDelegate?
+  @_Concurrency.MainActor(unsafe) @objc final public func presentationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController?, source: UIKit.UIViewController) -> UIKit.UIPresentationController?
+  @_Concurrency.MainActor(unsafe) @objc final public func animationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController, source: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @_Concurrency.MainActor(unsafe) @objc final public func animationController(forDismissed dismissed: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension NepaliDateConverter.DateModel {
+  public init(year: Swift.String, month: Swift.String, day: Swift.String)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ViewPagerTabView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public class UserKYCModel {
+  public init(id: Swift.String?, mobileNumber: Swift.String?, dob: Swift.String?, name: Swift.String?, emailID: Swift.String?, gender: Swift.String?)
+  @objc deinit
+}
+public protocol ViewPagerDataSource : AnyObject {
+  func numberOfPages() -> Swift.Int
+  func viewControllerAtPosition(position: Swift.Int) -> UIKit.UIViewController
+  func tabsForPages() -> [CogentIOSFramework.ViewPagerTab]
+  func startViewPagerAtIndex() -> Swift.Int
+}
+public protocol ViewPagerDelegate : AnyObject {
+  func willMoveToControllerAtIndex(index: Swift.Int)
+  func didMoveToControllerAtIndex(index: Swift.Int)
+}
+@objc public class ViewPager : ObjectiveC.NSObject {
+  public init(viewController: UIKit.UIViewController, containerView: UIKit.UIView? = nil)
+  public func setOptions(options: CogentIOSFramework.ViewPagerOptions)
+  public func setDataSource(dataSource: CogentIOSFramework.ViewPagerDataSource)
+  public func setDelegate(delegate: CogentIOSFramework.ViewPagerDelegate?)
+  public func build()
+  public func displayViewController(atIndex index: Swift.Int)
+  public func invalidateCurrentTabs()
+  @objc deinit
+}
+extension CogentIOSFramework.ViewPager : UIKit.UIPageViewControllerDataSource {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func pageViewController(_ pageViewController: UIKit.UIPageViewController, viewControllerBefore viewController: UIKit.UIViewController) -> UIKit.UIViewController?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func pageViewController(_ pageViewController: UIKit.UIPageViewController, viewControllerAfter viewController: UIKit.UIViewController) -> UIKit.UIViewController?
+}
+extension CogentIOSFramework.ViewPager : UIKit.UIPageViewControllerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func pageViewController(_ pageViewController: UIKit.UIPageViewController, didFinishAnimating finished: Swift.Bool, previousViewControllers: [UIKit.UIViewController], transitionCompleted completed: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func pageViewController(_ pageViewController: UIKit.UIPageViewController, willTransitionTo pendingViewControllers: [UIKit.UIViewController])
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class SPStorkCloseButton : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var isHighlighted: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func sizeToFit()
+  @objc deinit
+}
+public enum ChipValidationType {
+  case single
+  case multiple
+  case selectionLimit(count: Swift.Int)
+}
+@objc @_inheritsConvenienceInitializers open class ChipButtonValidator : ObjectiveC.NSObject {
+  public typealias ChipValidation = (field: CogentIOSFramework.FormChipButtonsView, validationType: CogentIOSFramework.ChipValidationType)
+  public var validationList: [CogentIOSFramework.ChipButtonValidator.ChipValidation]
+  public var isValidationSuccess: Swift.Bool
+  public func add(field: CogentIOSFramework.FormChipButtonsView, validationType: CogentIOSFramework.ChipValidationType)
+  public func validateAll()
+  public func resetAllValidation()
+  public func validateTextField(field: CogentIOSFramework.FormChipButtonsView) -> (isValid: Swift.Bool, message: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol CogentPaymentDelegate {
+  @objc func onCogentPaymentSuccess(info: [Swift.String : Any])
+  @objc func onCogentPaymentError(errorDescription: Swift.String)
+}
+@objc public class CogentLandingPagePresenter : ObjectiveC.NSObject {
+  weak public var paymentDelegate: CogentIOSFramework.CogentPaymentDelegate?
+  public var parentViewController: UIKit.UIViewController?
+  public init(delegate: CogentIOSFramework.CogentPaymentDelegate, esewaID: Swift.String, userKYCModel: CogentIOSFramework.UserKYCModel, colorTheme: UIKit.UIColor)
+  public func initiateLicenseValidation(licenseString: Swift.String, fromVC: UIKit.UIViewController, shouldPresent: Swift.Bool)
+  @objc deinit
+}
+public class ViewPagerOptions {
+  public enum Distribution {
+    case normal
+    case equal
+    case segmented
+    public static func == (a: CogentIOSFramework.ViewPagerOptions.Distribution, b: CogentIOSFramework.ViewPagerOptions.Distribution) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public var distribution: CogentIOSFramework.ViewPagerOptions.Distribution
+  public var tabType: CogentIOSFramework.ViewPagerTabType
+  public var isTabHighlightAvailable: Swift.Bool
+  public var isTabIndicatorAvailable: Swift.Bool
+  public var isTabBarShadowAvailable: Swift.Bool
+  public var tabViewBackgroundDefaultColor: UIKit.UIColor
+  public var tabViewBackgroundHighlightColor: UIKit.UIColor
+  public var tabViewTextDefaultColor: UIKit.UIColor
+  public var tabViewTextHighlightColor: UIKit.UIColor
+  public var tabViewHeight: CoreGraphics.CGFloat
+  public var tabViewPaddingLeft: CoreGraphics.CGFloat
+  public var tabViewPaddingRight: CoreGraphics.CGFloat
+  public var tabViewTextFont: UIKit.UIFont
+  public var tabViewImageSize: CoreGraphics.CGSize
+  public var tabViewImageMarginTop: CoreGraphics.CGFloat
+  public var tabViewImageMarginBottom: CoreGraphics.CGFloat
+  public var shadowColor: UIKit.UIColor
+  public var shadowOpacity: Swift.Float
+  public var shadowOffset: CoreGraphics.CGSize
+  public var shadowRadius: CoreGraphics.CGFloat
+  public var tabIndicatorViewHeight: CoreGraphics.CGFloat
+  public var tabIndicatorViewBackgroundColor: UIKit.UIColor
+  public var viewPagerTransitionStyle: UIKit.UIPageViewController.TransitionStyle
+  public init()
+  @objc deinit
+}
+public enum ViewPagerTabType {
+  case basic
+  case image
+  case imageWithText
+  public static func == (a: CogentIOSFramework.ViewPagerTabType, b: CogentIOSFramework.ViewPagerTabType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct ViewPagerTab {
+  public var title: Swift.String
+  public var image: UIKit.UIImage?
+  public init(title: Swift.String, image: UIKit.UIImage?)
+}
+public struct AppText {
+}
+extension UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public var isPresentedAsStork: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func presentAsStork(_ controller: UIKit.UIViewController, height: CoreGraphics.CGFloat? = nil)
+  @_Concurrency.MainActor(unsafe) public func presentAsStork(_ controller: UIKit.UIViewController, height: CoreGraphics.CGFloat?, showIndicator: Swift.Bool, showCloseButton: Swift.Bool, complection: (() -> Swift.Void)? = nil)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class SPStorkCloseView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func draw(_ rect: CoreGraphics.CGRect)
+  @objc deinit
+}
+public enum SPStorkHapticMoments {
+  case willPresent
+  case willDismiss
+  case willDismissIfRelease
+  public static func == (a: CogentIOSFramework.SPStorkHapticMoments, b: CogentIOSFramework.SPStorkHapticMoments) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension CogentIOSFramework.ViewPagerOptions.Distribution : Swift.Equatable {}
+extension CogentIOSFramework.ViewPagerOptions.Distribution : Swift.Hashable {}
+extension CogentIOSFramework.ViewPagerTabType : Swift.Equatable {}
+extension CogentIOSFramework.ViewPagerTabType : Swift.Hashable {}
+extension CogentIOSFramework.SPStorkHapticMoments : Swift.Equatable {}
+extension CogentIOSFramework.SPStorkHapticMoments : Swift.Hashable {}

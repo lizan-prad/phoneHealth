@@ -1,0 +1,11 @@
+framework module DynamicMerchantFramework {
+  umbrella header "DynamicMerchantFramework.h"
+
+  export *
+  module * { export * }
+}
+
+module DynamicMerchantFramework.Swift {
+    header "DynamicMerchantFramework-Swift.h"
+    requires objc
+}

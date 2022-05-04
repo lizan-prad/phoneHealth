@@ -133,6 +133,7 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
         self.viewModel.fetchFamily()
         self.viewModel.fetchHospitals()
         self.fetchProfile()
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -56,6 +56,7 @@ class ProfileViewController: UIViewController {
         self.navigationItem.title = "Profile"
         self.fetchProfile()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     @objc func editOption() {

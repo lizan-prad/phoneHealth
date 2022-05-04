@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49B58F69E5FCB0693A4AAA4B /* libPods-PhoneHealthUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A96A09244BBA137A9E1299 /* libPods-PhoneHealthUITests.a */; };
+		8A0D1486E98E0054C803FCDD /* libPods-PhoneHealthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD97252A172072526B5CC37 /* libPods-PhoneHealthTests.a */; };
 		B68E2CA712C557ED339ED637 /* Pods_PhoneHealth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6474353B1C9F45205F33FB /* Pods_PhoneHealth.framework */; };
-		B951A28ECFDDBEA31E39C047 /* Pods_PhoneHealthTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1D2A8E838B68AFC8EFD5F2 /* Pods_PhoneHealthTests.framework */; };
 		BE070BFD2789BC8800D994C6 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE070BFC2789BC8800D994C6 /* Login.storyboard */; };
 		BE070BFF2789BE2000D994C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE070BFE2789BE2000D994C6 /* LoginViewController.swift */; };
 		BE070C052789C41300D994C6 /* Otp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE070C042789C41300D994C6 /* Otp.storyboard */; };
@@ -158,6 +159,13 @@
 		BEA53273279009D00041AAE5 /* HabitsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA53272279009D00041AAE5 /* HabitsCoordinator.swift */; };
 		BEA57C5227CF7B0D0037F197 /* ProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA57C5027CF7B0D0037F197 /* ProfileHeaderTableViewCell.swift */; };
 		BEA57C5327CF7B0D0037F197 /* ProfileHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEA57C5127CF7B0D0037F197 /* ProfileHeaderTableViewCell.xib */; };
+		BEA7A1E02822871B000AFC2B /* CogentIOSFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA7A1DA28228716000AFC2B /* CogentIOSFramework.framework */; };
+		BEA7A1E12822871B000AFC2B /* CogentIOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEA7A1DA28228716000AFC2B /* CogentIOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BEA7A1E22822871C000AFC2B /* DynamicMerchantFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA7A1DB28228716000AFC2B /* DynamicMerchantFramework.framework */; };
+		BEA7A1E32822871C000AFC2B /* DynamicMerchantFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEA7A1DB28228716000AFC2B /* DynamicMerchantFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BEA7A1E42822871D000AFC2B /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA7A1DC28228717000AFC2B /* UI.framework */; };
+		BEA7A1E52822871E000AFC2B /* UI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEA7A1DC28228717000AFC2B /* UI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BEA7A1E7282290FF000AFC2B /* WhiteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA7A1E6282290FE000AFC2B /* WhiteNavigationController.swift */; };
 		BEB3F4BB2808AA1800A88438 /* FamilyProfileImmunizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3F4B92808AA1800A88438 /* FamilyProfileImmunizationTableViewCell.swift */; };
 		BEB3F4BC2808AA1800A88438 /* FamilyProfileImmunizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEB3F4BA2808AA1800A88438 /* FamilyProfileImmunizationTableViewCell.xib */; };
 		BEB3F4BF28094B7900A88438 /* TakeVaccine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB3F4BE28094B7900A88438 /* TakeVaccine.storyboard */; };
@@ -280,7 +288,6 @@
 		BEF32CBC27CD227E005D7370 /* QueueConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7124F2786C5F000486FB3 /* QueueConfig.swift */; };
 		BEF32CBD27CD2280005D7370 /* QueueConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7124F2786C5F000486FB3 /* QueueConfig.swift */; };
 		BEF9421D2821316F00BC40B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEF9421C2821316F00BC40B5 /* GoogleService-Info.plist */; };
-		DB7D6706AAD65BD36294D70D /* Pods_PhoneHealth_PhoneHealthUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295902523C72B37780720A53 /* Pods_PhoneHealth_PhoneHealthUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -317,6 +324,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				BEA7A1E52822871E000AFC2B /* UI.framework in Embed Frameworks */,
+				BEA7A1E12822871B000AFC2B /* CogentIOSFramework.framework in Embed Frameworks */,
+				BEA7A1E32822871C000AFC2B /* DynamicMerchantFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,12 +334,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00E525A7636C2DBD366B9822 /* Pods-PhoneHealth.debug-dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealth.debug-dev.xcconfig"; path = "Target Support Files/Pods-PhoneHealth/Pods-PhoneHealth.debug-dev.xcconfig"; sourceTree = "<group>"; };
+		02A96A09244BBA137A9E1299 /* libPods-PhoneHealthUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhoneHealthUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CECC1AB1FFE0A1CF7F69A5A /* Pods-PhoneHealthUITests.debug-dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealthUITests.debug-dev.xcconfig"; path = "Target Support Files/Pods-PhoneHealthUITests/Pods-PhoneHealthUITests.debug-dev.xcconfig"; sourceTree = "<group>"; };
 		11C20583F9F56359C679A021 /* Pods-PhoneHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealth.debug.xcconfig"; path = "Target Support Files/Pods-PhoneHealth/Pods-PhoneHealth.debug.xcconfig"; sourceTree = "<group>"; };
-		295902523C72B37780720A53 /* Pods_PhoneHealth_PhoneHealthUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhoneHealth_PhoneHealthUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D8C7D575958ACF2EF0E4CFD /* Pods-PhoneHealthTests.debug-dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealthTests.debug-dev.xcconfig"; path = "Target Support Files/Pods-PhoneHealthTests/Pods-PhoneHealthTests.debug-dev.xcconfig"; sourceTree = "<group>"; };
 		3C6474353B1C9F45205F33FB /* Pods_PhoneHealth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhoneHealth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		521A85FA5F4DFE7C9131625A /* Pods-PhoneHealthTests.release-dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealthTests.release-dev.xcconfig"; path = "Target Support Files/Pods-PhoneHealthTests/Pods-PhoneHealthTests.release-dev.xcconfig"; sourceTree = "<group>"; };
+		5AD97252A172072526B5CC37 /* libPods-PhoneHealthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhoneHealthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E1DD7C2C1C86C126B3D1608 /* Pods-PhoneHealthTests.appstore-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealthTests.appstore-debug.xcconfig"; path = "Target Support Files/Pods-PhoneHealthTests/Pods-PhoneHealthTests.appstore-debug.xcconfig"; sourceTree = "<group>"; };
+		6CEE926FF7D7D6520AC3FD4C /* Pods-PhoneHealthUITests.appstore-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealthUITests.appstore-release.xcconfig"; path = "Target Support Files/Pods-PhoneHealthUITests/Pods-PhoneHealthUITests.appstore-release.xcconfig"; sourceTree = "<group>"; };
 		7DF0C3368B8C6FA0F9DDE2C9 /* Pods-PhoneHealthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealthTests.debug.xcconfig"; path = "Target Support Files/Pods-PhoneHealthTests/Pods-PhoneHealthTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9B1D2A8E838B68AFC8EFD5F2 /* Pods_PhoneHealthTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhoneHealthTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		885D45CAC4FBDE8F005353C8 /* Pods-PhoneHealth.release-dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealth.release-dev.xcconfig"; path = "Target Support Files/Pods-PhoneHealth/Pods-PhoneHealth.release-dev.xcconfig"; sourceTree = "<group>"; };
+		89DC09C7442F46F9F8CE7968 /* Pods-PhoneHealthUITests.appstore-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealthUITests.appstore-debug.xcconfig"; path = "Target Support Files/Pods-PhoneHealthUITests/Pods-PhoneHealthUITests.appstore-debug.xcconfig"; sourceTree = "<group>"; };
+		8BCC7E5D1633F165781F4E22 /* Pods-PhoneHealthUITests.release-dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealthUITests.release-dev.xcconfig"; path = "Target Support Files/Pods-PhoneHealthUITests/Pods-PhoneHealthUITests.release-dev.xcconfig"; sourceTree = "<group>"; };
+		9296DA116B95607C27A79AE9 /* Pods-PhoneHealthTests.appstore-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealthTests.appstore-release.xcconfig"; path = "Target Support Files/Pods-PhoneHealthTests/Pods-PhoneHealthTests.appstore-release.xcconfig"; sourceTree = "<group>"; };
 		A9CEF643DF33FF6DFF3C220C /* Pods-PhoneHealth-PhoneHealthUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealth-PhoneHealthUITests.debug.xcconfig"; path = "Target Support Files/Pods-PhoneHealth-PhoneHealthUITests/Pods-PhoneHealth-PhoneHealthUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B02128434F3E8382057406E6 /* Pods-PhoneHealth.appstore-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealth.appstore-release.xcconfig"; path = "Target Support Files/Pods-PhoneHealth/Pods-PhoneHealth.appstore-release.xcconfig"; sourceTree = "<group>"; };
 		BE070BFC2789BC8800D994C6 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		BE070BFE2789BE2000D994C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BE070C042789C41300D994C6 /* Otp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Otp.storyboard; sourceTree = "<group>"; };
@@ -479,6 +500,10 @@
 		BEA53272279009D00041AAE5 /* HabitsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsCoordinator.swift; sourceTree = "<group>"; };
 		BEA57C5027CF7B0D0037F197 /* ProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		BEA57C5127CF7B0D0037F197 /* ProfileHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		BEA7A1DA28228716000AFC2B /* CogentIOSFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CogentIOSFramework.framework; sourceTree = "<group>"; };
+		BEA7A1DB28228716000AFC2B /* DynamicMerchantFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DynamicMerchantFramework.framework; sourceTree = "<group>"; };
+		BEA7A1DC28228717000AFC2B /* UI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UI.framework; sourceTree = "<group>"; };
+		BEA7A1E6282290FE000AFC2B /* WhiteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhiteNavigationController.swift; sourceTree = "<group>"; };
 		BEB3F4B92808AA1800A88438 /* FamilyProfileImmunizationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyProfileImmunizationTableViewCell.swift; sourceTree = "<group>"; };
 		BEB3F4BA2808AA1800A88438 /* FamilyProfileImmunizationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyProfileImmunizationTableViewCell.xib; sourceTree = "<group>"; };
 		BEB3F4BE28094B7900A88438 /* TakeVaccine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TakeVaccine.storyboard; sourceTree = "<group>"; };
@@ -603,6 +628,7 @@
 		BEF32CB827CCE7B8005D7370 /* DashboardFamilyProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardFamilyProfileTableViewCell.swift; sourceTree = "<group>"; };
 		BEF32CB927CCE7B8005D7370 /* DashboardFamilyProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardFamilyProfileTableViewCell.xib; sourceTree = "<group>"; };
 		BEF9421C2821316F00BC40B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C254894CB79E88C33BC744C1 /* Pods-PhoneHealth.appstore-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealth.appstore-debug.xcconfig"; path = "Target Support Files/Pods-PhoneHealth/Pods-PhoneHealth.appstore-debug.xcconfig"; sourceTree = "<group>"; };
 		D9FC4830E3B6D5C05D9208B0 /* Pods-PhoneHealthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealthTests.release.xcconfig"; path = "Target Support Files/Pods-PhoneHealthTests/Pods-PhoneHealthTests.release.xcconfig"; sourceTree = "<group>"; };
 		DB764342E4BB9B56008E6F72 /* Pods-PhoneHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealth.release.xcconfig"; path = "Target Support Files/Pods-PhoneHealth/Pods-PhoneHealth.release.xcconfig"; sourceTree = "<group>"; };
 		E58737980C29BF041A9CB277 /* Pods-PhoneHealth-PhoneHealthUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneHealth-PhoneHealthUITests.release.xcconfig"; path = "Target Support Files/Pods-PhoneHealth-PhoneHealthUITests/Pods-PhoneHealth-PhoneHealthUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -614,7 +640,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE1D0D5027F575C10021B345 /* WebKit.framework in Frameworks */,
+				BEA7A1E42822871D000AFC2B /* UI.framework in Frameworks */,
 				B68E2CA712C557ED339ED637 /* Pods_PhoneHealth.framework in Frameworks */,
+				BEA7A1E22822871C000AFC2B /* DynamicMerchantFramework.framework in Frameworks */,
+				BEA7A1E02822871B000AFC2B /* CogentIOSFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,7 +651,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B951A28ECFDDBEA31E39C047 /* Pods_PhoneHealthTests.framework in Frameworks */,
+				8A0D1486E98E0054C803FCDD /* libPods-PhoneHealthTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,7 +659,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB7D6706AAD65BD36294D70D /* Pods_PhoneHealth_PhoneHealthUITests.framework in Frameworks */,
+				49B58F69E5FCB0693A4AAA4B /* libPods-PhoneHealthUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +675,18 @@
 				E58737980C29BF041A9CB277 /* Pods-PhoneHealth-PhoneHealthUITests.release.xcconfig */,
 				7DF0C3368B8C6FA0F9DDE2C9 /* Pods-PhoneHealthTests.debug.xcconfig */,
 				D9FC4830E3B6D5C05D9208B0 /* Pods-PhoneHealthTests.release.xcconfig */,
+				00E525A7636C2DBD366B9822 /* Pods-PhoneHealth.debug-dev.xcconfig */,
+				C254894CB79E88C33BC744C1 /* Pods-PhoneHealth.appstore-debug.xcconfig */,
+				885D45CAC4FBDE8F005353C8 /* Pods-PhoneHealth.release-dev.xcconfig */,
+				B02128434F3E8382057406E6 /* Pods-PhoneHealth.appstore-release.xcconfig */,
+				2D8C7D575958ACF2EF0E4CFD /* Pods-PhoneHealthTests.debug-dev.xcconfig */,
+				5E1DD7C2C1C86C126B3D1608 /* Pods-PhoneHealthTests.appstore-debug.xcconfig */,
+				521A85FA5F4DFE7C9131625A /* Pods-PhoneHealthTests.release-dev.xcconfig */,
+				9296DA116B95607C27A79AE9 /* Pods-PhoneHealthTests.appstore-release.xcconfig */,
+				0CECC1AB1FFE0A1CF7F69A5A /* Pods-PhoneHealthUITests.debug-dev.xcconfig */,
+				89DC09C7442F46F9F8CE7968 /* Pods-PhoneHealthUITests.appstore-debug.xcconfig */,
+				8BCC7E5D1633F165781F4E22 /* Pods-PhoneHealthUITests.release-dev.xcconfig */,
+				6CEE926FF7D7D6520AC3FD4C /* Pods-PhoneHealthUITests.appstore-release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -653,10 +694,13 @@
 		407D06F4D961E2EC761B8277 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEA7A1DA28228716000AFC2B /* CogentIOSFramework.framework */,
+				BEA7A1DB28228716000AFC2B /* DynamicMerchantFramework.framework */,
+				BEA7A1DC28228717000AFC2B /* UI.framework */,
 				BE1D0D4F27F575C10021B345 /* WebKit.framework */,
 				3C6474353B1C9F45205F33FB /* Pods_PhoneHealth.framework */,
-				295902523C72B37780720A53 /* Pods_PhoneHealth_PhoneHealthUITests.framework */,
-				9B1D2A8E838B68AFC8EFD5F2 /* Pods_PhoneHealthTests.framework */,
+				5AD97252A172072526B5CC37 /* libPods-PhoneHealthTests.a */,
+				02A96A09244BBA137A9E1299 /* libPods-PhoneHealthUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1320,6 +1364,7 @@
 		BECB451927BECCCB00ABFE12 /* E-Appointments */ = {
 			isa = PBXGroup;
 			children = (
+				BEA7A1E6282290FE000AFC2B /* WhiteNavigationController.swift */,
 				BECB451A27BECCDB00ABFE12 /* Eappointments.storyboard */,
 				BECB451C27BECCEC00ABFE12 /* EappointmentsViewController.swift */,
 			);
@@ -1520,7 +1565,6 @@
 				BEB712372786C5B100486FB3 /* Sources */,
 				BEB712382786C5B100486FB3 /* Frameworks */,
 				BEB712392786C5B100486FB3 /* Resources */,
-				E1480BE0F9C752DBB609BD92 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1698,7 +1742,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PhoneHealth-PhoneHealthUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PhoneHealthUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1764,23 +1808,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E1480BE0F9C752DBB609BD92 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PhoneHealth-PhoneHealthUITests/Pods-PhoneHealth-PhoneHealthUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PhoneHealth-PhoneHealthUITests/Pods-PhoneHealth-PhoneHealthUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PhoneHealth-PhoneHealthUITests/Pods-PhoneHealth-PhoneHealthUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1928,6 +1955,7 @@
 				BE10C6C627D0C09C004A24CA /* OnboardingCoordnator.swift in Sources */,
 				BEBDAEFA27E662720075651B /* ImmunizationViewController.swift in Sources */,
 				BE1D0D4E27F5751D0021B345 /* WebViewTestViewController.swift in Sources */,
+				BEA7A1E7282290FF000AFC2B /* WhiteNavigationController.swift in Sources */,
 				BEC6251D28213F120044A759 /* HealthLockerAddCollectionViewCell.swift in Sources */,
 				BE712A4A278ADFFE00D7985A /* UserAllergyCoordinator.swift in Sources */,
 				BEBDAF0E27E6FEBA0075651B /* ImmunizationCalenderViewModel.swift in Sources */,
@@ -2021,7 +2049,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		BEB712432786C5B200486FB3 /* Debug */ = {
+		BEB712432786C5B200486FB3 /* Debug-Dev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -2072,7 +2100,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2080,9 +2108,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = "Debug-Dev";
 		};
-		BEB712442786C5B200486FB3 /* Release */ = {
+		BEB712442786C5B200486FB3 /* Release-Dev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -2127,7 +2155,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2135,11 +2163,11 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = "Release-Dev";
 		};
-		BEB712462786C5B200486FB3 /* Debug */ = {
+		BEB712462786C5B200486FB3 /* Debug-Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11C20583F9F56359C679A021 /* Pods-PhoneHealth.debug.xcconfig */;
+			baseConfigurationReference = 00E525A7636C2DBD366B9822 /* Pods-PhoneHealth.debug-dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2164,7 +2192,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2176,11 +2204,11 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = "Debug-Dev";
 		};
-		BEB712472786C5B200486FB3 /* Release */ = {
+		BEB712472786C5B200486FB3 /* Release-Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB764342E4BB9B56008E6F72 /* Pods-PhoneHealth.release.xcconfig */;
+			baseConfigurationReference = 885D45CAC4FBDE8F005353C8 /* Pods-PhoneHealth.release-dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2205,7 +2233,192 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.qa.foneHealth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Release-Dev";
+		};
+		BEB712492786C5B200486FB3 /* Debug-Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D8C7D575958ACF2EF0E4CFD /* Pods-PhoneHealthTests.debug-dev.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E93436VDRS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.PhoneHealthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhoneHealth.app/PhoneHealth";
+			};
+			name = "Debug-Dev";
+		};
+		BEB7124A2786C5B200486FB3 /* Release-Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 521A85FA5F4DFE7C9131625A /* Pods-PhoneHealthTests.release-dev.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E93436VDRS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.PhoneHealthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhoneHealth.app/PhoneHealth";
+			};
+			name = "Release-Dev";
+		};
+		BEB7124C2786C5B200486FB3 /* Debug-Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CECC1AB1FFE0A1CF7F69A5A /* Pods-PhoneHealthUITests.debug-dev.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E93436VDRS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.PhoneHealthUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PhoneHealth;
+			};
+			name = "Debug-Dev";
+		};
+		BEB7124D2786C5B200486FB3 /* Release-Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BCC7E5D1633F165781F4E22 /* Pods-PhoneHealthUITests.release-dev.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E93436VDRS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.PhoneHealthUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PhoneHealth;
+			};
+			name = "Release-Dev";
+		};
+		BEC9F7D228227B26009CE7E0 /* Appstore-Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Appstore-Release";
+		};
+		BEC9F7D328227B26009CE7E0 /* Appstore-Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B02128434F3E8382057406E6 /* Pods-PhoneHealth.appstore-release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = X8YE27GARE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PhoneHealth",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhoneHealth/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fone Health";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Phone health would like to request calender access";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Phone health would like to use your camera";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Phone health would like to request gallery access";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "Phone health would like to request reminders access";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = UserSteppingConatiner;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2217,11 +2430,11 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Release;
+			name = "Appstore-Release";
 		};
-		BEB712492786C5B200486FB3 /* Debug */ = {
+		BEC9F7D428227B26009CE7E0 /* Appstore-Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DF0C3368B8C6FA0F9DDE2C9 /* Pods-PhoneHealthTests.debug.xcconfig */;
+			baseConfigurationReference = 9296DA116B95607C27A79AE9 /* Pods-PhoneHealthTests.appstore-release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2238,11 +2451,136 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhoneHealth.app/PhoneHealth";
 			};
-			name = Debug;
+			name = "Appstore-Release";
 		};
-		BEB7124A2786C5B200486FB3 /* Release */ = {
+		BEC9F7D528227B26009CE7E0 /* Appstore-Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9FC4830E3B6D5C05D9208B0 /* Pods-PhoneHealthTests.release.xcconfig */;
+			baseConfigurationReference = 6CEE926FF7D7D6520AC3FD4C /* Pods-PhoneHealthUITests.appstore-release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E93436VDRS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.PhoneHealthUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PhoneHealth;
+			};
+			name = "Appstore-Release";
+		};
+		BEC9F7D628227B40009CE7E0 /* Appstore-Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "Appstore-Debug";
+		};
+		BEC9F7D728227B40009CE7E0 /* Appstore-Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C254894CB79E88C33BC744C1 /* Pods-PhoneHealth.appstore-debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = X8YE27GARE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PhoneHealth",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhoneHealth/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fone Health";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Phone health would like to request calender access";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Phone health would like to use your camera";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Phone health would like to request gallery access";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "Phone health would like to request reminders access";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = UserSteppingConatiner;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.qa.foneHealth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Appstore-Debug";
+		};
+		BEC9F7D828227B40009CE7E0 /* Appstore-Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E1DD7C2C1C86C126B3D1608 /* Pods-PhoneHealthTests.appstore-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2259,16 +2597,20 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhoneHealth.app/PhoneHealth";
 			};
-			name = Release;
+			name = "Appstore-Debug";
 		};
-		BEB7124C2786C5B200486FB3 /* Debug */ = {
+		BEC9F7D928227B40009CE7E0 /* Appstore-Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9CEF643DF33FF6DFF3C220C /* Pods-PhoneHealth-PhoneHealthUITests.debug.xcconfig */;
+			baseConfigurationReference = 89DC09C7442F46F9F8CE7968 /* Pods-PhoneHealthUITests.appstore-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = E93436VDRS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.PhoneHealthUITests;
@@ -2278,26 +2620,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PhoneHealth;
 			};
-			name = Debug;
-		};
-		BEB7124D2786C5B200486FB3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E58737980C29BF041A9CB277 /* Pods-PhoneHealth-PhoneHealthUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = E93436VDRS;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cogentHealth.PhoneHealthUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PhoneHealth;
-			};
-			name = Release;
+			name = "Appstore-Debug";
 		};
 /* End XCBuildConfiguration section */
 
@@ -2305,38 +2628,46 @@
 		BEB712162786C5AB00486FB3 /* Build configuration list for PBXProject "PhoneHealth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BEB712432786C5B200486FB3 /* Debug */,
-				BEB712442786C5B200486FB3 /* Release */,
+				BEB712432786C5B200486FB3 /* Debug-Dev */,
+				BEC9F7D628227B40009CE7E0 /* Appstore-Debug */,
+				BEB712442786C5B200486FB3 /* Release-Dev */,
+				BEC9F7D228227B26009CE7E0 /* Appstore-Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release-Dev";
 		};
 		BEB712452786C5B200486FB3 /* Build configuration list for PBXNativeTarget "PhoneHealth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BEB712462786C5B200486FB3 /* Debug */,
-				BEB712472786C5B200486FB3 /* Release */,
+				BEB712462786C5B200486FB3 /* Debug-Dev */,
+				BEC9F7D728227B40009CE7E0 /* Appstore-Debug */,
+				BEB712472786C5B200486FB3 /* Release-Dev */,
+				BEC9F7D328227B26009CE7E0 /* Appstore-Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release-Dev";
 		};
 		BEB712482786C5B200486FB3 /* Build configuration list for PBXNativeTarget "PhoneHealthTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BEB712492786C5B200486FB3 /* Debug */,
-				BEB7124A2786C5B200486FB3 /* Release */,
+				BEB712492786C5B200486FB3 /* Debug-Dev */,
+				BEC9F7D828227B40009CE7E0 /* Appstore-Debug */,
+				BEB7124A2786C5B200486FB3 /* Release-Dev */,
+				BEC9F7D428227B26009CE7E0 /* Appstore-Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release-Dev";
 		};
 		BEB7124B2786C5B200486FB3 /* Build configuration list for PBXNativeTarget "PhoneHealthUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BEB7124C2786C5B200486FB3 /* Debug */,
-				BEB7124D2786C5B200486FB3 /* Release */,
+				BEB7124C2786C5B200486FB3 /* Debug-Dev */,
+				BEC9F7D928227B40009CE7E0 /* Appstore-Debug */,
+				BEB7124D2786C5B200486FB3 /* Release-Dev */,
+				BEC9F7D528227B26009CE7E0 /* Appstore-Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release-Dev";
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,17 @@
 
 import UIKit
 import PDFKit
+
+extension Calendar {
+    func numberOfDaysBetween(_ from: Date, and to: Date) -> Int {
+        let fromDate = startOfDay(for: from)
+        let toDate = startOfDay(for: to)
+        let numberOfDays = dateComponents([.day], from: fromDate, to: toDate)
+        
+        return numberOfDays.day! + 1 // <1>
+    }
+}
+
 class MedicationListTableViewCell: UITableViewCell {
 
    
@@ -25,49 +36,98 @@ class MedicationListTableViewCell: UITableViewCell {
     var didTurnOff: ((Int) -> ())?
     var expoiry: String?
     
+    func get24Hrs(str: String) -> String {
+        let val = str.components(separatedBy: ":").first ?? ""
+        let last = str.components(separatedBy: ":").last ?? ""
+        
+        return (Int(val) ?? 0) < 12 ? (str + " am") : "\(((Int(val) ?? 0) + 12) - 24):\(last) pm".replacingOccurrences(of: "-", with: "")
+    }
+    
     var model: MedicationDataModel? {
         didSet {
             
             let alarmFormat = DateFormatter()
             alarmFormat.dateFormat = "yyyy-MM-dd"
             self.expoiry = model?.expiryDate
-            let d = alarmFormat.string(from: Date())
-            alarmFormat.dateFormat = "yyyy-MM-dd HH:mm"
-            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
-            let times = model?.time?.compactMap({"\(d) \($0.time ?? "")"})
-//            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
-            self.time = times?.compactMap({alarmFormat.date(from: $0)}).sorted(by: {$0 < $1}) ?? []
-            medName.text = model?.medicineName
-            doseLabel.text = (model?.dose?.replacingOccurrences(of: "mg", with: "") ?? "") + "mg"
-            alarmFormat.timeZone = TimeZone.current
-            let formatter = DateFormatter()
-            let date = formatter.date(from: model?.firstIntake ?? "") ?? Date()
-            formatter.dateFormat = "dd MMM"
-            medDate.text = "\(formatter.string(from: date)) - \(formatter.string(from: date.addingTimeInterval(TimeInterval(86400*(model?.numberOfDays ?? 0)))))"
-            medQuantity.text = "Quantity - \(model?.quantity ?? "0") Pills"
-            collectionView.reloadData()
-            collectionView.register(UINib.init(nibName: "TimeAlertCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TimeAlertCollectionViewCell")
-            //            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            self.container.alpha = 1
-            self.alertSwitch.isOn = true
             
-            if !UserDefaults.standard.bool(forKey: "Medication-\(self.model?.medicationId ?? 0)") {
+            
+            let d = alarmFormat.string(from: Date())
+            if d == model?.firstIntake {
+                alarmFormat.dateFormat = "yyyy-MM-dd HH:mm"
+    //            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
+                let times = model?.time?.compactMap({"\(d) \(self.get24Hrs(str: $0.time ?? ""))"})
+                alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
+                self.time = times?.compactMap({alarmFormat.date(from: $0)}) ?? []
+                medName.text = model?.medicineName
+                doseLabel.text = (model?.dose?.replacingOccurrences(of: "mg", with: "") ?? "") + "mg"
+                alarmFormat.timeZone = TimeZone.current
+                let formatter = DateFormatter()
+                let date = formatter.date(from: model?.firstIntake ?? "") ?? Date()
+                formatter.dateFormat = "dd MMM"
+                medDate.text = "\(formatter.string(from: date)) - \(formatter.string(from: date.addingTimeInterval(TimeInterval(86400*(model?.numberOfDays ?? 0)))))"
+                medQuantity.text = "Quantity - \(model?.quantity ?? "0") Pills"
+                collectionView.reloadData()
+                collectionView.register(UINib.init(nibName: "TimeAlertCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TimeAlertCollectionViewCell")
+                //            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                 self.container.alpha = 1
                 self.alertSwitch.isOn = true
-                UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
-                    self.model?.time?.enumerated().forEach { (index, date) in
-                        print(self.model?.medicationId ?? 0, self.model?.time?[index].id ?? 0)
-                        if requests.compactMap({($0.content.userInfo["id"] as? String)}).filter({$0 == "\(self.model?.medicationId ?? 0)-\(date.id ?? 0)"}).count == 0 {
-                            
-                            self.setNotification(takeTime: date.time ?? "", date: self.time[index], title: self.model?.medicineName ?? "", body: "Take your meds", id: "\(self.model?.medicationId ?? 0)-\(date.id ?? 0)", repeats: true)
+                
+                if !UserDefaults.standard.bool(forKey: "Medication-\(self.model?.medicationId ?? 0)") {
+                    self.container.alpha = 1
+                    self.alertSwitch.isOn = true
+                    UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+                        self.model?.time?.enumerated().forEach { (index, date) in
+                            print(self.model?.medicationId ?? 0, self.model?.time?[index].id ?? 0)
+                            if requests.compactMap({($0.content.userInfo["id"] as? String)}).filter({$0 == "\(self.model?.medicationId ?? 0)-\(date.id ?? 0)"}).count == 0 {
+                                
+                                self.setNotification(takeTime: date.time ?? "", date: self.time[index], title: self.model?.medicineName ?? "", body: "Take your meds", id: "\(self.model?.medicationId ?? 0)-\(date.id ?? 0)", repeats: true)
+                            }
                         }
                     }
+                } else {
+                    self.container.alpha = 0.5
+                    self.alertSwitch.isOn = false
                 }
+                alertSwitch.addTarget(self, action: #selector(switchAction(_:)), for: .valueChanged)
             } else {
-                self.container.alpha = 0.5
-                self.alertSwitch.isOn = false
+                alarmFormat.dateFormat = "yyyy-MM-dd HH:mm"
+    //            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
+                let times = model?.time?.compactMap({"\(self.model?.firstIntake ?? "") \(self.get24Hrs(str: $0.time ?? ""))"})
+                alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
+                self.time = times?.compactMap({alarmFormat.date(from: $0)}) ?? []
+                medName.text = model?.medicineName
+                doseLabel.text = (model?.dose?.replacingOccurrences(of: "mg", with: "") ?? "") + "mg"
+                alarmFormat.timeZone = TimeZone.current
+                let formatter = DateFormatter()
+                let date = formatter.date(from: model?.firstIntake ?? "") ?? Date()
+                formatter.dateFormat = "dd MMM"
+                medDate.text = "\(formatter.string(from: date)) - \(formatter.string(from: date.addingTimeInterval(TimeInterval(86400*(model?.numberOfDays ?? 0)))))"
+                medQuantity.text = "Quantity - \(model?.quantity ?? "0") Pills"
+                collectionView.reloadData()
+                collectionView.register(UINib.init(nibName: "TimeAlertCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TimeAlertCollectionViewCell")
+                //            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                self.container.alpha = 1
+                self.alertSwitch.isOn = true
+                
+                if !UserDefaults.standard.bool(forKey: "Medication-\(self.model?.medicationId ?? 0)") {
+                    self.container.alpha = 1
+                    self.alertSwitch.isOn = true
+                    UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+                        self.model?.time?.enumerated().forEach { (index, date) in
+                            print(self.model?.medicationId ?? 0, self.model?.time?[index].id ?? 0)
+                            if requests.compactMap({($0.content.userInfo["id"] as? String)}).filter({$0 == "\(self.model?.medicationId ?? 0)-\(date.id ?? 0)"}).count == 0 {
+                                
+                                self.setNotification(takeTime: date.time ?? "", date: self.time[index], title: self.model?.medicineName ?? "", body: "Take your meds", id: "\(self.model?.medicationId ?? 0)-\(date.id ?? 0)", repeats: true)
+                            }
+                        }
+                    }
+                } else {
+                    self.container.alpha = 0.5
+                    self.alertSwitch.isOn = false
+                }
+                alertSwitch.addTarget(self, action: #selector(switchAction(_:)), for: .valueChanged)
             }
-            alertSwitch.addTarget(self, action: #selector(switchAction(_:)), for: .valueChanged)
+            
         }
     }
     

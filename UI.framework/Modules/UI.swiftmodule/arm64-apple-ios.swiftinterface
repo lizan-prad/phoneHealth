@@ -1,0 +1,1800 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name UI
+import ActiveLabel
+import Foundation
+import NepaliDateConverter
+import SDWebImage
+import Swift
+import SwiftyDrop
+import SwiftyJSON
+@_exported import UI
+import UIKit
+import _Concurrency
+open class FormBuilder {
+  public var scrollView: UIKit.UIScrollView
+  final public let containerView: UIKit.UIView
+  public init(parentView: UIKit.UIView, inset: UIKit.UIEdgeInsets = .zero)
+  public func add(views: UI.FormElementView...)
+  public func add(views: [UI.FormElementView])
+  public func add(view: UI.FormElementView)
+  public func build()
+  public func show(view: UI.FormElementView, animate: Swift.Bool = true)
+  public func hide(view: UI.FormElementView, animate: Swift.Bool = true)
+  public func scrollToTop()
+  @objc deinit
+}
+extension Swift.String {
+  public func replaceSpaceByHash() -> Swift.String
+  public func removeExtraSpaces() -> Swift.String
+  public func sanitized() -> Swift.String
+  public func replaceAddBySpace() -> Swift.String
+  public func slice(from: Swift.String, to: Swift.String) -> Swift.String?
+  public func formattedURL() -> Swift.String
+  public func formattedStringDoubleDecimal() -> Swift.String
+  public func toBase64() -> Swift.String
+  public func camelCaseToWords() -> Swift.String
+  public func boolValue() -> Swift.Bool?
+  public func replaceCommaAndCheckEmpty() -> Swift.String
+  public func fullYesNoValue() -> Swift.String
+  public func genderValue() -> Swift.String
+  public func fullGenderValue() -> Swift.String
+  public func removeHtmlTags() -> Swift.String
+  public func removeHtmlTag(tags: [Swift.String]) -> Swift.String
+  public mutating func removeMinusFromAmount() -> Swift.String
+  public func getFirstCharacterOfEachWord(wordCountLimit: Swift.Int) -> Swift.String
+}
+extension Swift.Int {
+  public func paddedString() -> Swift.String
+}
+extension Swift.Double {
+  public func round(to places: Swift.Int) -> Swift.Double
+  public func formattedPrice() -> Swift.Double
+  public func formattedString() -> Swift.String
+  public func formatAmount() -> Swift.String
+}
+extension Foundation.Bundle {
+  public var appVersion: Swift.String {
+    get
+  }
+  public var buildNumber: Swift.String {
+    get
+  }
+}
+extension CoreGraphics.CGFloat {
+  public var adaptible: CoreGraphics.CGFloat {
+    get
+  }
+  public var degreesToRadians: CoreGraphics.CGFloat {
+    get
+  }
+  public var radiansToDegrees: CoreGraphics.CGFloat {
+    get
+  }
+}
+extension Swift.StringProtocol {
+  public func nsRange(from range: Swift.Range<Self.Index>) -> Foundation.NSRange
+}
+extension Foundation.NSAttributedString {
+  public func withBold(text: Swift.String, font: UIKit.UIFont = ThemeManager.Font.bold14) -> Foundation.NSMutableAttributedString
+}
+public struct CommonText {
+  public static let platform: Swift.String
+  public static let applyButtonTitle: Swift.String
+  public static let continueButtonTitle: Swift.String
+  public static let doneButtonTitle: Swift.String
+  public static let proceedButtonTitle: Swift.String
+  public static let clearButtonTitle: Swift.String
+  public static let updateButtonTitle: Swift.String
+  public static let cancelButtonTitle: Swift.String
+  public static let checkBtnTitle: Swift.String
+  public static let saveButtonTitle: Swift.String
+  public static let submitButtonTitle: Swift.String
+  public static let skipButtonTitle: Swift.String
+  public static let dismissButtonTitle: Swift.String
+  public static let noticeTitle: Swift.String
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class SecondaryActionButton : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormButtonView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var proceedButton: UI.PrimaryActionButton
+  @_Concurrency.MainActor(unsafe) public var cancelButton: UI.SecondaryActionButton
+  @_Concurrency.MainActor(unsafe) public var primaryAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var secondaryAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var primaryButtonTitle: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var secondaryButtonTitle: Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormClearButtonView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var clearButtonView: UI.SecondaryActionButton
+  @_Concurrency.MainActor(unsafe) public var primaryAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var secondaryAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var primaryButtonTitle: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var secondaryButtonTitle: Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol SelectableItem {
+  var title: Swift.String { get }
+}
+public protocol OptionListPresentable {
+  func displayOptionList(options: [UI.SelectableItem], title: Swift.String, selectionHandler: @escaping (UI.SelectableItem, Swift.Int) -> ())
+}
+extension UI.OptionListPresentable where Self : UIKit.UIViewController {
+  public func displayOptionList(options: [UI.SelectableItem], title: Swift.String, selectionHandler: @escaping (UI.SelectableItem, Swift.Int) -> ())
+}
+public protocol ViewPresentation : AnyObject {
+  func setupViews()
+}
+public protocol LoadingIndicatorPresentable {
+  func showLoadingIndicator()
+  func hideLoadingIndicator()
+}
+extension UI.LoadingIndicatorPresentable {
+  public func showLoadingIndicator()
+  public func hideLoadingIndicator()
+}
+public protocol ApiRequestPresentable : UI.LoadingIndicatorPresentable {
+  func displayError(error: UI.AppError)
+  func displaySuccessMessage(_ message: Swift.String)
+}
+extension UI.ApiRequestPresentable {
+  public func showLoadingIndicator()
+  public func hideLoadingIndicator()
+  public func displayError(error: UI.AppError)
+  public func displaySuccessMessage(_ message: Swift.String)
+}
+public protocol AppError : Swift.Error {
+  var localizedDescription: Swift.String { get }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FormTextField : UIKit.UITextField {
+  @_Concurrency.MainActor(unsafe) public var validationType: UI.ValidationType
+  @_Concurrency.MainActor(unsafe) public var characterLimit: Swift.Int
+  @_Concurrency.MainActor(unsafe) public var isRequired: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isErrorPresent: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isValid: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var messageEmptyField: Swift.String
+  @_Concurrency.MainActor(unsafe) open func showError(message: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func hideError()
+  @_Concurrency.MainActor(unsafe) open func showValidIndicator()
+  @_Concurrency.MainActor(unsafe) open func hideValidIndicator()
+  @_Concurrency.MainActor(unsafe) open func reset()
+  @_Concurrency.MainActor(unsafe) open func setText(text: Swift.String?, isEditable: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class BoxTextField : UI.FormTextField {
+  @_Concurrency.MainActor(unsafe) final public let bottomInset: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var leftPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var rightPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var topPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var bottomPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) final public let boxLayer: QuartzCore.CAShapeLayer
+  @_Concurrency.MainActor(unsafe) final public let errorLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) final public let textFieldBackgroundColorForLight: UIKit.UIColor
+  @_Concurrency.MainActor(unsafe) final public let textFieldBackgroundColorForDark: UIKit.UIColor
+  @_Concurrency.MainActor(unsafe) final public let esewaMainColorLight: UIKit.UIColor
+  @_Concurrency.MainActor(unsafe) final public let esewaMainColorDark: UIKit.UIColor
+  @_Concurrency.MainActor(unsafe) public var rightImageView: UIKit.UIImageView?
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func textRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func placeholderRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func editingRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) public func setupViews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @_Concurrency.MainActor(unsafe) override public func showError(message: Swift.String)
+  @_Concurrency.MainActor(unsafe) override public func hideError()
+  @_Concurrency.MainActor(unsafe) override public func reset()
+  @_Concurrency.MainActor(unsafe) override public func showValidIndicator()
+  @_Concurrency.MainActor(unsafe) override public func hideValidIndicator()
+  @_Concurrency.MainActor(unsafe) public func addImageToRight(withImage: UIKit.UIImage?)
+  @_Concurrency.MainActor(unsafe) public func addImageToLeft(withImage: UIKit.UIImage?)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormSegmentView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UI.TextFieldTitleLabel
+  @_Concurrency.MainActor(unsafe) public var segmentControl: UIKit.UISegmentedControl
+  @_Concurrency.MainActor(unsafe) public var segmentChangeAction: ((Swift.Int) -> ())?
+  @_Concurrency.MainActor(unsafe) public var title: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var segments: [Swift.String] {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func selectSegment(at index: Swift.Int)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class PlainSegmentedControl : UIKit.UISegmentedControl {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func setupTheme()
+  @_Concurrency.MainActor(unsafe) public func removeBorder()
+  @_Concurrency.MainActor(unsafe) public func addUnderlineForSelectedSegment()
+  @_Concurrency.MainActor(unsafe) public func changeUnderlinePosition()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormPlainSegmentView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var segmentControl: UI.CustomSegmentedControl
+  @_Concurrency.MainActor(unsafe) public var segmentChangeAction: ((Swift.Int) -> ())?
+  @_Concurrency.MainActor(unsafe) public var segments: [Swift.String] {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) convenience public init(withImage: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public var withImage: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var imageName: [Swift.String]
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func selectSegment(at index: Swift.Int)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CustomSegmentedControl : UIKit.UISegmentedControl {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(items: [Any]?)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormCheckBox : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UI.TextFieldTitleLabel
+  @_Concurrency.MainActor(unsafe) public var imageView: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) public var title: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var onSelection: ((_ isSelected: Swift.Bool) -> ())?
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String, isSelected: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func toggleSelection()
+  @_Concurrency.MainActor(unsafe) public func reset()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class EmptyStateView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var imageView: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var subtitleLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var actionButton: UI.PrimaryActionButton
+  @_Concurrency.MainActor(unsafe) public var buttonAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func setupTitle(title: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func setupTitle(attributedTitle: Foundation.NSAttributedString)
+  @_Concurrency.MainActor(unsafe) public func setupSubtitle(subtitle: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func setupSubtitle(attributedSubtitle: Foundation.NSAttributedString)
+  @_Concurrency.MainActor(unsafe) public func setupActionButton(title: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func configure(with option: UI.EmptyStateViewOption)
+  @objc deinit
+}
+open class EmptyStateViewOption {
+  public var backgroundColor: UIKit.UIColor
+  public var title: Swift.String
+  public var subtitle: Swift.String
+  public var image: UIKit.UIImage?
+  public var buttonTitle: Swift.String?
+  public var buttonAction: (() -> ())?
+  public init()
+  @objc deinit
+}
+extension QuartzCore.CALayer {
+  public func addBorder(edge: UIKit.UIRectEdge, color: UIKit.UIColor, thickness: CoreGraphics.CGFloat)
+}
+extension UIKit.UITableView {
+  @_Concurrency.MainActor(unsafe) public func setBottomInset(to value: CoreGraphics.CGFloat)
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public class var identifier: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var frameWidth: CoreGraphics.CGFloat {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var frameHeight: CoreGraphics.CGFloat {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var boundsWidth: CoreGraphics.CGFloat {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var boundsHeight: CoreGraphics.CGFloat {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func addCornerRadius(radius: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func roundCorners(corners: UIKit.UIRectCorner, radius: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func setupForAutolayout(in view: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func pinTrailingToTrailing(of view: UIKit.UIView, constant: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinTrailingToLeading(of view: UIKit.UIView, constant: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinTopToTopSafeArea(of view: UIKit.UIView, constant: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinTopToTop(of view: UIKit.UIView, constant: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinTopToBottom(of view: UIKit.UIView, constant: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinLeadingToLeading(of view: UIKit.UIView, constant: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinLeadingToTrailing(of view: UIKit.UIView, constant: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinBottomToBottom(of view: UIKit.UIView, constant: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinBottomToBottomSafeArea(of view: UIKit.UIView, constant: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinBottomToTop(of view: UIKit.UIView, constant: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinEqualHeight(to view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0)
+  @_Concurrency.MainActor(unsafe) public func pinEqualWidth(to view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0)
+  @_Concurrency.MainActor(unsafe) public func pinHeight(constant: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinHeightProportional(to view: UIKit.UIView, multiplier: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinWidthProportional(to view: UIKit.UIView, multiplier: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinWidth(constant: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func pinToCenterHorizontally(in view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0)
+  @_Concurrency.MainActor(unsafe) public func pinToCenterVertically(in view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0)
+  @_Concurrency.MainActor(unsafe) public func pin(left: CoreGraphics.CGFloat, right: CoreGraphics.CGFloat, top: CoreGraphics.CGFloat, bottom: CoreGraphics.CGFloat, toView view: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func addDropShadow()
+  @_Concurrency.MainActor(unsafe) public func rotate180Degree()
+  @_Concurrency.MainActor(unsafe) public func setRandomColorBackground()
+  @_Concurrency.MainActor(unsafe) public func displayEmbeddedMessage(label: UIKit.UILabel, message: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func hideEmbeddedMessage(label: UIKit.UILabel?)
+  @_Concurrency.MainActor(unsafe) public func showActivityIndicator(indicator: UIKit.UIActivityIndicatorView?)
+  @_Concurrency.MainActor(unsafe) public func hideActivityIndicator(indicator: UIKit.UIActivityIndicatorView?)
+  @_Concurrency.MainActor(unsafe) public func addGradient(colors: [UIKit.UIColor] = [.black, .clear], locations: [Foundation.NSNumber] = [0, 1.0], startPoint: CoreGraphics.CGPoint = CGPoint(x: 0.5, y: 0.0), endPoint: CoreGraphics.CGPoint = CGPoint(x: 0.5, y: 1.0), type: QuartzCore.CAGradientLayerType = .axial)
+}
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public func displayBackgroundWithAlphabet(text: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func removeCharacterBackground()
+  @_Concurrency.MainActor(unsafe) public func setImage(url: Swift.String?, placeholder: UIKit.UIImage? = UIImage(named: "ic_placeholder"), onSuccess: (() -> ())? = nil)
+  @_Concurrency.MainActor(unsafe) public func setImageForTintColorChange(url: Swift.String?, placeholder: UIKit.UIImage? = UIImage(named: "ic_placeholder"), onSuccess: (() -> ())? = nil)
+  @_Concurrency.MainActor(unsafe) public func storeImage(urlString: Swift.String, image: UIKit.UIImage)
+  @_Concurrency.MainActor(unsafe) public func dowloadFromServer(url: Foundation.URL, contentMode mode: UIKit.UIView.ContentMode = .scaleAspectFit, onSuccess: ((UIKit.UIImage?) -> ())? = nil, placeholder: UIKit.UIImage? = UIImage(named: "ic_placeholder"))
+  @_Concurrency.MainActor(unsafe) public func dowloadImageFromServer(link: Swift.String, contentMode mode: UIKit.UIView.ContentMode = .scaleAspectFit, onSuccess: ((UIKit.UIImage?) -> ())? = nil, placeholder: UIKit.UIImage? = UIImage(named: "ic_placeholder"))
+}
+extension UIKit.UIImage {
+  public var asOriginal: UIKit.UIImage? {
+    get
+  }
+  public var asTemplate: UIKit.UIImage? {
+    get
+  }
+  public func parseQR() -> [Swift.String]
+  public func imageWithColor(color: UIKit.UIColor) -> UIKit.UIImage
+  public func withInset(_ insets: UIKit.UIEdgeInsets) -> UIKit.UIImage?
+  public func getCropRatio() -> CoreGraphics.CGFloat
+}
+extension UIKit.UITextField {
+  @_Concurrency.MainActor(unsafe) public func addDropdownIndicator()
+  @_Concurrency.MainActor(unsafe) public func removeDropdown()
+  @_Concurrency.MainActor(unsafe) public func removeDropDownIndicator()
+  @_Concurrency.MainActor(unsafe) public func addCalendarIndicatorToRight()
+  @_Concurrency.MainActor(unsafe) public func addCalendarIndicatorToLeft()
+  @_Concurrency.MainActor(unsafe) public func addFlightIndicatorToRight()
+  @_Concurrency.MainActor(unsafe) public func addDepartureFlightIndicatorToLeft()
+  @_Concurrency.MainActor(unsafe) public func addReturnFlightIndicatorToLeft()
+}
+extension UIKit.UITableView {
+  @_Concurrency.MainActor(unsafe) public func addPaginationIndicator(indicator: UIKit.UIActivityIndicatorView)
+  @_Concurrency.MainActor(unsafe) public func showPaginationIndicator(indicator: UIKit.UIActivityIndicatorView)
+  @_Concurrency.MainActor(unsafe) public func hidePaginationIndicator(indicator: UIKit.UIActivityIndicatorView)
+  @_Concurrency.MainActor(unsafe) public func dequeueCell<T>(type: T.Type, indexPath: Foundation.IndexPath) -> T where T : UIKit.UITableViewCell
+}
+extension UIKit.UIScrollView {
+  @_Concurrency.MainActor(unsafe) public func shouldFetchNextPage(offset: CoreGraphics.CGFloat = 300) -> Swift.Bool
+}
+extension UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public func topmostViewController() -> UIKit.UIViewController?
+}
+extension UIKit.UIApplication {
+  @_Concurrency.MainActor(unsafe) public func topmostViewController() -> UIKit.UIViewController?
+}
+extension UIKit.UINavigationController {
+  @_Concurrency.MainActor(unsafe) public func hideNavigationBar()
+  @_Concurrency.MainActor(unsafe) public func showNavigationBar()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class ShadowView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class StatusView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var status: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) public func setStatusText(text: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func setStatusColor(statusVal: UI.StatusEnum)
+  @_Concurrency.MainActor(unsafe) public func rounded(value: CoreGraphics.CGFloat, defaultVal: Swift.Bool = false)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FormElementView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var margin: UIKit.UIEdgeInsets
+  @_Concurrency.MainActor(unsafe) public var height: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var heightConstraint: UIKit.NSLayoutConstraint?
+  @_Concurrency.MainActor(unsafe) public var topConstraint: UIKit.NSLayoutConstraint?
+  @_Concurrency.MainActor(unsafe) open func toggleTextVisibility(shouldHide: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+open class DateHelper {
+  public var nepaliYearsMap: [Swift.Int : [Swift.Int]]
+  final public let baseYearAD: Swift.Int
+  final public let baseYearBS: Swift.Int
+  public init()
+  public func getCurrentYearInAD() -> Swift.Int
+  public func getNumberOfDaysInAD(year: Swift.Int, month: Swift.Int) -> Swift.Int
+  public func getNumberOfDaysInBS(year: Swift.Int, month: Swift.Int) -> Swift.Int
+  public func getDateComponents(date: Foundation.Date) -> (year: Swift.Int, month: Swift.Int, day: Swift.Int)
+  public func getDateComponents(date: Swift.String, splitter: Swift.String) -> (year: Swift.Int, month: Swift.Int, day: Swift.Int)
+  public func convertADtoBS(year: Swift.Int, month: Swift.Int, day: Swift.Int) -> Swift.String
+  public func convertBStoAD(year: Swift.Int, month: Swift.Int, day: Swift.Int) -> Swift.String
+  public func getNepaliAndEnglishDate(type: UI.DateType, date: NepaliDateConverter.DateModel) -> (english: NepaliDateConverter.DateModel?, nepali: NepaliDateConverter.DateModel?)
+  public func validateDocumentExpiryDate(type: UI.DateType, expiryDate: NepaliDateConverter.DateModel, issueDate: NepaliDateConverter.DateModel) -> (Swift.Bool)
+  public func validateDateOfBirth(type: UI.DateType, dob: NepaliDateConverter.DateModel) -> (Swift.Bool, Swift.String)
+  public func validateDateOfBirthAirlines(type: UI.DateType, dob: NepaliDateConverter.DateModel) -> (Swift.Bool, Swift.String)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormSeparatorView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var seperatorColor: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var seperatorHeight: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) final public let seperatorView: UIKit.UIView
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(seperatorHeight: CoreGraphics.CGFloat)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormDashedLineSeparatorView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) final public let seperatorView: UI.DashedLineView
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public struct KeyValuePair {
+  public var key: Swift.String
+  public var value: Swift.String
+  public init(key: Swift.String, value: Swift.String)
+}
+public struct DateOfBirth {
+  public var type: UI.DateType
+  public var date: Swift.String
+  public var month: Swift.String
+  public var year: Swift.String
+  public init(type: UI.DateType, date: Swift.String, month: Swift.String, year: Swift.String)
+  public func inString() -> Swift.String
+}
+public enum DateType : Swift.String {
+  case bs
+  case ad
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum StatusEnum : Swift.String {
+  case complete
+  case ambiguous
+  case pending
+  case declined
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum ValidationType {
+  case email
+  case password
+  case text
+  case amount(min: Swift.Double?, max: Swift.Double?)
+  case characterCount(count: Swift.Int, message: Swift.String)
+  case fullName
+  case mobileNumber
+  case landline
+  case esewaId
+  case dishHome(type: UI.DishomeAccountType)
+  case subisu(type: UI.SubisuType)
+  case directTopupPhoneNumber(regex: Swift.String)
+  case directTopupAmount(min: Swift.Double?, max: Swift.Double?)
+  case mpin
+  case month
+  case year(min: Swift.Int, max: Swift.Int)
+  case day(max: Swift.Int)
+  case regex(regex: Swift.String, message: Swift.String)
+  case ward
+  case anyCount(min: Swift.Double?, max: Swift.Double?, countType: Swift.String)
+  case dob(message: Swift.String)
+  public var autocapitalizationStyle: UIKit.UITextAutocapitalizationType {
+    get
+  }
+  public var keyboardType: UIKit.UIKeyboardType {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers open class TextFieldValidator : ObjectiveC.NSObject {
+  public typealias Validation = (field: UI.FormTextField, validationType: UI.ValidationType)
+  public var validationList: [UI.TextFieldValidator.Validation]
+  public var isValidationSuccess: Swift.Bool
+  public func add(field: UI.FormTextField, validationType: UI.ValidationType, characterLimit: Swift.Int)
+  public func validateAll()
+  public func resetAllValidation()
+  public func validateTextField(field: UI.FormTextField) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateWard(textField: UI.FormTextField) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateDob(textField: UI.FormTextField, errorMessage: Swift.String) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateDay(textField: UI.FormTextField, max: Swift.Int) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateYear(textField: UI.FormTextField, min: Swift.Int, max: Swift.Int) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateMonth(textField: UI.FormTextField) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateMpin(textField: UI.FormTextField) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateDirectTopupNumber(textField: UI.FormTextField, regex: Swift.String) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateRegex(textField: UI.FormTextField, regex: Swift.String, errorMessage: Swift.String) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateEsewaId(textfield: UI.FormTextField) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateSubisuUsername(textfield: UI.FormTextField, type: UI.SubisuType) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateCharacterCount(textField: UI.FormTextField, count: Swift.Int, message: Swift.String) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateDishHomeId(textField: UI.FormTextField, type: UI.DishomeAccountType) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateFullName(textField: UI.FormTextField) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateText(textField: UI.FormTextField) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateMobileNumber(textField: UI.FormTextField) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateEmail(textField: UI.FormTextField) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validatePassword(textField: UI.FormTextField) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateLandline(textField: UI.FormTextField) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateIfInputIsMandatory(textField: UI.FormTextField) -> (isValid: Swift.Bool, message: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension UI.TextFieldValidator : UIKit.UITextFieldDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic open func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+  @_Concurrency.MainActor(unsafe) @objc dynamic open func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+  @_Concurrency.MainActor(unsafe) @objc dynamic open func textField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc dynamic open func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc dynamic open func textFieldDidEdit(_ textField: UI.FormTextField)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FormTokenValidator : UI.TextFieldValidator {
+  @_Concurrency.MainActor(unsafe) public var errorLabel: UIKit.UILabel?
+  @objc override dynamic open func textFieldDidEdit(_ textField: UI.FormTextField)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func textField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum DishomeAccountType : Swift.String {
+  case cas
+  case chip
+  case account
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum SubisuType : Swift.String {
+  case tvCableProvider
+  case internetProvider
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormTitleView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var text: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String)
+  @_Concurrency.MainActor(unsafe) override open func toggleTextVisibility(shouldHide: Swift.Bool)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FormCloseButtonView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var closeButton: UIKit.UIButton
+  @_Concurrency.MainActor(unsafe) public var closeTapAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var text: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String, image: Swift.String)
+  @_Concurrency.MainActor(unsafe) override open func toggleTextVisibility(shouldHide: Swift.Bool)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class EscrowFormTitleView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var text: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String)
+  @_Concurrency.MainActor(unsafe) override open func toggleTextVisibility(shouldHide: Swift.Bool)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class AirlinesCardContainerView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var containerView: UIKit.UIView
+  @_Concurrency.MainActor(unsafe) public var previousView: UI.FormElementView?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func add(view: UI.FormElementView)
+  @_Concurrency.MainActor(unsafe) public func add(views: UI.FormElementView...)
+  @_Concurrency.MainActor(unsafe) public func add(views: [UI.FormElementView])
+  @_Concurrency.MainActor(unsafe) public func show(view: UI.FormElementView, animate: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public func hide(view: UI.FormElementView, animate: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public func build()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FormCardContainerView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var containerView: UI.ShadowView
+  @_Concurrency.MainActor(unsafe) public var previousView: UI.FormElementView?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func add(view: UI.FormElementView)
+  @_Concurrency.MainActor(unsafe) public func addWithoutSpace(view: UI.FormElementView)
+  @_Concurrency.MainActor(unsafe) public func add(views: UI.FormElementView...)
+  @_Concurrency.MainActor(unsafe) public func add(views: [UI.FormElementView])
+  @_Concurrency.MainActor(unsafe) public func show(view: UI.FormElementView, animate: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public func hide(view: UI.FormElementView, animate: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public func build()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class ToastNotification {
+  public class func show(message: Swift.String, type: UI.ToastNotificationType)
+  @objc deinit
+}
+public enum ToastNotificationType : SwiftyDrop.DropStatable {
+  public var textAlignment: UIKit.NSTextAlignment? {
+    get
+  }
+  case success
+  case error
+  case info
+  public var backgroundColor: UIKit.UIColor? {
+    get
+  }
+  public var blurEffect: UIKit.UIBlurEffect? {
+    get
+  }
+  public var font: UIKit.UIFont? {
+    get
+  }
+  public var textColor: UIKit.UIColor? {
+    get
+  }
+  public static func == (a: UI.ToastNotificationType, b: UI.ToastNotificationType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FormTextView : UIKit.UITextView {
+  @_Concurrency.MainActor(unsafe) public var validationType: UI.ValidationType
+  @_Concurrency.MainActor(unsafe) public var characterLimit: Swift.Int
+  @_Concurrency.MainActor(unsafe) public var isRequired: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isErrorPresent: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isValid: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var messageEmptyField: Swift.String
+  @_Concurrency.MainActor(unsafe) open func showError(message: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func hideError()
+  @_Concurrency.MainActor(unsafe) open func showValidIndicator()
+  @_Concurrency.MainActor(unsafe) open func hideValidIndicator()
+  @_Concurrency.MainActor(unsafe) open func reset()
+  @_Concurrency.MainActor(unsafe) open func setText(text: Swift.String?, isEditable: Swift.Bool = true)
+  @available(iOS 7.0, *)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect, textContainer: UIKit.NSTextContainer?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class BoxTextView : UI.FormTextView {
+  @_Concurrency.MainActor(unsafe) final public let bottomInset: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var leftPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var rightPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var topPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var bottomPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) final public let boxLayer: QuartzCore.CAShapeLayer
+  @_Concurrency.MainActor(unsafe) final public let errorLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) final public let textFieldBackgroundColorForLight: UIKit.UIColor
+  @_Concurrency.MainActor(unsafe) final public let textFieldBackgroundColorForDark: UIKit.UIColor
+  @_Concurrency.MainActor(unsafe) final public let esewaMainColorLight: UIKit.UIColor
+  @_Concurrency.MainActor(unsafe) final public let esewaMainColorDark: UIKit.UIColor
+  @_Concurrency.MainActor(unsafe) public var rightImageView: UIKit.UIImageView?
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) public func setupViews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @_Concurrency.MainActor(unsafe) override public func showError(message: Swift.String)
+  @_Concurrency.MainActor(unsafe) override public func hideError()
+  @_Concurrency.MainActor(unsafe) override public func reset()
+  @_Concurrency.MainActor(unsafe) override public func showValidIndicator()
+  @_Concurrency.MainActor(unsafe) override public func hideValidIndicator()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class TextViewValidator : ObjectiveC.NSObject {
+  public typealias Validation = (field: UI.FormTextView, validationType: UI.ValidationType)
+  public var validationList: [UI.TextViewValidator.Validation]
+  public var isValidationSuccess: Swift.Bool
+  public func addTextView(field: UI.FormTextView, validationType: UI.ValidationType, characterLimit: Swift.Int)
+  public func validateAll()
+  public func resetAllValidation()
+  public func validateTextView(field: UI.FormTextView) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateText(textView: UI.FormTextView) -> (isValid: Swift.Bool, message: Swift.String)
+  public func validateTextIfInputIsMandatory(textView: UI.FormTextView) -> (isValid: Swift.Bool, message: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension UI.TextViewValidator : UIKit.UITextViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func textViewDidBeginEditing(_ textView: UIKit.UITextView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func textViewDidChange(_ textView: UIKit.UITextView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func textView(_ textView: UIKit.UITextView, shouldChangeTextIn range: Foundation.NSRange, replacementText text: Swift.String) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class SearchTextFields : UIKit.UITextField {
+  @_Concurrency.MainActor(unsafe) final public let lineLayer: QuartzCore.CAShapeLayer
+  @_Concurrency.MainActor(unsafe) public var lineThickness: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var searchImageView: UIKit.UIImageView!
+  @_Concurrency.MainActor(unsafe) public var leftPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var rightPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var topPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var bottomPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func textRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func placeholderRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func editingRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class SelectionListViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public var searchTextField: UI.SearchTextFields
+  @_Concurrency.MainActor(unsafe) public var tableView: UIKit.UITableView
+  @_Concurrency.MainActor(unsafe) public var cancelButton: UI.SecondaryActionButton
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension UI.SelectionListViewController : UIKit.UITableViewDataSource, UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class TextFieldTitleLabel : UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class AirlinePassengerHeaderView : UI.FormElementView {
+  public enum PassengerHeaderType {
+    case passengerConfirmation
+    case finalConfirmation
+    public static func == (a: UI.AirlinePassengerHeaderView.PassengerHeaderType, b: UI.AirlinePassengerHeaderView.PassengerHeaderType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) public var secondTitle: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var thirdTitle: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var titleNumber: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var titleImageView: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) public var titleView: UIKit.UIView
+  @_Concurrency.MainActor(unsafe) public var text: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String, type: UI.AirlinePassengerHeaderView.PassengerHeaderType, image: UIKit.UIImage?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) override public func toggleTextVisibility(shouldHide: Swift.Bool)
+  @objc deinit
+}
+open class AttributedStringBuilder {
+  public var plainString: Swift.String
+  public init(string: Swift.String)
+  public init()
+  public func font(font: UIKit.UIFont) -> UI.AttributedStringBuilder
+  public func paragraphSpacing(lineSpacing: CoreGraphics.CGFloat) -> UI.AttributedStringBuilder
+  public func spacing(spacing: CoreGraphics.CGFloat) -> UI.AttributedStringBuilder
+  public func color(color: UIKit.UIColor) -> UI.AttributedStringBuilder
+  public func bgColor(color: UIKit.UIColor) -> UI.AttributedStringBuilder
+  public func underline(color: UIKit.UIColor) -> UI.AttributedStringBuilder
+  public func url(url: Foundation.URL) -> UI.AttributedStringBuilder
+  public func build() -> Foundation.NSAttributedString
+  public func build(with string: Swift.String) -> Foundation.NSAttributedString
+  @objc deinit
+}
+extension Foundation.NSAttributedString {
+  public func append(string: Foundation.NSAttributedString) -> Foundation.NSAttributedString
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormKeyValueListView<T> : UI.FormElementView where T : UI.KeyValueView {
+  @_Concurrency.MainActor(unsafe) public var stackView: UIKit.UIStackView
+  @_Concurrency.MainActor(unsafe) public var keyValueList: [UI.KeyValuePair]
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var dropdownButton: UIKit.UIButton
+  @_Concurrency.MainActor(unsafe) public var containerView: UIKit.UIView
+  @_Concurrency.MainActor(unsafe) public var showKeyValueListView: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var onDropDownButtonTapped: ((Swift.Bool) -> ())?
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(list: [UI.KeyValuePair], title: Swift.String = "")
+  @_Concurrency.MainActor(unsafe) public func show(data: [UI.KeyValuePair])
+  @_Concurrency.MainActor(unsafe) public func hide()
+  @_Concurrency.MainActor(unsafe) public func updateList(data: [UI.KeyValuePair], title: Swift.String = "")
+  @_Concurrency.MainActor(unsafe) public func updateListRemit(data: [UI.KeyValuePair], title: Swift.String = "")
+  @_Concurrency.MainActor(unsafe) public func updateListItem(data: UI.KeyValuePair, index: Swift.Int)
+  @objc deinit
+}
+public protocol KeyValueView : UIKit.UIView {
+  var keyLabel: UIKit.UILabel { get set }
+  var valueLabel: UIKit.UILabel { get set }
+  var key: Swift.String? { get set }
+  var value: Swift.String? { get set }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class HorizontalKeyValueView : UI.FormElementView, UI.KeyValueView {
+  @_Concurrency.MainActor(unsafe) public var keyLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var valueLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var key: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var value: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class VerticalKeyValueView : UI.FormElementView, UI.KeyValueView {
+  @_Concurrency.MainActor(unsafe) public var keyLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var valueLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var key: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var value: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class VerticalImageKeyValueView : UI.FormElementView, UI.KeyValueView {
+  @_Concurrency.MainActor(unsafe) public var valueLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var keyLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var valueImage: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) public var key: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var value: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var valueImages: UIKit.UIImage? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class TwoVerticalKeyValueView : UI.FormElementView, UI.KeyValueView {
+  @_Concurrency.MainActor(unsafe) public var keyLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var valueLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var keyLabelRight: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var valueLabelRight: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) final public let leftStack: UIKit.UIStackView
+  @_Concurrency.MainActor(unsafe) final public let rightStack: UIKit.UIStackView
+  @_Concurrency.MainActor(unsafe) public var key: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var value: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var rightKey: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var rightValue: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func hideRightView()
+  @objc deinit
+}
+extension Foundation.Date {
+  public func isBetween(_ date1: Foundation.Date, and date2: Foundation.Date) -> Swift.Bool
+  public func nextDate() -> Foundation.Date
+  public func previousDate() -> Foundation.Date
+  public func beforeMonth(count: Swift.Int) -> Foundation.Date
+  public func afterMonth(count: Swift.Int) -> Foundation.Date
+  public func isDateToday() -> Swift.Bool
+  public func isDateTomorrow() -> Swift.Bool
+  public func stripTimeComponent() -> Foundation.Date
+  public static func numberOfDays(date1: Foundation.Date, date2: Foundation.Date) -> Swift.Int
+  public static func - (lhs: Foundation.Date, rhs: Foundation.Date) -> Foundation.TimeInterval
+  public func computeNewDate(from fromDate: Foundation.Date, to toDate: Foundation.Date) -> Foundation.Date
+}
+extension Foundation.DateFormatter {
+  public class func inNepalTimeZone() -> Foundation.DateFormatter
+}
+extension NepaliDateConverter.DateModel {
+  public init(year: Swift.String, month: Swift.String, day: Swift.String)
+  public func convertToDate() -> Foundation.Date?
+  public func isDateEmpty() -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FormCheckBoxView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UI.TextFieldTitleLabel
+  @_Concurrency.MainActor(unsafe) public var imageView: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) public var activeTitleLabel: ActiveLabel.ActiveLabel?
+  @_Concurrency.MainActor(unsafe) public var title: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var isSelected: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var onSelection: ((_ isSelected: Swift.Bool) -> ())?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String, isSelected: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) convenience public init(actLbl: ActiveLabel.ActiveLabel, isSelected: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func toggleSelection()
+  @_Concurrency.MainActor(unsafe) public func reset()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class HeaderCurveViewUI : UI.FormElementView {
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var desiredCurve: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) public func addBottomRoundedEdge(desiredCurve: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class AirlineOneWayBottomFooterView : UIKit.UIView {
+  public enum ButtonState {
+    case enabled
+    case disabled
+    public static func == (a: UI.AirlineOneWayBottomFooterView.ButtonState, b: UI.AirlineOneWayBottomFooterView.ButtonState) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) public var tripTotalLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var tripInfoLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var tripTotalPrice: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var tripTotalCashBack: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var departureTotalButton: UIKit.UIButton
+  @_Concurrency.MainActor(unsafe) public var arrowDropDownImage: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) public var containerView: UI.ShadowView
+  @_Concurrency.MainActor(unsafe) public var onBookNowButtonTapped: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var onDepartureButtonDetailTapped: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var bookNowButton: UIKit.UIButton
+  @_Concurrency.MainActor(unsafe) public var totalPrice: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var buttonState: UI.AirlineOneWayBottomFooterView.ButtonState {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func updateView(totalPrice: Swift.String, cashBack: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func resetView()
+  @_Concurrency.MainActor(unsafe) public func getPriceAttributedStringForAirlines(amount: Swift.String) -> Foundation.NSAttributedString
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class DashedLineView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var lineColor: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) public func setupAsVerticalDashedLine()
+  @_Concurrency.MainActor(unsafe) public func setupAsHorizontalDashedLine()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class AddPassengerFormView : UIKit.UITableViewCell {
+  @_Concurrency.MainActor(unsafe) public var topTitleLabel: UI.TextFieldTitleLabel
+  @_Concurrency.MainActor(unsafe) public var topTextField: UI.BoxTextField
+  @_Concurrency.MainActor(unsafe) public var topSubTitleLabel: UI.TextFieldTitleLabel
+  @_Concurrency.MainActor(unsafe) public var topTitle: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var topPlaceholder: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var topSubTitle: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var plusImageView: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) public var minusImageView: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) public var plusButton: UIKit.UIButton
+  @_Concurrency.MainActor(unsafe) public var minusButton: UIKit.UIButton
+  @_Concurrency.MainActor(unsafe) public var topPlusButtonTap: ((UI.CableTicketType) -> ())?
+  @_Concurrency.MainActor(unsafe) public var topMinusButtonTap: ((UI.CableTicketType) -> ())?
+  @_Concurrency.MainActor(unsafe) public var selectedTicket: UI.CableTicketType?
+  @_Concurrency.MainActor(unsafe) public var count: Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc override dynamic open func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(topTitle: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func updateView(model: UI.CableTicketType, description: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func setupAdultCount(count: Swift.Int)
+  @objc deinit
+}
+public struct CableTicketType {
+  public var tripType: Swift.String?
+  public var passengerType: Swift.String?
+  public var price: Swift.Double?
+  public var baseRate: Swift.Double?
+  public var vat: Swift.Double?
+  public var ddc: Swift.Double?
+  public var passengerTypeDesc: Swift.String?
+  public init(json: SwiftyJSON.JSON)
+}
+@_hasMissingDesignatedInitializers open class ThemeManager {
+  @_hasMissingDesignatedInitializers public class Color {
+    public static let textFieldBorder: UIKit.UIColor
+    public static let textFieldSuccessBorder: UIKit.UIColor
+    public static let textFieldSuccessBackground: UIKit.UIColor
+    public static var textFieldErrorBorder: UIKit.UIColor
+    public static let textFieldErrorBackground: UIKit.UIColor
+    public static let textFieldSuccess: UIKit.UIColor
+    public static var textFieldError: UIKit.UIColor
+    public static let textFieldBackground: UIKit.UIColor
+    public static let backgroundColor: UIKit.UIColor
+    public static var primaryBackgroundColor: UIKit.UIColor
+    public static let secondaryBackgroundColor: UIKit.UIColor
+    public static let backgroundWhiteClear: UIKit.UIColor
+    public static var scrollViewBackground: UIKit.UIColor
+    public static let tableViewBackground: UIKit.UIColor
+    public static let tableViewCellBackgroundColor: UIKit.UIColor
+    public static let clearBackgroundColor: UIKit.UIColor
+    public static var white: UIKit.UIColor
+    public static var black: UIKit.UIColor
+    public static let primaryText: UIKit.UIColor
+    public static let secondaryText: UIKit.UIColor
+    public static let formLabel: UIKit.UIColor
+    public static let lightText: UIKit.UIColor
+    public static let cellSelectionColor: UIKit.UIColor
+    public static let tableCellSelectionColor: UIKit.UIColor
+    public static let secondaryButtonBorder: UIKit.UIColor
+    public static let separatorColor: UIKit.UIColor
+    public static let disabledButtonColor: UIKit.UIColor
+    public static let formBackgroundColor: UIKit.UIColor
+    public static let amountRedColor: UIKit.UIColor
+    public static let amountGreenColor: UIKit.UIColor
+    public static let noSeatColor: UIKit.UIColor
+    public static let labelBackgroundLightGreen: UIKit.UIColor
+    public static let labelBackgroundLightOrange: UIKit.UIColor
+    public static let labelTextOrange: UIKit.UIColor
+    public static let deleteActionBackground: UIKit.UIColor
+    public static let blockUnblockActionBackground: UIKit.UIColor
+    public static let listBackgroundColor: UIKit.UIColor
+    public static let listCellBackgroundColor: UIKit.UIColor
+    public static let dateBackgroundDefault: UIKit.UIColor
+    public static let dateBackgroundSelected: UIKit.UIColor
+    public static let dateTextOutsideMonth: UIKit.UIColor
+    public static let graySearchIconColor: UIKit.UIColor
+    public static let otpYellow: UIKit.UIColor
+    public static let unverifiedRed: UIKit.UIColor
+    public static let declinedLightRed: UIKit.UIColor
+    public static let declineTextRed: UIKit.UIColor
+    public static let progressGreenColor: UIKit.UIColor
+    public static let progressOrangeColor: UIKit.UIColor
+    public static let progressBgColor: UIKit.UIColor
+    public static let progressRedColor: UIKit.UIColor
+    public static let navigationBarColor: UIKit.UIColor
+    public static let iconBorderColor: UIKit.UIColor
+    public static let bttnLightBackgroundColor: UIKit.UIColor
+    public static let secondaryColor: UIKit.UIColor
+    public static let secondaryVariantColor: UIKit.UIColor
+    public static let backgroundGreyColor: UIKit.UIColor
+    public static let successStatusColor: UIKit.UIColor
+    public static let referralStatusAvailableColor: UIKit.UIColor
+    public static let referralStatusSentColor: UIKit.UIColor
+    public static let referralStatusSentLightColor: UIKit.UIColor
+    public static let toolBarBackStartColor: UIKit.UIColor
+    public static let appearanceSettingsColor: UIKit.UIColor
+    public static let colorBackgroundColor: UIKit.UIColor
+    public static let colorTextBackgroundColor: UIKit.UIColor
+    public static let appointmentSelectionCellColor: UIKit.UIColor
+    public static let loginButtonColor: UIKit.UIColor
+    public static let loginButtonBorderColor: UIKit.UIColor
+    public static let proceedDisabledColor: UIKit.UIColor
+    public static var textfieldNewBackground: UIKit.UIColor {
+      get
+    }
+    public static var appearanceSettings: UIKit.UIColor {
+      get
+    }
+    public static var cancelButtonColor: UIKit.UIColor {
+      get
+    }
+    public static var proceedDisabledButton: UIKit.UIColor {
+      get
+    }
+    public static var colorLoginButton: UIKit.UIColor {
+      get
+    }
+    public static var colorLoginButtonBoder: UIKit.UIColor {
+      get
+    }
+    public static var appointmentSelectionColor: UIKit.UIColor {
+      get
+    }
+    public static var esewaMainColor: UIKit.UIColor {
+      get
+    }
+    public static var navigationColor: UIKit.UIColor {
+      get
+    }
+    public static var colorSecondaryButtonBoder: UIKit.UIColor {
+      get
+    }
+    public static var colorBackgroundApp: UIKit.UIColor {
+      get
+    }
+    public static var colorSecondaryApp: UIKit.UIColor {
+      get
+    }
+    public static var colorIconBorder: UIKit.UIColor {
+      get
+    }
+    public static var colorBtnLightBackGround: UIKit.UIColor {
+      get
+    }
+    public static var colorOnPrimary: UIKit.UIColor {
+      get
+    }
+    public static var colorSecondary: UIKit.UIColor {
+      get
+    }
+    public static var colorSecondaryVariant: UIKit.UIColor {
+      get
+    }
+    public static var colorOnSecondary: UIKit.UIColor {
+      get
+    }
+    public static var colorBackground: UIKit.UIColor {
+      get
+    }
+    public static var colorTextBackground: UIKit.UIColor {
+      get
+    }
+    public static var colorOnBackground: UIKit.UIColor {
+      get
+    }
+    public static var colorSurface: UIKit.UIColor {
+      get
+    }
+    public static var colorError: UIKit.UIColor {
+      get
+    }
+    public static var colorBackgroungGrey: UIKit.UIColor {
+      get
+    }
+    public static var colorTextDefaultLight: UIKit.UIColor {
+      get
+    }
+    public static var colorErrorLight: UIKit.UIColor {
+      get
+    }
+    public static var colorWarningStatus: UIKit.UIColor {
+      get
+    }
+    public static var colorSucessStatus: UIKit.UIColor {
+      get
+    }
+    public static var colorReferralStatusAvailable: UIKit.UIColor {
+      get
+    }
+    public static var colorReferralStatusAvailableLight: UIKit.UIColor {
+      get
+    }
+    public static var colorReferralStatusSent: UIKit.UIColor {
+      get
+    }
+    public static var colorReferralStatusSentLight: UIKit.UIColor {
+      get
+    }
+    public static var colorReferralStatusInvitationAccepted: UIKit.UIColor {
+      get
+    }
+    public static var colorEtNormal: UIKit.UIColor {
+      get
+    }
+    public static var greyishBrown: UIKit.UIColor {
+      get
+    }
+    public static var colorShadow: UIKit.UIColor {
+      get
+    }
+    public static var noImageBackground: UIKit.UIColor {
+      get
+    }
+    public static var colorDefaultStatusBackground: UIKit.UIColor {
+      get
+    }
+    public static var colorOTPYellow: UIKit.UIColor {
+      get
+    }
+    public static var colorLightText: UIKit.UIColor {
+      get
+    }
+    public static var colorBlockUnblock: UIKit.UIColor {
+      get
+    }
+    public static var colorDeclinedLightRed: UIKit.UIColor {
+      get
+    }
+    public static var colorDeclinedTextRed: UIKit.UIColor {
+      get
+    }
+    public static var colorProgressOrange: UIKit.UIColor {
+      get
+    }
+    public static var colorToolBarBackStart: UIKit.UIColor {
+      get
+    }
+    @objc deinit
+  }
+  @_hasMissingDesignatedInitializers public class Font {
+    public static let regular22: UIKit.UIFont
+    public static let regular20: UIKit.UIFont
+    public static let regular18: UIKit.UIFont
+    public static let regular16: UIKit.UIFont
+    public static let regular15: UIKit.UIFont
+    public static let regular14: UIKit.UIFont
+    public static let regular12: UIKit.UIFont
+    public static let regular10: UIKit.UIFont
+    public static let medium30: UIKit.UIFont
+    public static let medium20: UIKit.UIFont
+    public static let medium18: UIKit.UIFont
+    public static let medium17: UIKit.UIFont
+    public static let medium16: UIKit.UIFont
+    public static let medium15: UIKit.UIFont
+    public static let medium14: UIKit.UIFont
+    public static let medium12: UIKit.UIFont
+    public static let medium10: UIKit.UIFont
+    public static let medium08: UIKit.UIFont
+    public static let semibold40: UIKit.UIFont
+    public static let semibold28: UIKit.UIFont
+    public static let semibold26: UIKit.UIFont
+    public static let semibold24: UIKit.UIFont
+    public static let semibold22: UIKit.UIFont
+    public static let semibold20: UIKit.UIFont
+    public static let semibold18: UIKit.UIFont
+    public static let semibold17: UIKit.UIFont
+    public static let semibold16: UIKit.UIFont
+    public static let semibold15: UIKit.UIFont
+    public static let semibold14: UIKit.UIFont
+    public static let semibold12: UIKit.UIFont
+    public static let semibold10: UIKit.UIFont
+    public static let semibold09: UIKit.UIFont
+    public static let semibold08: UIKit.UIFont
+    public static let bold24: UIKit.UIFont
+    public static let bold18: UIKit.UIFont
+    public static let bold16: UIKit.UIFont
+    public static let bold15: UIKit.UIFont
+    public static let bold14: UIKit.UIFont
+    public static let bold12: UIKit.UIFont
+    public static let bold10: UIKit.UIFont
+    public static let light15: UIKit.UIFont
+    public static let light14: UIKit.UIFont
+    public static let light12: UIKit.UIFont
+    public static let light16: UIKit.UIFont
+    public static let light18: UIKit.UIFont
+    public static let semiBoldItalics14: UIKit.UIFont
+    public static let deviceType: UIKit.UIDevice.DeviceType
+    public static var semiBoldText10: UIKit.UIFont {
+      get
+    }
+    public static var semiBoldText14: UIKit.UIFont {
+      get
+    }
+    public static var mediumText14: UIKit.UIFont {
+      get
+    }
+    public static var lightText14: UIKit.UIFont {
+      get
+    }
+    public static var boldText18: UIKit.UIFont {
+      get
+    }
+    public static var semiboldText14: UIKit.UIFont {
+      get
+    }
+    public static var semiboldText16: UIKit.UIFont {
+      get
+    }
+    public static var forSize18: Swift.Int {
+      get
+    }
+    @objc deinit
+  }
+  @objc deinit
+}
+extension UIKit.UIDevice {
+  public enum DeviceType : Swift.String {
+    case iPhone4
+    case iPhone5
+    case iPhone6
+    case iPhone6Plus
+    case iPhoneX
+    case iPhone11
+    case iPhoneXR
+    case unknown
+    case iphone12Mini
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) public var deviceType: UIKit.UIDevice.DeviceType {
+    get
+  }
+}
+public protocol TableViewAdapter : UIKit.UITableViewDataSource, UIKit.UITableViewDelegate {
+}
+public protocol CollectionViewAdapter : UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegateFlowLayout {
+}
+public protocol FormElementTableViewAdapter : UI.TableViewAdapter {
+  var contentHeight: CoreGraphics.CGFloat { get set }
+  var delegate: UI.FormElementTableViewAdapterDelegate? { get set }
+}
+public protocol FormElementTableViewAdapterDelegate : AnyObject {
+  func didSelectTableViewHeaderActionButton()
+  func didDeleteItem(at indexPath: Foundation.IndexPath)
+  func didSelectItem(at indexPath: Foundation.IndexPath)
+  func didEditItem(at indexPath: Foundation.IndexPath)
+  func didUnSelectItem(at indexPath: Foundation.IndexPath)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FormTableView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var tableView: UIKit.UITableView
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func updateData(adapter: UI.FormElementTableViewAdapter)
+  @objc deinit
+}
+public protocol FormElementCollectionViewAdapter : UI.CollectionViewAdapter {
+  var contentHeight: CoreGraphics.CGFloat { get set }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FormCollectionView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) final public let collectionView: UIKit.UICollectionView
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func updateData(adapter: UI.FormElementCollectionViewAdapter)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class PrimaryActionButton : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public enum ButtonLayout {
+  case horizontal
+  case vertical
+  public static func == (a: UI.ButtonLayout, b: UI.ButtonLayout) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormDoubleButtonView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var primaryButton: UI.PrimaryActionButton
+  @_Concurrency.MainActor(unsafe) public var secondaryButton: UI.SecondaryActionButton
+  @_Concurrency.MainActor(unsafe) public var primaryAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var secondaryAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var primaryButtonTitle: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var buttonLayout: UI.ButtonLayout {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var secondaryButtonTitle: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormRadioButtonView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) final public let myselfBtn: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) final public let myselfTitleView: UI.FormTitleView
+  @_Concurrency.MainActor(unsafe) final public let othersBtn: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) final public let otherTitleView: UI.FormTitleView
+  @_Concurrency.MainActor(unsafe) public var myselfAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var othersAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var isMyselfSelected: Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func selectMySelf()
+  @_Concurrency.MainActor(unsafe) public func selectOthers()
+  @_Concurrency.MainActor(unsafe) public func selectNone()
+  @_Concurrency.MainActor(unsafe) public func disableMyself()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormGenderRadioButtonView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) final public let maleBtn: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) final public let maleTitleView: UI.FormTitleView
+  @_Concurrency.MainActor(unsafe) final public let femaleBtn: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) final public let femaleTitleView: UI.FormTitleView
+  @_Concurrency.MainActor(unsafe) final public let otherBtn: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) final public let otherTitleView: UI.FormTitleView
+  @_Concurrency.MainActor(unsafe) public var maleAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var femaleAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var otherAction: (() -> ())?
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FormInputTextFieldView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UI.TextFieldTitleLabel
+  @_Concurrency.MainActor(unsafe) public var textField: UI.BoxTextField
+  @_Concurrency.MainActor(unsafe) public var title: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var placeholder: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var onTextChange: ((Swift.String) -> ())?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func setupValidation(validator: UI.TextFieldValidator, type: UI.ValidationType = .text, limit: Swift.Int = 0)
+  @_Concurrency.MainActor(unsafe) public func setText(text: Swift.String?)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FormInputTextView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UI.TextFieldTitleLabel
+  @_Concurrency.MainActor(unsafe) public var textView: UI.BoxTextView
+  @_Concurrency.MainActor(unsafe) public var title: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var placeholder: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var onTextChange: ((Swift.String) -> ())?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func setupValidation(validator: UI.TextViewValidator, type: UI.ValidationType = .text, limit: Swift.Int = 0)
+  @_Concurrency.MainActor(unsafe) public func setText(text: Swift.String?)
+  @objc deinit
+}
+extension UIKit.UIColor {
+  open class func from(r: CoreGraphics.CGFloat, g: CoreGraphics.CGFloat, b: CoreGraphics.CGFloat, a: CoreGraphics.CGFloat) -> UIKit.UIColor
+  open class func from(hex: Swift.String) -> UIKit.UIColor
+  public static var strongLimeGreen: UIKit.UIColor {
+    get
+  }
+  public static var darkLimeGreen: UIKit.UIColor {
+    get
+  }
+  public static var darkLimeGreenNight: UIKit.UIColor {
+    get
+  }
+  public static var moderateLimeGreen: UIKit.UIColor {
+    get
+  }
+  public static var moderateLimeGreen2: UIKit.UIColor {
+    get
+  }
+  public static var verySoftLimeGreen: UIKit.UIColor {
+    get
+  }
+  public static var veryDarkGrayishBlue: UIKit.UIColor {
+    get
+  }
+  public static var veryVeryDarkGrayishBlue: UIKit.UIColor {
+    get
+  }
+  public static var grayishBlueNight: UIKit.UIColor {
+    get
+  }
+  public static var lightGrayishBlue: UIKit.UIColor {
+    get
+  }
+  public static var lightGrayishBlue2: UIKit.UIColor {
+    get
+  }
+  public static var lightGrayishBlueNight: UIKit.UIColor {
+    get
+  }
+  public static var lightGrayishBlueNight2: UIKit.UIColor {
+    get
+  }
+  public static var lightGrayishPink: UIKit.UIColor {
+    get
+  }
+  public static var veryDarkGrayIcon: UIKit.UIColor {
+    get
+  }
+  public static var veryLightGray: UIKit.UIColor {
+    get
+  }
+  public static var veryLightGray1: UIKit.UIColor {
+    get
+  }
+  public static var veryLightGray2: UIKit.UIColor {
+    get
+  }
+  public static var veryLightGray3: UIKit.UIColor {
+    get
+  }
+  public static var gray: UIKit.UIColor {
+    get
+  }
+  public static var veryDarkGray: UIKit.UIColor {
+    get
+  }
+  public static var veryDarkGray1: UIKit.UIColor {
+    get
+  }
+  public static var veryDarkGray2: UIKit.UIColor {
+    get
+  }
+  public static var veryDarkGray3: UIKit.UIColor {
+    get
+  }
+  public static var veryDarkGray4: UIKit.UIColor {
+    get
+  }
+  public static var lightText: UIKit.UIColor {
+    get
+  }
+  public static var veryDarkGray5: UIKit.UIColor {
+    get
+  }
+  public static var veryDarkGrayNight: UIKit.UIColor {
+    get
+  }
+  public static var veryDarkGrayNightLight: UIKit.UIColor {
+    get
+  }
+  public static var veryDarkBlue: UIKit.UIColor {
+    get
+  }
+  public static var blockUnblock: UIKit.UIColor {
+    get
+  }
+  public static var darkModerateMagenta: UIKit.UIColor {
+    get
+  }
+  public static var vividOrange: UIKit.UIColor {
+    get
+  }
+  public static var progressOrange: UIKit.UIColor {
+    get
+  }
+  public static var darkModerateYellow: UIKit.UIColor {
+    get
+  }
+  public static var pureYellow: UIKit.UIColor {
+    get
+  }
+  public static var brightYellow: UIKit.UIColor {
+    get
+  }
+  public static var yellowGreenColor: UIKit.UIColor {
+    get
+  }
+  public static var otpYellow: UIKit.UIColor {
+    get
+  }
+  public static var pureRed: UIKit.UIColor {
+    get
+  }
+  public static var strongRed: UIKit.UIColor {
+    get
+  }
+  public static var moderateRed: UIKit.UIColor {
+    get
+  }
+  public static var veryLightRed: UIKit.UIColor {
+    get
+  }
+  public static var declinedLightRed: UIKit.UIColor {
+    get
+  }
+  public static var declinedTextRed: UIKit.UIColor {
+    get
+  }
+  public static var referralAvailableColor: UIKit.UIColor {
+    get
+  }
+  public static var referralSentColor: UIKit.UIColor {
+    get
+  }
+  public static var referralSentColorLight: UIKit.UIColor {
+    get
+  }
+  public static var referralUnavailable: UIKit.UIColor {
+    get
+  }
+  public static var referralInvitationAccepted: UIKit.UIColor {
+    get
+  }
+  public static var referralEsewaUserColor: UIKit.UIColor {
+    get
+  }
+  public static var brightRed: UIKit.UIColor {
+    get
+  }
+  public static var vividPink: UIKit.UIColor {
+    get
+  }
+  public static var darkMagenta: UIKit.UIColor {
+    get
+  }
+  public static var moderateVoilet: UIKit.UIColor {
+    get
+  }
+  public static var moderateBlue: UIKit.UIColor {
+    get
+  }
+  public static var vividBlue: UIKit.UIColor {
+    get
+  }
+  public static var vividBlueRGBNoRed: UIKit.UIColor {
+    get
+  }
+  public static var strongCyan: UIKit.UIColor {
+    get
+  }
+  public static var darkCyan: UIKit.UIColor {
+    get
+  }
+  public static var darkModerateLimeGreen: UIKit.UIColor {
+    get
+  }
+  public static var moderateGreen: UIKit.UIColor {
+    get
+  }
+  public static var brighGreenYellow: UIKit.UIColor {
+    get
+  }
+  public static var vividYellow: UIKit.UIColor {
+    get
+  }
+  public static var pureOrange: UIKit.UIColor {
+    get
+  }
+  public static var vividRed: UIKit.UIColor {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FormInputSelectionView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var isEnabled: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var selectionButton: UIKit.UIButton
+  @_Concurrency.MainActor(unsafe) public var title: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var placeholder: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UI.TextFieldTitleLabel
+  @_Concurrency.MainActor(unsafe) public var textField: UI.BoxTextField
+  @_Concurrency.MainActor(unsafe) public var onSelection: (() -> ())?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func removeDropDownIndicator()
+  @_Concurrency.MainActor(unsafe) public func setSelectionText(title: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func setupValidation(validator: UI.TextFieldValidator)
+  @_Concurrency.MainActor(unsafe) public func setImages(image: UIKit.UIImage?)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class AppointmentFormInputSelectionView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var isEnabled: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var selectionButton: UIKit.UIButton
+  @_Concurrency.MainActor(unsafe) public var title: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var placeholder: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UI.TextFieldTitleLabel
+  @_Concurrency.MainActor(unsafe) public var textField: UI.BoxTextField
+  @_Concurrency.MainActor(unsafe) public var onSelection: (() -> ())?
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @_Concurrency.MainActor(unsafe) public func removeDropDownIndicator()
+  @_Concurrency.MainActor(unsafe) public func setSelectionText(title: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func setupValidation(validator: UI.TextFieldValidator)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormKeyValueView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var keyLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var valueLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var key: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var value: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(key: Swift.String, value: Swift.String)
+  @_Concurrency.MainActor(unsafe) override open func toggleTextVisibility(shouldHide: Swift.Bool)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormPairView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var label1: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) public var label2: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(text1: Swift.String, text2: Swift.String)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class FormDateInputView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) public var dateTypeView: UI.BoxTextField
+  @_Concurrency.MainActor(unsafe) public var yearView: UI.BoxTextField
+  @_Concurrency.MainActor(unsafe) public var monthView: UI.BoxTextField
+  @_Concurrency.MainActor(unsafe) public var dayView: UI.BoxTextField
+  @_Concurrency.MainActor(unsafe) public var onDobTypeSelection: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var dateType: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var year: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var month: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var day: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func setDateType(text: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func setupValidation(validator: UI.TextFieldValidator)
+  @_Concurrency.MainActor(unsafe) public func showError()
+  @_Concurrency.MainActor(unsafe) public func getDateInput() -> UI.DateOfBirth
+  @_Concurrency.MainActor(unsafe) public func markAsRequired()
+  @_Concurrency.MainActor(unsafe) public func markAsOptional()
+  @objc deinit
+}
+extension UI.DateType : Swift.Equatable {}
+extension UI.DateType : Swift.Hashable {}
+extension UI.DateType : Swift.RawRepresentable {}
+extension UI.StatusEnum : Swift.Equatable {}
+extension UI.StatusEnum : Swift.Hashable {}
+extension UI.StatusEnum : Swift.RawRepresentable {}
+extension UI.DishomeAccountType : Swift.Equatable {}
+extension UI.DishomeAccountType : Swift.Hashable {}
+extension UI.DishomeAccountType : Swift.RawRepresentable {}
+extension UI.SubisuType : Swift.Equatable {}
+extension UI.SubisuType : Swift.Hashable {}
+extension UI.SubisuType : Swift.RawRepresentable {}
+extension UI.ToastNotificationType : Swift.Equatable {}
+extension UI.ToastNotificationType : Swift.Hashable {}
+extension UI.AirlinePassengerHeaderView.PassengerHeaderType : Swift.Equatable {}
+extension UI.AirlinePassengerHeaderView.PassengerHeaderType : Swift.Hashable {}
+extension UI.AirlineOneWayBottomFooterView.ButtonState : Swift.Equatable {}
+extension UI.AirlineOneWayBottomFooterView.ButtonState : Swift.Hashable {}
+extension UIKit.UIDevice.DeviceType : Swift.Equatable {}
+extension UIKit.UIDevice.DeviceType : Swift.Hashable {}
+extension UIKit.UIDevice.DeviceType : Swift.RawRepresentable {}
+extension UI.ButtonLayout : Swift.Equatable {}
+extension UI.ButtonLayout : Swift.Hashable {}

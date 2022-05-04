@@ -36,7 +36,10 @@ class ConnectHospitalViewController: UIViewController, Storyboarded {
         self.showTabbar()
         self.navigationItem.title = "Connect Hospital"
         self.viewModel.fetchHospitals()
+        self.tabBarController?.tabBar.isHidden = false
     }
+    
+   
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

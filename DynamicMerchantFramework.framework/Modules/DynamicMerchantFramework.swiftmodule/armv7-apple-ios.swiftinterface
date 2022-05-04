@@ -1,0 +1,73 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DynamicMerchantFramework
+@_exported import DynamicMerchantFramework
+import Foundation
+import Swift
+import SwiftyJSON
+import UI
+import UIKit
+import _Concurrency
+public struct DynamicEnquiryResponse {
+}
+public struct DynamicFormModel {
+  public init(json: SwiftyJSON.JSON)
+}
+public enum ChipValidationType {
+  case single
+  case multiple
+  case selectionLimit(count: Swift.Int)
+}
+@objc @_inheritsConvenienceInitializers open class ChipButtonValidator : ObjectiveC.NSObject {
+  public typealias ChipValidation = (field: DynamicMerchantFramework.FormChipButtonsView, validationType: DynamicMerchantFramework.ChipValidationType)
+  public var validationList: [DynamicMerchantFramework.ChipButtonValidator.ChipValidation]
+  public var isValidationSuccess: Swift.Bool
+  public func add(field: DynamicMerchantFramework.FormChipButtonsView, validationType: DynamicMerchantFramework.ChipValidationType)
+  public func validateAll()
+  public func resetAllValidation()
+  public func validateTextField(field: DynamicMerchantFramework.FormChipButtonsView) -> (isValid: Swift.Bool, message: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class DynamicMerchantPresenter {
+  @objc deinit
+}
+public struct AppText {
+}
+public class DynamicViews {
+  public init()
+  @objc deinit
+}
+public class DataUtil {
+  public init()
+  public func buildAllForm(model: [DynamicMerchantFramework.DynamicFormModel], infoCardView: UI.FormCardContainerView?, formBuilder: UI.FormBuilder?, validator: UI.TextFieldValidator, dynamicEnquiryRes: DynamicMerchantFramework.DynamicEnquiryResponse?, chipValidator: DynamicMerchantFramework.ChipButtonValidator?, presenter: DynamicMerchantFramework.DynamicMerchantPresenter?, totalAmountView: UI.FormKeyValueView?, shouldBuild: Swift.Bool? = true, cardContainer: UI.AirlinesCardContainerView?)
+  public func performValidationAndPrepareData(viewGroup: UIKit.UIView) -> (confirmationMap: [Swift.String : Any]?, paymentBody: [Swift.String : Any]?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class FormChipButtonsView : UI.FormElementView {
+  @_Concurrency.MainActor(unsafe) final public let bottomInset: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var leftPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) final public let errorLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) final public let boxLayer: QuartzCore.CAShapeLayer
+  @_Concurrency.MainActor(unsafe) public var validationType: DynamicMerchantFramework.ChipValidationType
+  @_Concurrency.MainActor(unsafe) public var characterLimit: Swift.Int
+  @_Concurrency.MainActor(unsafe) public var isRequired: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isErrorPresent: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isValid: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var messageEmptyField: Swift.String
+  @_Concurrency.MainActor(unsafe) public var isItemSelected: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isAmount: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isRequestID: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var requestKey: Swift.String
+  @_Concurrency.MainActor(unsafe) public var isMultipleSelection: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) public func showError(message: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func hideError()
+  @_Concurrency.MainActor(unsafe) public func reset()
+  @_Concurrency.MainActor(unsafe) public func showValidIndicator()
+  @_Concurrency.MainActor(unsafe) public func hideValidIndicator()
+  @objc deinit
+}

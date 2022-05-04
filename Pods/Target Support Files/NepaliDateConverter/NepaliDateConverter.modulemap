@@ -1,0 +1,6 @@
+framework module NepaliDateConverter {
+  umbrella header "NepaliDateConverter-umbrella.h"
+
+  export *
+  module * { export * }
+}
