@@ -18,7 +18,7 @@ struct MedicationDetailViewModel {
     
     func medicationAction(status: String, id: String?) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         let param: [String:Any] = [
             "medicationId": Int(id?.components(separatedBy: "-").first ?? "") ?? 0,
               "medicationStatus": status,

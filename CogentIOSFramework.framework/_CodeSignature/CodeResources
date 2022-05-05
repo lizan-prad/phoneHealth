@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		ndyNd4xeIxiOr5YLKCbQLTzcMg8=
+		Qctq2tIW3rTvKUyhkjilQ5iSr0M=
 		</data>
 		<key>CalendarHeaderView.nib</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/CogentIOSFramework-Swift.h</key>
 		<data>
-		0qvzS+arH2p4b0PdB+lm1uM80+w=
+		+teVFy35ftqtP6IAurnEJK9FfyM=
 		</data>
 		<key>Headers/CogentIOSFramework.h</key>
 		<data>
@@ -22,7 +22,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		KBcWJj+VE/aCPQ3kMobOrNPzb1M=
+		4DaCxGxgNyc6H6m48qqN1HNOa/U=
+		</data>
+		<key>Modules/CogentIOSFramework.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
+		<data>
+		A0st2slrTz2Xyq1I+gZKs8qUUJg=
 		</data>
 		<key>Modules/CogentIOSFramework.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -30,11 +34,11 @@
 		</data>
 		<key>Modules/CogentIOSFramework.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		hNxX1vBxMfU2zLcSiQekFGQmrZk=
+		7zKJ5VrvlrZQoMdG0KgKICY/mGI=
 		</data>
 		<key>Modules/CogentIOSFramework.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		3uaTivDwcbIa3aavI9VaSock3IQ=
+		vgzYW4QYvQi8kRmy5fthp449MZY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -47,7 +51,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RpT+Ti3COMMjPDLw//EX/s5o9V51bMWjNm/NcJtmIOc=
+			ZNGbFKQrnNPkv9iy2VQa5DZv6OhF1T2YuB9gMeJd8aU=
 			</data>
 		</dict>
 		<key>CalendarHeaderView.nib</key>
@@ -61,7 +65,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0aDtqyg/zB2Ixq96I2pU4NkZwDLC/pd/w9RK+BwjvpA=
+			OtVMwSk3Wtpq6qQSC0O2muElp5wn54qoK3k7BuDj4pw=
 			</data>
 		</dict>
 		<key>Headers/CogentIOSFramework.h</key>
@@ -69,6 +73,13 @@
 			<key>hash2</key>
 			<data>
 			00/7avp1zO7WE4+AhmlUF8Qn6lqAVQJr0CFSZYGQ00g=
+			</data>
+		</dict>
+		<key>Modules/CogentIOSFramework.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			SKymyy9H2Ar2Q+nOf4brO51Fh5jCDpmH86KToa4Mb8Q=
 			</data>
 		</dict>
 		<key>Modules/CogentIOSFramework.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -82,14 +93,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			E144YBmXshyafCj9RtrsN+q0sVnh+Zpwg3x3carzZpA=
+			oc3cUTxfzgJ5gHZBEPiD8t2idpYryYD5z7ZsrGAYLbA=
 			</data>
 		</dict>
 		<key>Modules/CogentIOSFramework.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vXshgFxCLGAUZ3i8TAbArlcugvkYjj4IksjEfnGbWYg=
+			Pn0QRrJPR1xKzy4bhHN9MPWZIIKNCzxfikMbeZycKAU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

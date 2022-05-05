@@ -106,7 +106,12 @@ class FamilyProfileDetailsViewController: UIViewController, Storyboarded {
         self.locationLabel.text = model?.districtName
         self.emailLabel.text = model?.email
         self.dobLabel.text = model?.dateOfBirth
-        self.profileImageLabel.sd_setImage(with: URL.init(string: model?.avatar ?? ""))
+        if model?.avatar == nil {
+            self.profileImageLabel.tintColor = .white
+            self.profileImageLabel.image = UIImage.init(named: "profile")
+        } else {
+            self.profileImageLabel.sd_setImage(with: URL.init(string: model?.avatar ?? ""))
+        }
     }
     
     func setupNav() {
@@ -321,6 +326,9 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
                 let vc = coordinator.getMainView()
                 vc.isFamily = true
                 vc.familyId = self.model?.id
+                vc.callForRefresh = {
+                    self.viewModel.searchHealthLocker()
+                }
                 self.present(vc , animated: true, completion: nil)
             }
             

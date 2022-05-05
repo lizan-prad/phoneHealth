@@ -9,6 +9,8 @@ import UIKit
 import Lottie
 import CogentIOSFramework
 import UI
+import ObjectMapper
+import EsewaSDK
 
 class EappointmentsViewController: UIViewController, CogentPaymentDelegate {
 //    func onCogentPaymentSuccess(info: [String : Any]) {
@@ -18,7 +20,8 @@ class EappointmentsViewController: UIViewController, CogentPaymentDelegate {
 //    func onCogentPaymentError(errorDescription: String) {
 //        print(errorDescription)
 //    }
-
+    @IBOutlet weak var childView: UIView!
+    
     
     @IBOutlet weak var animationView: AnimationView!
     
@@ -75,13 +78,13 @@ class EappointmentsViewController: UIViewController, CogentPaymentDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         animationView.play()
-        self.tabBarController?.tabBar.isHidden = false
+        
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        self.tabBarController?.tabBar.isHidden = true
+        
     }
     
     func openSDK() {
@@ -95,7 +98,9 @@ class EappointmentsViewController: UIViewController, CogentPaymentDelegate {
         self.cogentSDK = CogentLandingPagePresenter(delegate: self, esewaID: "9845528933", userKYCModel: self.userKYCModel!, colorTheme: UIColor.green)
 #endif
         
-        self.cogentSDK?.initiateLicenseValidation(licenseString: "", fromVC: self, shouldPresent: false)
+        self.cogentSDK?.initiateLicenseValidation(licenseString: "", fromVC: self, shouldPresent: false) { vc in
+            self.childView.addChildViewController(vc, parentViewController: self)
+        }
     }
 //
 //    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -119,10 +124,14 @@ class EappointmentsViewController: UIViewController, CogentPaymentDelegate {
     }
     
     func onCogentPaymentSuccess(info: [String : Any]) {
-        print(info)
+        if let model = Mapper<EAppointmentModel>().map(JSON: info) {
+            
+        }
     }
     
     func onCogentPaymentError(errorDescription: String) {
     }
 
 }
+
+

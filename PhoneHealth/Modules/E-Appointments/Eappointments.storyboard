@@ -35,11 +35,19 @@
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oU5-ze-Z0g">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="oU5-ze-Z0g" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="BF1-5O-DLT"/>
+                            <constraint firstItem="oU5-ze-Z0g" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MW1-sg-vcj"/>
                             <constraint firstItem="Yts-b3-UmD" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Os4-SS-8sP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="oU5-ze-Z0g" secondAttribute="bottom" id="a0y-nk-8Ag"/>
+                            <constraint firstItem="oU5-ze-Z0g" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="pF4-HR-q8M"/>
                             <constraint firstItem="Yts-b3-UmD" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-80" id="qPh-0o-EWV"/>
                             <constraint firstItem="ox3-Y8-r9S" firstAttribute="top" secondItem="Yts-b3-UmD" secondAttribute="bottom" constant="10" id="qQK-pz-gPi"/>
                             <constraint firstItem="ox3-Y8-r9S" firstAttribute="centerX" secondItem="Yts-b3-UmD" secondAttribute="centerX" id="xid-KH-fo0"/>
@@ -48,6 +56,7 @@
                     <navigationItem key="navigationItem" id="eJS-Rr-HTb"/>
                     <connections>
                         <outlet property="animationView" destination="Yts-b3-UmD" id="hUx-jn-Z49"/>
+                        <outlet property="childView" destination="oU5-ze-Z0g" id="D0c-I5-rJA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

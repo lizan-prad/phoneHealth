@@ -31,6 +31,13 @@ class MedicationDetailViewController: UIViewController, Storyboarded {
     var id: String?
     var isFromNotif: Bool = false
     
+    func get24Hrs(str: String) -> String {
+        let val = str.components(separatedBy: ":").first ?? ""
+        let last = str.components(separatedBy: ":").last ?? ""
+        
+        return (Int(val) ?? 0) < 12 ? (str + " am") : "\(((Int(val) ?? 0) + 12) - 24):\(last) pm".replacingOccurrences(of: "-", with: "")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         skipBtn.setTitle("", for: .normal)
@@ -39,9 +46,22 @@ class MedicationDetailViewController: UIViewController, Storyboarded {
         closeBtn.setTitle("", for: .normal)
         container.addCornerRadius(12)
         
+        
+        
         if isFromNotif {
             self.alarmDesc.text = "Its time to take your \(viewModel.model.time ?? "") Med(s)."
-            self.alarmTimeLabel.text = viewModel.model.alertTime
+            
+            let alarmFormat = DateFormatter()
+            alarmFormat.dateFormat = "HH:mm"
+//            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
+            let time = "\(self.get24Hrs(str: viewModel.model.alertTime ?? ""))"
+            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT-6.15")
+            let date = alarmFormat.date(from: time) ?? Date()
+            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
+             
+            
+            self.alarmTimeLabel.text = alarmFormat.string(from: date)
+            
             self.alarmName.text = viewModel.model.title
             self.alarmdetajls.text = "\(self.viewModel.model.title?.components(separatedBy: " ").last ?? ""), Take \(self.viewModel.model.numberOfPill ?? "") Pill(s)"
         } else {

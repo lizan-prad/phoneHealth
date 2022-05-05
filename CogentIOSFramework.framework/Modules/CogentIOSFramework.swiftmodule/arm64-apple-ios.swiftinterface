@@ -95,6 +95,19 @@ public enum SPStorkController {
 extension NepaliDateConverter.DateModel {
   public init(year: Swift.String, month: Swift.String, day: Swift.String)
 }
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class RootViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public var shouldShowUserBalance: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isDescriptionEnabled: Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ViewPagerTabView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
@@ -165,7 +178,7 @@ public enum ChipValidationType {
   weak public var paymentDelegate: CogentIOSFramework.CogentPaymentDelegate?
   public var parentViewController: UIKit.UIViewController?
   public init(delegate: CogentIOSFramework.CogentPaymentDelegate, esewaID: Swift.String, userKYCModel: CogentIOSFramework.UserKYCModel, colorTheme: UIKit.UIColor)
-  public func initiateLicenseValidation(licenseString: Swift.String, fromVC: UIKit.UIViewController, shouldPresent: Swift.Bool)
+  public func initiateLicenseValidation(licenseString: Swift.String, fromVC: UIKit.UIViewController, shouldPresent: Swift.Bool, completion: @escaping (CogentIOSFramework.CogentContainerViewController) -> ())
   @objc deinit
 }
 public class ViewPagerOptions {
@@ -221,6 +234,20 @@ public struct ViewPagerTab {
   public init(title: Swift.String, image: UIKit.UIImage?)
 }
 public struct AppText {
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class CogentContainerViewController : CogentIOSFramework.ViewPagerContainerViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class ViewPagerContainerViewController : CogentIOSFramework.RootViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
 }
 extension UIKit.UIViewController {
   @_Concurrency.MainActor(unsafe) public var isPresentedAsStork: Swift.Bool {

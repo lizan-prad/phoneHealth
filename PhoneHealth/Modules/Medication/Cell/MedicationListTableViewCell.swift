@@ -49,14 +49,15 @@ class MedicationListTableViewCell: UITableViewCell {
             let alarmFormat = DateFormatter()
             alarmFormat.dateFormat = "yyyy-MM-dd"
             self.expoiry = model?.expiryDate
-            
+            let f = alarmFormat.date(from: model?.firstIntake ?? "") ?? Date()
+            let e = alarmFormat.date(from: model?.expiryDate ?? "") ?? Date()
             
             let d = alarmFormat.string(from: Date())
-            if d == model?.firstIntake {
+            if (f...e).contains(Date()) {
                 alarmFormat.dateFormat = "yyyy-MM-dd HH:mm"
     //            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
                 let times = model?.time?.compactMap({"\(d) \(self.get24Hrs(str: $0.time ?? ""))"})
-                alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
+                alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT-6.15")
                 self.time = times?.compactMap({alarmFormat.date(from: $0)}) ?? []
                 medName.text = model?.medicineName
                 doseLabel.text = (model?.dose?.replacingOccurrences(of: "mg", with: "") ?? "") + "mg"

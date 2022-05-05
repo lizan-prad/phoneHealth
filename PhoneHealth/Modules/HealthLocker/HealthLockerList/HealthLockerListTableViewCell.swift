@@ -22,13 +22,19 @@ class HealthLockerListTableViewCell: UITableViewCell {
         didSet {
             logoImage.layer.cornerRadius = 8
             if model?.thumbnails?.components(separatedBy: ".").last == "pdf" {
-                guard let url = URL.init(string: model?.thumbnails ?? "") else {return}
-                let pdfDOc = PDFDocument.init(url: url)
-                let page = pdfDOc?.page(at: 0)
-                let image = page?.thumbnail(of: self.logoImage.bounds.size, for: .mediaBox)
-                self.logoImage.image = image
+                DispatchQueue.global().async {
+                    guard let url = URL.init(string: self.model?.thumbnails ?? "") else {return}
+                    let pdfDOc = PDFDocument.init(url: url)
+                    let page = pdfDOc?.page(at: 0)
+                    DispatchQueue.main.async {
+                        let image = page?.thumbnail(of: self.logoImage.bounds.size, for: .mediaBox)
+                        self.logoImage.image = image
+                    }
+                }
             } else {
-                logoImage.sd_setImage(with: URL.init(string: model?.thumbnails ?? ""))
+                DispatchQueue.global().async {
+                    self.logoImage.sd_setImage(with: URL.init(string: self.model?.thumbnails ?? ""))
+                }
             }
             reportName.text = model?.reportTypeName
             let dateFormatter = DateFormatter()

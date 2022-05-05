@@ -122,12 +122,12 @@ class AddMedicationViewController: UIViewController, Storyboarded {
         let format = DateFormatter()
         
         format.dateFormat = "yyyy-MM-dd'T'hh:mm:ss.sss'Z'"
-        format.timeZone = TimeZone(abbreviation: "GMT")
+        format.timeZone = TimeZone(abbreviation: "GMT+5.45")
         self.selectedTime = format.string(from: sender.date).components(separatedBy: "T").last
         format.timeZone = TimeZone.current
         format.dateFormat = "hh:mm"
         self.reminderTime = format.string(from: sender.date)
-        format.dateFormat = "HH:mm a"
+        format.dateFormat = "HH:mm"
         self.firstIntake.text = format.string(from: sender.date)
         
         

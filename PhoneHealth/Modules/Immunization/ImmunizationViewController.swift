@@ -101,6 +101,12 @@ class ImmunizationViewController: UIViewController, Storyboarded {
     }
     
     func setupDatw() {
+        if model?.avatar == nil {
+            profileImageLabel.tintColor = .white
+            profileImageLabel.image = UIImage.init(named: "profile")
+        } else {
+            profileImageLabel.sd_setImage(with: URL.init(string: model?.avatar ?? ""))
+        }
         self.childName.text = model?.name
         self.childAge.text = "\(model?.age ?? "") | \(model?.dateOfBirth ?? "")"
         self.upcommingVaccinationName.text = model?.upcomingVaccinationList?.first?.vaccinationName

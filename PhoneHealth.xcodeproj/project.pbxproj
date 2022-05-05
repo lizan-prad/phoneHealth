@@ -159,8 +159,6 @@
 		BEA53273279009D00041AAE5 /* HabitsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA53272279009D00041AAE5 /* HabitsCoordinator.swift */; };
 		BEA57C5227CF7B0D0037F197 /* ProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA57C5027CF7B0D0037F197 /* ProfileHeaderTableViewCell.swift */; };
 		BEA57C5327CF7B0D0037F197 /* ProfileHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEA57C5127CF7B0D0037F197 /* ProfileHeaderTableViewCell.xib */; };
-		BEA7A1E02822871B000AFC2B /* CogentIOSFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA7A1DA28228716000AFC2B /* CogentIOSFramework.framework */; };
-		BEA7A1E12822871B000AFC2B /* CogentIOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEA7A1DA28228716000AFC2B /* CogentIOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BEA7A1E22822871C000AFC2B /* DynamicMerchantFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA7A1DB28228716000AFC2B /* DynamicMerchantFramework.framework */; };
 		BEA7A1E32822871C000AFC2B /* DynamicMerchantFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEA7A1DB28228716000AFC2B /* DynamicMerchantFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BEA7A1E42822871D000AFC2B /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA7A1DC28228717000AFC2B /* UI.framework */; };
@@ -252,6 +250,12 @@
 		BECB454027BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB453E27BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.swift */; };
 		BECB454127BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BECB453F27BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.xib */; };
 		BECB454327BFA6DD00ABFE12 /* SearviceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB454227BFA6DD00ABFE12 /* SearviceCollectionViewCell.swift */; };
+		BEDE224F2823A97600B7A65E /* CogentIOSFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDE224D2823A96E00B7A65E /* CogentIOSFramework.framework */; };
+		BEDE22502823A97600B7A65E /* CogentIOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEDE224D2823A96E00B7A65E /* CogentIOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BEDE22542823AA9000B7A65E /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE22522823AA9000B7A65E /* Properties.swift */; };
+		BEDE22552823AA9000B7A65E /* EAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE22532823AA9000B7A65E /* EAppointment.swift */; };
+		BEDE225C2823AC4300B7A65E /* EsewaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDE225A2823AC3A00B7A65E /* EsewaSDK.framework */; };
+		BEDE225D2823AC4300B7A65E /* EsewaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEDE225A2823AC3A00B7A65E /* EsewaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BEF32C6E27CBD9CC005D7370 /* FamilyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF32C6D27CBD9CC005D7370 /* FamilyProfile.storyboard */; };
 		BEF32C7027CBD9DE005D7370 /* FamilyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF32C6F27CBD9DE005D7370 /* FamilyProfileViewController.swift */; };
 		BEF32C7327CBD9EF005D7370 /* AddFamilyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF32C7227CBD9EF005D7370 /* AddFamilyProfile.storyboard */; };
@@ -324,8 +328,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				BEDE22502823A97600B7A65E /* CogentIOSFramework.framework in Embed Frameworks */,
+				BEDE225D2823AC4300B7A65E /* EsewaSDK.framework in Embed Frameworks */,
 				BEA7A1E52822871E000AFC2B /* UI.framework in Embed Frameworks */,
-				BEA7A1E12822871B000AFC2B /* CogentIOSFramework.framework in Embed Frameworks */,
 				BEA7A1E32822871C000AFC2B /* DynamicMerchantFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -500,7 +505,6 @@
 		BEA53272279009D00041AAE5 /* HabitsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsCoordinator.swift; sourceTree = "<group>"; };
 		BEA57C5027CF7B0D0037F197 /* ProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		BEA57C5127CF7B0D0037F197 /* ProfileHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderTableViewCell.xib; sourceTree = "<group>"; };
-		BEA7A1DA28228716000AFC2B /* CogentIOSFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CogentIOSFramework.framework; sourceTree = "<group>"; };
 		BEA7A1DB28228716000AFC2B /* DynamicMerchantFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DynamicMerchantFramework.framework; sourceTree = "<group>"; };
 		BEA7A1DC28228717000AFC2B /* UI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UI.framework; sourceTree = "<group>"; };
 		BEA7A1E6282290FE000AFC2B /* WhiteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhiteNavigationController.swift; sourceTree = "<group>"; };
@@ -594,6 +598,10 @@
 		BECB453E27BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicInfoTableViewCell.swift; sourceTree = "<group>"; };
 		BECB453F27BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserBasicInfoTableViewCell.xib; sourceTree = "<group>"; };
 		BECB454227BFA6DD00ABFE12 /* SearviceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearviceCollectionViewCell.swift; sourceTree = "<group>"; };
+		BEDE224D2823A96E00B7A65E /* CogentIOSFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CogentIOSFramework.framework; sourceTree = "<group>"; };
+		BEDE22522823AA9000B7A65E /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
+		BEDE22532823AA9000B7A65E /* EAppointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EAppointment.swift; sourceTree = "<group>"; };
+		BEDE225A2823AC3A00B7A65E /* EsewaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EsewaSDK.framework; sourceTree = "<group>"; };
 		BEF32C6D27CBD9CC005D7370 /* FamilyProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FamilyProfile.storyboard; sourceTree = "<group>"; };
 		BEF32C6F27CBD9DE005D7370 /* FamilyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyProfileViewController.swift; sourceTree = "<group>"; };
 		BEF32C7227CBD9EF005D7370 /* AddFamilyProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddFamilyProfile.storyboard; sourceTree = "<group>"; };
@@ -640,10 +648,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE1D0D5027F575C10021B345 /* WebKit.framework in Frameworks */,
+				BEDE225C2823AC4300B7A65E /* EsewaSDK.framework in Frameworks */,
 				BEA7A1E42822871D000AFC2B /* UI.framework in Frameworks */,
 				B68E2CA712C557ED339ED637 /* Pods_PhoneHealth.framework in Frameworks */,
 				BEA7A1E22822871C000AFC2B /* DynamicMerchantFramework.framework in Frameworks */,
-				BEA7A1E02822871B000AFC2B /* CogentIOSFramework.framework in Frameworks */,
+				BEDE224F2823A97600B7A65E /* CogentIOSFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,7 +703,8 @@
 		407D06F4D961E2EC761B8277 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BEA7A1DA28228716000AFC2B /* CogentIOSFramework.framework */,
+				BEDE225A2823AC3A00B7A65E /* EsewaSDK.framework */,
+				BEDE224D2823A96E00B7A65E /* CogentIOSFramework.framework */,
 				BEA7A1DB28228716000AFC2B /* DynamicMerchantFramework.framework */,
 				BEA7A1DC28228717000AFC2B /* UI.framework */,
 				BE1D0D4F27F575C10021B345 /* WebKit.framework */,
@@ -1364,6 +1374,7 @@
 		BECB451927BECCCB00ABFE12 /* E-Appointments */ = {
 			isa = PBXGroup;
 			children = (
+				BEDE22512823AA9000B7A65E /* Model */,
 				BEA7A1E6282290FE000AFC2B /* WhiteNavigationController.swift */,
 				BECB451A27BECCDB00ABFE12 /* Eappointments.storyboard */,
 				BECB451C27BECCEC00ABFE12 /* EappointmentsViewController.swift */,
@@ -1414,6 +1425,15 @@
 				BECB453F27BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		BEDE22512823AA9000B7A65E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE22522823AA9000B7A65E /* Properties.swift */,
+				BEDE22532823AA9000B7A65E /* EAppointment.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BEF32C6C27CBD9B6005D7370 /* FamilyProfile */ = {
@@ -1929,6 +1949,7 @@
 				BE8A2DF127C6B4780029E173 /* AmbulanceViewModel.swift in Sources */,
 				BEB7125D2786C5F000486FB3 /* URLConfig.swift in Sources */,
 				BE72A82927B6E97D00FA91B7 /* HealthLockerListViewController.swift in Sources */,
+				BEDE22542823AA9000B7A65E /* Properties.swift in Sources */,
 				BE72A85A27B7B51300FA91B7 /* HospitalCardAppointmentTableViewCell.swift in Sources */,
 				BE712A41278AC69400D7985A /* UserSteppingViewModel.swift in Sources */,
 				BE712A59278AF1DC00D7985A /* UserCronicViewModel.swift in Sources */,
@@ -1993,6 +2014,7 @@
 				BEB3F4CA28097F2800A88438 /* MedicationHistoryCoordinator.swift in Sources */,
 				BEB7121F2786C5AB00486FB3 /* AppDelegate.swift in Sources */,
 				BEB7125E2786C5F000486FB3 /* UI+Extensions.swift in Sources */,
+				BEDE22552823AA9000B7A65E /* EAppointment.swift in Sources */,
 				BE2C2E2427B8D809008C878A /* AddMedicationCoordinator.swift in Sources */,
 				BE712A29278AAE3200D7985A /* LoginViewModel.swift in Sources */,
 				BE2030D2278C07AA00C61A48 /* OtpModel.swift in Sources */,
@@ -2172,7 +2194,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = X8YE27GARE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2213,7 +2235,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = X8YE27GARE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2398,7 +2420,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = X8YE27GARE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2544,7 +2566,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = X8YE27GARE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

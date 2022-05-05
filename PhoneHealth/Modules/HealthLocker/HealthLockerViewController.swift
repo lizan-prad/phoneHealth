@@ -196,7 +196,7 @@ class HealthLockerViewController: UIViewController, Storyboarded {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM dd eee"
         self.reportDateField.text = formatter.string(from: sender.date)
-        formatter.dateFormat = "yyyy-mm-dd'T'HH:mm:ss.sss'Z'"
+        formatter.dateFormat = "yyyy-mm-dd'T'HH:mm:ss.sssZ"
         self.selectedDate = formatter.string(from: sender.date)
     }
 
@@ -242,7 +242,7 @@ extension HealthLockerViewController: ImageScannerControllerDelegate, UICollecti
             self.uploadContainer.isHidden = true
 //            self.uploadedImage.isHidden = false
 //            self.scannedImageView.image = results.enhancedScan?.image
-            self.images.append(results.originalScan.image)
+            self.images.append(results.croppedScan.image)
         }
         
     }

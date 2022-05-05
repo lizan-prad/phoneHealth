@@ -222,6 +222,38 @@ SWIFT_CLASS("_TtC18CogentIOSFramework19ChipButtonValidator")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSString;
+@class NSBundle;
+@class NSCoder;
+
+SWIFT_CLASS("_TtC18CogentIOSFramework18RootViewController")
+@interface RootViewController : UIViewController
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
+@property (nonatomic, readonly) UIStatusBarStyle preferredStatusBarStyle;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC18CogentIOSFramework32ViewPagerContainerViewController")
+@interface ViewPagerContainerViewController : RootViewController
+- (void)loadView;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC18CogentIOSFramework29CogentContainerViewController")
+@interface CogentContainerViewController : ViewPagerContainerViewController
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS("_TtC18CogentIOSFramework26CogentLandingPagePresenter")
 @interface CogentLandingPagePresenter : NSObject
@@ -229,7 +261,6 @@ SWIFT_CLASS("_TtC18CogentIOSFramework26CogentLandingPagePresenter")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSString;
 
 SWIFT_PROTOCOL("_TtP18CogentIOSFramework21CogentPaymentDelegate_")
 @protocol CogentPaymentDelegate
@@ -238,7 +269,8 @@ SWIFT_PROTOCOL("_TtP18CogentIOSFramework21CogentPaymentDelegate_")
 @end
 
 
-@class NSCoder;
+
+
 
 SWIFT_CLASS("_TtC18CogentIOSFramework18SPStorkCloseButton")
 @interface SPStorkCloseButton : UIButton
@@ -286,7 +318,6 @@ SWIFT_CLASS("_TtC18CogentIOSFramework20SPStorkIndicatorView")
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
-@class UIViewController;
 
 SWIFT_CLASS("_TtC18CogentIOSFramework12SPStorkSegue")
 @interface SPStorkSegue : UIStoryboardSegue
@@ -327,6 +358,7 @@ SWIFT_CLASS("_TtC18CogentIOSFramework9ViewPager")
 - (void)pageViewController:(UIPageViewController * _Nonnull)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> * _Nonnull)previousViewControllers transitionCompleted:(BOOL)completed;
 - (void)pageViewController:(UIPageViewController * _Nonnull)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> * _Nonnull)pendingViewControllers;
 @end
+
 
 
 SWIFT_CLASS("_TtC18CogentIOSFramework16ViewPagerTabView")

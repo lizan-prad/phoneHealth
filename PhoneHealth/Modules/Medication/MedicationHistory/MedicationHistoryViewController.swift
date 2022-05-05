@@ -46,6 +46,7 @@ extension MedicationHistoryViewController: UITableViewDataSource, UITableViewDel
         return models?.count ?? 0
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MedicationHistoryTableViewCell") as! MedicationHistoryTableViewCell
         cell.model = self.models?[indexPath.row]

@@ -49,7 +49,12 @@ class DashboardFamilyProfileTableViewCell: UITableViewCell, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DashboardAddMedicationCollectionViewCell", for: indexPath) as! DashboardAddMedicationCollectionViewCell
         cell.setup()
         cell.namelabel.text = self.model?[indexPath.row].name?.components(separatedBy: " ").first
-        cell.plusIcon.sd_setImage(with: URL.init(string: self.model?[indexPath.row].avatar ?? ""))
+        if self.model?[indexPath.row].avatar == nil {
+            cell.plusIcon.tintColor = .lightGray
+            cell.plusIcon.image = UIImage.init(named: "profile")
+        } else {
+            cell.plusIcon.sd_setImage(with: URL.init(string: self.model?[indexPath.row].avatar ?? ""))
+        }
         return cell
     }
     

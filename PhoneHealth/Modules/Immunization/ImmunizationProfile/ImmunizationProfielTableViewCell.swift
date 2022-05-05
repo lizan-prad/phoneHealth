@@ -23,7 +23,12 @@ class ImmunizationProfielTableViewCell: UITableViewCell {
         didSet {
             age.text = "Age: \(model?.age ?? "")"
             name.text = model?.name
-            profileImage.sd_setImage(with: URL.init(string: model?.avatar ?? ""))
+            if model?.avatar == nil {
+                profileImage.tintColor = .lightGray
+                profileImage.image = UIImage.init(named: "profile")
+            } else {
+                profileImage.sd_setImage(with: URL.init(string: model?.avatar ?? ""))
+            }
         }
     }
     

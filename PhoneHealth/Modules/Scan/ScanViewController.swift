@@ -23,10 +23,19 @@ class ScanViewController: UIViewController {
         super.viewDidLoad()
         if image?.thumbnails?.components(separatedBy: ".").last == "pdf" {
             setupPdfView()
-            guard let url = URL.init(string: image?.thumbnails ?? "") else {return}
-            let pdfDOc = PDFDocument.init(url: url)
-            pdfView.autoScales = true
-            pdfView.document = pdfDOc
+            self.showProgressHud()
+            DispatchQueue.global().async {
+                guard let url = URL.init(string: self.image?.thumbnails ?? "") else {return}
+                let pdfDOc = PDFDocument.init(url: url)
+                
+                
+                DispatchQueue.main.async {
+                    self.pdfView.autoScales = true
+                    self.pdfView.document = pdfDOc
+                    self.hideProgressHud()
+                }
+                
+            }
         } else {
             self.scannedImage.sd_setImage(with: URL.init(string: image?.thumbnails ?? ""))
         }

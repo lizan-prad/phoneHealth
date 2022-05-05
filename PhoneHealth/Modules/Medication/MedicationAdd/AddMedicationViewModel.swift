@@ -31,7 +31,8 @@ struct AddMedicationViewModel {
             "frequency": model.frequency ?? 0,
             "medicineName": model.medicineName ?? "",
             "numberOfDays": model.numberOfDays ?? 0,
-            "quantity": model.quantity ?? ""
+            "quantity": model.quantity ?? "",
+            "time": model.firstIntake ?? ""
         ]
         self.loading.value = true
         NetworkManager.shared.request(BaseMappableModel<MedicationDataModel>.self, urlExt: URLConfig.baseUrl + "medication", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
