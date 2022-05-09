@@ -179,9 +179,7 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
             cell.proceedBtn.setAttributedTitle("Book Now".getAtrribText(), for: .normal)
             cell.placeholderImage.image = UIImage.init(named: "E-appointment-Dashboard")
             cell.didTapProceed = {
-                self.showAlert(title: nil, message: "E-Appointment is comming soon.") { _ in
-                    
-                }
+                NotificationCenter.default.post(name: Notification.Name.init(rawValue: "TAB3"), object: nil)
             }
             return cell
 //            let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentTableViewCell") as! AppointmentTableViewCell
@@ -301,6 +299,7 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
                 cell.placeholderImage.image = UIImage.init(named: "Connect-Hospital-Dashboard")
                 cell.didTapProceed = {
                     NotificationCenter.default.post(name: Notification.Name.init(rawValue: "TAB2"), object: nil)
+                    
                 }
                 return cell
             }

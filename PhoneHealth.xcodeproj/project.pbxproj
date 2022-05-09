@@ -250,12 +250,12 @@
 		BECB454027BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB453E27BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.swift */; };
 		BECB454127BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BECB453F27BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.xib */; };
 		BECB454327BFA6DD00ABFE12 /* SearviceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB454227BFA6DD00ABFE12 /* SearviceCollectionViewCell.swift */; };
-		BEDE224F2823A97600B7A65E /* CogentIOSFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDE224D2823A96E00B7A65E /* CogentIOSFramework.framework */; };
-		BEDE22502823A97600B7A65E /* CogentIOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEDE224D2823A96E00B7A65E /* CogentIOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BEDE22542823AA9000B7A65E /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE22522823AA9000B7A65E /* Properties.swift */; };
 		BEDE22552823AA9000B7A65E /* EAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE22532823AA9000B7A65E /* EAppointment.swift */; };
-		BEDE225C2823AC4300B7A65E /* EsewaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDE225A2823AC3A00B7A65E /* EsewaSDK.framework */; };
-		BEDE225D2823AC4300B7A65E /* EsewaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEDE225A2823AC3A00B7A65E /* EsewaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BEDE22602823BC9D00B7A65E /* EsewaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDE225E2823BC9300B7A65E /* EsewaSDK.framework */; };
+		BEDE22612823BC9D00B7A65E /* EsewaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEDE225E2823BC9300B7A65E /* EsewaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BEDE226C2823F2D500B7A65E /* CogentIOSFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDE226A2823F2CE00B7A65E /* CogentIOSFramework.framework */; };
+		BEDE226D2823F2D500B7A65E /* CogentIOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEDE226A2823F2CE00B7A65E /* CogentIOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BEF32C6E27CBD9CC005D7370 /* FamilyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF32C6D27CBD9CC005D7370 /* FamilyProfile.storyboard */; };
 		BEF32C7027CBD9DE005D7370 /* FamilyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF32C6F27CBD9DE005D7370 /* FamilyProfileViewController.swift */; };
 		BEF32C7327CBD9EF005D7370 /* AddFamilyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF32C7227CBD9EF005D7370 /* AddFamilyProfile.storyboard */; };
@@ -328,8 +328,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BEDE22502823A97600B7A65E /* CogentIOSFramework.framework in Embed Frameworks */,
-				BEDE225D2823AC4300B7A65E /* EsewaSDK.framework in Embed Frameworks */,
+				BEDE22612823BC9D00B7A65E /* EsewaSDK.framework in Embed Frameworks */,
+				BEDE226D2823F2D500B7A65E /* CogentIOSFramework.framework in Embed Frameworks */,
 				BEA7A1E52822871E000AFC2B /* UI.framework in Embed Frameworks */,
 				BEA7A1E32822871C000AFC2B /* DynamicMerchantFramework.framework in Embed Frameworks */,
 			);
@@ -598,10 +598,10 @@
 		BECB453E27BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicInfoTableViewCell.swift; sourceTree = "<group>"; };
 		BECB453F27BF9CFD00ABFE12 /* UserBasicInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserBasicInfoTableViewCell.xib; sourceTree = "<group>"; };
 		BECB454227BFA6DD00ABFE12 /* SearviceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearviceCollectionViewCell.swift; sourceTree = "<group>"; };
-		BEDE224D2823A96E00B7A65E /* CogentIOSFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CogentIOSFramework.framework; sourceTree = "<group>"; };
 		BEDE22522823AA9000B7A65E /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		BEDE22532823AA9000B7A65E /* EAppointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EAppointment.swift; sourceTree = "<group>"; };
-		BEDE225A2823AC3A00B7A65E /* EsewaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EsewaSDK.framework; sourceTree = "<group>"; };
+		BEDE225E2823BC9300B7A65E /* EsewaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EsewaSDK.framework; sourceTree = "<group>"; };
+		BEDE226A2823F2CE00B7A65E /* CogentIOSFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CogentIOSFramework.framework; sourceTree = "<group>"; };
 		BEF32C6D27CBD9CC005D7370 /* FamilyProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FamilyProfile.storyboard; sourceTree = "<group>"; };
 		BEF32C6F27CBD9DE005D7370 /* FamilyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyProfileViewController.swift; sourceTree = "<group>"; };
 		BEF32C7227CBD9EF005D7370 /* AddFamilyProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddFamilyProfile.storyboard; sourceTree = "<group>"; };
@@ -648,11 +648,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE1D0D5027F575C10021B345 /* WebKit.framework in Frameworks */,
-				BEDE225C2823AC4300B7A65E /* EsewaSDK.framework in Frameworks */,
+				BEDE22602823BC9D00B7A65E /* EsewaSDK.framework in Frameworks */,
 				BEA7A1E42822871D000AFC2B /* UI.framework in Frameworks */,
+				BEDE226C2823F2D500B7A65E /* CogentIOSFramework.framework in Frameworks */,
 				B68E2CA712C557ED339ED637 /* Pods_PhoneHealth.framework in Frameworks */,
 				BEA7A1E22822871C000AFC2B /* DynamicMerchantFramework.framework in Frameworks */,
-				BEDE224F2823A97600B7A65E /* CogentIOSFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,8 +703,8 @@
 		407D06F4D961E2EC761B8277 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BEDE225A2823AC3A00B7A65E /* EsewaSDK.framework */,
-				BEDE224D2823A96E00B7A65E /* CogentIOSFramework.framework */,
+				BEDE226A2823F2CE00B7A65E /* CogentIOSFramework.framework */,
+				BEDE225E2823BC9300B7A65E /* EsewaSDK.framework */,
 				BEA7A1DB28228716000AFC2B /* DynamicMerchantFramework.framework */,
 				BEA7A1DC28228717000AFC2B /* UI.framework */,
 				BE1D0D4F27F575C10021B345 /* WebKit.framework */,
