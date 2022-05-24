@@ -13,6 +13,8 @@ class AddFamilyProfile2Coordinator: Coordinator {
     var navigationController: UINavigationController
     var model: HealthProfileModel?
     
+    var updateProfile: UserProfileModel?
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -21,6 +23,7 @@ class AddFamilyProfile2Coordinator: Coordinator {
         let vc = AddFamilyProfile2ViewController.instantiate()
         vc.viewModel = AddFamilyProfile2ViewModel()
         vc.viewModel.model = self.model
+        vc.model = self.updateProfile
         vc.hidesBottomBarWhenPushed = true
         navigationController.pushViewController(vc, animated: true)
     }

@@ -14,6 +14,8 @@ class AddFamilyProfileCoordinator: Coordinator {
     
     var isChild = false
     
+    var userModel: UserProfileModel?
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -22,6 +24,7 @@ class AddFamilyProfileCoordinator: Coordinator {
         let vc = AddFamilyProfileViewController.instantiate()
         vc.viewModel = AddFamilyProfileViewModel()
         vc.isChild = self.isChild
+        vc.model = userModel
         vc.hidesBottomBarWhenPushed = true
         navigationController.pushViewController(vc, animated: true)
     }

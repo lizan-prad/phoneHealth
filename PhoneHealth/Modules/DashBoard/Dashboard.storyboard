@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Hi-0A-jMg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Hi-0A-jMg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -23,111 +23,8 @@
                                 <rect key="frame" x="0.0" y="148" width="414" height="714"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AppointmentTableViewCell" rowHeight="203" id="vfR-uf-8v2" customClass="AppointmentTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="203"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vfR-uf-8v2" id="oXe-Aj-1cn">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YsA-w9-jPy">
-                                                    <rect key="frame" x="17" y="10" width="380" height="183"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5w-ix-1CR">
-                                                            <rect key="frame" x="20" y="31.5" width="72" height="120"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0l7-12-K3L">
-                                                                    <rect key="frame" x="23.5" y="15" width="25" height="14.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYM-re-wDd">
-                                                                    <rect key="frame" x="20.5" y="44.5" width="31.5" height="31.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
-                                                                    <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N89-ra-NZM">
-                                                                    <rect key="frame" x="24" y="86" width="24.5" height="18"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                            <constraints>
-                                                                <constraint firstItem="0l7-12-K3L" firstAttribute="top" secondItem="p5w-ix-1CR" secondAttribute="top" constant="15" id="Ado-0n-e3b"/>
-                                                                <constraint firstItem="aYM-re-wDd" firstAttribute="centerY" secondItem="p5w-ix-1CR" secondAttribute="centerY" id="GUh-Ar-hee"/>
-                                                                <constraint firstItem="0l7-12-K3L" firstAttribute="centerX" secondItem="p5w-ix-1CR" secondAttribute="centerX" id="HXn-wH-AJV"/>
-                                                                <constraint firstItem="N89-ra-NZM" firstAttribute="centerX" secondItem="p5w-ix-1CR" secondAttribute="centerX" id="e5p-WE-upE"/>
-                                                                <constraint firstAttribute="width" constant="72" id="ha8-32-fV0"/>
-                                                                <constraint firstAttribute="height" constant="120" id="kzu-vc-c9N"/>
-                                                                <constraint firstItem="N89-ra-NZM" firstAttribute="top" secondItem="aYM-re-wDd" secondAttribute="bottom" constant="10" id="qmY-Si-3te"/>
-                                                                <constraint firstItem="aYM-re-wDd" firstAttribute="centerX" secondItem="p5w-ix-1CR" secondAttribute="centerX" id="u9V-LB-6EB"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0g5-Io-WAn">
-                                                            <rect key="frame" x="112" y="31.5" width="179" height="120"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Lizan Pradhanang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jK-10-dru">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="179" height="24"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="11:00 A.M." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsp-jE-aPD">
-                                                                    <rect key="frame" x="0.0" y="24" width="179" height="24"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Dr. Abhilasha Shah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJD-xj-v69">
-                                                                    <rect key="frame" x="0.0" y="48" width="179" height="24"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rheumatology &amp; Clinical Immunology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbd-r0-Rz9">
-                                                                    <rect key="frame" x="0.0" y="72" width="179" height="24"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alka Hospital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zee-en-azx">
-                                                                    <rect key="frame" x="0.0" y="96" width="179" height="24"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.396078431372549" green="0.82352941176470584" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <constraints>
-                                                        <constraint firstItem="p5w-ix-1CR" firstAttribute="centerY" secondItem="YsA-w9-jPy" secondAttribute="centerY" id="5wt-mk-DJx"/>
-                                                        <constraint firstItem="p5w-ix-1CR" firstAttribute="leading" secondItem="YsA-w9-jPy" secondAttribute="leading" constant="20" id="NO2-X9-Una"/>
-                                                        <constraint firstItem="0g5-Io-WAn" firstAttribute="leading" secondItem="p5w-ix-1CR" secondAttribute="trailing" constant="20" id="TTf-vw-z7a"/>
-                                                        <constraint firstItem="0g5-Io-WAn" firstAttribute="bottom" secondItem="p5w-ix-1CR" secondAttribute="bottom" id="cl3-fg-xxp"/>
-                                                        <constraint firstItem="0g5-Io-WAn" firstAttribute="top" secondItem="p5w-ix-1CR" secondAttribute="top" id="ob3-hm-f9i"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="YsA-w9-jPy" secondAttribute="trailing" constant="17" id="WEf-fS-Nx6"/>
-                                                <constraint firstAttribute="bottom" secondItem="YsA-w9-jPy" secondAttribute="bottom" constant="10" id="eQW-4I-AQO"/>
-                                                <constraint firstItem="YsA-w9-jPy" firstAttribute="top" secondItem="oXe-Aj-1cn" secondAttribute="top" constant="10" id="kmm-JK-Gpa"/>
-                                                <constraint firstItem="YsA-w9-jPy" firstAttribute="leading" secondItem="oXe-Aj-1cn" secondAttribute="leading" constant="17" id="ssi-Px-EAb"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <connections>
-                                            <outlet property="container" destination="YsA-w9-jPy" id="tjw-OI-qHQ"/>
-                                            <outlet property="dateContainer" destination="p5w-ix-1CR" id="qGp-NW-l7N"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DashboardHeaderTableViewCell" rowHeight="30" id="m2U-yF-Umn" customClass="DashboardHeaderTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="247.5" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m2U-yF-Umn" id="RQI-Wh-Vc0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
@@ -152,7 +49,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HospitalsTableViewCell" rowHeight="139" id="NPj-LN-wde" customClass="HospitalsTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="277.5" width="414" height="139"/>
+                                        <rect key="frame" x="0.0" y="74.5" width="414" height="139"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NPj-LN-wde" id="okB-Ao-Mox">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
@@ -182,7 +79,7 @@
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServicesTableViewCell" rowHeight="154" id="gQ6-ej-NvF" customClass="ServicesTableViewCell" customModule="PhoneHealth" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="416.5" width="414" height="154"/>
+                                        <rect key="frame" x="0.0" y="213.5" width="414" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gQ6-ej-NvF" id="sAt-tF-I6N">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="154"/>

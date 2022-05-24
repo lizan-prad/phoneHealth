@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		Ve8YWsUlxntXgUabjZ2+wGlkiTg=
+		GGBi5jRmOuYavgq9gYhHyGcg7PA=
 		</data>
 		<key>CalendarHeaderView.nib</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		4DaCxGxgNyc6H6m48qqN1HNOa/U=
+		RnwqVaBZYnyMOXQNzoWR0xinS+k=
 		</data>
 		<key>Modules/CogentIOSFramework.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		7lTSvoivloRZJgbuPdjDYuDVXtQ=
+		IW/9hQloCF9s+nGDRGnymyJuLzY=
 		</data>
 		<key>Modules/CogentIOSFramework.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/CogentIOSFramework.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		vgzYW4QYvQi8kRmy5fthp449MZY=
+		8TlxzF7pIKYvSwPFNr2wJ/LHrG4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -51,7 +51,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dTSo4lHGWnQ0AmBtLBqpV/3V5E7TJQ9P3UsOiswywbM=
+			qwGfEzVN7b01yTH9EDa4bV5lH35ewZEjxLehISG9PeI=
 			</data>
 		</dict>
 		<key>CalendarHeaderView.nib</key>
@@ -79,7 +79,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mbzmis5Z4V8Nelj/3ig0jZ6hk+vLD5qXWyp1UtxshlI=
+			uIrz9Sc0q92WpP0x7DOIgeFLseyCDQOtyiOKWCwuczU=
 			</data>
 		</dict>
 		<key>Modules/CogentIOSFramework.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -100,7 +100,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Pn0QRrJPR1xKzy4bhHN9MPWZIIKNCzxfikMbeZycKAU=
+			Lx6EvtMlJqFGcxyouqFADQIewtQw7BLwtOQR9HFFU18=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -18,6 +18,7 @@ class SetPasswordViewController: UIViewController, Storyboarded {
     @IBOutlet weak var passwordField: MDCOutlinedTextField!
     @IBOutlet weak var confirmPassword: MDCOutlinedTextField!
     
+    var isFromReset = false
     var passwordHidden = true
 //    var confirmHidden = true
     var viewModel: SetPasswordViewModel!
@@ -71,9 +72,13 @@ class SetPasswordViewController: UIViewController, Storyboarded {
         self.viewModel.setPasswordModel.bind { model in
             UserDefaults.standard.set(model?.token, forKey: "AT")
             UserDefaults.standard.set(model?.username, forKey: "mobile")
-            guard let navigationController = self.navigationController else {return}
-            let coodinator = UpdateProfileCoordinator.init(navigationController: navigationController, user: nil)
-            coodinator.start()
+            if self.isFromReset {
+                self.navigationController?.popToRootViewController(animated: true)
+            } else {
+                guard let navigationController = self.navigationController else {return}
+                let coodinator = UpdateProfileCoordinator.init(navigationController: navigationController, user: nil)
+                coodinator.start()
+            }
         }
     }
     

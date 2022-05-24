@@ -70,6 +70,7 @@ class FamilyProfileDetailsViewController: UIViewController, Storyboarded {
         } else {
             // Fallback on earlier versions
         }
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "edit"), style: .done, target: self, action: #selector(editOption))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +98,13 @@ class FamilyProfileDetailsViewController: UIViewController, Storyboarded {
                 
             }
         }
+    }
+    
+    @objc func editOption() {
+        guard let navigationController = self.navigationController else {return}
+        let coodinator = AddFamilyProfileCoordinator.init(navigationController: navigationController)
+        coodinator.userModel = model
+        coodinator.start()
     }
     
     func setupData() {

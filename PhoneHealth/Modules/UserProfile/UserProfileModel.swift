@@ -79,6 +79,9 @@ class UserProfileModel: Mappable {
     var name: String?
     var provinceId: Int?
     var provinceName: String?
+    var relation: String?
+    var relationCode: String?
+    var relationId: Int?
     var smokeFrequency: String?
     var userAllergyInfo: [AllergyModel]?
     var userDiseaseInfo: [ChronicDiseaseModel]?
@@ -117,6 +120,9 @@ class UserProfileModel: Mappable {
         provinceName <- map["provinceName"]
         smokeFrequency <- map["smokeFrequency"]
         userAllergyInfo <- map["userAllergyInfo"]
+        relation <- map["relation"]
+        relationCode <- map["relationCode"]
+        relationId <- map["relationId"]
         userDiseaseInfo <- map["userDiseaseInfo"]
         userHealthInfoId <- map["userHealthInfoId"]
         vdcOrMunicipalityId <- map["vdcOrMunicipalityId"]

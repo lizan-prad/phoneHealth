@@ -12,6 +12,7 @@ class FamilyProfileConfirmationCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var model: HealthProfileModel?
+    var userProfile: UserProfileModel?
 
     init(navigationController: UINavigationController, model: HealthProfileModel?) {
         self.navigationController = navigationController
@@ -22,6 +23,7 @@ class FamilyProfileConfirmationCoordinator: Coordinator {
         let vc = FamilyProfileConfirmationViewController.instantiate()
         vc.viewModel = FamilyProfileConfirmationViewModel()
         vc.viewModel.model = self.model
+        vc.model = self.userProfile
         navigationController.pushViewController(vc, animated: true)
     }
     

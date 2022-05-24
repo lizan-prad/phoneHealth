@@ -45,6 +45,8 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
     
     var isChild: Bool = false
     
+    var model: UserProfileModel?
+    
     let relationPickerView = UIPickerView()
     let genderPickerView = UIPickerView()
     let adbsPickerView = UIPickerView()
@@ -118,6 +120,32 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
         profileImage.addCornerRadius(profileImage.frame.height/2)
         
         uploadBtn.addTarget(self, action: #selector(openCameraAction), for: .touchUpInside)
+        
+    }
+    
+    func setupData(model: UserProfileModel?) {
+        self.profileImage.sd_setImage(with: URL.init(string: model?.avatar ?? "")) { img, error, _,_ in
+        
+            self.profileImage.image = img
+        }
+        self.fullName.text = model?.name
+        self.selectedRelation = self.relations?.filter({$0.code == model?.relationCode}).first
+        self.selectedBloodGroup = self.bloodGroups?.filter({$0.value == model?.bloodGroupId}).first
+        self.selectedGender = (model?.gender?.capitalized ?? "", "\((model?.gender ?? "").first ?? Character.init("M"))")
+        self.selectedImage = self.profileImage.image
+//        self..text = model?.email
+        self.year.text = model?.dateOfBirth?.components(separatedBy: "-").first
+        self.month.text = model?.dateOfBirth?.components(separatedBy: "-")[1]
+        self.day.text = model?.dateOfBirth?.components(separatedBy: "-").last
+        self.adbs.text = "AD"
+        self.inch.text = "\(model?.height ?? 0)".components(separatedBy: ".").last
+        self.feet.text = "\(model?.height ?? 0)".components(separatedBy: ".").first
+        self.weight.text = "\(model?.weight ?? 0)"
+//        self..text = model?.wardNumber ?? ""
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            self.nextnt.isEnabled = self.validateForm()
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -138,15 +166,21 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
         }
     }
     
+   
+    
     @objc func nextAction() {
         let dob = "\(self.year.text ?? "")-\(self.month.text ?? "")-\(self.day.text ?? "") \(self.adbs.text ?? "")"
         let imageURI = "IMG_\(Int(Date().timeIntervalSince1970)).jpeg"
-        let model = FmailyProfileStruct.init(avatar: self.selectedImage == nil ? "" : URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as! String)/profileImage/\(imageURI)", dateOfBirth: dob, districtId: userProfileModel?.districtId, email: userProfileModel?.email, gender: self.selectedGender?.1, provinceId: self.userProfileModel?.provinceId, fullName: fullName.text, relationId: self.selectedRelation?.value, vdcOrMunicipalityId: self.userProfileModel?.vdcOrMunicipalityId, wardNumber: "\(self.userProfileModel?.wardNumber ?? "")")
+        let model = FmailyProfileStruct.init(avatar: self.selectedImage == nil ? "" : URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as! String)/family/profileImage/\(imageURI)", dateOfBirth: dob, districtId: userProfileModel?.districtId, email: userProfileModel?.email, gender: self.selectedGender?.1, provinceId: self.userProfileModel?.provinceId, fullName: fullName.text, relationId: self.selectedRelation?.value, vdcOrMunicipalityId: self.userProfileModel?.vdcOrMunicipalityId, wardNumber: "\(self.userProfileModel?.wardNumber ?? "")")
         self.familyStruct = model
         if self.selectedImage == nil {
-            self.viewModel.updateprofile(model: model)
+            if self.model == nil {
+                self.viewModel.updateprofile(model: model)
+            } else {
+                self.viewModel.updateFamilyprofile(model: model, userId: self.model?.id ?? 0)
+            }
         } else {
-            let param = ["fileName": URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as? String ?? "")/profileImage/\(imageURI)"]
+            let param = ["fileName": URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as? String ?? "")/family/profileImage/\(imageURI)"]
             self.showProgressHud()
             MinioManager.shared.requestMinioUrl(param: param, encoding: JSONEncoding.default, headers: nil) { result in
                 switch result {
@@ -159,7 +193,11 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
                         request.httpBody = body
                         AF.request(request).response { response in
                             self.hideProgressHud()
-                            self.viewModel.updateprofile(model: model)
+                            if self.model == nil {
+                                self.viewModel.updateprofile(model: model)
+                            } else {
+                                self.viewModel.updateFamilyprofile(model: model, userId: self.model?.id ?? 0)
+                            }
                         }
                     }
                 case .failure( _):
@@ -177,15 +215,19 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
         }
         viewModel.relations.bind { models in
             self.relations = models
+            
         }
         viewModel.bloodGroups.bind { models in
             self.bloodGroups = models
+            if let model = self.model {
+                self.setupData(model: model)
+            }
         }
         self.viewModel.loading.bind { status in
             if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
         }
         viewModel.success.bind { msg in
-            self.showAlert(title: nil, message: "Your family profile has been created.") { _ in
+            self.showAlert(title: nil, message: self.model == nil ? "Your family profile has been created." : "Your family profile has been updated.") { _ in
                 if self.isChild {
                     self.navigationController?.popViewController(animated: true)
                     return
@@ -200,6 +242,7 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
                 model.bloodGroupId = self.selectedBloodGroup?.value ?? 0
                 let coordinator = AddFamilyProfile2Coordinator.init(navigationController: nav)
                 coordinator.model = model
+                coordinator.updateProfile = self.model
                 coordinator.start()
             }
         }

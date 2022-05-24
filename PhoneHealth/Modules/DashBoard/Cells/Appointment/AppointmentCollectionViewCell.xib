@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppointmentTableViewCell" customModule="PhoneHealth" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AppointmentCollectionViewCell" customModule="PhoneHealth" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="191"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="376" height="191"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKB-rS-cLI">
+                        <rect key="frame" x="0.0" y="0.0" width="376" height="191"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgH-H4-aTZ">
+                                <rect key="frame" x="20" y="35.5" width="72" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vc1-qR-nWw">
+                                        <rect key="frame" x="23.5" y="15" width="25" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmX-o2-UQe">
+                                        <rect key="frame" x="20.5" y="44.5" width="31.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOU-Y1-o0t">
+                                        <rect key="frame" x="24" y="86" width="24.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="9nE-Jw-WkT"/>
+                                    <constraint firstItem="ZOU-Y1-o0t" firstAttribute="top" secondItem="KmX-o2-UQe" secondAttribute="bottom" constant="10" id="A3g-BG-jiP"/>
+                                    <constraint firstItem="KmX-o2-UQe" firstAttribute="centerX" secondItem="tgH-H4-aTZ" secondAttribute="centerX" id="WPK-rU-Gms"/>
+                                    <constraint firstAttribute="width" constant="72" id="dRe-MF-afK"/>
+                                    <constraint firstItem="KmX-o2-UQe" firstAttribute="centerY" secondItem="tgH-H4-aTZ" secondAttribute="centerY" id="dzj-nM-QX3"/>
+                                    <constraint firstItem="vc1-qR-nWw" firstAttribute="top" secondItem="tgH-H4-aTZ" secondAttribute="top" constant="15" id="gZv-wh-pPx"/>
+                                    <constraint firstItem="vc1-qR-nWw" firstAttribute="centerX" secondItem="tgH-H4-aTZ" secondAttribute="centerX" id="nmI-m3-yJV"/>
+                                    <constraint firstItem="ZOU-Y1-o0t" firstAttribute="centerX" secondItem="tgH-H4-aTZ" secondAttribute="centerX" id="ppR-bu-9e3"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZuF-3A-yC5">
+                                <rect key="frame" x="112" y="35.5" width="179" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Lizan Pradhanang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AK-8I-gBc">
+                                        <rect key="frame" x="0.0" y="0.0" width="179" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="11:00 A.M." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZU7-oZ-g8u">
+                                        <rect key="frame" x="0.0" y="24" width="179" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Dr. Abhilasha Shah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeD-Jq-kmz">
+                                        <rect key="frame" x="0.0" y="48" width="179" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rheumatology &amp; Clinical Immunology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsq-lS-cva">
+                                        <rect key="frame" x="0.0" y="72" width="179" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alka Hospital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pap-Jn-g9z">
+                                        <rect key="frame" x="0.0" y="96" width="179" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.39607843139999999" green="0.82352941180000006" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="tgH-H4-aTZ" firstAttribute="centerY" secondItem="JKB-rS-cLI" secondAttribute="centerY" id="9oA-D6-mKn"/>
+                            <constraint firstItem="tgH-H4-aTZ" firstAttribute="leading" secondItem="JKB-rS-cLI" secondAttribute="leading" constant="20" id="Rrd-b2-tfa"/>
+                            <constraint firstItem="ZuF-3A-yC5" firstAttribute="leading" secondItem="tgH-H4-aTZ" secondAttribute="trailing" constant="20" id="U4B-W2-uAS"/>
+                            <constraint firstItem="ZuF-3A-yC5" firstAttribute="top" secondItem="tgH-H4-aTZ" secondAttribute="top" id="VMV-zR-COq"/>
+                            <constraint firstItem="ZuF-3A-yC5" firstAttribute="bottom" secondItem="tgH-H4-aTZ" secondAttribute="bottom" id="duh-Kd-rDA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" red="0.96078431372549022" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="JKB-rS-cLI" secondAttribute="trailing" id="1UF-lt-yFE"/>
+                <constraint firstItem="JKB-rS-cLI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="PSZ-XH-bqv"/>
+                <constraint firstItem="JKB-rS-cLI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cKA-9S-KxE"/>
+                <constraint firstAttribute="bottom" secondItem="JKB-rS-cLI" secondAttribute="bottom" id="lZI-tc-ele"/>
+            </constraints>
+            <size key="customSize" width="406" height="211"/>
+            <connections>
+                <outlet property="apoointmentTIME" destination="ZU7-oZ-g8u" id="Vfr-VT-CJc"/>
+                <outlet property="appointmentCategory" destination="Rsq-lS-cva" id="d9i-Mo-jmn"/>
+                <outlet property="appointmentFor" destination="0AK-8I-gBc" id="anc-b9-pcD"/>
+                <outlet property="container" destination="JKB-rS-cLI" id="TAa-cf-ii4"/>
+                <outlet property="dateContainer" destination="tgH-H4-aTZ" id="KA3-fN-ur6"/>
+                <outlet property="dateLabel" destination="KmX-o2-UQe" id="Vu9-Tc-bd7"/>
+                <outlet property="dayLabel" destination="vc1-qR-nWw" id="9Ez-22-AR4"/>
+                <outlet property="doctorName" destination="KeD-Jq-kmz" id="abs-v1-Hnh"/>
+                <outlet property="hospitalName" destination="pap-Jn-g9z" id="649-t1-j79"/>
+                <outlet property="monthLabel" destination="ZOU-Y1-o0t" id="qxb-7W-iaL"/>
+            </connections>
+            <point key="canvasLocation" x="82.608695652173921" y="62.611607142857139"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

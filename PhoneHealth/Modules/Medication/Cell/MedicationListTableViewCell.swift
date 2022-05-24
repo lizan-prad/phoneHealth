@@ -56,7 +56,7 @@ class MedicationListTableViewCell: UITableViewCell {
             if (f...e).contains(Date()) {
                 alarmFormat.dateFormat = "yyyy-MM-dd HH:mm"
     //            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
-                let times = model?.time?.compactMap({"\(d) \(self.get24Hrs(str: $0.time ?? ""))"})
+                let times = model?.time?.compactMap({"\(d) \( $0.time ?? "")"})
                 alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT-6.15")
                 self.time = times?.compactMap({alarmFormat.date(from: $0)}) ?? []
                 medName.text = model?.medicineName
@@ -93,7 +93,7 @@ class MedicationListTableViewCell: UITableViewCell {
             } else {
                 alarmFormat.dateFormat = "yyyy-MM-dd HH:mm"
     //            alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
-                let times = model?.time?.compactMap({"\(self.model?.firstIntake ?? "") \(self.get24Hrs(str: $0.time ?? ""))"})
+                let times = model?.time?.compactMap({"\(self.model?.firstIntake ?? "") \($0.time ?? "")"})
                 alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
                 self.time = times?.compactMap({alarmFormat.date(from: $0)}) ?? []
                 medName.text = model?.medicineName

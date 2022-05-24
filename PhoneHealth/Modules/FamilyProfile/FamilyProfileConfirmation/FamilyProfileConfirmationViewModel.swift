@@ -16,7 +16,7 @@ struct FamilyProfileConfirmationViewModel {
     var success: Observable<String> = Observable(nil)
     var loading: Observable<Bool> = Observable(nil)
     
-    func getHealthParam() -> [String: Any] {
+    func getHealthParam(userId: Int?) -> [String: Any] {
         let param: [String: Any] = [
             "alcoholFrequency": model?.alcoholFrequency ?? "",
             "bloodGroupId": model?.bloodGroupId ?? 0,
@@ -31,7 +31,7 @@ struct FamilyProfileConfirmationViewModel {
               "userAllergyInfoDetail": getAllergyParam(),
               "userDiseaseInfoDetail": getDiseaseParam(),
             "weight": model?.weight ?? "",
-            "userId": model?.userId ?? ""
+            "userId": userId == nil ? model?.userId ?? "" : userId ?? 0
             ]
         return param
     }
@@ -41,7 +41,8 @@ struct FamilyProfileConfirmationViewModel {
             "allergyId": $0.allergyId ?? 0,
             "allergyName": $0.allergyName ?? "",
             "isPrimary": "N",
-            "status": "N"
+            "status": "N",
+            "userAllergyInfoId": 0
         ]}) ?? [[String:Any]]()
         return param
     }
@@ -51,14 +52,15 @@ struct FamilyProfileConfirmationViewModel {
             "diseaseId": $0.diseaseId ?? 0,
             "diseaseName": $0.diseaseName ?? "",
             "isPrimary": "N",
-            "status": "N"
+            "status": "N",
+            "userAllergyInfoId": 0
         ]}) ?? [[String:Any]]()
         return param
     }
     
-    func uploadFamilyHealth() {
+    func uploadFamilyHealth(userId: Int?) {
         self.loading.value = true
-        NetworkManager.shared.request(BaseMappableModel<DynamicUserDataListModel>.self, urlExt: URLConfig.baseUrl + "user-family/profile/health/update", method: .put, param: self.getHealthParam(), encoding: JSONEncoding.default, headers: nil) { result in
+        NetworkManager.shared.request(BaseMappableModel<DynamicUserDataListModel>.self, urlExt: URLConfig.baseUrl + "user-family/profile/health/update", method: .put, param: self.getHealthParam(userId: userId), encoding: JSONEncoding.default, headers: nil) { result in
             self.loading.value = false
             switch result {
             case .success(let model):

@@ -36,6 +36,12 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
         }
     }
     
+    var appointments: [AppointmentModel]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     var hospitals: [HospitalListModel]? {
         didSet {
             tableView.reloadData()
@@ -65,7 +71,8 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
         tableView.register(UINib.init(nibName: "RightLayoutPlaceholderTableViewCell", bundle: nil), forCellReuseIdentifier: "RightLayoutPlaceholderTableViewCell")
         tableView.register(UINib.init(nibName: "LeftLayoutPlaceholderTableViewCell", bundle: nil), forCellReuseIdentifier: "LeftLayoutPlaceholderTableViewCell")
         tableView.register(UINib.init(nibName: "DashboardHospitalTableViewCell", bundle: nil), forCellReuseIdentifier: "DashboardHospitalTableViewCell")
-
+        tableView.register(UINib.init(nibName: "AppointmentTableViewCell", bundle: nil), forCellReuseIdentifier: "AppointmentTableViewCell")
+        
         bindViewModel()
         dropIcon.setTitle("", for: .normal)
         notifIcon.setTitle("", for: .normal)
@@ -115,11 +122,39 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
             switch result {
             case .success(let model):
                 self.model = model.data?.userProfileDetail
-                
+                self.fetchAppointment()
             case .failure(let error):
                 self.showAlert(title: nil, message: error.localizedDescription) { _ in
                     
                 }
+            }
+        }
+        
+    }
+    
+    func fetchAppointment() {
+        let param: [String: Any] = [
+            "appointmentServiceTypeCode": "",
+            "dateOfBirth": self.model?.dateOfBirth ?? "",
+            "hospitalId": 0,
+            "mobileNumber": UserDefaults.standard.value(forKey: "Mobile") as! String,
+            "name": self.model?.name ?? "",
+            "status": ""
+        ]
+        self.showProgressHud()
+        NetworkManager.shared.request(AppointmentContainerModel.self, urlExt: "https://uat-fonehealthapi.eappointments.net/api/v1/dashboard/search?page=1&size=10", method: .put, param: param, encoding: JSONEncoding.default, headers: ["Authorization": "HmacSHA512 eSewa:057d470f-c6dc-4509-8a2c-670e9bbb1731:954145191157303:ky98M6rSqZ5KXaVZ5NEdcvh2CSwRVgCXcx18RmaVJ0huggvbVQ3+lJmKZKiZVvkEbElXUVGpOYX8nPnoH6ErQA=="]) { result in
+            self.hideProgressHud()
+            switch result {
+            case .success(let model):
+                self.appointments = model.appointments?.reversed()
+//                self.showAlert(title: nil, message: "Appointment has be booked successfully.") { _ in
+//
+//                }
+            case .failure(let error):
+                break
+//                self.showAlert(title: nil, message: error.localizedDescription) { _ in
+//
+//                }
             }
         }
         
@@ -154,7 +189,7 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 180
+            return appointments?.isEmpty ?? false ? 180 :210
         case 1:
             return 110
         case 2:
@@ -173,15 +208,22 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RightLayoutPlaceholderTableViewCell") as! RightLayoutPlaceholderTableViewCell
-            cell.setup()
-            cell.infoText.text = "Ease scheduling pains with a doctor appointment booking and making payment"
-            cell.proceedBtn.setAttributedTitle("Book Now".getAtrribText(), for: .normal)
-            cell.placeholderImage.image = UIImage.init(named: "E-appointment-Dashboard")
-            cell.didTapProceed = {
-                NotificationCenter.default.post(name: Notification.Name.init(rawValue: "TAB3"), object: nil)
+            if appointments?.isEmpty ?? false {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "RightLayoutPlaceholderTableViewCell") as! RightLayoutPlaceholderTableViewCell
+                cell.setup()
+                cell.infoText.text = "Ease scheduling pains with a doctor appointment booking and making payment"
+                cell.proceedBtn.setAttributedTitle("Book Now".getAtrribText(), for: .normal)
+                cell.placeholderImage.image = UIImage.init(named: "E-appointment-Dashboard")
+                cell.didTapProceed = {
+                    NotificationCenter.default.post(name: Notification.Name.init(rawValue: "TAB3"), object: nil)
+                }
+                return cell
             }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentTableViewCell") as! AppointmentTableViewCell
+            cell.setup()
+            cell.models = self.appointments
             return cell
+            
 //            let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentTableViewCell") as! AppointmentTableViewCell
 //            cell.setup()
 //            return cell

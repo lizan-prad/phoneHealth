@@ -22,6 +22,19 @@ class MedicationViewController: UIViewController, Storyboarded {
     
     let dateFormatter = DateFormatter()
     
+    var selectedDate: Date? {
+        didSet {
+            let alarmFormat = DateFormatter()
+            alarmFormat.dateFormat = "yyyy-MM-dd"
+           
+            medicationList = original?.filter({ model in
+                let f = alarmFormat.date(from: model.firstIntake ?? "") ?? Date()
+                let e = alarmFormat.date(from: model.expiryDate ?? "") ?? Date()
+                return (f...e).contains(selectedDate ?? Date())
+            })
+        }
+    }
+    
     var viewModel: MedicationViewModel!
     var original: [MedicationDataModel]?  {
         didSet {
@@ -38,12 +51,13 @@ class MedicationViewController: UIViewController, Storyboarded {
                 })
                 
             })
-            medicationList = original?.filter({ model in
-                let formatter = DateFormatter.init()
-                formatter.dateFormat = "yyyy-MM-dd"
-                let current = formatter.string(from: Date())
-                return current != model.expiryDate
-            })
+            self.selectedDate = Date()
+//            medicationList = original?.filter({ model in
+//                let formatter = DateFormatter.init()
+//                formatter.dateFormat = "yyyy-MM-dd"
+//                let current = formatter.string(from: Date())
+//                return current != model.expiryDate
+//            })
         }
     }
     var medicationList: [MedicationDataModel]? {
@@ -91,6 +105,7 @@ class MedicationViewController: UIViewController, Storyboarded {
         super.viewWillAppear(animated)
         self.navigationItem.title = "Medications"
         self.viewModel.fetchMedication()
+        self.calender.select(Date())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -101,6 +116,7 @@ class MedicationViewController: UIViewController, Storyboarded {
     func bindViewModel() {
         self.viewModel.medications.bind { models in
             self.original = models
+//            self.selectedDate = Date()
         }
         self.viewModel.loading.bind { status in
             if status ?? false { self.showProgressHud() } else {self.hideProgressHud()}
@@ -154,6 +170,7 @@ class MedicationViewController: UIViewController, Storyboarded {
 extension MedicationViewController:  FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        self.selectedDate = date
         self.currentDate.text = dateFormatter.string(from: date)
     }
     

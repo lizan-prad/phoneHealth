@@ -55,10 +55,38 @@ struct AddFamilyProfileViewModel {
             "relationId": model.relationId ?? 0,
             "fullName": model.fullName ?? "",
             "vdcOrMunicipalityId": model.vdcOrMunicipalityId ?? 0,
-            "wardNumber": model.wardNumber ?? ""
+            "wardNumber": model.wardNumber ?? "",
+            "userId": 0
         ]
         self.loading.value = true
         NetworkManager.shared.request(BaseMappableModel<FamilyResponseIdModel>.self, urlExt: URLConfig.baseUrl + "user-family", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.success.value = "\(model.data?.userId ?? 0)"
+            case .failure(let error):
+                self.error.value = error
+            }
+        }
+    }
+    
+    func updateFamilyprofile(model: FmailyProfileStruct, userId: Int) {
+        let param: [String: Any] = [
+            "avatar": model.avatar ?? "",
+            "dateOfBirth": model.dateOfBirth ?? "",
+            "districtId": model.districtId ?? 0,
+            "email": model.email ?? "",
+            "gender": model.gender ?? "",
+            "isAvatarUpdated": model.avatar == "" ? "N": "Y",
+            "provinceId": model.provinceId ?? 0,
+            "relationId": model.relationId ?? 0,
+            "fullName": model.fullName ?? "",
+            "vdcOrMunicipalityId": model.vdcOrMunicipalityId ?? 0,
+            "wardNumber": model.wardNumber ?? "",
+            "userId": userId
+        ]
+        self.loading.value = true
+        NetworkManager.shared.request(BaseMappableModel<FamilyResponseIdModel>.self, urlExt: URLConfig.baseUrl + "user-family/profile/update", method: .put, param: param, encoding: JSONEncoding.default, headers: nil) { result in
             self.loading.value = false
             switch result {
             case .success(let model):

@@ -17,10 +17,12 @@ class OtpViewController: UIViewController, Storyboarded {
     
     var viewModel: OtpViewModel!
     var otp: String?
+    var isFromReset = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        
         self.view.setGradient(UIColor.init(hex: "E7F5F4"), endColor: UIColor.init(hex: "72C6BD"))
         otpIcon.addCornerRadius(otpIcon.frame.height/2)
         verifyBtn.addCornerRadius(12)
@@ -73,12 +75,15 @@ class OtpViewController: UIViewController, Storyboarded {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.title = ""
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     fileprivate func openSetPassword() {
         guard let navigationController = self.navigationController else {return}
         let coordinator = SetPasswordCoordinator.init(navigationController: navigationController)
+        
+        coordinator.isFromReset = isFromReset
         coordinator.start()
     }
     

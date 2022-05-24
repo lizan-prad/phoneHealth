@@ -33,8 +33,8 @@ class AddFamilyProfile2ViewController: UIViewController, Storyboarded {
     @IBOutlet weak var diseaseColHeight: NSLayoutConstraint!
     @IBOutlet weak var allergyColHeight: NSLayoutConstraint!
     
-    var selectedAllergies = [DynamicUserDataModel?]()
-    var selectedDiseases = [DynamicUserDataModel?]()
+    var selectedAllergies = [DynamicUserDataModel]()
+    var selectedDiseases = [DynamicUserDataModel]()
     
     var allergies: [DynamicUserDataModel]? {
         didSet {
@@ -51,6 +51,8 @@ class AddFamilyProfile2ViewController: UIViewController, Storyboarded {
     }
     
     var viewModel: AddFamilyProfile2ViewModel!
+    
+    var model: UserProfileModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,16 +85,35 @@ class AddFamilyProfile2ViewController: UIViewController, Storyboarded {
         chronicYes.addTarget(self, action: #selector(didChangeChronicRadioBtn(_:)), for: .touchUpInside)
         chronicNo.addTarget(self, action: #selector(didChangeChronicRadioBtn(_:)), for: .touchUpInside)
         nextBtn.addTarget(self, action: #selector(proceedToConfirmation), for: .touchUpInside)
+        
+        if let model = self.model {
+            self.selectedAllergies = model.userAllergyInfo?.compactMap({ model in
+                var dict: [String: Any] = [:]
+                dict["code"] = model.allergyId
+                dict["label"] = model.userAllergyInfoId
+                dict["value"] = model.allergyName
+                return DynamicUserDataModel.init(JSON: dict)
+            }) ?? []
+            
+            self.selectedDiseases = model.userDiseaseInfo?.compactMap({ model in
+                var dict: [String: Any] = [:]
+                dict["code"] = model.diseaseId
+                dict["label"] = model.userDiseaseInfoId
+                dict["value"] = model.diseaseName
+                return DynamicUserDataModel.init(JSON: dict)
+            }) ?? []
+        }
     }
     
     @objc func proceedToConfirmation() {
         let healthModel = self.viewModel.model
         healthModel?.haveAllergies = self.alleryYes.isOn ? "Y" : "N"
         healthModel?.haveCronicDease = self.chronicYes.isOn ? "Y" : "N"
-        healthModel?.userAllergyInfo = self.selectedAllergies.map({AllergyDetailModel.init(allergyId: $0?.value, allergyName: $0?.label, isPrimary: "", status: "")})
-        healthModel?.userDiseaseInfo = self.selectedDiseases.map({DiseaseDetailModel.init(diseaseId: $0?.value, diseaseName: $0?.label, isPrimary: "", status: "")})
+        healthModel?.userAllergyInfo = self.selectedAllergies.map({AllergyDetailModel.init(allergyId: $0.value, allergyName: $0.label, isPrimary: "", status: "")})
+        healthModel?.userDiseaseInfo = self.selectedDiseases.map({DiseaseDetailModel.init(diseaseId: $0.value, diseaseName: $0.label, isPrimary: "", status: "")})
         guard let nav = self.navigationController else {return}
         let coordinator = FamilyProfileConfirmationCoordinator.init(navigationController: nav, model: healthModel)
+        coordinator.userProfile = self.model
         coordinator.start()
     }
     
@@ -212,6 +233,11 @@ extension AddFamilyProfile2ViewController: UICollectionViewDataSource, UICollect
         case diseaseCollection:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddFamilyDiseaseAllergyCollectionViewCell", for: indexPath) as! AddFamilyDiseaseAllergyCollectionViewCell
             cell.namelbael.text = self.chronics?[indexPath.row].label
+            if self.selectedDiseases.map({$0.label ?? ""}).contains(cell.namelbael.text ?? "") {
+                cell.contentView.backgroundColor = ColorConfig.baseColor.withAlphaComponent(0.4)
+            } else {
+                cell.contentView.backgroundColor = .clear
+            }
             cell.index = indexPath.row
             cell.contentView.layer.cornerRadius = 20
             cell.contentView.addBorder(UIColor.lightGray.withAlphaComponent(0.3))
@@ -220,6 +246,11 @@ extension AddFamilyProfile2ViewController: UICollectionViewDataSource, UICollect
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddFamilyDiseaseAllergyCollectionViewCell", for: indexPath) as! AddFamilyDiseaseAllergyCollectionViewCell
             cell.namelbael.text = self.allergies?[indexPath.row].label
             cell.index = indexPath.row
+            if self.selectedAllergies.map({$0.label ?? ""}).contains(cell.namelbael.text ?? "") {
+                cell.contentView.backgroundColor = ColorConfig.baseColor.withAlphaComponent(0.4)
+            } else {
+                cell.contentView.backgroundColor = .clear
+            }
             cell.contentView.layer.cornerRadius = 20
             cell.contentView.addBorder(UIColor.lightGray.withAlphaComponent(0.3))
             return cell
@@ -231,28 +262,30 @@ extension AddFamilyProfile2ViewController: UICollectionViewDataSource, UICollect
         switch collectionView {
         case diseaseCollection:
             let cell = collectionView.cellForItem(at: indexPath) as! AddFamilyDiseaseAllergyCollectionViewCell
-            if selectedDiseases.map({$0?.value ?? 0}).contains((self.chronics?[cell.index ?? 0].value ?? 0)) {
+            if selectedDiseases.map({$0.value ?? 0}).contains((self.chronics?[cell.index ?? 0].value ?? 0)) {
                 let index = selectedDiseases.firstIndex { b in
-                    return b?.value == (self.chronics?[cell.index ?? 0].value ?? 0)
+                    return b.value == (self.chronics?[cell.index ?? 0].value ?? 0)
                 }
                 cell.contentView.backgroundColor = .white
                 self.selectedDiseases.remove(at: index ?? 0)
                 return
             }
             cell.contentView.backgroundColor = ColorConfig.baseColor.withAlphaComponent(0.4)
-            self.selectedDiseases.append(self.chronics?[indexPath.row])
+            guard let disease = self.chronics?[indexPath.row] else {return}
+            self.selectedDiseases.append(disease)
         case allergyColleciton:
             let cell = collectionView.cellForItem(at: indexPath) as! AddFamilyDiseaseAllergyCollectionViewCell
-            if selectedAllergies.map({$0?.value ?? 0}).contains((self.allergies?[cell.index ?? 0].value ?? 0)) {
+            if selectedAllergies.map({$0.value ?? 0}).contains((self.allergies?[cell.index ?? 0].value ?? 0)) {
                 let index = selectedAllergies.firstIndex { b in
-                    return b?.value == (self.allergies?[cell.index ?? 0].value ?? 0)
+                    return b.value == (self.allergies?[cell.index ?? 0].value ?? 0)
                 }
                 cell.contentView.backgroundColor = .white
                 self.selectedAllergies.remove(at: index ?? 0)
                 return
             }
             cell.contentView.backgroundColor = ColorConfig.baseColor.withAlphaComponent(0.4)
-            self.selectedAllergies.append(self.allergies?[indexPath.row])
+            guard let allergy = self.allergies?[indexPath.row] else {return}
+            self.selectedAllergies.append(allergy)
         default: break
         }
     }

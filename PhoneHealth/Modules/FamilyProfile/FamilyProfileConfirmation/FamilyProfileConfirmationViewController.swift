@@ -31,6 +31,7 @@ class FamilyProfileConfirmationViewController: UIViewController, Storyboarded {
     
     
     var viewModel: FamilyProfileConfirmationViewModel!
+    var model: UserProfileModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +69,7 @@ class FamilyProfileConfirmationViewController: UIViewController, Storyboarded {
     }
     
     @objc func finishAction() {
-        self.viewModel.uploadFamilyHealth()
+        self.viewModel.uploadFamilyHealth(userId: model?.id)
     }
     
     func setup() {

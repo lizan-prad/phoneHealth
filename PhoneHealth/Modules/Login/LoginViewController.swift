@@ -42,9 +42,15 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
         checkBox.checkBoxColor = CheckBoxColor.init(activeColor: ColorConfig.baseColor, inactiveColor: UIColor.white, inactiveBorderColor: UIColor.lightGray, checkMarkColor: UIColor.white)
         checkBox.delegate = self
         MobileNumber.delegate = self
-        
+        Password.isSecureTextEntry = true
         signInBtn.addTarget(self, action: #selector(proceedSignIn), for: .touchUpInside)
         signUpbtn.addTarget(self, action: #selector(proceedSignUp), for: .touchUpInside)
+        
+        viewModel.otp.bind { model in
+            self.openOtpView(model: model)
+        }
+        
+        
         
         viewModel.loginModel.bind { model in
             UserDefaults.standard.set(model?.token, forKey: "AT")
@@ -72,6 +78,24 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
         
         MobileNumber.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
         Password.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+        
+        forgotPasswordBtn.addTarget(self, action: #selector(forgotAction), for: .touchUpInside)
+    }
+    
+    fileprivate func openOtpView(model: OtpModel?) {
+        guard let navigationController = self.navigationController, let model = model else {return}
+       
+        let coordinator = OtpCoordinator.init(navigationController: navigationController, model: model)
+        coordinator.isFromReset = true
+        coordinator.start()
+    }
+    
+    @objc func forgotAction() {
+        let vc = UIStoryboard.init(name: "SetPassword", bundle: nil).instantiateViewController(withIdentifier: "ResetPasswordViewController") as! ResetPasswordViewController
+        vc.didSelectMobile = { mobile in
+            self.viewModel.resetPassword(mobile)
+        }
+        self.present(vc, animated: true)
     }
     
     func fetchProfile() {

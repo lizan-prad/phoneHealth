@@ -42,7 +42,7 @@ end
   
   target 'CogentIOSFramework' do
       use_frameworks!
-      project '/Users/Lizan/Downloads/CogentIOSFramework/CogentIOSFramework.xcodeproj'
+      project '/Users/macbookpro/Downloads/CogentIOSFramework/CogentIOSFramework.xcodeproj'
       pod 'SwiftyJSON'
       pod 'SkeletonView'
       pod 'JTAppleCalendar'

@@ -143,23 +143,13 @@ class EappointmentsViewController: UIViewController, CogentPaymentDelegate, Esew
     
     func onEsewaSDKPaymentSuccess(info: [String : Any]) {
         if let model = self.model {
-        let param = [
-            "appointmentInfo": [
-                "appointmentReservationId": model.properties?.appointmentReservationId ?? 0,
-                "createdDateNepali": model.properties?.createdDateNepali ?? "",
-                "hospitalAppointmentServiceTypeId": model.properties?.hospitalAppointmentServiceTypeId ?? 0,
-                "isFollowUp": model.properties?.followUp ?? "",
-                "isNewRegistration": model.properties?.newRegistration ?? false,
-                "parentAppointmentId": model.properties?.parentAppointmentId ?? 0,
-                "patientId": model.properties?.patientId ?? 0
-            ],
-            "requestBy": [
+            let requestByParam: [String: Any] = [
                 "address": userModel?.districtName ?? "",
-                "dateOfBirth": userModel?.dateOfBirth ?? "",
+                "dateOfBirth": (userModel?.dateOfBirth ?? "") + " AD",
                 "districtId": userModel?.districtId ?? 0,
                 "email": userModel?.email ?? "",
               "esewaId": "9806800001",
-                "gender": userModel?.gender ?? "",
+                "gender": "M",
               "hospitalNumber": "",
               "isAgent": "N",
                 "mobileNumber": (UserDefaults.standard.value(forKey: "Mobile") as? String) ?? "",
@@ -167,32 +157,57 @@ class EappointmentsViewController: UIViewController, CogentPaymentDelegate, Esew
                 "provinceId": userModel?.provinceId ?? 0,
                 "vdcOrMunicipalityId": userModel?.vdcOrMunicipalityId ?? "",
                 "wardNumber": userModel?.wardNumber ?? 0
-            ],
-            "requestFor": [
+            ]
+            
+            let requestForParam: [String: Any] = [
                 "address": model.properties?.patientAddress ?? "",
-              "dateOfBirth": model.properties?.dateOfBirth ?? "",
+              "dateOfBirth": model.properties?.dateOfBirth?.replacingOccurrences(of: "BS", with: " AD") ?? "",
               "districtId": 12,
               "email": model.properties?.patientEmail ?? "",
               "esewaId": "9806800001",
-              "gender": model.properties?.patientGender ?? "",
+              "gender": "M",
               "hospitalNumber": "",
               "mobileNumber": model.properties?.patientMobileNumber ?? "",
               "name": model.properties?.patientName ?? "",
-              "provinceId": model.properties?.patientProvinceId ?? 0,
-              "vdcOrMunicipalityId": model.properties?.patientVdcOrMunicipalityId ?? 0,
-              "wardNumber": model.properties?.patientWardId ?? 0
-            ],
-            "transactionInfo": [
+              "provinceId": userModel?.provinceId ?? 0,
+              "vdcOrMunicipalityId": userModel?.vdcOrMunicipalityId ?? "",
+              "wardNumber": userModel?.wardNumber ?? 0
+            ]
+            
+            let appointmentInfo: [String: Any] = [
+                "appointmentReservationId": model.properties?.appointmentReservationId ?? 0,
+                "createdDateNepali": model.properties?.createdDateNepali ?? "",
+                "hospitalAppointmentServiceTypeId": model.properties?.hospitalAppointmentServiceTypeId ?? 0,
+                "isFollowUp": model.properties?.followUp ?? "",
+                "isNewRegistration": model.properties?.newRegistration ?? false,
+                "parentAppointmentId": model.properties?.parentAppointmentId ?? "",
+                "patientId": model.properties?.patientId ?? ""
+            ]
+            let formatter = DateFormatter()
+            formatter.dateFormat = "ddd mmm dd HH:mm:ss zzz yyyy"
+            let date = (info["transactionDetails"] as? [String: Any])?["date"] as! String
+            let formatted = formatter.date(from: date)
+            formatter.dateFormat = "yyyy-MM-dd"
+            
+            let transactionInfo: [String: Any] = [
                 "appointmentAmount": model.amount ?? 0,
               "appointmentModeCode": "foneHealth",
                 "discountAmount": 0,
                 "serviceChargeAmount": 0,
               "taxAmount": 0,
-                "transactionDate": (info["transactionDetails.date"] as! String),
-              "transactionNumber": (info["transactionDetails.referenceId"] as! String)
+                "transactionDate": formatter.string(from: Date()),
+              "transactionNumber": (info["transactionDetails"] as? [String: Any])?["referenceId"] as! String
             ]
+            
+            
+            let param: [String: Any] = [
+            "appointmentInfo": appointmentInfo,
+            "requestBy": requestByParam,
+            "requestFor": requestForParam,
+            "transactionInfo": transactionInfo
           ]
-            print(param)
+            self.finalPaymentProcess(param: param)
+        }
 
     }
     
@@ -205,6 +220,7 @@ class EappointmentsViewController: UIViewController, CogentPaymentDelegate, Esew
     }
     
     func onCogentPaymentError(errorDescription: String) {
+        
     }
     
     func openEsewaSDK(mode: EsewaModelMap) {
@@ -213,6 +229,23 @@ class EappointmentsViewController: UIViewController, CogentPaymentDelegate, Esew
         sdk = EsewaSDK(inViewController: self, environment: .development, delegate: self)
         sdk?.initiatePayment(merchantId: mode.clientId ?? "", merchantSecret: mode.clientSecret ?? "", productName: "eappointment", productAmount: "\(Int(self.model?.amount ?? 0))", productId: "\(self.model?.product_code ?? "")", callbackUrl: "cashBack", paymentProperties: nil)
         
+    }
+    
+    func finalPaymentProcess(param: [String:Any]) {
+        self.showProgressHud()
+        NetworkManager.shared.request(EsewaModelMap.self, urlExt: "https://uat-fonehealthapi.eappointments.net/api/v1/appointment/others", method: .post, param: param, encoding: JSONEncoding.default, headers: ["Authorization": "HmacSHA512 eSewa:057d470f-c6dc-4509-8a2c-670e9bbb1731:954145191157303:ky98M6rSqZ5KXaVZ5NEdcvh2CSwRVgCXcx18RmaVJ0huggvbVQ3+lJmKZKiZVvkEbElXUVGpOYX8nPnoH6ErQA=="]) { result in
+            self.hideProgressHud()
+            switch result {
+            case .success(let model):
+                self.showAlert(title: nil, message: "Appointment has be booked successfully.") { _ in
+                    
+                }
+            case .failure(let error):
+                self.showAlert(title: nil, message: error.localizedDescription) { _ in
+                    
+                }
+            }
+        }
     }
     
     func prePaymentProcess(param: [String:Any]) {
