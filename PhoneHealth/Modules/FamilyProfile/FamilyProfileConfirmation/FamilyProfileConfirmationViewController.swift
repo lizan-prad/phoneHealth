@@ -64,8 +64,14 @@ class FamilyProfileConfirmationViewController: UIViewController, Storyboarded {
         container.addCornerRadius(12)
         container.addBorder(UIColor.lightGray.withAlphaComponent(0.3))
         backBtn.rounded()
+        backBtn.addBorder(UIColor.lightGray.withAlphaComponent(0.5))
         nextBtn.rounded()
         nextBtn.addTarget(self, action: #selector(finishAction), for: .touchUpInside)
+        backBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
+    }
+    
+    @objc func back() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func finishAction() {
@@ -73,18 +79,19 @@ class FamilyProfileConfirmationViewController: UIViewController, Storyboarded {
     }
     
     func setup() {
+        self.userProfileImage.image = viewModel.model?.avatar
         self.name.text = viewModel.model?.familyData?.fullName
         self.id.text = UserDefaults.standard.value(forKey: "Mobile") as? String
         self.bloodGroup.text = self.viewModel.model?.bloodGroup
         self.height.text = (viewModel.model?.height ?? "") + " ft"
         self.age.text = self.viewModel.model?.familyData?.dateOfBirth
         self.weight.text = (viewModel.model?.weight ?? "") + "kg"
-        self.allergies.text = "\(self.viewModel.model?.userAllergyInfo?.map({$0.allergyName ?? ""}).joined(separator: ", ") ?? "")"
+        self.allergies.text = "\(self.viewModel.model?.userAllergyInfo?.filter({$0.status == "Y"}).map({$0.allergyName ?? ""}).joined(separator: ", ") ?? "")"
         self.smoking.text = viewModel.model?.doYouSmoke
         self.drinking.text = viewModel.model?.doYouDrinkAlcohol
         self.foodType.text = viewModel.model?.foodType
         self.junkFOod.text = viewModel.model?.junkFoodFrequency
-        self.chronicDisease.text = "\(self.viewModel.model?.userDiseaseInfo?.map({$0.diseaseName ?? ""}).joined(separator: ", ") ?? "")"
+        self.chronicDisease.text = "\(self.viewModel.model?.userDiseaseInfo?.filter({$0.status == "Y"}).map({$0.diseaseName ?? ""}).joined(separator: ", ") ?? "")"
         
         
     }

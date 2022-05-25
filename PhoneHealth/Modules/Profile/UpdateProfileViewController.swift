@@ -164,6 +164,7 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
         viewModel.success.bind { status in
 //            if self.viewModel.model == nil {
             guard let navigationController = self.navigationController, let model = self.updateProfileDetails else {return}
+            
             let coodinator = UserSteppingCoordinator.init(navigationController: navigationController, model: model, usModel: self.viewModel.model)
             coodinator.start()
 //            } else {
@@ -269,13 +270,13 @@ class UpdateProfileViewController: UIViewController, Storyboarded {
     @objc func actionNext() {
         let dob = "\(self.yearField.text ?? "")-\(self.monthField.text ?? "")-\(self.dayFIeld.text ?? "") \(self.adbsField.text ?? "")"
         if selectedImage == nil {
-            var model = UpdateProfileStruct.init(avatar: "", dob: dob, districtId: selectedDistrict?.value ?? 0, email: emailAddressField.text, gender: selectedGender?.1 ?? "", province: selectedProvince?.value ?? 0, vdc: selectedVDC?.value ?? 0, wardNumber: wardNumberField.text ?? "")
+            var model = UpdateProfileStruct.init(avatar: "", dob: dob, districtId: selectedDistrict?.value ?? 0, email: emailAddressField.text, gender: selectedGender?.1 ?? "", province: selectedProvince?.value ?? 0, vdc: selectedVDC?.value ?? 0, wardNumber: wardNumberField.text ?? "", image: self.profileImage.image)
             model.address = "\(self.selectedDistrict?.label ?? ""), \(wardNumberField.text ?? "")"
             self.updateProfileDetails = model
             self.viewModel.updateprofile(model: model)
         } else {
             let imageURI = "IMG_\(Int(Date().timeIntervalSince1970)).jpeg"
-            var model = UpdateProfileStruct.init(avatar: URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as! String)/profileImage/\(imageURI)", dob: dob, districtId: selectedDistrict?.value ?? 0, email: emailAddressField.text, gender: selectedGender?.1 ?? "", province: selectedProvince?.value ?? 0, vdc: selectedVDC?.value ?? 0, wardNumber: wardNumberField.text ?? "")
+            var model = UpdateProfileStruct.init(avatar: URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as! String)/profileImage/\(imageURI)", dob: dob, districtId: selectedDistrict?.value ?? 0, email: emailAddressField.text, gender: selectedGender?.1 ?? "", province: selectedProvince?.value ?? 0, vdc: selectedVDC?.value ?? 0, wardNumber: wardNumberField.text ?? "", image: self.profileImage.image)
             model.address = "\(self.selectedDistrict?.label ?? ""), \(wardNumberField.text ?? "")"
             self.updateProfileDetails = model
             let param = ["fileName": URLConfig.minioBase + "\(UserDefaults.standard.value(forKey: "Mobile") as? String ?? "")/profileImage/\(imageURI)"]

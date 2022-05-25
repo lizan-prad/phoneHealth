@@ -23,9 +23,10 @@ class DynamicUserDataListModel: Mappable {
 
 class DynamicUserDataModel: Mappable {
     
-    var code: String?
+    var code: Int?
     var label: String?
     var value: Int?
+    var status: String?
     
     required init?(map: Map) {
         
@@ -35,5 +36,6 @@ class DynamicUserDataModel: Mappable {
         code <- map["code"]
         label <- map["label"]
         value <- map["value"]
+        status <- map["status"]
     }
 }

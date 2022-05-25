@@ -18,6 +18,12 @@ class VaccineListTableViewCell: UITableViewCell {
         didSet {
             vaccinationTypeImage.image = UIImage.init(named: model?.vaccinationType == "Oral" ? "drop" : "injection"  )
             self.vaccineName.text = model?.vaccinationName
+            let dateStr = model?.vaccinationDate?.components(separatedBy: "T").first
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let date = formatter.date(from: dateStr ?? "") ?? Date()
+            self.takeBtn.isUserInteractionEnabled = date <= Date()
+            self.takeBtn.backgroundColor = date <= Date() ? ColorConfig.baseColor : .lightGray
         }
     }
     
@@ -25,6 +31,7 @@ class VaccineListTableViewCell: UITableViewCell {
     
     func setup() {
         self.takeBtn.rounded()
+        
         takeBtn.isUserInteractionEnabled = true
         takeBtn.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(takeAction)))
     }

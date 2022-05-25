@@ -311,7 +311,7 @@ extension FamilyProfileDetailsViewController: UITableViewDataSource, UITableView
             return cell
         }
         
-        if (model?.immunizationMinInfo != nil || model?.immunizationMinInfo != "") && indexPath.section == 2 {
+        if (model?.immunizationMinInfo != nil) && indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyProfileImmunizationTableViewCell") as! FamilyProfileImmunizationTableViewCell
             cell.setup()
             cell.daysLeft.text = model?.immunizationMinInfo?.components(separatedBy: " ").first

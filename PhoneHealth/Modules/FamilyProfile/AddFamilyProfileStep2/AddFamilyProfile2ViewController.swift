@@ -45,7 +45,7 @@ class AddFamilyProfile2ViewController: UIViewController, Storyboarded {
     
     var chronics: [DynamicUserDataModel]? {
         didSet {
-            diseaseColHeight.constant = CGFloat(((self.chronics?.count ?? 0)/2)*60)
+            diseaseColHeight.constant = CGFloat(((self.chronics?.count ?? 0)/2)*50)
             self.diseaseCollection.reloadData()
         }
     }
@@ -89,17 +89,19 @@ class AddFamilyProfile2ViewController: UIViewController, Storyboarded {
         if let model = self.model {
             self.selectedAllergies = model.userAllergyInfo?.compactMap({ model in
                 var dict: [String: Any] = [:]
-                dict["code"] = model.allergyId
-                dict["label"] = model.userAllergyInfoId
-                dict["value"] = model.allergyName
+                dict["code"] = model.userAllergyInfoId
+                dict["label"] = model.allergyName
+                dict["value"] = model.allergyId
+                dict["status"] = "Y"
                 return DynamicUserDataModel.init(JSON: dict)
             }) ?? []
             
             self.selectedDiseases = model.userDiseaseInfo?.compactMap({ model in
                 var dict: [String: Any] = [:]
-                dict["code"] = model.diseaseId
-                dict["label"] = model.userDiseaseInfoId
-                dict["value"] = model.diseaseName
+                dict["code"] = model.userDiseaseInfoId
+                dict["label"] = model.diseaseName
+                dict["value"] = model.diseaseId
+                dict["status"] = "Y"
                 return DynamicUserDataModel.init(JSON: dict)
             }) ?? []
         }
@@ -109,8 +111,8 @@ class AddFamilyProfile2ViewController: UIViewController, Storyboarded {
         let healthModel = self.viewModel.model
         healthModel?.haveAllergies = self.alleryYes.isOn ? "Y" : "N"
         healthModel?.haveCronicDease = self.chronicYes.isOn ? "Y" : "N"
-        healthModel?.userAllergyInfo = self.selectedAllergies.map({AllergyDetailModel.init(allergyId: $0.value, allergyName: $0.label, isPrimary: "", status: "")})
-        healthModel?.userDiseaseInfo = self.selectedDiseases.map({DiseaseDetailModel.init(diseaseId: $0.value, diseaseName: $0.label, isPrimary: "", status: "")})
+        healthModel?.userAllergyInfo = self.selectedAllergies.map({AllergyDetailModel.init(allergyId: $0.value, allergyName: $0.label, isPrimary: "N", status: "Y", info: $0.code)}) + (self.allergies?.filter({!self.selectedAllergies.compactMap({$0.value}).contains($0.value ?? 0)}).map({AllergyDetailModel.init(allergyId: $0.value, allergyName: $0.label, isPrimary: "N", status: "N", info: $0.code ?? 0)}) ?? [])
+        healthModel?.userDiseaseInfo = self.selectedDiseases.map({DiseaseDetailModel.init(diseaseId: $0.value, diseaseName: $0.label, isPrimary: "N", status: "Y", info: $0.code)}) + (self.chronics?.filter({!self.selectedDiseases.compactMap({$0.value}).contains($0.value ?? 0)}).map({DiseaseDetailModel.init(diseaseId: $0.value, diseaseName: $0.label, isPrimary: "N", status: "N")}) ?? [])
         guard let nav = self.navigationController else {return}
         let coordinator = FamilyProfileConfirmationCoordinator.init(navigationController: nav, model: healthModel)
         coordinator.userProfile = self.model
@@ -177,7 +179,7 @@ class AddFamilyProfile2ViewController: UIViewController, Storyboarded {
     }
     
     func validate() -> Bool {
-        return ((allergyNo.isOn && selectedAllergies.count != 0) || alleryYes.isOn) && ((chronicYes.isOn && selectedDiseases.count != 0) || (chronicYes.isOn))
+        return ((alleryYes.isOn && selectedAllergies.count != 0) || allergyNo.isOn) && ((chronicYes.isOn && selectedDiseases.count != 0) || (chronicNo.isOn))
     }
     
     func setupCollection() {
@@ -236,7 +238,7 @@ extension AddFamilyProfile2ViewController: UICollectionViewDataSource, UICollect
             if self.selectedDiseases.map({$0.label ?? ""}).contains(cell.namelbael.text ?? "") {
                 cell.contentView.backgroundColor = ColorConfig.baseColor.withAlphaComponent(0.4)
             } else {
-                cell.contentView.backgroundColor = .clear
+                cell.contentView.backgroundColor = .white
             }
             cell.index = indexPath.row
             cell.contentView.layer.cornerRadius = 20
@@ -267,11 +269,19 @@ extension AddFamilyProfile2ViewController: UICollectionViewDataSource, UICollect
                     return b.value == (self.chronics?[cell.index ?? 0].value ?? 0)
                 }
                 cell.contentView.backgroundColor = .white
+                let m = selectedDiseases[index ?? 0]
+                m.status = "N"
+                let index2 = chronics?.firstIndex { b in
+                    return b.value == m.value
+                }
+                self.chronics?.insert(m, at: index2 ?? 0)
+                self.chronics?.remove(at: (index2 ?? 0) + 1)
                 self.selectedDiseases.remove(at: index ?? 0)
                 return
             }
             cell.contentView.backgroundColor = ColorConfig.baseColor.withAlphaComponent(0.4)
             guard let disease = self.chronics?[indexPath.row] else {return}
+            disease.status = "Y"
             self.selectedDiseases.append(disease)
         case allergyColleciton:
             let cell = collectionView.cellForItem(at: indexPath) as! AddFamilyDiseaseAllergyCollectionViewCell
@@ -280,6 +290,13 @@ extension AddFamilyProfile2ViewController: UICollectionViewDataSource, UICollect
                     return b.value == (self.allergies?[cell.index ?? 0].value ?? 0)
                 }
                 cell.contentView.backgroundColor = .white
+                let m = selectedAllergies[index ?? 0]
+                m.status = "N"
+                let index2 = allergies?.firstIndex { b in
+                    return b.value == m.value
+                }
+                self.allergies?.insert(m, at: index2 ?? 0)
+                self.allergies?.remove(at: (index2 ?? 0) + 1)
                 self.selectedAllergies.remove(at: index ?? 0)
                 return
             }

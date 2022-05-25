@@ -66,7 +66,8 @@ struct AddFamilyProfile2ViewModel {
             "allergyId": $0.allergyId ?? 0,
             "allergyName": $0.allergyName ?? "",
             "isPrimary": "N",
-            "status": "N"
+            "status": "N",
+            "userAllergyInfoId": $0.info ?? 0
         ]}) ?? [[String:Any]]()
         return param
     }
@@ -76,7 +77,8 @@ struct AddFamilyProfile2ViewModel {
             "diseaseId": $0.diseaseId ?? 0,
             "diseaseName": $0.diseaseName ?? "",
             "isPrimary": "N",
-            "status": "N"
+            "status": "N",
+            "userAllergyInfoId": $0.info ?? 0
         ]}) ?? [[String:Any]]()
         return param
     }

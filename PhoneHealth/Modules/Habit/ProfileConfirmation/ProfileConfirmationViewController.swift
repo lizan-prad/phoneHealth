@@ -59,6 +59,7 @@ class ProfileConfirmationViewController: UIViewController, Storyboarded {
     func setupData() {
         userProfileImage.rounded()
         container.addCornerRadius(12)
+        
         container.addBorder(UIColor.lightGray.withAlphaComponent(0.3))
         backBtn.rounded()
         nextBtn.rounded()
@@ -71,6 +72,7 @@ class ProfileConfirmationViewController: UIViewController, Storyboarded {
     
     func setup() {
         self.name.text = UserDefaults.standard.value(forKey: "FullName") as? String
+        self.userProfileImage.image = viewModel.updateProfile?.image
         self.id.text = UserDefaults.standard.value(forKey: "Mobile") as? String
         self.address.text = viewModel.updateProfile?.address
         self.email.text = viewModel.updateProfile?.email

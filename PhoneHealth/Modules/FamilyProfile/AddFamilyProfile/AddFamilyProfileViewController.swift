@@ -107,6 +107,8 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
         setupFeild()
         setupView()
         bindViewModel()
+        self.title = isChild ? "Add Immunization Profile": "Add Family Profile"
+        self.relationField.isEnabled = !isChild
         self.viewModel.fetchRelations()
         self.viewModel.fetchBloodGroups()
         self.viewModel.fetchProfile()
@@ -128,8 +130,10 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
         
             self.profileImage.image = img
         }
+        
+        
         self.fullName.text = model?.name
-        self.selectedRelation = self.relations?.filter({$0.code == model?.relationCode}).first
+        self.selectedRelation = self.relations?.filter({$0.value == model?.relationId}).first
         self.selectedBloodGroup = self.bloodGroups?.filter({$0.value == model?.bloodGroupId}).first
         self.selectedGender = (model?.gender?.capitalized ?? "", "\((model?.gender ?? "").first ?? Character.init("M"))")
         self.selectedImage = self.profileImage.image
@@ -214,7 +218,13 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
             self.userProfileModel = model
         }
         viewModel.relations.bind { models in
-            self.relations = models
+            self.relations =  self.isChild ? models?.filter({$0.label?.lowercased() == "child"}) : models
+            if self.isChild {
+                self.selectedRelation = self.relations?.first
+            }
+            if let model = self.model {
+                self.setupData(model: model)
+            }
             
         }
         viewModel.bloodGroups.bind { models in
@@ -234,6 +244,7 @@ class AddFamilyProfileViewController: UIViewController, Storyboarded {
                 }
                 guard let nav = self.navigationController else {return}
                 let model = HealthProfileModel()
+                model.avatar = self.profileImage.image
                 model.familyData = self.familyStruct
                 model.userId = msg
                 model.weight = self.weight.text

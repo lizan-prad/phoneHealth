@@ -18,6 +18,7 @@ struct UpdateProfileStruct {
     var vdc: Int
     var wardNumber: String
     var address: String?
+    var image: UIImage?
 }
 
 

@@ -13,6 +13,7 @@ struct AllergyDetailModel {
     var allergyName: String?
     var isPrimary: String?
     var status: String?
+    var info: Int?
 }
 
 struct DiseaseDetailModel {
@@ -20,6 +21,7 @@ struct DiseaseDetailModel {
     var diseaseName: String?
     var isPrimary: String?
     var status: String?
+    var info: Int?
 }
 
 class HealthProfileModel {
@@ -40,6 +42,7 @@ class HealthProfileModel {
     var userDiseaseInfo: [DiseaseDetailModel]?
     var weight: String?
     var familyData: FmailyProfileStruct?
+    var avatar: UIImage?
 }
 
 protocol HealthProfileUpdateDelegate {

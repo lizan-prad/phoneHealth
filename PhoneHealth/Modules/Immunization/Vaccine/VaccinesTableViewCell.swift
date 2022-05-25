@@ -9,6 +9,7 @@ import UIKit
 
 class VaccinesTableViewCell: UITableViewCell, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var actionLabel: UILabel!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var sectionTitle: UILabel!
@@ -22,11 +23,13 @@ class VaccinesTableViewCell: UITableViewCell, UITableViewDataSource, UITableView
         didSet {
             self.tableview.reloadData()
             sectionTitle.text = model?.title
+            actionLabel.text = vaccinationViewType == .history ? "Date" : "Action"
             tableViewHeight.constant = CGFloat((model?.availableVaccinesList?.count ?? 0)*30)
         }
     }
     
     func setup() {
+        
         container.setStandardShadow()
         container.addCornerRadius(12)
         tableview.dataSource = self

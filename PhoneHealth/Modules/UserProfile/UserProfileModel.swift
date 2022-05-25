@@ -7,6 +7,7 @@
 
 import Foundation
 import ObjectMapper
+import UIKit
 
 class UserProfileContainerModel: Mappable {
     
@@ -90,6 +91,7 @@ class UserProfileModel: Mappable {
     var vdcOrMunicipalityName: String?
     var wardNumber: String?
     var weight: Int?
+
     
     required init?(map: Map) {
         

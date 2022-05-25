@@ -28,7 +28,7 @@ class ImmunizationProfileViewController: UIViewController, Storyboarded {
         tableView.register(UINib.init(nibName: "ImmunizationProfielTableViewCell", bundle: nil), forCellReuseIdentifier: "ImmunizationProfielTableViewCell")
         tableView.register(UINib.init(nibName: "RightLayoutPlaceholderTableViewCell", bundle: nil), forCellReuseIdentifier: "RightLayoutPlaceholderTableViewCell")
 
-        viewModel.fetchImmunizationList()
+        
         viewModel.models.bind { models in
             self.models = models
         }
@@ -47,6 +47,7 @@ class ImmunizationProfileViewController: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Immunization Profile"
+        viewModel.fetchImmunizationList()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
