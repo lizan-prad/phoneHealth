@@ -29,7 +29,7 @@ class AppointmentCollectionViewCell: UICollectionViewCell {
             appointmentCategory.text = model?.specializationName
             doctorName.text = model?.doctorName
             apoointmentTIME.text = model?.appointmentTime
-            appointmentFor.text = "N/A"
+            appointmentFor.text = model?.patientName
             formatter.dateFormat = "eee"
             self.dayLabel.text = formatter.string(from: date)
             formatter.dateFormat = "MMM"

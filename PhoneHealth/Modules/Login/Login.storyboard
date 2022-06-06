@@ -191,6 +191,7 @@
                         <outlet property="MobileNumber" destination="dmP-AT-ROo" id="1ha-Iv-XGP"/>
                         <outlet property="Password" destination="AEk-qx-c24" id="m1w-hj-5Wk"/>
                         <outlet property="checkBox" destination="Dd6-gO-lvg" id="fzo-0s-igV"/>
+                        <outlet property="fingerStack" destination="uaf-cZ-OO7" id="3WI-Fn-Uhm"/>
                         <outlet property="forgotPasswordBtn" destination="0Og-9s-fq5" id="IN2-dF-CAT"/>
                         <outlet property="signInBtn" destination="cEU-3z-X2U" id="It4-gI-JII"/>
                         <outlet property="signUpbtn" destination="c18-eB-3na" id="Jv3-sf-xzm"/>

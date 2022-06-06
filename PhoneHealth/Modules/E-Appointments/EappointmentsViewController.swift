@@ -118,7 +118,7 @@ class EappointmentsViewController: UIViewController, CogentPaymentDelegate, Esew
         self.cogentSDK = CogentLandingPagePresenter(delegate: self)
         // licenseString = EsewaCode.licenseStringRelease
 #else
-        self.cogentSDK = CogentLandingPagePresenter(delegate: self, esewaID: "9845528933", userKYCModel: self.userKYCModel!, colorTheme: UIColor.green)
+        self.cogentSDK = CogentLandingPagePresenter(delegate: self, esewaID: "9818804126", userKYCModel: self.userKYCModel!, colorTheme: UIColor.green)
 #endif
         
         self.cogentSDK?.initiateLicenseValidation(licenseString: "", fromVC: self, shouldPresent: false) { vc in
@@ -180,8 +180,8 @@ class EappointmentsViewController: UIViewController, CogentPaymentDelegate, Esew
                 "hospitalAppointmentServiceTypeId": model.properties?.hospitalAppointmentServiceTypeId ?? 0,
                 "isFollowUp": model.properties?.followUp ?? "",
                 "isNewRegistration": model.properties?.newRegistration ?? false,
-                "parentAppointmentId": model.properties?.parentAppointmentId ?? "",
-                "patientId": model.properties?.patientId ?? ""
+                "parentAppointmentId": Int(model.properties?.parentAppointmentId ?? "") ?? 0,
+                "patientId": Int(model.properties?.patientId ?? "") ?? 0
             ]
             let formatter = DateFormatter()
             formatter.dateFormat = "ddd mmm dd HH:mm:ss zzz yyyy"

@@ -20,10 +20,16 @@
 #include <string>
 #include <utility>
 
-#import "FirebaseAppCheck/Sources/Interop/FIRAppCheckInterop.h"
-#import "FirebaseCore/Sources/Private/FirebaseCoreInternal.h"
+#import "FirebaseAppCheck/Interop/FIRAppCheckInterop.h"
+#import "FirebaseAuth/Interop/FIRAuthInterop.h"
+#import "FirebaseCore/Extension/FIRAppInternal.h"
+#import "FirebaseCore/Extension/FIRComponent.h"
+#import "FirebaseCore/Extension/FIRComponentContainer.h"
+#import "FirebaseCore/Extension/FIRComponentType.h"
+#import "FirebaseCore/Extension/FIRDependency.h"
+#import "FirebaseCore/Extension/FIRLibrary.h"
+#import "FirebaseCore/Extension/FIROptionsInternal.h"
 #import "Firestore/Source/API/FIRFirestore+Internal.h"
-#import "Interop/Auth/Public/FIRAuthInterop.h"
 
 #include "Firestore/core/include/firebase/firestore/firestore_version.h"
 #include "Firestore/core/src/api/firestore.h"
@@ -38,7 +44,6 @@
 #include "Firestore/core/src/util/hard_assert.h"
 #include "absl/memory/memory.h"
 
-using firebase::firestore::credentials::CredentialsProvider;
 using firebase::firestore::credentials::FirebaseAppCheckCredentialsProvider;
 using firebase::firestore::credentials::FirebaseAuthCredentialsProvider;
 using firebase::firestore::remote::FirebaseMetadataProviderApple;

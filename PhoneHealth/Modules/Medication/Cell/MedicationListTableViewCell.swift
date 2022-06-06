@@ -59,6 +59,11 @@ class MedicationListTableViewCell: UITableViewCell {
                 let times = model?.time?.compactMap({"\(d) \( $0.time ?? "")"})
                 alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT-6.15")
                 self.time = times?.compactMap({alarmFormat.date(from: $0)}) ?? []
+                if self.time.isEmpty || self.time == nil {
+                    let times = model?.time?.compactMap({"\(d) \(self.get24Hrs(str: $0.time ?? ""))"})
+                    alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT-6.15")
+                    self.time = times?.compactMap({alarmFormat.date(from: $0)}) ?? []
+                }
                 medName.text = model?.medicineName
                 doseLabel.text = (model?.dose?.replacingOccurrences(of: "mg", with: "") ?? "") + "mg"
                 alarmFormat.timeZone = TimeZone.current
@@ -96,6 +101,11 @@ class MedicationListTableViewCell: UITableViewCell {
                 let times = model?.time?.compactMap({"\(self.model?.firstIntake ?? "") \($0.time ?? "")"})
                 alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT")
                 self.time = times?.compactMap({alarmFormat.date(from: $0)}) ?? []
+                if self.time.isEmpty || self.time == nil {
+                    let times = model?.time?.compactMap({"\(d) \(self.get24Hrs(str: $0.time ?? ""))"})
+                    alarmFormat.timeZone = TimeZone.init(abbreviation: "GMT-6.15")
+                    self.time = times?.compactMap({alarmFormat.date(from: $0)}) ?? []
+                }
                 medName.text = model?.medicineName
                 doseLabel.text = (model?.dose?.replacingOccurrences(of: "mg", with: "") ?? "") + "mg"
                 alarmFormat.timeZone = TimeZone.current

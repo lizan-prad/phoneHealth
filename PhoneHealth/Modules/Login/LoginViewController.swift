@@ -10,6 +10,7 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import MBRadioCheckboxButton
 import WeScan
 import Alamofire
+import LocalAuthentication
 
 class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegate, UITextFieldDelegate {
     
@@ -21,7 +22,8 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
        
     }
     
-
+    @IBOutlet weak var fingerStack: UIStackView!
+    
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var MobileNumber: MDCOutlinedTextField!
     @IBOutlet weak var Password: MDCOutlinedTextField!
@@ -30,6 +32,7 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
     @IBOutlet weak var signUpbtn: UIButton!
     
     var viewModel: LoginViewModel!
+    var context = LAContext()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +83,74 @@ class LoginViewController: UIViewController, Storyboarded, CheckboxButtonDelegat
         Password.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
         
         forgotPasswordBtn.addTarget(self, action: #selector(forgotAction), for: .touchUpInside)
+        fingerStack.isUserInteractionEnabled = true
+        fingerStack.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(textFinger)))
+    }
+    
+    @objc func textFinger() {
+        faceID()
+    }
+    
+    func faceID() {
+        
+        let reason = "Log in with Face ID"
+        context.evaluatePolicy(
+            // .deviceOwnerAuthentication allows
+            // biometric or passcode authentication
+            .deviceOwnerAuthentication,
+            localizedReason: reason
+        ) { success, error in
+            if success {
+                print("face")
+                DispatchQueue.main.async {
+                    self.Password.text = UserDefaults.standard.string(forKey: "PASS")?.components(separatedBy: ":").first
+                    self.MobileNumber.text = UserDefaults.standard.string(forKey: "PASS")?.components(separatedBy: ":").last
+                    self.signInBtn.isEnabled = (self.MobileNumber.text != "" && self.Password.text != "")
+                }
+                
+                // Handle successful authentication
+            } else {
+                
+                print(error?.localizedDescription)
+//                var code = LAError.Code(rawValue: error.code)
+//
+//                switch code {
+//                case LAError.Code.appCancel:
+//                    break
+//                case LAError.Code.authenticationFailed:
+//                    break// The user did not provide
+//                    // valid credentials
+//                case LAError.Code.invalidContext:
+//                    break// The LAContext was invalid
+//                case LAError.Code.notInteractive:
+//                    break// Interaction was not allowed so the
+//                    // authentication failed
+//                case LAError.Code.passcodeNotSet:
+//                    break// The user has not set a passcode
+//                    // on this device
+//                case LAError.Code.systemCancel:
+//                    break// The system canceled authentication,
+//                    // for example to show another app
+//                case LAError.Code.userCancel:
+//                    break// The user canceled the
+//                    // authentication dialog
+//                case LAError.Code.userFallback:
+//                    break// The user selected to use a fallback
+//                    // authentication method
+//                case LAError.Code.biometryLockout:
+//                    break// Too many failed attempts locked
+//                    // biometric authentication
+//                case LAError.Code.biometryNotAvailable:
+//                    break// The user's device does not support
+//                    // biometric authentication
+//                case LAError.Code.biometryNotEnrolled:
+//                    break// The user has not configured
+//                    // biometric authentication
+//                @unknown default:
+//                    break// An other error occurred
+//                }
+            }
+        }
     }
     
     fileprivate func openOtpView(model: OtpModel?) {

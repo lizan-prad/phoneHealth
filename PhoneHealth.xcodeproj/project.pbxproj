@@ -2238,7 +2238,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = X8YE27GARE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2250,6 +2250,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Fone Health";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Phone health would like to request calender access";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Phone health would like to use your camera";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Fonehealth would like to access your biometrics";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Phone health would like to request gallery access";
 				INFOPLIST_KEY_NSRemindersUsageDescription = "Phone health would like to request reminders access";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2279,7 +2280,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = X8YE27GARE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2291,6 +2292,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Fone Health";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Phone health would like to request calender access";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Phone health would like to use your camera";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Fonehealth would like to access your biometrics";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Phone health would like to request gallery access";
 				INFOPLIST_KEY_NSRemindersUsageDescription = "Phone health would like to request reminders access";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2464,7 +2466,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = X8YE27GARE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2476,6 +2478,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Fone Health";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Phone health would like to request calender access";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Phone health would like to use your camera";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Fonehealth would like to access your biometrics";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Phone health would like to request gallery access";
 				INFOPLIST_KEY_NSRemindersUsageDescription = "Phone health would like to request reminders access";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2610,7 +2613,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = X8YE27GARE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2622,6 +2625,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Fone Health";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Phone health would like to request calender access";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Phone health would like to use your camera";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Fonehealth would like to access your biometrics";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Phone health would like to request gallery access";
 				INFOPLIST_KEY_NSRemindersUsageDescription = "Phone health would like to request reminders access";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

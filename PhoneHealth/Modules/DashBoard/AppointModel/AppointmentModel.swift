@@ -40,6 +40,7 @@ struct AppointmentModel : Mappable {
 	var roomNumber : String?
 	var specializationName : String?
 	var status : String?
+    var patientName: String?
 
 	init?(map: Map) {
 
@@ -56,6 +57,7 @@ struct AppointmentModel : Mappable {
 		roomNumber <- map["roomNumber"]
 		specializationName <- map["specializationName"]
 		status <- map["status"]
+        patientName <- map["patientName"]
 	}
 
 }

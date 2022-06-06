@@ -208,7 +208,7 @@ class DashboardViewController: UIViewController, Storyboarded, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            if appointments?.isEmpty ?? false {
+            if appointments?.isEmpty ?? true {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "RightLayoutPlaceholderTableViewCell") as! RightLayoutPlaceholderTableViewCell
                 cell.setup()
                 cell.infoText.text = "Ease scheduling pains with a doctor appointment booking and making payment"

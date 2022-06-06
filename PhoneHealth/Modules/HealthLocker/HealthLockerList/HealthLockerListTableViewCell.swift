@@ -26,13 +26,14 @@ class HealthLockerListTableViewCell: UITableViewCell {
                     guard let url = URL.init(string: self.model?.thumbnails ?? "") else {return}
                     let pdfDOc = PDFDocument.init(url: url)
                     let page = pdfDOc?.page(at: 0)
-//                    DispatchQueue.global().async {
+                    DispatchQueue.main.async {
                         let image = page?.thumbnail(of: self.logoImage.bounds.size, for: .mediaBox)
+                        self.logoImage.image = UIImage.init(named: "placeholder ")
                         self.logoImage.image = image
-//                    }
+                    }
                 }
             } else {
-                DispatchQueue.global().async {
+                DispatchQueue.main.async {
                     self.logoImage.sd_setImage(with: URL.init(string: self.model?.thumbnails ?? ""))
                 }
             }

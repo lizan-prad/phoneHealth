@@ -8,6 +8,7 @@
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import Alamofire
+import LocalAuthentication
 
 class SetPasswordViewController: UIViewController, Storyboarded {
 
@@ -22,6 +23,8 @@ class SetPasswordViewController: UIViewController, Storyboarded {
     var passwordHidden = true
 //    var confirmHidden = true
     var viewModel: SetPasswordViewModel!
+    
+    var context = LAContext()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,11 +76,83 @@ class SetPasswordViewController: UIViewController, Storyboarded {
             UserDefaults.standard.set(model?.token, forKey: "AT")
             UserDefaults.standard.set(model?.username, forKey: "mobile")
             if self.isFromReset {
-                self.navigationController?.popToRootViewController(animated: true)
+                self.showAlertWithCancel(title: "FaceID", message: "Save your login?") { _ in
+                    self.biometrics()
+                } cancel: { _ in
+                    let vc = UIStoryboard.init(name: "BaseTabbar", bundle: nil).instantiateViewController(withIdentifier: "BaseTabbarViewController") as! BaseTabbarViewController
+                    appdelegate.window?.rootViewController = vc
+                }
+                
             } else {
-                guard let navigationController = self.navigationController else {return}
-                let coodinator = UpdateProfileCoordinator.init(navigationController: navigationController, user: nil)
-                coodinator.start()
+                self.showAlertWithCancel(title: "FaceID", message: "Save your login?") { _ in
+                    self.faceID2()
+                } cancel: { _ in
+                    guard let navigationController = self.navigationController else {return}
+                    let coodinator = UpdateProfileCoordinator.init(navigationController: navigationController, user: nil)
+                    coodinator.start()
+                }
+
+               
+            }
+        }
+    }
+    
+    func faceID2() {
+        
+        let reason = "Log in with Face ID"
+        context.evaluatePolicy(
+            // .deviceOwnerAuthentication allows
+            // biometric or passcode authentication
+            .deviceOwnerAuthentication,
+            localizedReason: reason
+        ) { success, error in
+            if success {
+                print("face")
+                DispatchQueue.main.async {
+                    let mobile = UserDefaults.standard.value(forKey: "Mobile") as? String
+                    UserDefaults.standard.setValue("\(self.passwordField.text ?? ""):\(mobile ?? "")", forKey: "PASS")
+                    self.showAlert(title: "FaceID Set!", message: nil) { _ in
+                        guard let navigationController = self.navigationController else {return}
+                        let coodinator = UpdateProfileCoordinator.init(navigationController: navigationController, user: nil)
+                        coodinator.start()
+                    }
+                }
+                // Handle successful authentication
+            } else {
+                
+                print(error?.localizedDescription)
+
+            }
+        }
+    }
+    
+    @objc func biometrics() {
+        faceID()
+    }
+    
+    func faceID() {
+        
+        let reason = "Log in with Face ID"
+        context.evaluatePolicy(
+            // .deviceOwnerAuthentication allows
+            // biometric or passcode authentication
+            .deviceOwnerAuthentication,
+            localizedReason: reason
+        ) { success, error in
+            if success {
+                print("face")
+                DispatchQueue.main.async {
+                    let mobile = UserDefaults.standard.value(forKey: "Mobile") as? String
+                    UserDefaults.standard.setValue("\(self.passwordField.text ?? ""):\(mobile ?? "")", forKey: "PASS")
+                    self.showAlert(title: "FaceID Set!", message: nil) { _ in
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
+                }
+                // Handle successful authentication
+            } else {
+                
+                print(error?.localizedDescription)
+
             }
         }
     }
