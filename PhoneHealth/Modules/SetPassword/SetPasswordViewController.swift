@@ -96,7 +96,7 @@ class SetPasswordViewController: UIViewController, Storyboarded {
             }
         }
     }
-    
+
     func faceID2() {
         
         let reason = "Log in with Face ID"
@@ -143,7 +143,9 @@ class SetPasswordViewController: UIViewController, Storyboarded {
                 print("face")
                 DispatchQueue.main.async {
                     let mobile = UserDefaults.standard.value(forKey: "Mobile") as? String
+                    
                     UserDefaults.standard.setValue("\(self.passwordField.text ?? ""):\(mobile ?? "")", forKey: "PASS")
+                    
                     self.showAlert(title: "FaceID Set!", message: nil) { _ in
                         self.navigationController?.popToRootViewController(animated: true)
                     }

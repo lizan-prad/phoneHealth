@@ -43,7 +43,6 @@
 		BE1D0D4C27F575080021B345 /* WebViewTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0D4B27F575080021B345 /* WebViewTest.storyboard */; };
 		BE1D0D4E27F5751D0021B345 /* WebViewTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D0D4D27F5751D0021B345 /* WebViewTestViewController.swift */; };
 		BE1D0D5027F575C10021B345 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1D0D4F27F575C10021B345 /* WebKit.framework */; };
-		BE1D0D5227F575EE0021B345 /* lab-report.html in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0D5127F575EE0021B345 /* lab-report.html */; };
 		BE2030D0278C04B500C61A48 /* BaseMappableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2030CF278C04B500C61A48 /* BaseMappableModel.swift */; };
 		BE2030D2278C07AA00C61A48 /* OtpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2030D1278C07AA00C61A48 /* OtpModel.swift */; };
 		BE2030D5278C1DC100C61A48 /* Habits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2030D4278C1DC100C61A48 /* Habits.storyboard */; };
@@ -393,7 +392,6 @@
 		BE1D0D4B27F575080021B345 /* WebViewTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebViewTest.storyboard; sourceTree = "<group>"; };
 		BE1D0D4D27F5751D0021B345 /* WebViewTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTestViewController.swift; sourceTree = "<group>"; };
 		BE1D0D4F27F575C10021B345 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		BE1D0D5127F575EE0021B345 /* lab-report.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "lab-report.html"; path = "../../../Downloads/lab-report.html"; sourceTree = "<group>"; };
 		BE2030CF278C04B500C61A48 /* BaseMappableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMappableModel.swift; sourceTree = "<group>"; };
 		BE2030D1278C07AA00C61A48 /* OtpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpModel.swift; sourceTree = "<group>"; };
 		BE2030D4278C1DC100C61A48 /* Habits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Habits.storyboard; sourceTree = "<group>"; };
@@ -1205,7 +1203,6 @@
 		BEB7121D2786C5AB00486FB3 /* PhoneHealth */ = {
 			isa = PBXGroup;
 			children = (
-				BE1D0D5127F575EE0021B345 /* lab-report.html */,
 				BEF9421C2821316F00BC40B5 /* GoogleService-Info.plist */,
 				BE070C002789BF3E00D994C6 /* SubClasses */,
 				BE2030CE278C04A400C61A48 /* Models */,
@@ -1764,7 +1761,6 @@
 				BE72A86E27B7F98D00FA91B7 /* Medication.storyboard in Resources */,
 				BE634D9827974EF800D61FA4 /* Scan.storyboard in Resources */,
 				BEB3F4BF28094B7900A88438 /* TakeVaccine.storyboard in Resources */,
-				BE1D0D5227F575EE0021B345 /* lab-report.html in Resources */,
 				BE72A85F27B7B52400FA91B7 /* HospitalCardReportsTableViewCell.xib in Resources */,
 				BE712A1E2789F1DF00D7985A /* UpdateProfile.storyboard in Resources */,
 				BEB712282786C5B000486FB3 /* Assets.xcassets in Resources */,

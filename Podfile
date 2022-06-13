@@ -36,13 +36,14 @@ target 'PhoneHealth' do
   # For example, to use Firebase Authentication and Cloud Firestore
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  
 end
 #
 #  target 'CogentIOSFramework' do
   
   target 'CogentIOSFramework' do
       use_frameworks!
-      project '/Users/macbookpro/Downloads/CogentIOSFramework/CogentIOSFramework.xcodeproj'
+      project '/Users/lizan/Downloads/CogentIOSFramework/CogentIOSFramework.xcodeproj'
       pod 'SwiftyJSON'
       pod 'SkeletonView'
       pod 'JTAppleCalendar'
